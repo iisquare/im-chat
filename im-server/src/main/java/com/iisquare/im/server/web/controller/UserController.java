@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
-@RequestMapping("/")
+@RequestMapping("/user")
 @RestController
 public class UserController extends WebController {
 
@@ -22,6 +22,7 @@ public class UserController extends WebController {
     @PostMapping("/token")
     public String tokenAction(@RequestBody Map<String, Object> param) {
         String userId = userService.validate(DPUtil.parseString(param.get("userId")));
+        if (null == userId) return ApiUtil.echoResult(1001, "用户标识不满足要求", userId);
         String token = userService.token(userId, !DPUtil.empty(param.get("renew")));
         return ApiUtil.echoResult(0, null, DPUtil.buildMap("userId", userId, "token", token));
     }

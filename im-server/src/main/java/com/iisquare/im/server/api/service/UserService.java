@@ -24,10 +24,11 @@ public class UserService extends ServiceBase {
     }
 
     public String uuid() {
-        return UUID.randomUUID().toString();
+        return UUID.randomUUID().toString().replaceAll("-", "");
     }
 
     public User info(String id) {
+        if (null == id) return null;
         Optional<User> info = userDao.findById(id);
         return info.isPresent() ? info.get() : null;
     }

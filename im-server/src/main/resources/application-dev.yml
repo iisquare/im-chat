@@ -30,7 +30,7 @@ spring:
     cache: false
   redis:
     database: 1
-    host: 127.0.0.1
+    host: 10.207.6.251
     port: 6379
     password:
     timeout: 5000
@@ -52,7 +52,7 @@ spring:
     time-between-eviction-runs-millis: 18800
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/im-chat?characterEncoding=utf-8
+    url: jdbc:mysql://localhost:3306/im-chat?zeroDateTimeBehavior=convertToNull&characterEncoding=utf-8
     username: root
     password: admin888
 

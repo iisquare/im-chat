@@ -1,6 +1,7 @@
 package com.iisquare.im.server.api.mvc;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -8,28 +9,22 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
-import java.io.File;
 import java.nio.charset.Charset;
 import java.util.List;
 
 /**
  * WebMvcConfigurationSupport只能有一个实例
  */
-public abstract class WebMvcConfiguration extends WebMvcConfigurationSupport {
+@Configuration
+public class WebMvcConfiguration extends WebMvcConfigurationSupport {
 
     @Value("${spring.http.encoding.charset}")
     private String charset;
-    @Value("${custom.uploads.path}")
-    private String uploadsPath;
 
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
         super.addResourceHandlers(registry);
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/", "classpath:/public/");
-        String filepath = new File(uploadsPath).getAbsolutePath().replaceAll("\\\\", "/");
-        if(!filepath.startsWith("/")) filepath = "/" + filepath;
-        if(!filepath.endsWith("/")) filepath += "/";
-        registry.addResourceHandler("/files/**").addResourceLocations("file://" + filepath);
     }
 
     @Override
