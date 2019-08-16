@@ -39,8 +39,7 @@ export default {
     }
   },
   mounted () {
-    this.form.userId = this.$store.state.user.data.userId
-    !this.form.userId && (this.form.userId = '')
+    this.form.userId = this.$store.state.user.data.userId || ''
   }
 }
 </script>
