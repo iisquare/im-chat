@@ -1,12 +1,5 @@
 <template>
   <div class="im-dashboard">
-    <div class="im-chat">
-      <b-container>
-        <b-row align-v="center" class="im-chat-title">
-          <b-col><h5 class="mb-0">XXXXXXXXXXXXXXX</h5></b-col>
-        </b-row>
-      </b-container>
-    </div>
     <b-container class="im-toolbar text-center">
       <b-row align-v="center">
         <b-col>
@@ -28,22 +21,25 @@
           </b-input-group>
         </b-col>
       </b-row>
-      <b-row align-v="center" class="im-contacts-scroll">
-        <b-col>
-          <iscroll-view class="im-contacts-scroll-view">
-            <b-row align-v="center" class="im-contacts-item" :key="index" v-for="(item, index) in items">
-              <b-col>
-                <b-media>
-                  <b-img slot="aside" width="35" height="35" rounded="circle" :src="'https://picsum.photos/125/125/?image=' + item" :title="index"></b-img>
-                  <h6 class="mt-0 mb-0">Nested Media</h6>
-                  <p class="mb-0">xxxxxxxxxxxxxx</p>
-                </b-media>
-              </b-col>
-            </b-row>
-          </iscroll-view>
-        </b-col>
-      </b-row>
+      <iscroll-view class="im-contacts-scroll">
+        <b-row align-v="center" class="im-contacts-item" :key="index" v-for="(item, index) in items">
+          <b-col>
+            <b-media>
+              <b-img slot="aside" width="35" height="35" rounded="circle" :src="'https://picsum.photos/125/125/?image=' + item" :title="index"></b-img>
+              <h6 class="mt-0 mb-0">Nested Media</h6>
+              <p class="mb-0">xxxxxxxxxxxxxx</p>
+            </b-media>
+          </b-col>
+        </b-row>
+      </iscroll-view>
     </b-container>
+    <div class="im-chat">
+      <b-container>
+        <b-row align-v="center" class="im-chat-title">
+          <b-col><h5 class="mb-0">XXXXXXXXXXXXXXX</h5></b-col>
+        </b-row>
+      </b-container>
+    </div>
   </div>
 </template>
 
@@ -78,12 +74,16 @@ export default {
   float: left;
   background-color: #28292c;
   padding: 15px 0px 15px 0px;
+  position: relative;
+  z-index: 2000;
 }
 .im-contacts {
   width: 250px;
   height: 100%;
   float: left;
   background-color: #eeeae8;
+  position: relative;
+  z-index: 2000;
 }
 .im-contacts-search {
   height: 60px;
@@ -92,8 +92,8 @@ export default {
 .im-contacts-scroll {
   height: 100%;
   overflow: hidden;
-  margin-top: -65px;
-  padding-top: 65px;
+  margin: -65px -15px 0px -15px;
+  padding: 65px 15px 0px 15px;
 }
 .im-contacts-item {
   height: 65px;
@@ -109,6 +109,8 @@ export default {
   margin-left: -310px;
   padding-left: 310px;
   background-color: #f5f5f5;
+  position: relative;
+  z-index: 1000;
 }
 .im-chat-title {
   height: 60px;

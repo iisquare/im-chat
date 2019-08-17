@@ -12,7 +12,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'font-awesome/css/font-awesome.min.css'
 
 import IScrollView from 'vue-iscroll-view'
-import IScroll from 'iscroll'
+import IScroll from 'iscroll/build/iscroll-infinite.js'
 
 Vue.use(BootstrapVue)
 Vue.use(IScrollView, IScroll)
