@@ -3,7 +3,7 @@
     <div class="im-chat">
       <b-container>
         <b-row align-v="center" class="im-chat-title">
-          <b-col><span>XXXXXXXXXXXXXXX</span></b-col>
+          <b-col><h5 class="mb-0">XXXXXXXXXXXXXXX</h5></b-col>
         </b-row>
       </b-container>
     </div>
@@ -23,7 +23,7 @@
         <b-col>
           <b-input-group size="sm">
             <b-input-group-prepend><span class="input-group-text"><i class="fa fa-search"></i></span></b-input-group-prepend>
-            <b-form-input placeholder="search cantacts"></b-form-input>
+            <b-form-input placeholder="search contacts"></b-form-input>
             <b-input-group-append><b-button variant="outline-secondary" class="fa fa-plus"></b-button></b-input-group-append>
           </b-input-group>
         </b-col>
