@@ -14,7 +14,8 @@ import 'font-awesome/css/font-awesome.min.css'
 import IScrollView from 'vue-iscroll-view'
 import IScroll from 'iscroll'
 
-Vue.use(BootstrapVue, IScrollView, IScroll)
+Vue.use(BootstrapVue)
+Vue.use(IScrollView, IScroll)
 
 Vue.config.productionTip = false
 

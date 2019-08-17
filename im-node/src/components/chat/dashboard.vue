@@ -30,11 +30,11 @@
       </b-row>
       <b-row align-v="center" class="im-contacts-scroll">
         <b-col>
-          <iscroll-view>
+          <iscroll-view class="im-contacts-scroll-view">
             <b-row align-v="center" class="im-contacts-item" :key="index" v-for="(item, index) in items">
               <b-col>
                 <b-media>
-                  <b-img slot="aside" width="35" height="35" rounded="circle" src="https://picsum.photos/125/125/?image=58" :title="index"></b-img>
+                  <b-img slot="aside" width="35" height="35" rounded="circle" :src="'https://picsum.photos/125/125/?image=' + item" :title="index"></b-img>
                   <h6 class="mt-0 mb-0">Nested Media</h6>
                   <p class="mb-0">xxxxxxxxxxxxxx</p>
                 </b-media>
@@ -52,7 +52,7 @@ export default {
   data () {
     return {
       userId: '',
-      items: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+      items: [58, 1, 21, 33, 4, 57, 61, 7, 8, 9]
     }
   },
   methods: {
