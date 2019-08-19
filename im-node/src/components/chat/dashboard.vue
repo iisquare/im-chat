@@ -44,7 +44,29 @@
         <div class="im-chat-title">
           <h5>XXXXXXXXXXXXXXX</h5>
         </div>
-        <div class="im-chat-message">aaa</div>
+        <div class="im-chat-message">
+          <div class="im-message-container">
+            <iscroll-view class="im-message-scroll" :options="{mouseWheel: true, scrollbars: true, fadeScrollbars: true}">
+              <b-row align-v="center" align="center" class="im-message-item">
+                <b-col><b-badge variant="secondary">2019-01-03 13:25:22</b-badge></b-col>
+              </b-row>
+              <b-row align-v="center" :align="index % 2 == 0 ? 'left' : 'right'" class="im-message-item" :key="index" v-for="(item, index) in items">
+                <b-col>
+                  <b-media class="im-message-item-left" v-if="index % 2 == 0">
+                    <b-img :id="'im-' + index" slot="aside" width="35" height="35" rounded="circle" :src="'https://picsum.photos/125/125/?image=' + item" :title="index"></b-img>
+                    <div class="im-message-arrow"></div>
+                    <div class="im-message-body">posuereposuereposueresuereosuereposuere</div>
+                  </b-media>
+                  <b-media class="im-message-item-right" right-align v-if="index % 2 != 0">
+                    <b-img slot="aside" width="35" height="35" rounded="circle" src="https://avatars2.githubusercontent.com/u/5144531?s=35" :title="index"></b-img>
+                    <div class="im-message-arrow"></div>
+                    <div class="im-message-body">SedSedSedSedSedSedSedSedSedSedSSeSedSedSedSedSedSedSedSedSedSed</div>
+                  </b-media>
+                </b-col>
+              </b-row>
+            </iscroll-view>
+          </div>
+        </div>
         <div class="im-chat-input">
           <b-form-textarea placeholder="" no-resize></b-form-textarea>
         </div>
@@ -170,5 +192,89 @@ export default {
   vertical-align: middle;
   text-align: right;
   padding: 0px 15px 0px 15px;
+}
+.im-message-container {
+  width: 100%;
+  height: 100%;
+  border-bottom: #e7e7e7 solid 1px;
+}
+.im-message-scroll {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+.im-message-item {
+  margin: 0px;
+}
+.im-message-arrow {
+  width: 16px;
+  position: relative;
+}
+.im-message-arrow:before {
+  position: absolute;
+  display: block;
+  content: "";
+  border-width: .5rem;
+  border-style: solid;
+  border-color: transparent;
+}
+.im-message-arrow:after {
+  position: absolute;
+  display: block;
+  content: "";
+  border-width: .5rem;
+  border-style: solid;
+  border-color: transparent;
+}
+.im-message-body {
+  padding: 0.5rem 0.75rem;
+  color: #212529;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  width: fit-content;
+  word-break: break-all;
+  white-space: normal;
+  text-align: left;
+}
+.im-message-item-left {
+  padding: 10px 51px 10px 0px;
+  .im-message-arrow {
+    margin-left: -8px;
+    top: 10px;
+  }
+  .im-message-arrow:before {
+    left: 0px;
+    border-left-width: 0;
+    border-right-color: rgba(0, 0, 0, 0.2);
+  }
+  .im-message-arrow:after {
+    left: 1px;
+    border-left-width: 0;
+    border-right-color: #fff;
+  }
+  .im-message-body {
+    background-color: #fff;
+  }
+}
+.im-message-item-right {
+  padding: 10px 0px 10px 51px;
+  .im-message-arrow {
+    margin-right: -8px;
+    top: 10px;
+  }
+  .im-message-arrow:before {
+    right: 0px;
+    border-right-width: 0;
+    border-left-color: rgba(0, 0, 0, 0.2);
+  }
+  .im-message-arrow:after {
+    right: 1px;
+    border-right-width: 0;
+    border-left-color: #9eea6a;
+  }
+  .im-message-body {
+    background-color: #9eea6a;
+  }
 }
 </style>

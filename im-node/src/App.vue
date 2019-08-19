@@ -27,7 +27,7 @@ body {
   bottom: 0px;
   width: 100%;
 }
-.form-control:focus {  
+.form-control:focus {
   border-color: inherit;
   -webkit-box-shadow: none;
   box-shadow: none;
