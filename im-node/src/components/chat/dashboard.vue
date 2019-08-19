@@ -1,44 +1,50 @@
 <template>
   <div class="im-dashboard">
-    <b-container class="im-toolbar text-center">
-      <b-row align-v="center">
-        <b-col>
-          <b-dropdown id="dropdown-dropright" dropright variant="dark" no-caret>
-            <template slot="button-content"><i class="fa fa-user fa-lg"></i></template>
-            <b-dropdown-item-button disabled>{{userId}}</b-dropdown-item-button>
-            <b-dropdown-item-button @click="logout">退出登录</b-dropdown-item-button>
-          </b-dropdown>
-        </b-col>
-      </b-row>
-    </b-container>
-    <b-container class="im-contacts">
-      <b-row align-v="center" class="im-contacts-search">
-        <b-col>
-          <b-input-group size="sm">
-            <b-input-group-prepend><span class="input-group-text"><i class="fa fa-search"></i></span></b-input-group-prepend>
-            <b-form-input placeholder="search contacts"></b-form-input>
-            <b-input-group-append><b-button variant="outline-secondary" class="fa fa-plus"></b-button></b-input-group-append>
-          </b-input-group>
-        </b-col>
-      </b-row>
-      <iscroll-view class="im-contacts-scroll">
-        <b-row align-v="center" class="im-contacts-item" :key="index" v-for="(item, index) in items">
+    <div class="im-toolbar">
+      <b-container class="text-center im-toolbar-container">
+        <b-row align-v="center">
           <b-col>
-            <b-media>
-              <b-img slot="aside" width="35" height="35" rounded="circle" :src="'https://picsum.photos/125/125/?image=' + item" :title="index"></b-img>
-              <h6 class="mt-0 mb-0">Nested Media</h6>
-              <p class="mb-0">xxxxxxxxxxxxxx</p>
-            </b-media>
+            <b-dropdown id="dropdown-dropright" dropright variant="dark" no-caret>
+              <template slot="button-content"><i class="fa fa-user fa-lg"></i></template>
+              <b-dropdown-item-button disabled>{{userId}}</b-dropdown-item-button>
+              <b-dropdown-item-button @click="logout">退出登录</b-dropdown-item-button>
+            </b-dropdown>
           </b-col>
         </b-row>
-      </iscroll-view>
-    </b-container>
-    <div class="im-chat">
-      <b-container>
-        <b-row align-v="center" class="im-chat-title">
-          <b-col><h5 class="mb-0">XXXXXXXXXXXXXXX</h5></b-col>
+      </b-container>
+    </div>
+    <div class="im-contacts">
+      <b-container class="im-contacts im-contacts-search">
+        <b-row align-v="center">
+          <b-col>
+            <b-input-group size="sm">
+              <b-input-group-prepend><span class="input-group-text"><i class="fa fa-search"></i></span></b-input-group-prepend>
+              <b-form-input placeholder="search contacts"></b-form-input>
+              <b-input-group-append><b-button variant="outline-secondary" class="fa fa-plus"></b-button></b-input-group-append>
+            </b-input-group>
+          </b-col>
         </b-row>
       </b-container>
+      <div class="im-contacts-container">
+        <iscroll-view class="im-contacts-scroll" :options="{mouseWheel: true, scrollbars: true, fadeScrollbars: true}">
+          <b-row align-v="center" class="im-contacts-item" :key="index" v-for="(item, index) in items">
+            <b-col>
+              <b-media>
+                <b-img slot="aside" width="35" height="35" rounded="circle" :src="'https://picsum.photos/125/125/?image=' + item" :title="index"></b-img>
+                <h6 class="mt-0 mb-0">Nested Media</h6>
+                <p class="mb-0">xxxxxxxxxxxxxx</p>
+              </b-media>
+            </b-col>
+          </b-row>
+        </iscroll-view>
+      </div>
+    </div>
+    <div class="im-chat">
+      <div class="im-chat-container">
+        <div class="im-chat-title">
+          <h5>XXXXXXXXXXXXXXX</h5>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -72,35 +78,11 @@ export default {
   width: 60px;
   height: 100%;
   float: left;
-  background-color: #28292c;
-  padding: 15px 0px 15px 0px;
-  position: relative;
-  z-index: 2000;
 }
 .im-contacts {
   width: 250px;
   height: 100%;
   float: left;
-  background-color: #eeeae8;
-  position: relative;
-  z-index: 2000;
-}
-.im-contacts-search {
-  height: 60px;
-  border-bottom: #e5e1df solid 1px;
-}
-.im-contacts-scroll {
-  height: 100%;
-  overflow: hidden;
-  margin: -65px -15px 0px -15px;
-  padding: 65px 15px 0px 15px;
-}
-.im-contacts-item {
-  height: 65px;
-  cursor: pointer;
-}
-.im-contacts-item:hover {
-  background-color: #dddede;
 }
 .im-chat {
   width: 100%;
@@ -108,12 +90,53 @@ export default {
   float: right;
   margin-left: -310px;
   padding-left: 310px;
-  background-color: #f5f5f5;
+}
+.im-toolbar-container {
+  background-color: #28292c;
+  margin: 0px;
+  padding: 15px 0px 15px 0px;
+  width: 100%;
+  height: 100%;
+}
+.im-contacts-search {
+  height: 60px;
+  background-color: #eeeae8;
+  border-bottom: #e5e1df solid 1px;
+  .row {
+    height: 100%;
+  }
+}
+.im-contacts-container {
+  height: 100%;
+  padding-top: 60px;
+  background-color: #eeeae8;
+}
+.im-contacts-scroll {
   position: relative;
-  z-index: 1000;
+  overflow: hidden;
+  height: 100%;
+}
+.im-contacts-item {
+  height: 65px;
+  margin: 0px;
+  cursor: pointer;
+}
+.im-contacts-item:hover {
+  background-color: #dddede;
+}
+.im-chat-container {
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
 }
 .im-chat-title {
   height: 60px;
+  padding: 0px 15px 0px 15px;
   border-bottom: #e7e7e7 solid 1px;
+  h5 {
+    margin: 0px;
+    line-height: 60px;
+    vertical-align: middle;
+  }
 }
 </style>
