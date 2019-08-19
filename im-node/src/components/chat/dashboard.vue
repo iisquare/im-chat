@@ -44,6 +44,13 @@
         <div class="im-chat-title">
           <h5>XXXXXXXXXXXXXXX</h5>
         </div>
+        <div class="im-chat-message">aaa</div>
+        <div class="im-chat-input">
+          <b-form-textarea placeholder="" no-resize></b-form-textarea>
+        </div>
+        <div class="im-chat-button">
+          <b-button variant="secondary" size="sm">发送(S)</b-button>
+        </div>
       </div>
     </div>
   </div>
@@ -138,5 +145,30 @@ export default {
     line-height: 60px;
     vertical-align: middle;
   }
+}
+.im-chat-message {
+  width: 100%;
+  height: 100%;
+  margin: -60px 0px -100px 0px;
+  padding: 60px 0px 100px 0px;
+}
+.im-chat-input {
+  width: 100%;
+  height: 55px;
+  textarea {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0px;
+    outline: none !important;
+  }
+}
+.im-chat-button {
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  vertical-align: middle;
+  text-align: right;
+  padding: 0px 15px 0px 15px;
 }
 </style>
