@@ -23,7 +23,6 @@ public class SocketTester {
         System.out.println("远程主机地址：" + client.getRemoteSocketAddress());
         OutputStream outToServer = client.getOutputStream();
         DataOutputStream out = new DataOutputStream(outToServer);
-
         out.writeUTF("Hello from " + client.getLocalSocketAddress());
         InputStream inFromServer = client.getInputStream();
         DataInputStream in = new DataInputStream(inFromServer);
@@ -42,6 +41,7 @@ public class SocketTester {
         DataOutputStream out = new DataOutputStream(server.getOutputStream());
         out.writeUTF("谢谢连接我：" + server.getLocalSocketAddress() + "\nGoodbye!");
         server.close();
+        serverSocket.close();
     }
 
     @Test
@@ -105,7 +105,7 @@ public class SocketTester {
             listnChannel.register(selector, SelectionKey.OP_ACCEPT);
         }
         // 不断轮询select方法，获取准备好的信道所关联的Key集
-        while (true){
+        while (selector.isOpen()){
             // 一直等待,直至有信道准备好了I/O操作
             if (selector.select(3000) == 0){
                 // 在等待信道准备的同时，也可以异步地执行其他任务，
@@ -159,6 +159,7 @@ public class SocketTester {
                 keyIter.remove();
             }
         }
+        selector.close();
     }
 
 }
