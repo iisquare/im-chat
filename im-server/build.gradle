@@ -59,4 +59,5 @@ dependencies {
         exclude group: 'org.slf4j', module: 'slf4j-log4j12'
     }
     compile group: 'io.netty', name: 'netty-all', version: '4.1.33.Final'
+    compile group: 'com.google.protobuf', name: 'protobuf-java', version: '3.9.1'
 }

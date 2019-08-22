@@ -79,9 +79,11 @@
 </template>
 
 <script>
+import ImClient from '@/sdk'
 export default {
   data () {
     return {
+      im: null,
       userId: '',
       items: [58, 1, 21, 33, 4, 57, 61, 7, 8, 9]
     }
@@ -94,6 +96,8 @@ export default {
   },
   mounted () {
     this.userId = this.$store.state.user.data.userId || ''
+    this.im = new ImClient(process.env.apiURL)
+    this.im.connect(this.$store.state.user.data.token)
   }
 }
 </script>

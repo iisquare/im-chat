@@ -27,4 +27,10 @@ public class Configuration {
     @Value("${http.thread:0}")
     private Integer httpThread;
 
+    public String address() {
+        String address = this.serverAddress;
+        if ("0.0.0.0".equals(address)) address = "127.0.0.1";
+        return address;
+    }
+
 }
