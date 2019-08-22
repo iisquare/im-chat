@@ -20,6 +20,7 @@
     "font-awesome": "^4.7.0",
     "google-protobuf": "^3.9.1",
     "iscroll": "^5.2.0",
+    "uuid": "^3.3.3",
     "vue": "^2.5.21",
     "vue-iscroll-view": "^1.0.3",
     "vue-router": "^3.0.1",

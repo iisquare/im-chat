@@ -1,6 +1,8 @@
 package com.iisquare.im.server.core;
 
 import com.google.protobuf.ByteString;
+import com.iisquare.im.protobuf.Im;
+import io.netty.channel.ChannelHandlerContext;
 import lombok.*;
 
 import java.lang.reflect.InvocationTargetException;
@@ -18,8 +20,8 @@ public class Command {
     private Object instance;
     private Method method;
 
-    public void invoke(ByteString parameter) throws InvocationTargetException, IllegalAccessException {
-        method.invoke(instance, parameter);
+    public void invoke(ChannelHandlerContext ctx, Im.Directive directive) throws InvocationTargetException, IllegalAccessException {
+        method.invoke(instance, ctx, directive);
     }
 
 }

@@ -19,17 +19,27 @@ public final class Im {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string command = 1;</code>
+     * <code>string sequence = 1;</code>
+     */
+    java.lang.String getSequence();
+    /**
+     * <code>string sequence = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getSequenceBytes();
+
+    /**
+     * <code>string command = 2;</code>
      */
     java.lang.String getCommand();
     /**
-     * <code>string command = 1;</code>
+     * <code>string command = 2;</code>
      */
     com.google.protobuf.ByteString
         getCommandBytes();
 
     /**
-     * <code>bytes parameter = 2;</code>
+     * <code>bytes parameter = 3;</code>
      */
     com.google.protobuf.ByteString getParameter();
   }
@@ -46,6 +56,7 @@ public final class Im {
       super(builder);
     }
     private Directive() {
+      sequence_ = "";
       command_ = "";
       parameter_ = com.google.protobuf.ByteString.EMPTY;
     }
@@ -83,10 +94,16 @@ public final class Im {
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              command_ = s;
+              sequence_ = s;
               break;
             }
             case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              command_ = s;
+              break;
+            }
+            case 26: {
 
               parameter_ = input.readBytes();
               break;
@@ -123,10 +140,44 @@ public final class Im {
               com.iisquare.im.protobuf.Im.Directive.class, com.iisquare.im.protobuf.Im.Directive.Builder.class);
     }
 
-    public static final int COMMAND_FIELD_NUMBER = 1;
+    public static final int SEQUENCE_FIELD_NUMBER = 1;
+    private volatile java.lang.Object sequence_;
+    /**
+     * <code>string sequence = 1;</code>
+     */
+    public java.lang.String getSequence() {
+      java.lang.Object ref = sequence_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        sequence_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string sequence = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSequenceBytes() {
+      java.lang.Object ref = sequence_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        sequence_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int COMMAND_FIELD_NUMBER = 2;
     private volatile java.lang.Object command_;
     /**
-     * <code>string command = 1;</code>
+     * <code>string command = 2;</code>
      */
     public java.lang.String getCommand() {
       java.lang.Object ref = command_;
@@ -141,7 +192,7 @@ public final class Im {
       }
     }
     /**
-     * <code>string command = 1;</code>
+     * <code>string command = 2;</code>
      */
     public com.google.protobuf.ByteString
         getCommandBytes() {
@@ -157,10 +208,10 @@ public final class Im {
       }
     }
 
-    public static final int PARAMETER_FIELD_NUMBER = 2;
+    public static final int PARAMETER_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString parameter_;
     /**
-     * <code>bytes parameter = 2;</code>
+     * <code>bytes parameter = 3;</code>
      */
     public com.google.protobuf.ByteString getParameter() {
       return parameter_;
@@ -180,11 +231,14 @@ public final class Im {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (!getSequenceBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, sequence_);
+      }
       if (!getCommandBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, command_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, command_);
       }
       if (!parameter_.isEmpty()) {
-        output.writeBytes(2, parameter_);
+        output.writeBytes(3, parameter_);
       }
       unknownFields.writeTo(output);
     }
@@ -195,12 +249,15 @@ public final class Im {
       if (size != -1) return size;
 
       size = 0;
+      if (!getSequenceBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, sequence_);
+      }
       if (!getCommandBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, command_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, command_);
       }
       if (!parameter_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, parameter_);
+          .computeBytesSize(3, parameter_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -217,6 +274,8 @@ public final class Im {
       }
       com.iisquare.im.protobuf.Im.Directive other = (com.iisquare.im.protobuf.Im.Directive) obj;
 
+      if (!getSequence()
+          .equals(other.getSequence())) return false;
       if (!getCommand()
           .equals(other.getCommand())) return false;
       if (!getParameter()
@@ -232,6 +291,8 @@ public final class Im {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SEQUENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getSequence().hashCode();
       hash = (37 * hash) + COMMAND_FIELD_NUMBER;
       hash = (53 * hash) + getCommand().hashCode();
       hash = (37 * hash) + PARAMETER_FIELD_NUMBER;
@@ -369,6 +430,8 @@ public final class Im {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        sequence_ = "";
+
         command_ = "";
 
         parameter_ = com.google.protobuf.ByteString.EMPTY;
@@ -399,6 +462,7 @@ public final class Im {
       @java.lang.Override
       public com.iisquare.im.protobuf.Im.Directive buildPartial() {
         com.iisquare.im.protobuf.Im.Directive result = new com.iisquare.im.protobuf.Im.Directive(this);
+        result.sequence_ = sequence_;
         result.command_ = command_;
         result.parameter_ = parameter_;
         onBuilt();
@@ -449,6 +513,10 @@ public final class Im {
 
       public Builder mergeFrom(com.iisquare.im.protobuf.Im.Directive other) {
         if (other == com.iisquare.im.protobuf.Im.Directive.getDefaultInstance()) return this;
+        if (!other.getSequence().isEmpty()) {
+          sequence_ = other.sequence_;
+          onChanged();
+        }
         if (!other.getCommand().isEmpty()) {
           command_ = other.command_;
           onChanged();
@@ -485,9 +553,78 @@ public final class Im {
         return this;
       }
 
+      private java.lang.Object sequence_ = "";
+      /**
+       * <code>string sequence = 1;</code>
+       */
+      public java.lang.String getSequence() {
+        java.lang.Object ref = sequence_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          sequence_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string sequence = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSequenceBytes() {
+        java.lang.Object ref = sequence_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          sequence_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string sequence = 1;</code>
+       */
+      public Builder setSequence(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        sequence_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string sequence = 1;</code>
+       */
+      public Builder clearSequence() {
+        
+        sequence_ = getDefaultInstance().getSequence();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string sequence = 1;</code>
+       */
+      public Builder setSequenceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        sequence_ = value;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object command_ = "";
       /**
-       * <code>string command = 1;</code>
+       * <code>string command = 2;</code>
        */
       public java.lang.String getCommand() {
         java.lang.Object ref = command_;
@@ -502,7 +639,7 @@ public final class Im {
         }
       }
       /**
-       * <code>string command = 1;</code>
+       * <code>string command = 2;</code>
        */
       public com.google.protobuf.ByteString
           getCommandBytes() {
@@ -518,7 +655,7 @@ public final class Im {
         }
       }
       /**
-       * <code>string command = 1;</code>
+       * <code>string command = 2;</code>
        */
       public Builder setCommand(
           java.lang.String value) {
@@ -531,7 +668,7 @@ public final class Im {
         return this;
       }
       /**
-       * <code>string command = 1;</code>
+       * <code>string command = 2;</code>
        */
       public Builder clearCommand() {
         
@@ -540,7 +677,7 @@ public final class Im {
         return this;
       }
       /**
-       * <code>string command = 1;</code>
+       * <code>string command = 2;</code>
        */
       public Builder setCommandBytes(
           com.google.protobuf.ByteString value) {
@@ -556,13 +693,13 @@ public final class Im {
 
       private com.google.protobuf.ByteString parameter_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>bytes parameter = 2;</code>
+       * <code>bytes parameter = 3;</code>
        */
       public com.google.protobuf.ByteString getParameter() {
         return parameter_;
       }
       /**
-       * <code>bytes parameter = 2;</code>
+       * <code>bytes parameter = 3;</code>
        */
       public Builder setParameter(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -574,7 +711,7 @@ public final class Im {
         return this;
       }
       /**
-       * <code>bytes parameter = 2;</code>
+       * <code>bytes parameter = 3;</code>
        */
       public Builder clearParameter() {
         
@@ -635,11 +772,836 @@ public final class Im {
 
   }
 
+  public interface ResultOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:im.Result)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string sequence = 1;</code>
+     */
+    java.lang.String getSequence();
+    /**
+     * <code>string sequence = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getSequenceBytes();
+
+    /**
+     * <code>int32 code = 2;</code>
+     */
+    int getCode();
+
+    /**
+     * <code>string message = 3;</code>
+     */
+    java.lang.String getMessage();
+    /**
+     * <code>string message = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getMessageBytes();
+
+    /**
+     * <code>bytes data = 4;</code>
+     */
+    com.google.protobuf.ByteString getData();
+  }
+  /**
+   * Protobuf type {@code im.Result}
+   */
+  public  static final class Result extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:im.Result)
+      ResultOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Result.newBuilder() to construct.
+    private Result(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Result() {
+      sequence_ = "";
+      message_ = "";
+      data_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Result();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Result(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              sequence_ = s;
+              break;
+            }
+            case 16: {
+
+              code_ = input.readInt32();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              message_ = s;
+              break;
+            }
+            case 34: {
+
+              data_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.iisquare.im.protobuf.Im.internal_static_im_Result_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.iisquare.im.protobuf.Im.internal_static_im_Result_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.iisquare.im.protobuf.Im.Result.class, com.iisquare.im.protobuf.Im.Result.Builder.class);
+    }
+
+    public static final int SEQUENCE_FIELD_NUMBER = 1;
+    private volatile java.lang.Object sequence_;
+    /**
+     * <code>string sequence = 1;</code>
+     */
+    public java.lang.String getSequence() {
+      java.lang.Object ref = sequence_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        sequence_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string sequence = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSequenceBytes() {
+      java.lang.Object ref = sequence_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        sequence_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CODE_FIELD_NUMBER = 2;
+    private int code_;
+    /**
+     * <code>int32 code = 2;</code>
+     */
+    public int getCode() {
+      return code_;
+    }
+
+    public static final int MESSAGE_FIELD_NUMBER = 3;
+    private volatile java.lang.Object message_;
+    /**
+     * <code>string message = 3;</code>
+     */
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        message_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string message = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMessageBytes() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        message_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DATA_FIELD_NUMBER = 4;
+    private com.google.protobuf.ByteString data_;
+    /**
+     * <code>bytes data = 4;</code>
+     */
+    public com.google.protobuf.ByteString getData() {
+      return data_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getSequenceBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, sequence_);
+      }
+      if (code_ != 0) {
+        output.writeInt32(2, code_);
+      }
+      if (!getMessageBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, message_);
+      }
+      if (!data_.isEmpty()) {
+        output.writeBytes(4, data_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getSequenceBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, sequence_);
+      }
+      if (code_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, code_);
+      }
+      if (!getMessageBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, message_);
+      }
+      if (!data_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, data_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.iisquare.im.protobuf.Im.Result)) {
+        return super.equals(obj);
+      }
+      com.iisquare.im.protobuf.Im.Result other = (com.iisquare.im.protobuf.Im.Result) obj;
+
+      if (!getSequence()
+          .equals(other.getSequence())) return false;
+      if (getCode()
+          != other.getCode()) return false;
+      if (!getMessage()
+          .equals(other.getMessage())) return false;
+      if (!getData()
+          .equals(other.getData())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SEQUENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getSequence().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
+      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getMessage().hashCode();
+      hash = (37 * hash) + DATA_FIELD_NUMBER;
+      hash = (53 * hash) + getData().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.iisquare.im.protobuf.Im.Result parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.iisquare.im.protobuf.Im.Result parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.iisquare.im.protobuf.Im.Result parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.iisquare.im.protobuf.Im.Result parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.iisquare.im.protobuf.Im.Result parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.iisquare.im.protobuf.Im.Result parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.iisquare.im.protobuf.Im.Result parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.iisquare.im.protobuf.Im.Result parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.iisquare.im.protobuf.Im.Result parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.iisquare.im.protobuf.Im.Result parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.iisquare.im.protobuf.Im.Result parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.iisquare.im.protobuf.Im.Result parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.iisquare.im.protobuf.Im.Result prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code im.Result}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:im.Result)
+        com.iisquare.im.protobuf.Im.ResultOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.iisquare.im.protobuf.Im.internal_static_im_Result_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.iisquare.im.protobuf.Im.internal_static_im_Result_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.iisquare.im.protobuf.Im.Result.class, com.iisquare.im.protobuf.Im.Result.Builder.class);
+      }
+
+      // Construct using com.iisquare.im.protobuf.Im.Result.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        sequence_ = "";
+
+        code_ = 0;
+
+        message_ = "";
+
+        data_ = com.google.protobuf.ByteString.EMPTY;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.iisquare.im.protobuf.Im.internal_static_im_Result_descriptor;
+      }
+
+      @java.lang.Override
+      public com.iisquare.im.protobuf.Im.Result getDefaultInstanceForType() {
+        return com.iisquare.im.protobuf.Im.Result.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.iisquare.im.protobuf.Im.Result build() {
+        com.iisquare.im.protobuf.Im.Result result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.iisquare.im.protobuf.Im.Result buildPartial() {
+        com.iisquare.im.protobuf.Im.Result result = new com.iisquare.im.protobuf.Im.Result(this);
+        result.sequence_ = sequence_;
+        result.code_ = code_;
+        result.message_ = message_;
+        result.data_ = data_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.iisquare.im.protobuf.Im.Result) {
+          return mergeFrom((com.iisquare.im.protobuf.Im.Result)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.iisquare.im.protobuf.Im.Result other) {
+        if (other == com.iisquare.im.protobuf.Im.Result.getDefaultInstance()) return this;
+        if (!other.getSequence().isEmpty()) {
+          sequence_ = other.sequence_;
+          onChanged();
+        }
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
+        }
+        if (!other.getMessage().isEmpty()) {
+          message_ = other.message_;
+          onChanged();
+        }
+        if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
+          setData(other.getData());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.iisquare.im.protobuf.Im.Result parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.iisquare.im.protobuf.Im.Result) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object sequence_ = "";
+      /**
+       * <code>string sequence = 1;</code>
+       */
+      public java.lang.String getSequence() {
+        java.lang.Object ref = sequence_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          sequence_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string sequence = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSequenceBytes() {
+        java.lang.Object ref = sequence_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          sequence_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string sequence = 1;</code>
+       */
+      public Builder setSequence(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        sequence_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string sequence = 1;</code>
+       */
+      public Builder clearSequence() {
+        
+        sequence_ = getDefaultInstance().getSequence();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string sequence = 1;</code>
+       */
+      public Builder setSequenceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        sequence_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int code_ ;
+      /**
+       * <code>int32 code = 2;</code>
+       */
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <code>int32 code = 2;</code>
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 code = 2;</code>
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object message_ = "";
+      /**
+       * <code>string message = 3;</code>
+       */
+      public java.lang.String getMessage() {
+        java.lang.Object ref = message_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          message_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string message = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMessageBytes() {
+        java.lang.Object ref = message_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          message_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string message = 3;</code>
+       */
+      public Builder setMessage(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        message_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string message = 3;</code>
+       */
+      public Builder clearMessage() {
+        
+        message_ = getDefaultInstance().getMessage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string message = 3;</code>
+       */
+      public Builder setMessageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        message_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes data = 4;</code>
+       */
+      public com.google.protobuf.ByteString getData() {
+        return data_;
+      }
+      /**
+       * <code>bytes data = 4;</code>
+       */
+      public Builder setData(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        data_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes data = 4;</code>
+       */
+      public Builder clearData() {
+        
+        data_ = getDefaultInstance().getData();
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:im.Result)
+    }
+
+    // @@protoc_insertion_point(class_scope:im.Result)
+    private static final com.iisquare.im.protobuf.Im.Result DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.iisquare.im.protobuf.Im.Result();
+    }
+
+    public static com.iisquare.im.protobuf.Im.Result getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Result>
+        PARSER = new com.google.protobuf.AbstractParser<Result>() {
+      @java.lang.Override
+      public Result parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Result(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Result> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Result> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.iisquare.im.protobuf.Im.Result getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_im_Directive_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_im_Directive_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_im_Result_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_im_Result_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -649,9 +1611,11 @@ public final class Im {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\010im.proto\022\002im\"/\n\tDirective\022\017\n\007command\030\001" +
-      " \001(\t\022\021\n\tparameter\030\002 \001(\014B\032\n\030com.iisquare." +
-      "im.protobufb\006proto3"
+      "\n\010im.proto\022\002im\"A\n\tDirective\022\020\n\010sequence\030" +
+      "\001 \001(\t\022\017\n\007command\030\002 \001(\t\022\021\n\tparameter\030\003 \001(" +
+      "\014\"G\n\006Result\022\020\n\010sequence\030\001 \001(\t\022\014\n\004code\030\002 " +
+      "\001(\005\022\017\n\007message\030\003 \001(\t\022\014\n\004data\030\004 \001(\014B\032\n\030co" +
+      "m.iisquare.im.protobufb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -662,7 +1626,13 @@ public final class Im {
     internal_static_im_Directive_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_im_Directive_descriptor,
-        new java.lang.String[] { "Command", "Parameter", });
+        new java.lang.String[] { "Sequence", "Command", "Parameter", });
+    internal_static_im_Result_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_im_Result_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_im_Result_descriptor,
+        new java.lang.String[] { "Sequence", "Code", "Message", "Data", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

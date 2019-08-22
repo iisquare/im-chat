@@ -61,7 +61,7 @@ public class Dispatcher {
             Im.Directive directive = Im.Directive.parseFrom(frame.content().nioBuffer());
             Command command = commands.get(directive.getCommand());
             if (null == command) return;
-            command.invoke(directive.getParameter());
+            command.invoke(ctx, directive);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -5,7 +5,7 @@ class UserLogic extends LogicBase {
   auth (token) {
     let parameter = new UserPB.Auth()
     parameter.setToken(token)
-    this.im.client.send(this.directive('user.auth', parameter))
+    return this.im.client.send(this.directive('user.auth', parameter))
   }
 }
 
