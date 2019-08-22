@@ -16,6 +16,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan(basePackages = {
     "com.iisquare.im.server.api",
     "com.iisquare.im.server.broker",
+    "com.iisquare.im.server.logic",
     "com.iisquare.im.server.web"
 })
 @EnableFeignClients(basePackages = {"com.iisquare.im.server.api.rpc"})

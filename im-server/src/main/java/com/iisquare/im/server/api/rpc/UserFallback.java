@@ -1,6 +1,6 @@
 package com.iisquare.im.server.api.rpc;
 
-import com.iisquare.im.server.core.util.ApiUtil;
+import com.iisquare.util.ApiUtil;
 import org.springframework.stereotype.Component;
 
 @Component

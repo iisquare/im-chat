@@ -1,8 +1,8 @@
 package com.iisquare.im.server.web.controller;
 
 import com.iisquare.im.server.api.service.UserService;
-import com.iisquare.im.server.core.util.ApiUtil;
-import com.iisquare.im.server.core.util.DPUtil;
+import com.iisquare.util.ApiUtil;
+import com.iisquare.util.DPUtil;
 import com.iisquare.im.server.web.mvc.WebController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,6 +1,7 @@
 package com.iisquare.im.server.broker;
 
 import com.iisquare.im.server.api.mvc.Configuration;
+import com.iisquare.im.server.core.Broker;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -17,7 +18,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 
 @Component
-public class HttpBroker implements Runnable {
+public class HttpBroker extends Broker implements Runnable {
 
     protected final static Logger logger = LoggerFactory.getLogger(HttpBroker.class);
     @Autowired

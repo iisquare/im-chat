@@ -1,4 +1,4 @@
-package com.iisquare.im.server.core.util;
+package com.iisquare.util;
 
 /**
  * 安全过滤验证类

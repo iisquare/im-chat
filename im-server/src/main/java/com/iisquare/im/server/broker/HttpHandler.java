@@ -10,6 +10,7 @@ import io.netty.util.CharsetUtil;
 import io.netty.util.ReferenceCountUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.UnsupportedEncodingException;
@@ -25,6 +26,8 @@ public class HttpHandler extends ChannelInboundHandlerAdapter {
     public static final String COMET_PUSH = "/push";
     public static final String COMET_PULL = "/pull";
     public static final String WEB_SOCKET = "/block";
+    @Autowired
+    private Dispatcher dispatcher;
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
@@ -87,6 +90,9 @@ public class HttpHandler extends ChannelInboundHandlerAdapter {
         } else if (frame instanceof PingWebSocketFrame) { // 判断是否是Ping消息
             ctx.channel().write(new PongWebSocketFrame(frame.content().retain()));
         } else {
+            if (frame instanceof BinaryWebSocketFrame) {
+                dispatcher.dispatch(ctx, (BinaryWebSocketFrame) frame);
+            }
             String message = (frame instanceof TextWebSocketFrame) ? ((TextWebSocketFrame) frame).text() : null;
             if (!ctx.channel().hasAttr(AttributeKey.valueOf("xxx"))) {
                 ctx.channel().attr(AttributeKey.valueOf("xxx")).set(message);

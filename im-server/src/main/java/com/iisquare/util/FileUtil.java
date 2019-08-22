@@ -1,4 +1,4 @@
-package com.iisquare.im.server.core.util;
+package com.iisquare.util;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

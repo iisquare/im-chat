@@ -1,6 +1,6 @@
 package com.iisquare.im.server.api.mvc;
 
-import com.iisquare.im.server.core.util.DPUtil;
+import com.iisquare.util.DPUtil;
 import org.springframework.data.domain.Sort;
 
 import java.util.*;

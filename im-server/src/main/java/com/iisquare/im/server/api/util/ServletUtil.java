@@ -1,6 +1,6 @@
 package com.iisquare.im.server.api.util;
 
-import com.iisquare.im.server.core.util.DPUtil;
+import com.iisquare.util.DPUtil;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;

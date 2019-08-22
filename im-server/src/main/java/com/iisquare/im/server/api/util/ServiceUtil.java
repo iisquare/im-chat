@@ -1,6 +1,6 @@
 package com.iisquare.im.server.api.util;
 
-import com.iisquare.im.server.core.util.ReflectUtil;
+import com.iisquare.util.ReflectUtil;
 
 import java.util.*;
 

@@ -1,0 +1,7 @@
+syntax = "proto3";
+package im;
+option java_package = "com.iisquare.im.protobuf";
+message Auth 
+{
+   string token = 1;
+}

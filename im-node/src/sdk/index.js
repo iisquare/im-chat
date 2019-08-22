@@ -16,7 +16,7 @@ class ImClient {
       let route = response.data.routes[node]
       let config = {
         onOpen (event) {
-          _this.userLogic.auth(this.token)
+          _this.userLogic.auth(_this.token)
         }
       }
       this.client = window.WebSocket ? new WebSocketClient(Object.assign(config, {ws: route.ws})) : new CometClient(Object.assign(config, route.comet))

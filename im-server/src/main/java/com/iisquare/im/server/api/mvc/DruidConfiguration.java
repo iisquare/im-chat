@@ -2,7 +2,7 @@ package com.iisquare.im.server.api.mvc;
 
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
-import com.iisquare.im.server.core.util.DPUtil;
+import com.iisquare.util.DPUtil;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
