@@ -16,8 +16,9 @@ class WebSocketClient extends Client {
     this.client.close()
     this.client = null
   }
-  send (message) {
-    this.client.send(message)
+  send (directive) {
+    this.client.send(directive.serializeBinary())
+    return super.onSend(directive)
   }
 }
 
