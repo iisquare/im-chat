@@ -52,6 +52,7 @@ public class UserService extends ServiceBase {
     }
 
     public String userId(String token) {
+        if (null == token) return null;
         List<Object> list = redis.opsForHash().multiGet(tokenKey(token), Arrays.asList("id", "block"));
         if (DPUtil.parseLong(list.get(1)) > System.currentTimeMillis()) return "";
         return DPUtil.parseString(list.get(0));

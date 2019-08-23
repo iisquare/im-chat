@@ -1,5 +1,5 @@
 import LogicBase from '@/sdk/logic/base'
-import UserPB from '@/sdk/protobuf/user_pb'
+import UserPB from '@/sdk/protobuf/IMUser_pb'
 
 class UserLogic extends LogicBase {
   auth (token) {

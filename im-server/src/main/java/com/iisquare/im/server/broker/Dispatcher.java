@@ -1,11 +1,13 @@
 package com.iisquare.im.server.broker;
 
-import com.iisquare.im.protobuf.Im;
+import com.google.protobuf.InvalidProtocolBufferException;
+import com.iisquare.im.protobuf.IM;
 import com.iisquare.im.server.core.Command;
+import com.iisquare.im.server.core.Logic;
 import com.iisquare.util.DPUtil;
 import com.iisquare.util.ReflectUtil;
+import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,14 +58,20 @@ public class Dispatcher {
         }
     }
 
-    public void dispatch(ChannelHandlerContext ctx, BinaryWebSocketFrame frame) {
+    public IM.Result dispatch(ChannelHandlerContext ctx, ByteBuf message) {
+        IM.Directive directive = null;
         try {
-            Im.Directive directive = Im.Directive.parseFrom(frame.content().nioBuffer());
-            Command command = commands.get(directive.getCommand());
-            if (null == command) return;
-            command.invoke(ctx, directive);
+            directive = IM.Directive.parseFrom(message.nioBuffer());
+        } catch (InvalidProtocolBufferException e) {
+            logger.warn("can not parse message", e);
+            return null;
+        }
+        Command command = commands.get(directive.getCommand());
+        if (null == command) return Logic.result(directive, -1, "指令异常", null);
+        try {
+            return command.invoke(ctx, directive);
         } catch (Exception e) {
-            e.printStackTrace();
+            return Logic.result(directive, -2, e.getMessage(), null);
         }
     }
 

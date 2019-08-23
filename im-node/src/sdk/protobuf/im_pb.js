@@ -1,4 +1,4 @@
-// source: im.proto
+// source: IM.proto
 /**
  * @fileoverview
  * @enhanceable

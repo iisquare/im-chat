@@ -1,23 +1,36 @@
 package com.iisquare.im.server.logic;
 
-import com.google.protobuf.ByteString;
-import com.google.protobuf.InvalidProtocolBufferException;
-import com.iisquare.im.protobuf.Im;
-import com.iisquare.im.protobuf.User;
+import com.iisquare.im.protobuf.IM;
+import com.iisquare.im.protobuf.IMUser;
+import com.iisquare.im.server.api.entity.User;
+import com.iisquare.im.server.api.service.UserService;
 import com.iisquare.im.server.core.Logic;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.util.AttributeKey;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class UserLogic extends Logic {
 
-    public void authAction(ChannelHandlerContext ctx, Im.Directive directive) {
-        try {
-            User.Auth auth = User.Auth.parseFrom(directive.getParameter());
-            System.out.println("user.auth->" + auth.getToken());
-        } catch (InvalidProtocolBufferException e) {
-            e.printStackTrace();
+    public static final AttributeKey USER_KEY = AttributeKey.valueOf("userId");
+    @Autowired
+    private UserService userService;
+
+    public User info(ChannelHandlerContext ctx) {
+        Object value = ctx.channel().attr(USER_KEY).get();
+        if (null == value) return null;
+        return userService.info(value.toString());
+    }
+
+    public IM.Result authAction(ChannelHandlerContext ctx, IM.Directive directive) throws Exception {
+        IMUser.Auth auth = IMUser.Auth.parseFrom(directive.getParameter());
+        User info = userService.info(userService.userId(auth.getToken()));
+        if (null == info) {
+            return result(directive, 404, null, null);
         }
+        ctx.channel().attr(USER_KEY).set(info.getId());
+        return result(directive, 0, null, IMUser.AuthResult.newBuilder().setUserId(info.getId()).build().toByteString());
     }
 
 }
