@@ -1,6 +1,6 @@
 package com.iisquare.im.server.broker;
 
-import com.iisquare.im.server.core.Broker;
+import com.iisquare.im.server.broker.core.Broker;
 import org.springframework.stereotype.Component;
 
 @Component

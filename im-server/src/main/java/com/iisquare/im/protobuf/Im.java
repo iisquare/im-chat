@@ -39,9 +39,17 @@ public final class IM {
         getCommandBytes();
 
     /**
-     * <code>bytes parameter = 3;</code>
+     * <code>.google.protobuf.Any parameter = 3;</code>
      */
-    com.google.protobuf.ByteString getParameter();
+    boolean hasParameter();
+    /**
+     * <code>.google.protobuf.Any parameter = 3;</code>
+     */
+    com.google.protobuf.Any getParameter();
+    /**
+     * <code>.google.protobuf.Any parameter = 3;</code>
+     */
+    com.google.protobuf.AnyOrBuilder getParameterOrBuilder();
   }
   /**
    * Protobuf type {@code im.Directive}
@@ -58,7 +66,6 @@ public final class IM {
     private Directive() {
       sequence_ = "";
       command_ = "";
-      parameter_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -104,8 +111,16 @@ public final class IM {
               break;
             }
             case 26: {
+              com.google.protobuf.Any.Builder subBuilder = null;
+              if (parameter_ != null) {
+                subBuilder = parameter_.toBuilder();
+              }
+              parameter_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(parameter_);
+                parameter_ = subBuilder.buildPartial();
+              }
 
-              parameter_ = input.readBytes();
               break;
             }
             default: {
@@ -209,12 +224,24 @@ public final class IM {
     }
 
     public static final int PARAMETER_FIELD_NUMBER = 3;
-    private com.google.protobuf.ByteString parameter_;
+    private com.google.protobuf.Any parameter_;
     /**
-     * <code>bytes parameter = 3;</code>
+     * <code>.google.protobuf.Any parameter = 3;</code>
      */
-    public com.google.protobuf.ByteString getParameter() {
-      return parameter_;
+    public boolean hasParameter() {
+      return parameter_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Any parameter = 3;</code>
+     */
+    public com.google.protobuf.Any getParameter() {
+      return parameter_ == null ? com.google.protobuf.Any.getDefaultInstance() : parameter_;
+    }
+    /**
+     * <code>.google.protobuf.Any parameter = 3;</code>
+     */
+    public com.google.protobuf.AnyOrBuilder getParameterOrBuilder() {
+      return getParameter();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -237,8 +264,8 @@ public final class IM {
       if (!getCommandBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, command_);
       }
-      if (!parameter_.isEmpty()) {
-        output.writeBytes(3, parameter_);
+      if (parameter_ != null) {
+        output.writeMessage(3, getParameter());
       }
       unknownFields.writeTo(output);
     }
@@ -255,9 +282,9 @@ public final class IM {
       if (!getCommandBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, command_);
       }
-      if (!parameter_.isEmpty()) {
+      if (parameter_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, parameter_);
+          .computeMessageSize(3, getParameter());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -278,8 +305,11 @@ public final class IM {
           .equals(other.getSequence())) return false;
       if (!getCommand()
           .equals(other.getCommand())) return false;
-      if (!getParameter()
-          .equals(other.getParameter())) return false;
+      if (hasParameter() != other.hasParameter()) return false;
+      if (hasParameter()) {
+        if (!getParameter()
+            .equals(other.getParameter())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -295,8 +325,10 @@ public final class IM {
       hash = (53 * hash) + getSequence().hashCode();
       hash = (37 * hash) + COMMAND_FIELD_NUMBER;
       hash = (53 * hash) + getCommand().hashCode();
-      hash = (37 * hash) + PARAMETER_FIELD_NUMBER;
-      hash = (53 * hash) + getParameter().hashCode();
+      if (hasParameter()) {
+        hash = (37 * hash) + PARAMETER_FIELD_NUMBER;
+        hash = (53 * hash) + getParameter().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -434,8 +466,12 @@ public final class IM {
 
         command_ = "";
 
-        parameter_ = com.google.protobuf.ByteString.EMPTY;
-
+        if (parameterBuilder_ == null) {
+          parameter_ = null;
+        } else {
+          parameter_ = null;
+          parameterBuilder_ = null;
+        }
         return this;
       }
 
@@ -464,7 +500,11 @@ public final class IM {
         com.iisquare.im.protobuf.IM.Directive result = new com.iisquare.im.protobuf.IM.Directive(this);
         result.sequence_ = sequence_;
         result.command_ = command_;
-        result.parameter_ = parameter_;
+        if (parameterBuilder_ == null) {
+          result.parameter_ = parameter_;
+        } else {
+          result.parameter_ = parameterBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -521,8 +561,8 @@ public final class IM {
           command_ = other.command_;
           onChanged();
         }
-        if (other.getParameter() != com.google.protobuf.ByteString.EMPTY) {
-          setParameter(other.getParameter());
+        if (other.hasParameter()) {
+          mergeParameter(other.getParameter());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -691,33 +731,121 @@ public final class IM {
         return this;
       }
 
-      private com.google.protobuf.ByteString parameter_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.Any parameter_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> parameterBuilder_;
       /**
-       * <code>bytes parameter = 3;</code>
+       * <code>.google.protobuf.Any parameter = 3;</code>
        */
-      public com.google.protobuf.ByteString getParameter() {
-        return parameter_;
+      public boolean hasParameter() {
+        return parameterBuilder_ != null || parameter_ != null;
       }
       /**
-       * <code>bytes parameter = 3;</code>
+       * <code>.google.protobuf.Any parameter = 3;</code>
        */
-      public Builder setParameter(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        parameter_ = value;
-        onChanged();
+      public com.google.protobuf.Any getParameter() {
+        if (parameterBuilder_ == null) {
+          return parameter_ == null ? com.google.protobuf.Any.getDefaultInstance() : parameter_;
+        } else {
+          return parameterBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Any parameter = 3;</code>
+       */
+      public Builder setParameter(com.google.protobuf.Any value) {
+        if (parameterBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          parameter_ = value;
+          onChanged();
+        } else {
+          parameterBuilder_.setMessage(value);
+        }
+
         return this;
       }
       /**
-       * <code>bytes parameter = 3;</code>
+       * <code>.google.protobuf.Any parameter = 3;</code>
+       */
+      public Builder setParameter(
+          com.google.protobuf.Any.Builder builderForValue) {
+        if (parameterBuilder_ == null) {
+          parameter_ = builderForValue.build();
+          onChanged();
+        } else {
+          parameterBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Any parameter = 3;</code>
+       */
+      public Builder mergeParameter(com.google.protobuf.Any value) {
+        if (parameterBuilder_ == null) {
+          if (parameter_ != null) {
+            parameter_ =
+              com.google.protobuf.Any.newBuilder(parameter_).mergeFrom(value).buildPartial();
+          } else {
+            parameter_ = value;
+          }
+          onChanged();
+        } else {
+          parameterBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Any parameter = 3;</code>
        */
       public Builder clearParameter() {
-        
-        parameter_ = getDefaultInstance().getParameter();
-        onChanged();
+        if (parameterBuilder_ == null) {
+          parameter_ = null;
+          onChanged();
+        } else {
+          parameter_ = null;
+          parameterBuilder_ = null;
+        }
+
         return this;
+      }
+      /**
+       * <code>.google.protobuf.Any parameter = 3;</code>
+       */
+      public com.google.protobuf.Any.Builder getParameterBuilder() {
+        
+        onChanged();
+        return getParameterFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Any parameter = 3;</code>
+       */
+      public com.google.protobuf.AnyOrBuilder getParameterOrBuilder() {
+        if (parameterBuilder_ != null) {
+          return parameterBuilder_.getMessageOrBuilder();
+        } else {
+          return parameter_ == null ?
+              com.google.protobuf.Any.getDefaultInstance() : parameter_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Any parameter = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> 
+          getParameterFieldBuilder() {
+        if (parameterBuilder_ == null) {
+          parameterBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>(
+                  getParameter(),
+                  getParentForChildren(),
+                  isClean());
+          parameter_ = null;
+        }
+        return parameterBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -802,9 +930,17 @@ public final class IM {
         getMessageBytes();
 
     /**
-     * <code>bytes data = 4;</code>
+     * <code>.google.protobuf.Any data = 4;</code>
      */
-    com.google.protobuf.ByteString getData();
+    boolean hasData();
+    /**
+     * <code>.google.protobuf.Any data = 4;</code>
+     */
+    com.google.protobuf.Any getData();
+    /**
+     * <code>.google.protobuf.Any data = 4;</code>
+     */
+    com.google.protobuf.AnyOrBuilder getDataOrBuilder();
   }
   /**
    * Protobuf type {@code im.Result}
@@ -821,7 +957,6 @@ public final class IM {
     private Result() {
       sequence_ = "";
       message_ = "";
-      data_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -872,8 +1007,16 @@ public final class IM {
               break;
             }
             case 34: {
+              com.google.protobuf.Any.Builder subBuilder = null;
+              if (data_ != null) {
+                subBuilder = data_.toBuilder();
+              }
+              data_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(data_);
+                data_ = subBuilder.buildPartial();
+              }
 
-              data_ = input.readBytes();
               break;
             }
             default: {
@@ -986,12 +1129,24 @@ public final class IM {
     }
 
     public static final int DATA_FIELD_NUMBER = 4;
-    private com.google.protobuf.ByteString data_;
+    private com.google.protobuf.Any data_;
     /**
-     * <code>bytes data = 4;</code>
+     * <code>.google.protobuf.Any data = 4;</code>
      */
-    public com.google.protobuf.ByteString getData() {
-      return data_;
+    public boolean hasData() {
+      return data_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Any data = 4;</code>
+     */
+    public com.google.protobuf.Any getData() {
+      return data_ == null ? com.google.protobuf.Any.getDefaultInstance() : data_;
+    }
+    /**
+     * <code>.google.protobuf.Any data = 4;</code>
+     */
+    public com.google.protobuf.AnyOrBuilder getDataOrBuilder() {
+      return getData();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1017,8 +1172,8 @@ public final class IM {
       if (!getMessageBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, message_);
       }
-      if (!data_.isEmpty()) {
-        output.writeBytes(4, data_);
+      if (data_ != null) {
+        output.writeMessage(4, getData());
       }
       unknownFields.writeTo(output);
     }
@@ -1039,9 +1194,9 @@ public final class IM {
       if (!getMessageBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, message_);
       }
-      if (!data_.isEmpty()) {
+      if (data_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(4, data_);
+          .computeMessageSize(4, getData());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1064,8 +1219,11 @@ public final class IM {
           != other.getCode()) return false;
       if (!getMessage()
           .equals(other.getMessage())) return false;
-      if (!getData()
-          .equals(other.getData())) return false;
+      if (hasData() != other.hasData()) return false;
+      if (hasData()) {
+        if (!getData()
+            .equals(other.getData())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1083,8 +1241,10 @@ public final class IM {
       hash = (53 * hash) + getCode();
       hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
       hash = (53 * hash) + getMessage().hashCode();
-      hash = (37 * hash) + DATA_FIELD_NUMBER;
-      hash = (53 * hash) + getData().hashCode();
+      if (hasData()) {
+        hash = (37 * hash) + DATA_FIELD_NUMBER;
+        hash = (53 * hash) + getData().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1224,8 +1384,12 @@ public final class IM {
 
         message_ = "";
 
-        data_ = com.google.protobuf.ByteString.EMPTY;
-
+        if (dataBuilder_ == null) {
+          data_ = null;
+        } else {
+          data_ = null;
+          dataBuilder_ = null;
+        }
         return this;
       }
 
@@ -1255,7 +1419,11 @@ public final class IM {
         result.sequence_ = sequence_;
         result.code_ = code_;
         result.message_ = message_;
-        result.data_ = data_;
+        if (dataBuilder_ == null) {
+          result.data_ = data_;
+        } else {
+          result.data_ = dataBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -1315,8 +1483,8 @@ public final class IM {
           message_ = other.message_;
           onChanged();
         }
-        if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
-          setData(other.getData());
+        if (other.hasData()) {
+          mergeData(other.getData());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1511,33 +1679,121 @@ public final class IM {
         return this;
       }
 
-      private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.Any data_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> dataBuilder_;
       /**
-       * <code>bytes data = 4;</code>
+       * <code>.google.protobuf.Any data = 4;</code>
        */
-      public com.google.protobuf.ByteString getData() {
-        return data_;
+      public boolean hasData() {
+        return dataBuilder_ != null || data_ != null;
       }
       /**
-       * <code>bytes data = 4;</code>
+       * <code>.google.protobuf.Any data = 4;</code>
        */
-      public Builder setData(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        data_ = value;
-        onChanged();
+      public com.google.protobuf.Any getData() {
+        if (dataBuilder_ == null) {
+          return data_ == null ? com.google.protobuf.Any.getDefaultInstance() : data_;
+        } else {
+          return dataBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Any data = 4;</code>
+       */
+      public Builder setData(com.google.protobuf.Any value) {
+        if (dataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          data_ = value;
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(value);
+        }
+
         return this;
       }
       /**
-       * <code>bytes data = 4;</code>
+       * <code>.google.protobuf.Any data = 4;</code>
+       */
+      public Builder setData(
+          com.google.protobuf.Any.Builder builderForValue) {
+        if (dataBuilder_ == null) {
+          data_ = builderForValue.build();
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Any data = 4;</code>
+       */
+      public Builder mergeData(com.google.protobuf.Any value) {
+        if (dataBuilder_ == null) {
+          if (data_ != null) {
+            data_ =
+              com.google.protobuf.Any.newBuilder(data_).mergeFrom(value).buildPartial();
+          } else {
+            data_ = value;
+          }
+          onChanged();
+        } else {
+          dataBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Any data = 4;</code>
        */
       public Builder clearData() {
-        
-        data_ = getDefaultInstance().getData();
-        onChanged();
+        if (dataBuilder_ == null) {
+          data_ = null;
+          onChanged();
+        } else {
+          data_ = null;
+          dataBuilder_ = null;
+        }
+
         return this;
+      }
+      /**
+       * <code>.google.protobuf.Any data = 4;</code>
+       */
+      public com.google.protobuf.Any.Builder getDataBuilder() {
+        
+        onChanged();
+        return getDataFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Any data = 4;</code>
+       */
+      public com.google.protobuf.AnyOrBuilder getDataOrBuilder() {
+        if (dataBuilder_ != null) {
+          return dataBuilder_.getMessageOrBuilder();
+        } else {
+          return data_ == null ?
+              com.google.protobuf.Any.getDefaultInstance() : data_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Any data = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> 
+          getDataFieldBuilder() {
+        if (dataBuilder_ == null) {
+          dataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>(
+                  getData(),
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
+        }
+        return dataBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -1611,15 +1867,18 @@ public final class IM {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\010IM.proto\022\002im\"A\n\tDirective\022\020\n\010sequence\030" +
-      "\001 \001(\t\022\017\n\007command\030\002 \001(\t\022\021\n\tparameter\030\003 \001(" +
-      "\014\"G\n\006Result\022\020\n\010sequence\030\001 \001(\t\022\014\n\004code\030\002 " +
-      "\001(\005\022\017\n\007message\030\003 \001(\t\022\014\n\004data\030\004 \001(\014B\032\n\030co" +
-      "m.iisquare.im.protobufb\006proto3"
+      "\n\010IM.proto\022\002im\032\031google/protobuf/any.prot" +
+      "o\"W\n\tDirective\022\020\n\010sequence\030\001 \001(\t\022\017\n\007comm" +
+      "and\030\002 \001(\t\022\'\n\tparameter\030\003 \001(\0132\024.google.pr" +
+      "otobuf.Any\"]\n\006Result\022\020\n\010sequence\030\001 \001(\t\022\014" +
+      "\n\004code\030\002 \001(\005\022\017\n\007message\030\003 \001(\t\022\"\n\004data\030\004 " +
+      "\001(\0132\024.google.protobuf.AnyB\032\n\030com.iisquar" +
+      "e.im.protobufb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.google.protobuf.AnyProto.getDescriptor(),
         });
     internal_static_im_Directive_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -1633,6 +1892,7 @@ public final class IM {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_im_Result_descriptor,
         new java.lang.String[] { "Sequence", "Code", "Message", "Data", });
+    com.google.protobuf.AnyProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

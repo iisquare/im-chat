@@ -1,4 +1,3 @@
-import LogicBase from '@/sdk/logic/base'
 import IMPB from '@/sdk/protobuf/IM_pb'
 
 let promises = {}
@@ -13,7 +12,7 @@ class Client {
     this.config.onClose && this.config.onClose(event)
   }
   async onMessage (event) {
-    let result = IMPB.Result.deserializeBinary(await LogicBase.readAsArrayBuffer(event.data))
+    let result = IMPB.Result.deserializeBinary(await this.readAsArrayBuffer(event.data))
     if (result === null) return
     this.config.onMessage && this.config.onMessage(result)
     let sequence = result.getSequence()
@@ -31,6 +30,18 @@ class Client {
     this.config.onSend && this.config.onSend(directive)
     return new Promise((resolve, reject) => {
       promises[directive.getSequence()] = {resolve, reject}
+    })
+  }
+  readAsArrayBuffer (blob) {
+    return new Promise((resolve, reject) => {
+      var reader = new FileReader()
+      reader.readAsArrayBuffer(blob)
+      reader.onload = () => {
+        resolve(reader.result)
+      }
+      reader.onerror = (e) => {
+        reject(e)
+      }
     })
   }
 }

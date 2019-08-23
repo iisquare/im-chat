@@ -1,7 +1,6 @@
-package com.iisquare.im.server.core;
+package com.iisquare.im.server.broker.core;
 
 import com.iisquare.im.protobuf.IM;
-import com.iisquare.im.server.broker.Dispatcher;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;

@@ -1,4 +1,4 @@
-package com.iisquare.im.server.core;
+package com.iisquare.im.server.broker.core;
 
 import com.iisquare.im.protobuf.IM;
 import io.netty.channel.ChannelHandlerContext;

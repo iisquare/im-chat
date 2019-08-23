@@ -1,21 +1,9 @@
 import IMPB from '@/sdk/protobuf/IM_pb'
 import uuidv1 from 'uuid/v1'
-
+// import {Any} from 'google-protobuf/google/protobuf/any_pb.js'
 class LogicBase {
   constructor (im) {
     this.im = im
-  }
-  static readAsArrayBuffer (blob) {
-    return new Promise((resolve, reject) => {
-      var reader = new FileReader()
-      reader.readAsArrayBuffer(event.data)
-      reader.onload = () => {
-        resolve(reader.result)
-      }
-      reader.onerror = (e) => {
-        reject(e)
-      }
-    })
   }
   sequence () {
     return uuidv1().replace(/-/g, '')

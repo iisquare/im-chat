@@ -1,7 +1,7 @@
 package com.iisquare.im.server.broker;
 
 import com.iisquare.im.server.api.mvc.Configuration;
-import com.iisquare.im.server.core.Broker;
+import com.iisquare.im.server.broker.core.Broker;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;

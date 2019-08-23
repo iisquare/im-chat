@@ -1,6 +1,6 @@
 package com.iisquare.im.server.broker;
 
-import com.iisquare.im.server.core.Handler;
+import com.iisquare.im.server.broker.core.Handler;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
