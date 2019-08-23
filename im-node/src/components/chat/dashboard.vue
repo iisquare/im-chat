@@ -100,6 +100,7 @@ export default {
     this.im.connect(this.$store.state.user.data.token).then(result => {
       console.log('result', result)
     }).catch(error => {
+      console.log(error)
       this.$bvToast.toast(error.getMessage(), {
         title: '认证失败',
         toaster: 'b-toaster-top-center',

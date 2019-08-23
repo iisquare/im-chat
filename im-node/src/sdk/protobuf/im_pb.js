@@ -12,8 +12,6 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-var google_protobuf_any_pb = require('google-protobuf/google/protobuf/any_pb.js');
-goog.object.extend(proto, google_protobuf_any_pb);
 goog.exportSymbol('proto.im.Directive', null, global);
 goog.exportSymbol('proto.im.Result', null, global);
 /**
@@ -92,7 +90,7 @@ proto.im.Directive.toObject = function(includeInstance, msg) {
   var f, obj = {
     sequence: jspb.Message.getFieldWithDefault(msg, 1, ""),
     command: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    parameter: (f = msg.getParameter()) && google_protobuf_any_pb.Any.toObject(includeInstance, f)
+    parameter: msg.getParameter_asB64()
   };
 
   if (includeInstance) {
@@ -138,8 +136,7 @@ proto.im.Directive.deserializeBinaryFromReader = function(msg, reader) {
       msg.setCommand(value);
       break;
     case 3:
-      var value = new google_protobuf_any_pb.Any;
-      reader.readMessage(value,google_protobuf_any_pb.Any.deserializeBinaryFromReader);
+      var value = /** @type {!Uint8Array} */ (reader.readBytes());
       msg.setParameter(value);
       break;
     default:
@@ -185,12 +182,11 @@ proto.im.Directive.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getParameter();
-  if (f != null) {
-    writer.writeMessage(
+  f = message.getParameter_asU8();
+  if (f.length > 0) {
+    writer.writeBytes(
       3,
-      f,
-      google_protobuf_any_pb.Any.serializeBinaryToWriter
+      f
     );
   }
 };
@@ -227,35 +223,41 @@ proto.im.Directive.prototype.setCommand = function(value) {
 
 
 /**
- * optional google.protobuf.Any parameter = 3;
- * @return {?proto.google.protobuf.Any}
+ * optional bytes parameter = 3;
+ * @return {!(string|Uint8Array)}
  */
 proto.im.Directive.prototype.getParameter = function() {
-  return /** @type{?proto.google.protobuf.Any} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_any_pb.Any, 3));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {?proto.google.protobuf.Any|undefined} value */
+/**
+ * optional bytes parameter = 3;
+ * This is a type-conversion wrapper around `getParameter()`
+ * @return {string}
+ */
+proto.im.Directive.prototype.getParameter_asB64 = function() {
+  return /** @type {string} */ (jspb.Message.bytesAsB64(
+      this.getParameter()));
+};
+
+
+/**
+ * optional bytes parameter = 3;
+ * Note that Uint8Array is not supported on all browsers.
+ * @see http://caniuse.com/Uint8Array
+ * This is a type-conversion wrapper around `getParameter()`
+ * @return {!Uint8Array}
+ */
+proto.im.Directive.prototype.getParameter_asU8 = function() {
+  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
+      this.getParameter()));
+};
+
+
+/** @param {!(string|Uint8Array)} value */
 proto.im.Directive.prototype.setParameter = function(value) {
-  jspb.Message.setWrapperField(this, 3, value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- */
-proto.im.Directive.prototype.clearParameter = function() {
-  this.setParameter(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.im.Directive.prototype.hasParameter = function() {
-  return jspb.Message.getField(this, 3) != null;
+  jspb.Message.setProto3BytesField(this, 3, value);
 };
 
 
@@ -294,7 +296,7 @@ proto.im.Result.toObject = function(includeInstance, msg) {
     sequence: jspb.Message.getFieldWithDefault(msg, 1, ""),
     code: jspb.Message.getFieldWithDefault(msg, 2, 0),
     message: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    data: (f = msg.getData()) && google_protobuf_any_pb.Any.toObject(includeInstance, f)
+    data: msg.getData_asB64()
   };
 
   if (includeInstance) {
@@ -344,8 +346,7 @@ proto.im.Result.deserializeBinaryFromReader = function(msg, reader) {
       msg.setMessage(value);
       break;
     case 4:
-      var value = new google_protobuf_any_pb.Any;
-      reader.readMessage(value,google_protobuf_any_pb.Any.deserializeBinaryFromReader);
+      var value = /** @type {!Uint8Array} */ (reader.readBytes());
       msg.setData(value);
       break;
     default:
@@ -398,12 +399,11 @@ proto.im.Result.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getData();
-  if (f != null) {
-    writer.writeMessage(
+  f = message.getData_asU8();
+  if (f.length > 0) {
+    writer.writeBytes(
       4,
-      f,
-      google_protobuf_any_pb.Any.serializeBinaryToWriter
+      f
     );
   }
 };
@@ -455,35 +455,41 @@ proto.im.Result.prototype.setMessage = function(value) {
 
 
 /**
- * optional google.protobuf.Any data = 4;
- * @return {?proto.google.protobuf.Any}
+ * optional bytes data = 4;
+ * @return {!(string|Uint8Array)}
  */
 proto.im.Result.prototype.getData = function() {
-  return /** @type{?proto.google.protobuf.Any} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_any_pb.Any, 4));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
-/** @param {?proto.google.protobuf.Any|undefined} value */
+/**
+ * optional bytes data = 4;
+ * This is a type-conversion wrapper around `getData()`
+ * @return {string}
+ */
+proto.im.Result.prototype.getData_asB64 = function() {
+  return /** @type {string} */ (jspb.Message.bytesAsB64(
+      this.getData()));
+};
+
+
+/**
+ * optional bytes data = 4;
+ * Note that Uint8Array is not supported on all browsers.
+ * @see http://caniuse.com/Uint8Array
+ * This is a type-conversion wrapper around `getData()`
+ * @return {!Uint8Array}
+ */
+proto.im.Result.prototype.getData_asU8 = function() {
+  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
+      this.getData()));
+};
+
+
+/** @param {!(string|Uint8Array)} value */
 proto.im.Result.prototype.setData = function(value) {
-  jspb.Message.setWrapperField(this, 4, value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- */
-proto.im.Result.prototype.clearData = function() {
-  this.setData(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.im.Result.prototype.hasData = function() {
-  return jspb.Message.getField(this, 4) != null;
+  jspb.Message.setProto3BytesField(this, 4, value);
 };
 
 

@@ -5,7 +5,9 @@ class UserLogic extends LogicBase {
   auth (token) {
     let parameter = new IMUserPB.Auth()
     parameter.setToken(token)
-    return this.im.client.send(this.directive('user.auth', parameter))
+    return this.send('user.auth', parameter).then(result => {
+      return this.result(IMUserPB.AuthResult, result)
+    })
   }
 }
 

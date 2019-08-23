@@ -1,6 +1,5 @@
 package com.iisquare.im.server.broker.logic;
 
-import com.google.protobuf.Any;
 import com.iisquare.im.protobuf.IM;
 import com.iisquare.im.protobuf.IMUser;
 import com.iisquare.im.server.api.entity.User;
@@ -26,11 +25,13 @@ public class UserLogic extends Logic {
     }
 
     public IM.Result authAction(ChannelHandlerContext ctx, IM.Directive directive) throws Exception {
-        IMUser.Auth auth = directive.getParameter().unpack(IMUser.Auth.class);
+//         IMUser.Auth auth = directive.getParameter().unpack(IMUser.Auth.class);
+        IMUser.Auth auth = IMUser.Auth.parseFrom(directive.getParameter());
         User info = userService.info(userService.userId(auth.getToken()));
         if (null == info) return result(directive, 404, "用户信息不存在", null);
         ctx.channel().attr(USER_KEY).set(info.getId());
-        return result(directive, 0, null, Any.pack(IMUser.AuthResult.newBuilder().setUserId(info.getId()).build()));
+//        return result(directive, 0, null, Any.pack(IMUser.AuthResult.newBuilder().setUserId(info.getId()).build()));
+        return result(directive, 0, null, IMUser.AuthResult.newBuilder().setUserId(info.getId()).build().toByteString());
     }
 
 }

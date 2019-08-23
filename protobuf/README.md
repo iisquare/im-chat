@@ -31,3 +31,4 @@ Instant Message
 ## Reference
 - [Developer Guide](https://developers.google.com/protocol-buffers/docs/overview?hl=zh-CN)
 - [js](https://github.com/protocolbuffers/protobuf/blob/master/js/README.md)
+- [js Any type](https://github.com/protocolbuffers/protobuf/blob/651ba62ab5a9c35e157380e2fd89cf77febb47b9/js/binary/proto_test.js#L646)

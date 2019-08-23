@@ -15,6 +15,12 @@ class LogicBase {
     directive.setParameter(parameter.serializeBinary())
     return directive
   }
+  send (command, parameter) {
+    return this.im.client.send(this.directive(command, parameter))
+  }
+  result (T, result) {
+    return T.deserializeBinary(result.getData())
+  }
 }
 
 export default LogicBase

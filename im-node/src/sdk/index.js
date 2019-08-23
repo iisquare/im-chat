@@ -2,7 +2,6 @@ import HttpClient from '@/sdk/http'
 import WebSocketClient from '@/sdk/websocket'
 import CometClient from '@/sdk/comet'
 import UserLogic from '@/sdk/logic/user'
-
 class ImClient {
   constructor (uri) {
     this.http = new HttpClient(uri)
@@ -17,7 +16,7 @@ class ImClient {
         let route = response.data.routes[node]
         let config = {
           onOpen (event) {
-            _this.userLogic.auth(_this.token).then(result => resolve(reject)).catch(error => reject(error))
+            _this.userLogic.auth(_this.token).then(result => resolve(result)).catch(error => reject(error))
           }
         }
         this.client = window.WebSocket ? new WebSocketClient(Object.assign(config, {ws: route.ws})) : new CometClient(Object.assign(config, route.comet))

@@ -1,11 +1,11 @@
 package com.iisquare.im.server.broker.core;
 
-import com.google.protobuf.Any;
+import com.google.protobuf.ByteString;
 import com.iisquare.im.protobuf.IM;
 
 public abstract class Logic {
 
-    public static IM.Result result(IM.Directive directive, int code, String message, Any data) {
+    public static IM.Result result(IM.Directive directive, int code, String message, ByteString data) {
         if(null == message) {
             switch (code) {
                 case 0:
@@ -24,7 +24,8 @@ public abstract class Logic {
                     message = "";
             }
         }
-        if (null == data) data = Any.getDefaultInstance();
+//        if (null == data) data = Any.getDefaultInstance();
+        if (null == data) data = ByteString.EMPTY;
         return IM.Result.newBuilder()
             .setSequence(directive.getSequence()).setCode(code).setMessage(message).setData(data).build();
     }
