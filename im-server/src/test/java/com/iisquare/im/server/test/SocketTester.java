@@ -14,8 +14,18 @@ import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.Map;
 
 public class SocketTester {
+
+    @Test
+    public void castTest() {
+        Object obj = null;
+        String str = (String) obj;
+        System.out.println(str);
+        Map map = (Map) obj;
+        System.out.println(map);
+    }
 
     @Test
     public void blockClientTest() throws IOException {

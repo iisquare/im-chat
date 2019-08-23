@@ -19,9 +19,7 @@ public class Command {
     private Method method;
 
     public IM.Result invoke(ChannelHandlerContext ctx, IM.Directive directive) throws Exception {
-        Object result = method.invoke(instance, ctx, directive);
-        if (null == result) return null;
-        return (IM.Result) result;
+        return (IM.Result) method.invoke(instance, ctx, directive);
     }
 
 }
