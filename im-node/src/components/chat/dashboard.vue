@@ -91,13 +91,23 @@ export default {
   methods: {
     logout () {
       this.$store.commit('user/token', null)
-      this.$router.push('/user/login')
+      this.$router.go(0)
     }
   },
   mounted () {
     this.userId = this.$store.state.user.data.userId || ''
     this.im = new ImClient(process.env.apiURL)
-    this.im.connect(this.$store.state.user.data.token)
+    this.im.connect(this.$store.state.user.data.token).then(result => {
+      console.log('result', result)
+    }).catch(error => {
+      this.$bvToast.toast(error.getMessage(), {
+        title: '认证失败',
+        toaster: 'b-toaster-top-center',
+        variant: 'danger',
+        solid: true
+      })
+      window.setTimeout(() => { this.logout() }, 3000)
+    })
   }
 }
 </script>

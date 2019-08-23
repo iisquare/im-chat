@@ -20,8 +20,11 @@ public abstract class Logic {
                 case 500:
                     message = "操作失败";
                     break;
+                default:
+                    message = "";
             }
         }
+        if (null == data) data = ByteString.EMPTY;
         return IM.Result.newBuilder()
             .setSequence(directive.getSequence()).setCode(code).setMessage(message).setData(data).build();
     }

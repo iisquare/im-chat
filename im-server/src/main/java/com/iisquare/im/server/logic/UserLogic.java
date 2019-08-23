@@ -28,7 +28,6 @@ public class UserLogic extends Logic {
         IMUser.Auth auth = IMUser.Auth.parseFrom(directive.getParameter());
         User info = userService.info(userService.userId(auth.getToken()));
         if (null == info) return result(directive, 404, "用户信息不存在", null);
-        if (info.isBlocked()) return result(directive, 403, "用户状态异常", null);
         ctx.channel().attr(USER_KEY).set(info.getId());
         return result(directive, 0, null, IMUser.AuthResult.newBuilder().setUserId(info.getId()).build().toByteString());
     }
