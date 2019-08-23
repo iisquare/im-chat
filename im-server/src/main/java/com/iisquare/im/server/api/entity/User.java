@@ -42,4 +42,9 @@ public class User implements Serializable {
         return String.valueOf(pushable);
     }
 
+    public boolean isBlocked() {
+        if (null == block) return false;
+        return block.getTime() > System.currentTimeMillis();
+    }
+
 }
