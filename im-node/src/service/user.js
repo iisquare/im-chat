@@ -9,5 +9,9 @@ export default {
     return new Promise(() => {
       this.$store.commit('user/token', null)
     })
+  },
+  search (param) {
+    if (!param) param = {}
+    return base.post('/user/search', param)
   }
 }

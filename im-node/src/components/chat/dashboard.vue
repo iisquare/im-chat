@@ -18,9 +18,8 @@
         <b-row align-v="center">
           <b-col>
             <b-input-group size="sm">
-              <b-input-group-prepend><span class="input-group-text"><i class="fa fa-search"></i></span></b-input-group-prepend>
               <b-form-input placeholder="search contacts"></b-form-input>
-              <b-input-group-append><b-button variant="outline-secondary" class="fa fa-plus"></b-button></b-input-group-append>
+              <b-input-group-append><span class="input-group-text"><i class="fa fa-search"></i></span></b-input-group-append>
             </b-input-group>
           </b-col>
         </b-row>

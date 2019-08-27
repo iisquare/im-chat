@@ -6,9 +6,14 @@ import com.iisquare.im.server.api.mvc.ServiceBase;
 import com.iisquare.util.DPUtil;
 import com.iisquare.util.ValidateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.criteria.Predicate;
 import java.util.*;
 
 @Service
@@ -18,6 +23,32 @@ public class UserService extends ServiceBase {
     private UserDao userDao;
     @Autowired
     private StringRedisTemplate redis;
+
+    public Map<String, Object> search(Map<?, ?> param, Map<?, ?> config) {
+        Map<String, Object> result = new LinkedHashMap<>();
+        int page = ValidateUtil.filterInteger(param.get("page"), true, 1, null, 1);
+        int pageSize = ValidateUtil.filterInteger(param.get("pageSize"), true, 1, 500, 15);
+        Sort sort = sort(DPUtil.parseString(param.get("sort")), Arrays.asList("id"));
+        if (null == sort) sort = Sort.by(Sort.Order.asc("id"));
+        Page<User> data = userDao.findAll((Specification) (root, query, cb) -> {
+            List<Predicate> predicates = new ArrayList<>();
+            String id = DPUtil.trim(DPUtil.parseString(param.get("id")));
+            if(!DPUtil.empty(id)) {
+                predicates.add(cb.like(root.get("id"), "%" + id + "%"));
+            }
+            String except = DPUtil.trim(DPUtil.parseString(param.get("except")));
+            if(!DPUtil.empty(except)) {
+                predicates.add(cb.equal(root.get("id"), except));
+            }
+            return cb.and(predicates.toArray(new Predicate[predicates.size()]));
+        }, PageRequest.of(page - 1, pageSize, sort));
+        List<User> rows = data.getContent();
+        result.put("page", page);
+        result.put("pageSize", pageSize);
+        result.put("total", data.getTotalElements());
+        result.put("rows", rows);
+        return result;
+    }
 
     public String validate(String id) {
         return ValidateUtil.filterSimpleString(id, true, 6, 32, null);

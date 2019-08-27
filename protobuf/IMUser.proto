@@ -1,11 +1,9 @@
 syntax = "proto3";
 package im;
 option java_package = "com.iisquare.im.protobuf";
-message Auth
-{
+message Auth {
    string token = 1;
 }
-message AuthResult
-{
+message AuthResult {
    string userId = 1;
 }

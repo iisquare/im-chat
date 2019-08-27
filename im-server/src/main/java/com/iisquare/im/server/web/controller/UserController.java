@@ -19,6 +19,12 @@ public class UserController extends WebController {
     @Autowired
     private UserService userService;
 
+    @PostMapping("/search")
+    public String searchAction(@RequestBody Map<String, Object> param) {
+        Map<String, Object> result = userService.search(param, DPUtil.buildMap());
+        return ApiUtil.echoResult(0, null, result);
+    }
+
     @PostMapping("/token")
     public String tokenAction(@RequestBody Map<String, Object> param) {
         String userId = userService.validate(DPUtil.parseString(param.get("userId")));
