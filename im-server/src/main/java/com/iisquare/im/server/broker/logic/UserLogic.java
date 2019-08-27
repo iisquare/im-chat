@@ -31,7 +31,7 @@ public class UserLogic extends Logic {
         if (null == info) return result(directive, 404, "用户信息不存在", null);
         ctx.channel().attr(USER_KEY).set(info.getId());
 //        return result(directive, 0, null, Any.pack(IMUser.AuthResult.newBuilder().setUserId(info.getId()).build()));
-        return result(directive, 0, null, IMUser.AuthResult.newBuilder().setUserId(info.getId()).build().toByteString());
+        return result(directive, 0, null, IMUser.AuthResult.newBuilder().setUserId(info.getId()).build());
     }
 
 }
