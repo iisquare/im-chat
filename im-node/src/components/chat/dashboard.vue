@@ -18,7 +18,7 @@
         <b-row align-v="center">
           <b-col>
             <b-input-group size="sm">
-              <b-form-input placeholder="search contacts"></b-form-input>
+              <b-form-input v-model="keyword" placeholder="search contacts"></b-form-input>
               <b-input-group-append><span class="input-group-text"><i class="fa fa-search"></i></span></b-input-group-append>
             </b-input-group>
           </b-col>
@@ -26,11 +26,11 @@
       </b-container>
       <div class="im-contacts-container">
         <iscroll-view class="im-contacts-scroll" :options="{mouseWheel: true, scrollbars: true, fadeScrollbars: true}">
-          <b-row align-v="center" class="im-contacts-item" :key="index" v-for="(item, index) in items">
+          <b-row align-v="center" class="im-contacts-item" @click="selectContact(index, item)" :key="index" v-for="(item, index) in contacts">
             <b-col>
               <b-media>
-                <b-img slot="aside" width="35" height="35" rounded="circle" :src="'https://picsum.photos/125/125/?image=' + item" :title="index"></b-img>
-                <h6 class="mt-0 mb-0">Nested Media</h6>
+                <b-img slot="aside" width="35" height="35" rounded="circle" :src="'https://picsum.photos/125/125/?image=' + item.id.length"></b-img>
+                <h6 class="mt-0 mb-0">{{item.id}}</h6>
                 <p class="mb-0">xxxxxxxxxxxxxx</p>
               </b-media>
             </b-col>
@@ -39,9 +39,10 @@
       </div>
     </div>
     <div class="im-chat">
-      <div class="im-chat-container">
+      <div class="im-chat-container" v-if="talk">
         <div class="im-chat-title">
-          <h5>XXXXXXXXXXXXXXX</h5>
+          <h5>{{talk.id}}</h5>
+          <i class="fa fa-times im-btn-close" aria-hidden="true"></i>
         </div>
         <div class="im-chat-message">
           <div class="im-message-container">
@@ -79,15 +80,57 @@
 
 <script>
 import ImClient from '@/sdk'
+import wrapper from '@/core/RequestWrapper'
+import userService from '@/service/user'
 export default {
   data () {
     return {
       im: null,
       userId: '',
+      keyword: '',
+      keywording: false,
+      recent: [],
+      searchRows: [],
+      talk: null,
       items: [58, 1, 21, 33, 4, 57, 61, 7, 8, 9]
     }
   },
+  watch: {
+    keyword (keyword) {
+      if (!this.keywording) {
+        this.keywording = true
+        window.setTimeout(() => { this.search() }, 500)
+      }
+    }
+  },
+  computed: {
+    contacts () {
+      return this.keyword === '' ? this.recent : this.searchRows
+    }
+  },
   methods: {
+    selectContact (index, item) {
+      if (this.keyword !== '') {
+        index = this.recent.findIndex((element, index, array) => {
+          return element.id === item.id
+        })
+        if (index !== -1) {
+          item = this.recent[index]
+          this.recent.splice(index, 1)
+        }
+        this.recent.unshift(item)
+        this.keyword = ''
+      }
+      this.talk = item
+    },
+    search () {
+      this.keywording = false
+      wrapper.tips.bind(this)(userService.search({id: this.keyword})).then(response => {
+        if (response.code === 0) {
+          this.searchRows = response.data.rows
+        }
+      })
+    },
     logout () {
       this.$store.commit('user/token', null)
       this.$router.go(0)
@@ -177,9 +220,16 @@ export default {
   padding: 0px 15px 0px 15px;
   border-bottom: #e7e7e7 solid 1px;
   h5 {
+    float: left;
+    width: 50%;
     margin: 0px;
     line-height: 60px;
     vertical-align: middle;
+  }
+  .im-btn-close {
+    float: right;
+    margin-top: 20px;
+    cursor: pointer;
   }
 }
 .im-chat-message {
