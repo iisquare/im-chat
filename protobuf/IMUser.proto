@@ -9,9 +9,11 @@ message AuthResult {
 }
 message Contact {
    message Row {
-      string id = 1;
-      string message = 2;
-      int64 time = 3;
+      string userId = 1;
+      string messageId = 2;
+      string direction = 3; // 方向：发送或接收
+      string content = 4;
+      int64 time = 5;
    }
    repeated Row rows = 1;
 }

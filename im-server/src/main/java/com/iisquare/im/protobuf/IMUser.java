@@ -1248,27 +1248,55 @@ public final class IMUser {
         com.google.protobuf.MessageOrBuilder {
 
       /**
-       * <code>string id = 1;</code>
+       * <code>string userId = 1;</code>
        */
-      java.lang.String getId();
+      java.lang.String getUserId();
       /**
-       * <code>string id = 1;</code>
-       */
-      com.google.protobuf.ByteString
-          getIdBytes();
-
-      /**
-       * <code>string message = 2;</code>
-       */
-      java.lang.String getMessage();
-      /**
-       * <code>string message = 2;</code>
+       * <code>string userId = 1;</code>
        */
       com.google.protobuf.ByteString
-          getMessageBytes();
+          getUserIdBytes();
 
       /**
-       * <code>int64 time = 3;</code>
+       * <code>string messageId = 2;</code>
+       */
+      java.lang.String getMessageId();
+      /**
+       * <code>string messageId = 2;</code>
+       */
+      com.google.protobuf.ByteString
+          getMessageIdBytes();
+
+      /**
+       * <pre>
+       * 方向：发送或接收
+       * </pre>
+       *
+       * <code>string direction = 3;</code>
+       */
+      java.lang.String getDirection();
+      /**
+       * <pre>
+       * 方向：发送或接收
+       * </pre>
+       *
+       * <code>string direction = 3;</code>
+       */
+      com.google.protobuf.ByteString
+          getDirectionBytes();
+
+      /**
+       * <code>string content = 4;</code>
+       */
+      java.lang.String getContent();
+      /**
+       * <code>string content = 4;</code>
+       */
+      com.google.protobuf.ByteString
+          getContentBytes();
+
+      /**
+       * <code>int64 time = 5;</code>
        */
       long getTime();
     }
@@ -1285,8 +1313,10 @@ public final class IMUser {
         super(builder);
       }
       private Row() {
-        id_ = "";
-        message_ = "";
+        userId_ = "";
+        messageId_ = "";
+        direction_ = "";
+        content_ = "";
       }
 
       @java.lang.Override
@@ -1322,16 +1352,28 @@ public final class IMUser {
               case 10: {
                 java.lang.String s = input.readStringRequireUtf8();
 
-                id_ = s;
+                userId_ = s;
                 break;
               }
               case 18: {
                 java.lang.String s = input.readStringRequireUtf8();
 
-                message_ = s;
+                messageId_ = s;
                 break;
               }
-              case 24: {
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                direction_ = s;
+                break;
+              }
+              case 34: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                content_ = s;
+                break;
+              }
+              case 40: {
 
                 time_ = input.readInt64();
                 break;
@@ -1368,78 +1410,154 @@ public final class IMUser {
                 com.iisquare.im.protobuf.IMUser.Contact.Row.class, com.iisquare.im.protobuf.IMUser.Contact.Row.Builder.class);
       }
 
-      public static final int ID_FIELD_NUMBER = 1;
-      private volatile java.lang.Object id_;
+      public static final int USERID_FIELD_NUMBER = 1;
+      private volatile java.lang.Object userId_;
       /**
-       * <code>string id = 1;</code>
+       * <code>string userId = 1;</code>
        */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
+      public java.lang.String getUserId() {
+        java.lang.Object ref = userId_;
         if (ref instanceof java.lang.String) {
           return (java.lang.String) ref;
         } else {
           com.google.protobuf.ByteString bs = 
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          id_ = s;
+          userId_ = s;
           return s;
         }
       }
       /**
-       * <code>string id = 1;</code>
+       * <code>string userId = 1;</code>
        */
       public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
+          getUserIdBytes() {
+        java.lang.Object ref = userId_;
         if (ref instanceof java.lang.String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          id_ = b;
+          userId_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
 
-      public static final int MESSAGE_FIELD_NUMBER = 2;
-      private volatile java.lang.Object message_;
+      public static final int MESSAGEID_FIELD_NUMBER = 2;
+      private volatile java.lang.Object messageId_;
       /**
-       * <code>string message = 2;</code>
+       * <code>string messageId = 2;</code>
        */
-      public java.lang.String getMessage() {
-        java.lang.Object ref = message_;
+      public java.lang.String getMessageId() {
+        java.lang.Object ref = messageId_;
         if (ref instanceof java.lang.String) {
           return (java.lang.String) ref;
         } else {
           com.google.protobuf.ByteString bs = 
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          message_ = s;
+          messageId_ = s;
           return s;
         }
       }
       /**
-       * <code>string message = 2;</code>
+       * <code>string messageId = 2;</code>
        */
       public com.google.protobuf.ByteString
-          getMessageBytes() {
-        java.lang.Object ref = message_;
+          getMessageIdBytes() {
+        java.lang.Object ref = messageId_;
         if (ref instanceof java.lang.String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          message_ = b;
+          messageId_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
 
-      public static final int TIME_FIELD_NUMBER = 3;
+      public static final int DIRECTION_FIELD_NUMBER = 3;
+      private volatile java.lang.Object direction_;
+      /**
+       * <pre>
+       * 方向：发送或接收
+       * </pre>
+       *
+       * <code>string direction = 3;</code>
+       */
+      public java.lang.String getDirection() {
+        java.lang.Object ref = direction_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          direction_ = s;
+          return s;
+        }
+      }
+      /**
+       * <pre>
+       * 方向：发送或接收
+       * </pre>
+       *
+       * <code>string direction = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDirectionBytes() {
+        java.lang.Object ref = direction_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          direction_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int CONTENT_FIELD_NUMBER = 4;
+      private volatile java.lang.Object content_;
+      /**
+       * <code>string content = 4;</code>
+       */
+      public java.lang.String getContent() {
+        java.lang.Object ref = content_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          content_ = s;
+          return s;
+        }
+      }
+      /**
+       * <code>string content = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getContentBytes() {
+        java.lang.Object ref = content_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          content_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int TIME_FIELD_NUMBER = 5;
       private long time_;
       /**
-       * <code>int64 time = 3;</code>
+       * <code>int64 time = 5;</code>
        */
       public long getTime() {
         return time_;
@@ -1459,14 +1577,20 @@ public final class IMUser {
       @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        if (!getIdBytes().isEmpty()) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+        if (!getUserIdBytes().isEmpty()) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userId_);
         }
-        if (!getMessageBytes().isEmpty()) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
+        if (!getMessageIdBytes().isEmpty()) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 2, messageId_);
+        }
+        if (!getDirectionBytes().isEmpty()) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 3, direction_);
+        }
+        if (!getContentBytes().isEmpty()) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 4, content_);
         }
         if (time_ != 0L) {
-          output.writeInt64(3, time_);
+          output.writeInt64(5, time_);
         }
         unknownFields.writeTo(output);
       }
@@ -1477,15 +1601,21 @@ public final class IMUser {
         if (size != -1) return size;
 
         size = 0;
-        if (!getIdBytes().isEmpty()) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+        if (!getUserIdBytes().isEmpty()) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userId_);
         }
-        if (!getMessageBytes().isEmpty()) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
+        if (!getMessageIdBytes().isEmpty()) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, messageId_);
+        }
+        if (!getDirectionBytes().isEmpty()) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, direction_);
+        }
+        if (!getContentBytes().isEmpty()) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, content_);
         }
         if (time_ != 0L) {
           size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(3, time_);
+            .computeInt64Size(5, time_);
         }
         size += unknownFields.getSerializedSize();
         memoizedSize = size;
@@ -1502,10 +1632,14 @@ public final class IMUser {
         }
         com.iisquare.im.protobuf.IMUser.Contact.Row other = (com.iisquare.im.protobuf.IMUser.Contact.Row) obj;
 
-        if (!getId()
-            .equals(other.getId())) return false;
-        if (!getMessage()
-            .equals(other.getMessage())) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
+        if (!getMessageId()
+            .equals(other.getMessageId())) return false;
+        if (!getDirection()
+            .equals(other.getDirection())) return false;
+        if (!getContent()
+            .equals(other.getContent())) return false;
         if (getTime()
             != other.getTime()) return false;
         if (!unknownFields.equals(other.unknownFields)) return false;
@@ -1519,10 +1653,14 @@ public final class IMUser {
         }
         int hash = 41;
         hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + ID_FIELD_NUMBER;
-        hash = (53 * hash) + getId().hashCode();
-        hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
-        hash = (53 * hash) + getMessage().hashCode();
+        hash = (37 * hash) + USERID_FIELD_NUMBER;
+        hash = (53 * hash) + getUserId().hashCode();
+        hash = (37 * hash) + MESSAGEID_FIELD_NUMBER;
+        hash = (53 * hash) + getMessageId().hashCode();
+        hash = (37 * hash) + DIRECTION_FIELD_NUMBER;
+        hash = (53 * hash) + getDirection().hashCode();
+        hash = (37 * hash) + CONTENT_FIELD_NUMBER;
+        hash = (53 * hash) + getContent().hashCode();
         hash = (37 * hash) + TIME_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getTime());
@@ -1659,9 +1797,13 @@ public final class IMUser {
         @java.lang.Override
         public Builder clear() {
           super.clear();
-          id_ = "";
+          userId_ = "";
 
-          message_ = "";
+          messageId_ = "";
+
+          direction_ = "";
+
+          content_ = "";
 
           time_ = 0L;
 
@@ -1691,8 +1833,10 @@ public final class IMUser {
         @java.lang.Override
         public com.iisquare.im.protobuf.IMUser.Contact.Row buildPartial() {
           com.iisquare.im.protobuf.IMUser.Contact.Row result = new com.iisquare.im.protobuf.IMUser.Contact.Row(this);
-          result.id_ = id_;
-          result.message_ = message_;
+          result.userId_ = userId_;
+          result.messageId_ = messageId_;
+          result.direction_ = direction_;
+          result.content_ = content_;
           result.time_ = time_;
           onBuilt();
           return result;
@@ -1742,12 +1886,20 @@ public final class IMUser {
 
         public Builder mergeFrom(com.iisquare.im.protobuf.IMUser.Contact.Row other) {
           if (other == com.iisquare.im.protobuf.IMUser.Contact.Row.getDefaultInstance()) return this;
-          if (!other.getId().isEmpty()) {
-            id_ = other.id_;
+          if (!other.getUserId().isEmpty()) {
+            userId_ = other.userId_;
             onChanged();
           }
-          if (!other.getMessage().isEmpty()) {
-            message_ = other.message_;
+          if (!other.getMessageId().isEmpty()) {
+            messageId_ = other.messageId_;
+            onChanged();
+          }
+          if (!other.getDirection().isEmpty()) {
+            direction_ = other.direction_;
+            onChanged();
+          }
+          if (!other.getContent().isEmpty()) {
+            content_ = other.content_;
             onChanged();
           }
           if (other.getTime() != 0L) {
@@ -1782,153 +1934,311 @@ public final class IMUser {
           return this;
         }
 
-        private java.lang.Object id_ = "";
+        private java.lang.Object userId_ = "";
         /**
-         * <code>string id = 1;</code>
+         * <code>string userId = 1;</code>
          */
-        public java.lang.String getId() {
-          java.lang.Object ref = id_;
+        public java.lang.String getUserId() {
+          java.lang.Object ref = userId_;
           if (!(ref instanceof java.lang.String)) {
             com.google.protobuf.ByteString bs =
                 (com.google.protobuf.ByteString) ref;
             java.lang.String s = bs.toStringUtf8();
-            id_ = s;
+            userId_ = s;
             return s;
           } else {
             return (java.lang.String) ref;
           }
         }
         /**
-         * <code>string id = 1;</code>
+         * <code>string userId = 1;</code>
          */
         public com.google.protobuf.ByteString
-            getIdBytes() {
-          java.lang.Object ref = id_;
+            getUserIdBytes() {
+          java.lang.Object ref = userId_;
           if (ref instanceof String) {
             com.google.protobuf.ByteString b = 
                 com.google.protobuf.ByteString.copyFromUtf8(
                     (java.lang.String) ref);
-            id_ = b;
+            userId_ = b;
             return b;
           } else {
             return (com.google.protobuf.ByteString) ref;
           }
         }
         /**
-         * <code>string id = 1;</code>
+         * <code>string userId = 1;</code>
          */
-        public Builder setId(
+        public Builder setUserId(
             java.lang.String value) {
           if (value == null) {
     throw new NullPointerException();
   }
   
-          id_ = value;
+          userId_ = value;
           onChanged();
           return this;
         }
         /**
-         * <code>string id = 1;</code>
+         * <code>string userId = 1;</code>
          */
-        public Builder clearId() {
+        public Builder clearUserId() {
           
-          id_ = getDefaultInstance().getId();
+          userId_ = getDefaultInstance().getUserId();
           onChanged();
           return this;
         }
         /**
-         * <code>string id = 1;</code>
+         * <code>string userId = 1;</code>
          */
-        public Builder setIdBytes(
+        public Builder setUserIdBytes(
             com.google.protobuf.ByteString value) {
           if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
           
-          id_ = value;
+          userId_ = value;
           onChanged();
           return this;
         }
 
-        private java.lang.Object message_ = "";
+        private java.lang.Object messageId_ = "";
         /**
-         * <code>string message = 2;</code>
+         * <code>string messageId = 2;</code>
          */
-        public java.lang.String getMessage() {
-          java.lang.Object ref = message_;
+        public java.lang.String getMessageId() {
+          java.lang.Object ref = messageId_;
           if (!(ref instanceof java.lang.String)) {
             com.google.protobuf.ByteString bs =
                 (com.google.protobuf.ByteString) ref;
             java.lang.String s = bs.toStringUtf8();
-            message_ = s;
+            messageId_ = s;
             return s;
           } else {
             return (java.lang.String) ref;
           }
         }
         /**
-         * <code>string message = 2;</code>
+         * <code>string messageId = 2;</code>
          */
         public com.google.protobuf.ByteString
-            getMessageBytes() {
-          java.lang.Object ref = message_;
+            getMessageIdBytes() {
+          java.lang.Object ref = messageId_;
           if (ref instanceof String) {
             com.google.protobuf.ByteString b = 
                 com.google.protobuf.ByteString.copyFromUtf8(
                     (java.lang.String) ref);
-            message_ = b;
+            messageId_ = b;
             return b;
           } else {
             return (com.google.protobuf.ByteString) ref;
           }
         }
         /**
-         * <code>string message = 2;</code>
+         * <code>string messageId = 2;</code>
          */
-        public Builder setMessage(
+        public Builder setMessageId(
             java.lang.String value) {
           if (value == null) {
     throw new NullPointerException();
   }
   
-          message_ = value;
+          messageId_ = value;
           onChanged();
           return this;
         }
         /**
-         * <code>string message = 2;</code>
+         * <code>string messageId = 2;</code>
          */
-        public Builder clearMessage() {
+        public Builder clearMessageId() {
           
-          message_ = getDefaultInstance().getMessage();
+          messageId_ = getDefaultInstance().getMessageId();
           onChanged();
           return this;
         }
         /**
-         * <code>string message = 2;</code>
+         * <code>string messageId = 2;</code>
          */
-        public Builder setMessageBytes(
+        public Builder setMessageIdBytes(
             com.google.protobuf.ByteString value) {
           if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
           
-          message_ = value;
+          messageId_ = value;
+          onChanged();
+          return this;
+        }
+
+        private java.lang.Object direction_ = "";
+        /**
+         * <pre>
+         * 方向：发送或接收
+         * </pre>
+         *
+         * <code>string direction = 3;</code>
+         */
+        public java.lang.String getDirection() {
+          java.lang.Object ref = direction_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            direction_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <pre>
+         * 方向：发送或接收
+         * </pre>
+         *
+         * <code>string direction = 3;</code>
+         */
+        public com.google.protobuf.ByteString
+            getDirectionBytes() {
+          java.lang.Object ref = direction_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            direction_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <pre>
+         * 方向：发送或接收
+         * </pre>
+         *
+         * <code>string direction = 3;</code>
+         */
+        public Builder setDirection(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          direction_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * 方向：发送或接收
+         * </pre>
+         *
+         * <code>string direction = 3;</code>
+         */
+        public Builder clearDirection() {
+          
+          direction_ = getDefaultInstance().getDirection();
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * 方向：发送或接收
+         * </pre>
+         *
+         * <code>string direction = 3;</code>
+         */
+        public Builder setDirectionBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          direction_ = value;
+          onChanged();
+          return this;
+        }
+
+        private java.lang.Object content_ = "";
+        /**
+         * <code>string content = 4;</code>
+         */
+        public java.lang.String getContent() {
+          java.lang.Object ref = content_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            content_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>string content = 4;</code>
+         */
+        public com.google.protobuf.ByteString
+            getContentBytes() {
+          java.lang.Object ref = content_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            content_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>string content = 4;</code>
+         */
+        public Builder setContent(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          content_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string content = 4;</code>
+         */
+        public Builder clearContent() {
+          
+          content_ = getDefaultInstance().getContent();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string content = 4;</code>
+         */
+        public Builder setContentBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          content_ = value;
           onChanged();
           return this;
         }
 
         private long time_ ;
         /**
-         * <code>int64 time = 3;</code>
+         * <code>int64 time = 5;</code>
          */
         public long getTime() {
           return time_;
         }
         /**
-         * <code>int64 time = 3;</code>
+         * <code>int64 time = 5;</code>
          */
         public Builder setTime(long value) {
           
@@ -1937,7 +2247,7 @@ public final class IMUser {
           return this;
         }
         /**
-         * <code>int64 time = 3;</code>
+         * <code>int64 time = 5;</code>
          */
         public Builder clearTime() {
           
@@ -2697,10 +3007,12 @@ public final class IMUser {
   static {
     java.lang.String[] descriptorData = {
       "\n\014IMUser.proto\022\002im\"\025\n\004Auth\022\r\n\005token\030\001 \001(" +
-      "\t\"\034\n\nAuthResult\022\016\n\006userId\030\001 \001(\t\"Z\n\007Conta" +
-      "ct\022\035\n\004rows\030\001 \003(\0132\017.im.Contact.Row\0320\n\003Row" +
-      "\022\n\n\002id\030\001 \001(\t\022\017\n\007message\030\002 \001(\t\022\014\n\004time\030\003 " +
-      "\001(\003B\032\n\030com.iisquare.im.protobufb\006proto3"
+      "\t\"\034\n\nAuthResult\022\016\n\006userId\030\001 \001(\t\"\204\001\n\007Cont" +
+      "act\022\035\n\004rows\030\001 \003(\0132\017.im.Contact.Row\032Z\n\003Ro" +
+      "w\022\016\n\006userId\030\001 \001(\t\022\021\n\tmessageId\030\002 \001(\t\022\021\n\t" +
+      "direction\030\003 \001(\t\022\017\n\007content\030\004 \001(\t\022\014\n\004time" +
+      "\030\005 \001(\003B\032\n\030com.iisquare.im.protobufb\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2729,7 +3041,7 @@ public final class IMUser {
     internal_static_im_Contact_Row_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_im_Contact_Row_descriptor,
-        new java.lang.String[] { "Id", "Message", "Time", });
+        new java.lang.String[] { "UserId", "MessageId", "Direction", "Content", "Time", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

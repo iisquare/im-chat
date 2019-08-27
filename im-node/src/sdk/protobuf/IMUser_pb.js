@@ -508,9 +508,11 @@ proto.im.Contact.Row.prototype.toObject = function(opt_includeInstance) {
  */
 proto.im.Contact.Row.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    message: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    time: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    userid: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    messageid: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    direction: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    content: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    time: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -549,13 +551,21 @@ proto.im.Contact.Row.deserializeBinaryFromReader = function(msg, reader) {
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setId(value);
+      msg.setUserid(value);
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
-      msg.setMessage(value);
+      msg.setMessageid(value);
       break;
     case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDirection(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setContent(value);
+      break;
+    case 5:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setTime(value);
       break;
@@ -588,24 +598,38 @@ proto.im.Contact.Row.prototype.serializeBinary = function() {
  */
 proto.im.Contact.Row.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getId();
+  f = message.getUserid();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = message.getMessage();
+  f = message.getMessageid();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
+  f = message.getDirection();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
+  f = message.getContent();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
+    );
+  }
   f = message.getTime();
   if (f !== 0) {
     writer.writeInt64(
-      3,
+      5,
       f
     );
   }
@@ -613,47 +637,77 @@ proto.im.Contact.Row.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional string id = 1;
+ * optional string userId = 1;
  * @return {string}
  */
-proto.im.Contact.Row.prototype.getId = function() {
+proto.im.Contact.Row.prototype.getUserid = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.im.Contact.Row.prototype.setId = function(value) {
+proto.im.Contact.Row.prototype.setUserid = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
 /**
- * optional string message = 2;
+ * optional string messageId = 2;
  * @return {string}
  */
-proto.im.Contact.Row.prototype.getMessage = function() {
+proto.im.Contact.Row.prototype.getMessageid = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /** @param {string} value */
-proto.im.Contact.Row.prototype.setMessage = function(value) {
+proto.im.Contact.Row.prototype.setMessageid = function(value) {
   jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
 /**
- * optional int64 time = 3;
+ * optional string direction = 3;
+ * @return {string}
+ */
+proto.im.Contact.Row.prototype.getDirection = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/** @param {string} value */
+proto.im.Contact.Row.prototype.setDirection = function(value) {
+  jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional string content = 4;
+ * @return {string}
+ */
+proto.im.Contact.Row.prototype.getContent = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/** @param {string} value */
+proto.im.Contact.Row.prototype.setContent = function(value) {
+  jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * optional int64 time = 5;
  * @return {number}
  */
 proto.im.Contact.Row.prototype.getTime = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
 /** @param {number} value */
 proto.im.Contact.Row.prototype.setTime = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
