@@ -68,10 +68,10 @@
           </div>
         </div>
         <div class="im-chat-input">
-          <b-form-textarea placeholder="" no-resize></b-form-textarea>
+          <b-form-textarea v-model="message" placeholder="" no-resize></b-form-textarea>
         </div>
         <div class="im-chat-button">
-          <b-button variant="secondary" size="sm">发送(S)</b-button>
+          <b-button @click="send" variant="secondary" size="sm">发送(S)</b-button>
         </div>
       </div>
     </div>
@@ -92,6 +92,7 @@ export default {
       recent: [],
       searchRows: [],
       talk: null,
+      message: '',
       items: [58, 1, 21, 33, 4, 57, 61, 7, 8, 9]
     }
   },
@@ -109,6 +110,10 @@ export default {
     }
   },
   methods: {
+    send () {
+      if (this.message === '') return
+      this.message = ''
+    },
     selectContact (index, item) {
       if (this.keyword !== '') {
         index = this.recent.findIndex((element, index, array) => {

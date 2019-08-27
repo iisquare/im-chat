@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2019-08-16 15:40:14
+Date: 2019-08-27 18:10:02
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -24,7 +24,7 @@ CREATE TABLE `im_message` (
   `sender` varchar(32) NOT NULL DEFAULT '',
   `version` bigint(20) unsigned NOT NULL DEFAULT '0',
   `reception` varchar(16) NOT NULL DEFAULT '',
-  `receiver` text NOT NULL,
+  `receiver` varchar(32) NOT NULL DEFAULT '',
   `sequence` char(32) NOT NULL DEFAULT '',
   `type` varchar(16) NOT NULL DEFAULT '',
   `content` text NOT NULL,

@@ -7,3 +7,11 @@ message Auth {
 message AuthResult {
    string userId = 1;
 }
+message Contact {
+   message Row {
+      string id = 1;
+      string message = 2;
+      int64 time = 3;
+   }
+   repeated Row rows = 1;
+}

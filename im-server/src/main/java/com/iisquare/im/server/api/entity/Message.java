@@ -30,7 +30,7 @@ public class Message implements Serializable {
     @Column
     private Long version; // 累加版本号，单个发送者下唯一
     @Column
-    private String reception; // 接收方类型[single-单发，multi-多发，group-群发，official-公众号]
+    private String reception; // 接收方类型[person-单聊，group-群发，official-公众号]
     @Column
     private String receiver; // 接收者
     @Column

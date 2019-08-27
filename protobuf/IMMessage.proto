@@ -1,0 +1,82 @@
+syntax = "proto3";
+package im;
+option java_package = "com.iisquare.im.protobuf";
+message Push {
+   string reception = 1;
+   string receiver = 2;
+   string type = 3;
+   string content = 4;
+}
+message PushACK {
+   string id = 1;
+   int64 version = 2;
+   int64 time = 3;
+}
+message Sync {
+   int64 version = 1;
+}
+message Pull {
+   int32 page = 1;
+   int32 pageSize = 2;
+   string sort = 3;
+   int64 version = 4;
+   string direction = 5;
+}
+message PullSendResult {
+   message Row {
+      string id = 1;
+      int64 version = 2; // 发送表版本
+      string reception = 3;
+      string receiver = 4;
+      string type = 5;
+      string content = 6;
+      int64 time = 7;
+      int64 withdraw = 8; // 发送表撤回
+      int64 delete = 9; // 发送表删除
+      int64 read = 10; // 接收表已读（单聊）
+   }
+   int32 page = 1;
+   int32 pageSize = 2;
+   int64 total = 3;
+   repeated Row rows = 4;
+}
+message PullRecieveResult {
+   message Row {
+      string id = 1;
+      int64 version = 2; // 接收表版本
+      string type = 3;
+      string content = 4;
+      int64 time = 5;
+      int64 withdraw = 6; // 发送表撤回
+      int64 delete = 7; // 接收表删除
+      int64 read = 8; // 接收表已读
+   }
+   int32 page = 1;
+   int32 pageSize = 2;
+   int64 total = 3;
+   repeated Row rows = 4;
+}
+message History {
+   int32 page = 1;
+   int32 pageSize = 2;
+   int64 time = 3;
+   string reception = 4;
+   string receiver = 5;
+}
+message HistoryResult {
+   message Row {
+      string id = 1;
+      string reception = 3;
+      string receiver = 4;
+      string type = 5;
+      string content = 6;
+      int64 time = 7;
+      int64 withdraw = 8; // 发送表撤回
+      int64 delete = 9; // 发送者-发送表删除，接收者-接收表删除
+      int64 read = 10; // 接收表已读（单聊）
+   }
+   int32 page = 1;
+   int32 pageSize = 2;
+   int64 total = 3;
+   repeated Row rows = 4;
+}
