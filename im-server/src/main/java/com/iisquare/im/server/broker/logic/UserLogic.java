@@ -29,7 +29,6 @@ import java.util.concurrent.ConcurrentHashMap;
 public class UserLogic extends Logic {
 
     public static final AttributeKey USER_KEY = AttributeKey.valueOf("userId");
-    public static final String charset = "UTF-8";
     @Autowired
     private UserService userService;
     @Autowired
@@ -89,7 +88,7 @@ public class UserLogic extends Logic {
         if (DPUtil.empty(userId)) return result(directive, 404, "用户信息异常", null);
         IMUser.Contact.Builder builder = IMUser.Contact.newBuilder();
         for (Object o : redis.opsForHash().values(contact(userId))) {
-            builder.addRows(IMUser.Contact.Row.parseFrom(ByteString.copyFrom(o.toString(), charset)));
+            builder.addRows(IMUser.Contact.Row.parseFrom(ByteString.copyFromUtf8(o.toString())));
         }
         return result(directive, 0, null, builder.build());
     }
@@ -111,13 +110,13 @@ public class UserLogic extends Logic {
         IMUser.Contact.Row.Builder builder = IMUser.Contact.Row.newBuilder();
         builder.setUserId(receiver.getId()).setMessageId(message.getId()).setDirection("send")
             .setContent(message.getContent()).setTime(message.getTime().getTime());
-        String data = builder.build().toByteString().toString(charset);
+        String data = builder.build().toByteString().toStringUtf8();
         redis.opsForHash().put(contact(sender.getId()), receiver.getId(), data);
         // 接收方
         builder = IMUser.Contact.Row.newBuilder();
         builder.setUserId(sender.getId()).setMessageId(message.getId()).setDirection("receive")
             .setContent(message.getContent()).setTime(message.getTime().getTime());
-        data = builder.build().toByteString().toString(charset);
+        data = builder.build().toByteString().toStringUtf8();
         redis.opsForHash().put(contact(receiver.getId()), sender.getId(), data);
         // 同步通知
         ObjectNode sync = DPUtil.objectNode();

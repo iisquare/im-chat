@@ -70,6 +70,7 @@ public class Dispatcher {
         try {
             return command.invoke(fromType, ctx, directive);
         } catch (Exception e) {
+            logger.warn("dispatch invoke failed", e);
             return Logic.result(directive, -2, e.getMessage(), null);
         }
     }
