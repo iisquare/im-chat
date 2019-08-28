@@ -1,25 +1,19 @@
 package com.iisquare.im.server.broker.logic;
 
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.iisquare.im.protobuf.IM;
 import com.iisquare.im.protobuf.IMMessage;
-import com.iisquare.im.protobuf.IMUser;
 import com.iisquare.im.server.api.entity.Message;
 import com.iisquare.im.server.api.entity.Scatter;
 import com.iisquare.im.server.api.entity.User;
 import com.iisquare.im.server.api.service.MessageService;
 import com.iisquare.im.server.api.service.UserService;
 import com.iisquare.im.server.broker.core.Logic;
-import com.iisquare.im.server.broker.job.SyncJob;
-import com.iisquare.util.DPUtil;
 import io.netty.channel.ChannelHandlerContext;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
-import java.util.UUID;
 
 @Component
 public class MessageLogic extends Logic {
@@ -37,7 +31,7 @@ public class MessageLogic extends Logic {
         return redis.opsForValue().increment("im:chat:version:" + userId).longValue();
     }
 
-    public IM.Result pushAction(ChannelHandlerContext ctx, IM.Directive directive) throws Exception {
+    public IM.Result pushAction(String fromType, ChannelHandlerContext ctx, IM.Directive directive) throws Exception {
         User sender = userLogic.info(ctx);
         if (null == sender) return result(directive, 404, "用户信息异常", null);
         IMMessage.Push push = IMMessage.Push.parseFrom(directive.getParameter());
@@ -59,17 +53,8 @@ public class MessageLogic extends Logic {
         scatter = messageService.save(scatter);
         IMMessage.PushACK.Builder ack = IMMessage.PushACK.newBuilder();
         ack.setId(message.getId()).setVersion(message.getVersion()).setTime(message.getTime().getTime());
-        userLogic.concat(sender, message, receiver, scatter);
-        this.sync(sender, message, receiver, scatter);
+        userLogic.sync(sender, message, receiver, scatter);
         return result(directive, 0, null, ack.build());
-    }
-
-    public void sync(User sender, Message message, User receiver, Scatter scatter) {
-        ObjectNode sync = DPUtil.objectNode();
-        sync.put("u", sender.getId()).put("v", message.getVersion());
-        redis.convertAndSend(SyncJob.CHANNEL_SYNC, DPUtil.parseString(sync));
-        sync.put("u", receiver.getId()).put("v", scatter.getVersion());
-        redis.convertAndSend(SyncJob.CHANNEL_SYNC, DPUtil.parseString(sync));
     }
 
 }

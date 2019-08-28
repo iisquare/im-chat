@@ -1,5 +1,6 @@
 package com.iisquare.im.server.broker.logic;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.iisquare.im.protobuf.IM;
 import com.iisquare.im.protobuf.IMUser;
 import com.iisquare.im.server.api.entity.Message;
@@ -7,11 +8,20 @@ import com.iisquare.im.server.api.entity.Scatter;
 import com.iisquare.im.server.api.entity.User;
 import com.iisquare.im.server.api.service.UserService;
 import com.iisquare.im.server.broker.core.Logic;
+import com.iisquare.im.server.broker.job.SyncJob;
+import com.iisquare.util.DPUtil;
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.group.ChannelGroup;
+import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.util.AttributeKey;
+import io.netty.util.concurrent.GlobalEventExecutor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Component
 public class UserLogic extends Logic {
@@ -21,20 +31,52 @@ public class UserLogic extends Logic {
     private UserService userService;
     @Autowired
     private StringRedisTemplate redis;
+    public static final Map<String, ChannelGroup> channels = new ConcurrentHashMap<>();
 
-    public User info(ChannelHandlerContext ctx) {
+    public String userId(ChannelHandlerContext ctx) {
         Object value = ctx.channel().attr(USER_KEY).get();
         if (null == value) return null;
-        User info = userService.info(value.toString());
+        return value.toString();
+    }
+
+    public User info(ChannelHandlerContext ctx) {
+        User info = userService.info(userId(ctx));
         return null == info || info.isBlocked() ? null : info;
     }
 
-    public IM.Result authAction(ChannelHandlerContext ctx, IM.Directive directive) throws Exception {
+    public void logout(String fromType, ChannelHandlerContext ctx) {
+        Channel channel = ctx.channel();
+        ChannelGroup group = channels.get(channelKey(fromType, userId(ctx)));
+        if (null == group) return;
+        group.remove(channel);
+    }
+
+    public ChannelGroup channelGroup(String fromType, String userId) {
+        return channels.get(channelKey(fromType, userId));
+    }
+
+    public String channelKey (String fromType, String userId) {
+        return fromType + "@" + userId;
+    }
+
+    public IM.Result authAction(String fromType, ChannelHandlerContext ctx, IM.Directive directive) throws Exception {
 //         IMUser.Auth auth = directive.getParameter().unpack(IMUser.Auth.class);
         IMUser.Auth auth = IMUser.Auth.parseFrom(directive.getParameter());
         User info = userService.info(userService.userId(auth.getToken()));
         if (null == info) return result(directive, 404, "用户信息不存在", null);
         ctx.channel().attr(USER_KEY).set(info.getId());
+        String key = this.channelKey(fromType, info.getId());
+        ChannelGroup group = channels.get(key);
+        if (null == group) {
+            synchronized (UserLogic.class) {
+                group = channels.get(info.getId());
+                if (null == group) {
+                    group = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
+                    channels.put(key, group);
+                }
+            }
+        }
+        group.add(ctx.channel());
 //        return result(directive, 0, null, Any.pack(IMUser.AuthResult.newBuilder().setUserId(info.getId()).build()));
         return result(directive, 0, null, IMUser.AuthResult.newBuilder().setUserId(info.getId()).build());
     }
@@ -43,7 +85,7 @@ public class UserLogic extends Logic {
         return "im:chat:concat:" + userId;
     }
 
-    public void concat(User sender, Message message, User receiver, Scatter scatter) {
+    public void sync(User sender, Message message, User receiver, Scatter scatter) {
         // 发送方
         IMUser.Contact.Row.Builder builder = IMUser.Contact.Row.newBuilder();
         builder.setUserId(receiver.getId()).setMessageId(message.getId()).setDirection("send")
@@ -54,6 +96,12 @@ public class UserLogic extends Logic {
         builder.setUserId(sender.getId()).setMessageId(message.getId()).setDirection("receive")
             .setContent(message.getContent()).setTime(message.getTime().getTime());
         redis.opsForHash().put(concat(receiver.getId()), sender.getId(), builder.build().toByteString());
+        // 同步通知
+        ObjectNode sync = DPUtil.objectNode();
+        sync.put("u", sender.getId()).put("v", message.getVersion());
+        redis.convertAndSend(SyncJob.CHANNEL_SYNC, DPUtil.parseString(sync));
+        sync.put("u", receiver.getId()).put("v", scatter.getVersion());
+        redis.convertAndSend(SyncJob.CHANNEL_SYNC, DPUtil.parseString(sync));
     }
 
 }

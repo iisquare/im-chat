@@ -1,6 +1,7 @@
 package com.iisquare.im.server.broker.core;
 
 import com.iisquare.im.protobuf.IM;
+import com.iisquare.im.server.broker.logic.UserLogic;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
@@ -23,17 +24,19 @@ public abstract class Handler extends ChannelInboundHandlerAdapter {
 
     @Autowired
     protected Dispatcher dispatcher;
+    @Autowired
+    protected UserLogic userLogic;
 
-    public void onAccept(ChannelHandlerContext ctx) {
+    public void onAccept(String fromType, ChannelHandlerContext ctx) {
 
     }
 
-    public void onClose(ChannelHandlerContext ctx) {
-
+    public void onClose(String fromType, ChannelHandlerContext ctx) {
+        userLogic.logout(fromType, ctx);
     }
 
     public void onReceive(String fromType, ChannelHandlerContext ctx, ByteBuf message) {
-        IM.Result result = dispatcher.dispatch(ctx, message);
+        IM.Result result = dispatcher.dispatch(fromType, ctx, message);
         if (null == result) return;
         switch (fromType) {
             case MESSAGE_FROM_TYPE_WS:

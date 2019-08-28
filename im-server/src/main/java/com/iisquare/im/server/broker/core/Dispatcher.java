@@ -57,7 +57,7 @@ public class Dispatcher {
         }
     }
 
-    public IM.Result dispatch(ChannelHandlerContext ctx, ByteBuf message) {
+    public IM.Result dispatch(String fromType, ChannelHandlerContext ctx, ByteBuf message) {
         IM.Directive directive = null;
         try {
             directive = IM.Directive.parseFrom(message.nioBuffer());
@@ -68,7 +68,7 @@ public class Dispatcher {
         Command command = commands.get(directive.getCommand());
         if (null == command) return Logic.result(directive, -1, "指令异常", null);
         try {
-            return command.invoke(ctx, directive);
+            return command.invoke(fromType, ctx, directive);
         } catch (Exception e) {
             return Logic.result(directive, -2, e.getMessage(), null);
         }

@@ -18,8 +18,8 @@ public class Command {
     private Object instance;
     private Method method;
 
-    public IM.Result invoke(ChannelHandlerContext ctx, IM.Directive directive) throws Exception {
-        return (IM.Result) method.invoke(instance, ctx, directive);
+    public IM.Result invoke(String fromType, ChannelHandlerContext ctx, IM.Directive directive) throws Exception {
+        return (IM.Result) method.invoke(instance, fromType, ctx, directive);
     }
 
 }
