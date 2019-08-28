@@ -9,6 +9,11 @@ class UserLogic extends LogicBase {
       return this.result(IMUserPB.AuthResult, result)
     })
   }
+  contact () {
+    return this.send('user.contact').then(result => {
+      return this.result(IMUserPB.Contact, result)
+    })
+  }
 }
 
 export default UserLogic

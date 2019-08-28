@@ -12,7 +12,7 @@ class LogicBase {
     let directive = new IMPB.Directive()
     directive.setSequence(this.sequence())
     directive.setCommand(command)
-    directive.setParameter(parameter.serializeBinary())
+    parameter && directive.setParameter(parameter.serializeBinary())
     return directive
   }
   send (command, parameter) {

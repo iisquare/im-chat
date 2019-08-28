@@ -31,7 +31,7 @@
               <b-media>
                 <b-img slot="aside" width="35" height="35" rounded="circle" :src="'https://picsum.photos/125/125/?image=' + item.id.length"></b-img>
                 <h6 class="mt-0 mb-0">{{item.id}}</h6>
-                <p class="mb-0">xxxxxxxxxxxxxx</p>
+                <p class="mb-0">{{item.content}}</p>
               </b-media>
             </b-col>
           </b-row>
@@ -89,7 +89,7 @@ export default {
       userId: '',
       keyword: '',
       keywording: false,
-      recent: [],
+      contactRows: [],
       searchRows: [],
       talk: null,
       message: '',
@@ -106,7 +106,7 @@ export default {
   },
   computed: {
     contacts () {
-      return this.keyword === '' ? this.recent : this.searchRows
+      return this.keyword === '' ? this.contactRows : this.searchRows
     }
   },
   methods: {
@@ -116,14 +116,14 @@ export default {
     },
     selectContact (index, item) {
       if (this.keyword !== '') {
-        index = this.recent.findIndex((element, index, array) => {
+        index = this.contactRows.findIndex((element, index, array) => {
           return element.id === item.id
         })
         if (index !== -1) {
-          item = this.recent[index]
-          this.recent.splice(index, 1)
+          item = this.contactRows[index]
+          this.contactRows.splice(index, 1)
         }
-        this.recent.unshift(item)
+        this.contactRows.unshift(item)
         this.keyword = ''
       }
       this.talk = item
@@ -145,9 +145,10 @@ export default {
     this.userId = this.$store.state.user.data.userId || ''
     this.im = new ImClient(process.env.apiURL)
     this.im.connect(this.$store.state.user.data.token).then(result => {
-      console.log('result', result)
+      this.im.userLogic.contact().then(result => {
+        this.contactRows = result.getRowsList()
+      })
     }).catch(error => {
-      console.log(error)
       this.$bvToast.toast(error.getMessage(), {
         title: '认证失败',
         toaster: 'b-toaster-top-center',

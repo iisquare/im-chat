@@ -1,6 +1,7 @@
 package com.iisquare.im.server.broker.logic;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.google.protobuf.ByteString;
 import com.iisquare.im.protobuf.IM;
 import com.iisquare.im.protobuf.IMUser;
 import com.iisquare.im.server.api.entity.Message;
@@ -81,8 +82,18 @@ public class UserLogic extends Logic {
         return result(directive, 0, null, IMUser.AuthResult.newBuilder().setUserId(info.getId()).build());
     }
 
-    public String concat(String userId) {
-        return "im:chat:concat:" + userId;
+    public IM.Result contactAction(String fromType, ChannelHandlerContext ctx, IM.Directive directive) throws Exception {
+        String userId = userId(ctx);
+        if (DPUtil.empty(userId)) return result(directive, 404, "用户信息异常", null);
+        IMUser.Contact.Builder builder = IMUser.Contact.newBuilder();
+        for (Object o : redis.opsForHash().values(contact(userId))) {
+            builder.addRows(IMUser.Contact.Row.parseFrom(ByteString.copyFrom(o.toString(), "UTF-8")));
+        }
+        return result(directive, 0, null, builder.build());
+    }
+
+    public String contact(String userId) {
+        return "im:chat:contact:" + userId;
     }
 
     public void sync(User sender, Message message, User receiver, Scatter scatter) {
@@ -90,12 +101,12 @@ public class UserLogic extends Logic {
         IMUser.Contact.Row.Builder builder = IMUser.Contact.Row.newBuilder();
         builder.setUserId(receiver.getId()).setMessageId(message.getId()).setDirection("send")
             .setContent(message.getContent()).setTime(message.getTime().getTime());
-        redis.opsForHash().put(concat(sender.getId()), receiver.getId(), builder.build().toByteString());
+        redis.opsForHash().put(contact(sender.getId()), receiver.getId(), builder.build().toByteString());
         // 接收方
         builder = IMUser.Contact.Row.newBuilder();
         builder.setUserId(sender.getId()).setMessageId(message.getId()).setDirection("receive")
             .setContent(message.getContent()).setTime(message.getTime().getTime());
-        redis.opsForHash().put(concat(receiver.getId()), sender.getId(), builder.build().toByteString());
+        redis.opsForHash().put(contact(receiver.getId()), sender.getId(), builder.build().toByteString());
         // 同步通知
         ObjectNode sync = DPUtil.objectNode();
         sync.put("u", sender.getId()).put("v", message.getVersion());
