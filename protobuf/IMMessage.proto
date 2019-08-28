@@ -17,7 +17,7 @@ message Sync {
 }
 message Pull {
    int32 page = 1;
-   int32 pageSize = 2;
+   int32 page_size = 2;
    string sort = 3;
    int64 version = 4;
    string direction = 5;
@@ -76,7 +76,7 @@ message HistoryResult {
       int64 read = 10; // 接收表已读（单聊）
    }
    int32 page = 1;
-   int32 pageSize = 2;
+   int32 page_size = 2;
    int64 total = 3;
    repeated Row rows = 4;
 }

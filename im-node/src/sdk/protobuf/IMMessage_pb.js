@@ -803,7 +803,7 @@ proto.im.Pull.prototype.toObject = function(opt_includeInstance) {
 proto.im.Pull.toObject = function(includeInstance, msg) {
   var f, obj = {
     page: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    pagesize: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    pageSize: jspb.Message.getFieldWithDefault(msg, 2, 0),
     sort: jspb.Message.getFieldWithDefault(msg, 3, ""),
     version: jspb.Message.getFieldWithDefault(msg, 4, 0),
     direction: jspb.Message.getFieldWithDefault(msg, 5, "")
@@ -849,7 +849,7 @@ proto.im.Pull.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 2:
       var value = /** @type {number} */ (reader.readInt32());
-      msg.setPagesize(value);
+      msg.setPageSize(value);
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
@@ -899,7 +899,7 @@ proto.im.Pull.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getPagesize();
+  f = message.getPageSize();
   if (f !== 0) {
     writer.writeInt32(
       2,
@@ -946,16 +946,16 @@ proto.im.Pull.prototype.setPage = function(value) {
 
 
 /**
- * optional int32 pageSize = 2;
+ * optional int32 page_size = 2;
  * @return {number}
  */
-proto.im.Pull.prototype.getPagesize = function() {
+proto.im.Pull.prototype.getPageSize = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
 /** @param {number} value */
-proto.im.Pull.prototype.setPagesize = function(value) {
+proto.im.Pull.prototype.setPageSize = function(value) {
   jspb.Message.setProto3IntField(this, 2, value);
 };
 
@@ -2440,7 +2440,7 @@ proto.im.HistoryResult.prototype.toObject = function(opt_includeInstance) {
 proto.im.HistoryResult.toObject = function(includeInstance, msg) {
   var f, obj = {
     page: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    pagesize: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    pageSize: jspb.Message.getFieldWithDefault(msg, 2, 0),
     total: jspb.Message.getFieldWithDefault(msg, 3, 0),
     rowsList: jspb.Message.toObjectList(msg.getRowsList(),
     proto.im.HistoryResult.Row.toObject, includeInstance)
@@ -2486,7 +2486,7 @@ proto.im.HistoryResult.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 2:
       var value = /** @type {number} */ (reader.readInt32());
-      msg.setPagesize(value);
+      msg.setPageSize(value);
       break;
     case 3:
       var value = /** @type {number} */ (reader.readInt64());
@@ -2533,7 +2533,7 @@ proto.im.HistoryResult.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getPagesize();
+  f = message.getPageSize();
   if (f !== 0) {
     writer.writeInt32(
       2,
@@ -2917,16 +2917,16 @@ proto.im.HistoryResult.prototype.setPage = function(value) {
 
 
 /**
- * optional int32 pageSize = 2;
+ * optional int32 page_size = 2;
  * @return {number}
  */
-proto.im.HistoryResult.prototype.getPagesize = function() {
+proto.im.HistoryResult.prototype.getPageSize = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
 /** @param {number} value */
-proto.im.HistoryResult.prototype.setPagesize = function(value) {
+proto.im.HistoryResult.prototype.setPageSize = function(value) {
   jspb.Message.setProto3IntField(this, 2, value);
 };
 

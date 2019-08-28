@@ -5,15 +5,18 @@ message Auth {
    string token = 1;
 }
 message AuthResult {
-   string userId = 1;
+   string user_id = 1;
 }
 message Contact {
    message Row {
-      string userId = 1;
-      string messageId = 2;
+      string user_id = 1;
+      string message_id = 2;
       string direction = 3; // 方向：发送或接收
       string content = 4;
       int64 time = 5;
    }
    repeated Row rows = 1;
+}
+message Uncontact {
+   string user_id = 1;
 }

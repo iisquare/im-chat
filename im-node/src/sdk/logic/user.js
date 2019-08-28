@@ -11,8 +11,13 @@ class UserLogic extends LogicBase {
   }
   contact () {
     return this.send('user.contact').then(result => {
-      return this.result(IMUserPB.Contact, result)
+      return this.result(IMUserPB.Contact, result).toObject()
     })
+  }
+  uncontact (userId) {
+    let parameter = new IMUserPB.Uncontact()
+    parameter.setUserId(userId)
+    return this.send('user.uncontact', parameter)
   }
 }
 

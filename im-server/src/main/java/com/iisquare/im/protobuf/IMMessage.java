@@ -2152,7 +2152,7 @@ public final class IMMessage {
     int getPage();
 
     /**
-     * <code>int32 pageSize = 2;</code>
+     * <code>int32 page_size = 2;</code>
      */
     int getPageSize();
 
@@ -2296,10 +2296,10 @@ public final class IMMessage {
       return page_;
     }
 
-    public static final int PAGESIZE_FIELD_NUMBER = 2;
+    public static final int PAGE_SIZE_FIELD_NUMBER = 2;
     private int pageSize_;
     /**
-     * <code>int32 pageSize = 2;</code>
+     * <code>int32 page_size = 2;</code>
      */
     public int getPageSize() {
       return pageSize_;
@@ -2476,7 +2476,7 @@ public final class IMMessage {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + PAGE_FIELD_NUMBER;
       hash = (53 * hash) + getPage();
-      hash = (37 * hash) + PAGESIZE_FIELD_NUMBER;
+      hash = (37 * hash) + PAGE_SIZE_FIELD_NUMBER;
       hash = (53 * hash) + getPageSize();
       hash = (37 * hash) + SORT_FIELD_NUMBER;
       hash = (53 * hash) + getSort().hashCode();
@@ -2781,13 +2781,13 @@ public final class IMMessage {
 
       private int pageSize_ ;
       /**
-       * <code>int32 pageSize = 2;</code>
+       * <code>int32 page_size = 2;</code>
        */
       public int getPageSize() {
         return pageSize_;
       }
       /**
-       * <code>int32 pageSize = 2;</code>
+       * <code>int32 page_size = 2;</code>
        */
       public Builder setPageSize(int value) {
         
@@ -2796,7 +2796,7 @@ public final class IMMessage {
         return this;
       }
       /**
-       * <code>int32 pageSize = 2;</code>
+       * <code>int32 page_size = 2;</code>
        */
       public Builder clearPageSize() {
         
@@ -8582,7 +8582,7 @@ public final class IMMessage {
     int getPage();
 
     /**
-     * <code>int32 pageSize = 2;</code>
+     * <code>int32 page_size = 2;</code>
      */
     int getPageSize();
 
@@ -10145,10 +10145,10 @@ public final class IMMessage {
       return page_;
     }
 
-    public static final int PAGESIZE_FIELD_NUMBER = 2;
+    public static final int PAGE_SIZE_FIELD_NUMBER = 2;
     private int pageSize_;
     /**
-     * <code>int32 pageSize = 2;</code>
+     * <code>int32 page_size = 2;</code>
      */
     public int getPageSize() {
       return pageSize_;
@@ -10285,7 +10285,7 @@ public final class IMMessage {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + PAGE_FIELD_NUMBER;
       hash = (53 * hash) + getPage();
-      hash = (37 * hash) + PAGESIZE_FIELD_NUMBER;
+      hash = (37 * hash) + PAGE_SIZE_FIELD_NUMBER;
       hash = (53 * hash) + getPageSize();
       hash = (37 * hash) + TOTAL_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -10620,13 +10620,13 @@ public final class IMMessage {
 
       private int pageSize_ ;
       /**
-       * <code>int32 pageSize = 2;</code>
+       * <code>int32 page_size = 2;</code>
        */
       public int getPageSize() {
         return pageSize_;
       }
       /**
-       * <code>int32 pageSize = 2;</code>
+       * <code>int32 page_size = 2;</code>
        */
       public Builder setPageSize(int value) {
         
@@ -10635,7 +10635,7 @@ public final class IMMessage {
         return this;
       }
       /**
-       * <code>int32 pageSize = 2;</code>
+       * <code>int32 page_size = 2;</code>
        */
       public Builder clearPageSize() {
         
@@ -11030,31 +11030,31 @@ public final class IMMessage {
       "on\030\001 \001(\t\022\020\n\010receiver\030\002 \001(\t\022\014\n\004type\030\003 \001(\t" +
       "\022\017\n\007content\030\004 \001(\t\"4\n\007PushACK\022\n\n\002id\030\001 \001(\t" +
       "\022\017\n\007version\030\002 \001(\003\022\014\n\004time\030\003 \001(\003\"\027\n\004Sync\022" +
-      "\017\n\007version\030\001 \001(\003\"X\n\004Pull\022\014\n\004page\030\001 \001(\005\022\020" +
-      "\n\010pageSize\030\002 \001(\005\022\014\n\004sort\030\003 \001(\t\022\017\n\007versio" +
-      "n\030\004 \001(\003\022\021\n\tdirection\030\005 \001(\t\"\214\002\n\016PullSendR" +
-      "esult\022\014\n\004page\030\001 \001(\005\022\020\n\010pageSize\030\002 \001(\005\022\r\n" +
-      "\005total\030\003 \001(\003\022$\n\004rows\030\004 \003(\0132\026.im.PullSend" +
-      "Result.Row\032\244\001\n\003Row\022\n\n\002id\030\001 \001(\t\022\017\n\007versio" +
-      "n\030\002 \001(\003\022\021\n\treception\030\003 \001(\t\022\020\n\010receiver\030\004" +
-      " \001(\t\022\014\n\004type\030\005 \001(\t\022\017\n\007content\030\006 \001(\t\022\014\n\004t" +
-      "ime\030\007 \001(\003\022\020\n\010withdraw\030\010 \001(\003\022\016\n\006delete\030\t " +
-      "\001(\003\022\014\n\004read\030\n \001(\003\"\354\001\n\021PullRecieveResult\022" +
-      "\014\n\004page\030\001 \001(\005\022\020\n\010pageSize\030\002 \001(\005\022\r\n\005total" +
-      "\030\003 \001(\003\022\'\n\004rows\030\004 \003(\0132\031.im.PullRecieveRes" +
-      "ult.Row\032\177\n\003Row\022\n\n\002id\030\001 \001(\t\022\017\n\007version\030\002 " +
-      "\001(\003\022\014\n\004type\030\003 \001(\t\022\017\n\007content\030\004 \001(\t\022\014\n\004ti" +
-      "me\030\005 \001(\003\022\020\n\010withdraw\030\006 \001(\003\022\016\n\006delete\030\007 \001" +
-      "(\003\022\014\n\004read\030\010 \001(\003\"\\\n\007History\022\014\n\004page\030\001 \001(" +
-      "\005\022\020\n\010pageSize\030\002 \001(\005\022\014\n\004time\030\003 \001(\003\022\021\n\trec" +
-      "eption\030\004 \001(\t\022\020\n\010receiver\030\005 \001(\t\"\371\001\n\rHisto" +
-      "ryResult\022\014\n\004page\030\001 \001(\005\022\020\n\010pageSize\030\002 \001(\005" +
-      "\022\r\n\005total\030\003 \001(\003\022#\n\004rows\030\004 \003(\0132\025.im.Histo" +
-      "ryResult.Row\032\223\001\n\003Row\022\n\n\002id\030\001 \001(\t\022\021\n\trece" +
-      "ption\030\003 \001(\t\022\020\n\010receiver\030\004 \001(\t\022\014\n\004type\030\005 " +
-      "\001(\t\022\017\n\007content\030\006 \001(\t\022\014\n\004time\030\007 \001(\003\022\020\n\010wi" +
-      "thdraw\030\010 \001(\003\022\016\n\006delete\030\t \001(\003\022\014\n\004read\030\n \001" +
-      "(\003B\032\n\030com.iisquare.im.protobufb\006proto3"
+      "\017\n\007version\030\001 \001(\003\"Y\n\004Pull\022\014\n\004page\030\001 \001(\005\022\021" +
+      "\n\tpage_size\030\002 \001(\005\022\014\n\004sort\030\003 \001(\t\022\017\n\007versi" +
+      "on\030\004 \001(\003\022\021\n\tdirection\030\005 \001(\t\"\214\002\n\016PullSend" +
+      "Result\022\014\n\004page\030\001 \001(\005\022\020\n\010pageSize\030\002 \001(\005\022\r" +
+      "\n\005total\030\003 \001(\003\022$\n\004rows\030\004 \003(\0132\026.im.PullSen" +
+      "dResult.Row\032\244\001\n\003Row\022\n\n\002id\030\001 \001(\t\022\017\n\007versi" +
+      "on\030\002 \001(\003\022\021\n\treception\030\003 \001(\t\022\020\n\010receiver\030" +
+      "\004 \001(\t\022\014\n\004type\030\005 \001(\t\022\017\n\007content\030\006 \001(\t\022\014\n\004" +
+      "time\030\007 \001(\003\022\020\n\010withdraw\030\010 \001(\003\022\016\n\006delete\030\t" +
+      " \001(\003\022\014\n\004read\030\n \001(\003\"\354\001\n\021PullRecieveResult" +
+      "\022\014\n\004page\030\001 \001(\005\022\020\n\010pageSize\030\002 \001(\005\022\r\n\005tota" +
+      "l\030\003 \001(\003\022\'\n\004rows\030\004 \003(\0132\031.im.PullRecieveRe" +
+      "sult.Row\032\177\n\003Row\022\n\n\002id\030\001 \001(\t\022\017\n\007version\030\002" +
+      " \001(\003\022\014\n\004type\030\003 \001(\t\022\017\n\007content\030\004 \001(\t\022\014\n\004t" +
+      "ime\030\005 \001(\003\022\020\n\010withdraw\030\006 \001(\003\022\016\n\006delete\030\007 " +
+      "\001(\003\022\014\n\004read\030\010 \001(\003\"\\\n\007History\022\014\n\004page\030\001 \001" +
+      "(\005\022\020\n\010pageSize\030\002 \001(\005\022\014\n\004time\030\003 \001(\003\022\021\n\tre" +
+      "ception\030\004 \001(\t\022\020\n\010receiver\030\005 \001(\t\"\372\001\n\rHist" +
+      "oryResult\022\014\n\004page\030\001 \001(\005\022\021\n\tpage_size\030\002 \001" +
+      "(\005\022\r\n\005total\030\003 \001(\003\022#\n\004rows\030\004 \003(\0132\025.im.His" +
+      "toryResult.Row\032\223\001\n\003Row\022\n\n\002id\030\001 \001(\t\022\021\n\tre" +
+      "ception\030\003 \001(\t\022\020\n\010receiver\030\004 \001(\t\022\014\n\004type\030" +
+      "\005 \001(\t\022\017\n\007content\030\006 \001(\t\022\014\n\004time\030\007 \001(\003\022\020\n\010" +
+      "withdraw\030\010 \001(\003\022\016\n\006delete\030\t \001(\003\022\014\n\004read\030\n" +
+      " \001(\003B\032\n\030com.iisquare.im.protobufb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

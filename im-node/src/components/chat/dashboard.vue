@@ -29,8 +29,8 @@
           <b-row align-v="center" class="im-contacts-item" @click="selectContact(index, item)" :key="index" v-for="(item, index) in contacts">
             <b-col>
               <b-media>
-                <b-img slot="aside" width="35" height="35" rounded="circle" :src="'https://picsum.photos/125/125/?image=' + item.id.length"></b-img>
-                <h6 class="mt-0 mb-0">{{item.id}}</h6>
+                <b-img slot="aside" width="35" height="35" rounded="circle" :src="'https://picsum.photos/125/125/?image=' + item.userId.length"></b-img>
+                <h6 class="mt-0 mb-0">{{item.userId}}</h6>
                 <p class="mb-0">{{item.content}}</p>
               </b-media>
             </b-col>
@@ -41,8 +41,8 @@
     <div class="im-chat">
       <div class="im-chat-container" v-if="talk">
         <div class="im-chat-title">
-          <h5>{{talk.id}}</h5>
-          <i class="fa fa-times im-btn-close" aria-hidden="true"></i>
+          <h5>{{talk.userId}}</h5>
+          <i @click="uncontact" class="fa fa-times im-btn-close" aria-hidden="true"></i>
         </div>
         <div class="im-chat-message">
           <div class="im-message-container">
@@ -110,14 +110,28 @@ export default {
     }
   },
   methods: {
+    uncontact () {
+      let userId = this.talk.userId
+      this.im.userLogic.uncontact(userId)
+      let index = this.contactRows.findIndex((element, index, array) => {
+        return element.userId === userId
+      })
+      index !== -1 && this.contactRows.splice(index, 1)
+      this.talk = null
+    },
     send () {
       if (this.message === '') return
+      this.im.messageLogic.pushTxt(this.talk.userId, this.message).then(result => {
+        console.log('result', result)
+      }).catch(error => {
+        console.log('error', error)
+      })
       this.message = ''
     },
     selectContact (index, item) {
       if (this.keyword !== '') {
         index = this.contactRows.findIndex((element, index, array) => {
-          return element.id === item.id
+          return element.userId === item.userId
         })
         if (index !== -1) {
           item = this.contactRows[index]
@@ -132,7 +146,10 @@ export default {
       this.keywording = false
       wrapper.tips.bind(this)(userService.search({id: this.keyword})).then(response => {
         if (response.code === 0) {
-          this.searchRows = response.data.rows
+          this.searchRows = response.data.rows.map(item => {
+            item.userId = item.id
+            return item
+          })
         }
       })
     },
@@ -146,7 +163,7 @@ export default {
     this.im = new ImClient(process.env.apiURL)
     this.im.connect(this.$store.state.user.data.token).then(result => {
       this.im.userLogic.contact().then(result => {
-        this.contactRows = result.getRowsList()
+        this.contactRows = result.rowsList
       })
     }).catch(error => {
       this.$bvToast.toast(error.getMessage(), {

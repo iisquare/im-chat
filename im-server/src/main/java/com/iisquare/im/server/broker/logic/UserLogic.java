@@ -21,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -28,6 +29,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class UserLogic extends Logic {
 
     public static final AttributeKey USER_KEY = AttributeKey.valueOf("userId");
+    public static final String charset = "UTF-8";
     @Autowired
     private UserService userService;
     @Autowired
@@ -87,7 +89,7 @@ public class UserLogic extends Logic {
         if (DPUtil.empty(userId)) return result(directive, 404, "用户信息异常", null);
         IMUser.Contact.Builder builder = IMUser.Contact.newBuilder();
         for (Object o : redis.opsForHash().values(contact(userId))) {
-            builder.addRows(IMUser.Contact.Row.parseFrom(ByteString.copyFrom(o.toString(), "UTF-8")));
+            builder.addRows(IMUser.Contact.Row.parseFrom(ByteString.copyFrom(o.toString(), charset)));
         }
         return result(directive, 0, null, builder.build());
     }
@@ -96,17 +98,27 @@ public class UserLogic extends Logic {
         return "im:chat:contact:" + userId;
     }
 
-    public void sync(User sender, Message message, User receiver, Scatter scatter) {
+    public IM.Result uncontactAction(String fromType, ChannelHandlerContext ctx, IM.Directive directive) throws Exception {
+        String userId = userId(ctx);
+        if (DPUtil.empty(userId)) return result(directive, 404, "用户信息异常", null);
+        IMUser.Uncontact uncontact = IMUser.Uncontact.parseFrom(directive.getParameter());
+        redis.opsForHash().delete(contact(userId), uncontact.getUserId());
+        return result(directive, 0, null, null);
+    }
+
+    public void sync(User sender, Message message, User receiver, Scatter scatter) throws UnsupportedEncodingException {
         // 发送方
         IMUser.Contact.Row.Builder builder = IMUser.Contact.Row.newBuilder();
         builder.setUserId(receiver.getId()).setMessageId(message.getId()).setDirection("send")
             .setContent(message.getContent()).setTime(message.getTime().getTime());
-        redis.opsForHash().put(contact(sender.getId()), receiver.getId(), builder.build().toByteString());
+        String data = builder.build().toByteString().toString(charset);
+        redis.opsForHash().put(contact(sender.getId()), receiver.getId(), data);
         // 接收方
         builder = IMUser.Contact.Row.newBuilder();
         builder.setUserId(sender.getId()).setMessageId(message.getId()).setDirection("receive")
             .setContent(message.getContent()).setTime(message.getTime().getTime());
-        redis.opsForHash().put(contact(receiver.getId()), sender.getId(), builder.build().toByteString());
+        data = builder.build().toByteString().toString(charset);
+        redis.opsForHash().put(contact(receiver.getId()), sender.getId(), data);
         // 同步通知
         ObjectNode sync = DPUtil.objectNode();
         sync.put("u", sender.getId()).put("v", message.getVersion());

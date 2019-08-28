@@ -2,10 +2,12 @@ import HttpClient from '@/sdk/http'
 import WebSocketClient from '@/sdk/websocket'
 import CometClient from '@/sdk/comet'
 import UserLogic from '@/sdk/logic/user'
+import MessageLogic from '@/sdk/logic/message'
 class ImClient {
   constructor (uri) {
     this.http = new HttpClient(uri)
     this.userLogic = new UserLogic(this)
+    this.messageLogic = new MessageLogic(this)
   }
   connect (token) {
     let _this = this

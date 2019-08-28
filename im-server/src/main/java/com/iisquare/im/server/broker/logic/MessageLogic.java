@@ -44,7 +44,7 @@ public class MessageLogic extends Logic {
             return result(directive, 1003, "消息类型异常", null);
         }
         Message message = Message.builder().sender(sender.getId())
-            .version(increase(sender.getId())).receiver(push.getReception())
+            .version(increase(sender.getId())).reception(push.getReception())
             .receiver(receiver.getId()).sequence(directive.getSequence())
             .type(push.getType()).content(push.getContent()).time(new Date()).build();
         message = messageService.save(message);
