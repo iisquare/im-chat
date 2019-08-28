@@ -55,14 +55,15 @@ public class SyncJob implements MessageListener {
         IM.Result result = IM.Result.newBuilder().setSequence("sync").setData(sync.toByteString()).build();
         for (String fromType : fromTypes) {
             ChannelGroup group = userLogic.channelGroup(fromType, json.get("u").asText());
+            if (null == group) continue;
             switch (fromType) {
                 case Handler.MESSAGE_FROM_TYPE_WS:
                     group.writeAndFlush(new BinaryWebSocketFrame(Unpooled.wrappedBuffer(result.toByteArray())));
-                    return;
+                    break;
                 case Handler.MESSAGE_FROM_TYPE_COMET:
-                    return;
+                    break;
                 case Handler.MESSAGE_FROM_TYPE_SOCKET:
-                    return;
+                    break;
             }
         }
     }

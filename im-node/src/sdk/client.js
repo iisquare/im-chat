@@ -16,10 +16,12 @@ class Client {
     if (result === null) return
     this.config.onMessage && this.config.onMessage(result)
     let sequence = result.getSequence()
+    let promise = promises[sequence]
+    if (!promise) return
     if (result.getCode() === 0) {
-      promises[sequence].resolve(result)
+      promise.resolve(result)
     } else {
-      promises[sequence].reject(result)
+      promise.reject(result)
     }
     delete promises[sequence]
   }
