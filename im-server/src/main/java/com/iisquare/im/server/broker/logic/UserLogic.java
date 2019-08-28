@@ -88,7 +88,7 @@ public class UserLogic extends Logic {
         if (DPUtil.empty(userId)) return result(directive, 404, "用户信息异常", null);
         IMUser.Contact.Builder builder = IMUser.Contact.newBuilder();
         for (Object o : redis.opsForHash().values(contact(userId))) {
-            builder.addRows(IMUser.Contact.Row.parseFrom(ByteString.copyFromUtf8(o.toString())));
+            builder.addRows(IMUser.Contact.Row.parseFrom(DPUtil.decode(o.toString())));
         }
         return result(directive, 0, null, builder.build());
     }
@@ -105,18 +105,23 @@ public class UserLogic extends Logic {
         return result(directive, 0, null, null);
     }
 
+    /**
+     * 采用下述方式进行序列化前后结果可能不一致
+     * ByteString.toStringUtf8()->new String(byte[])
+     * ByteString.copyFromUtf8()->string.getBytes()
+     */
     public void sync(User sender, Message message, User receiver, Scatter scatter) throws UnsupportedEncodingException {
         // 发送方
         IMUser.Contact.Row.Builder builder = IMUser.Contact.Row.newBuilder();
         builder.setUserId(receiver.getId()).setMessageId(message.getId()).setDirection("send")
             .setContent(message.getContent()).setTime(message.getTime().getTime());
-        String data = builder.build().toByteString().toStringUtf8();
+        String data = DPUtil.encode(builder.build().toByteArray());
         redis.opsForHash().put(contact(sender.getId()), receiver.getId(), data);
         // 接收方
         builder = IMUser.Contact.Row.newBuilder();
         builder.setUserId(sender.getId()).setMessageId(message.getId()).setDirection("receive")
             .setContent(message.getContent()).setTime(message.getTime().getTime());
-        data = builder.build().toByteString().toStringUtf8();
+        data = DPUtil.encode(builder.build().toByteArray());
         redis.opsForHash().put(contact(receiver.getId()), sender.getId(), data);
         // 同步通知
         ObjectNode sync = DPUtil.objectNode();

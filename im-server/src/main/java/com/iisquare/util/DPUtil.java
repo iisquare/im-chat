@@ -26,6 +26,18 @@ public class DPUtil {
 	public static final String regexSafeImplode = "^[\\w_]+$";
 	public static final ObjectMapper mapper = new ObjectMapper();
 
+	/**
+	 * 采用new String()->string.getBytes()方式处理的结果前后可能不一致
+     * @see(https://howtodoinjava.com/array/convert-byte-array-string-vice-versa/)
+	 */
+	public static String encode(byte[] bytes) {
+		return Base64.getEncoder().encodeToString(bytes);
+	}
+
+	public static byte[] decode(String base64) {
+		return Base64.getDecoder().decode(base64);
+	}
+
 	public static boolean empty(Object object) {
 		if(null == object) return true;
 		if(object instanceof Boolean) {
