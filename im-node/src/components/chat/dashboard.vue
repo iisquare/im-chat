@@ -163,7 +163,7 @@ export default {
     this.im = new ImClient(process.env.apiURL)
     this.im.connect(this.$store.state.user.data.token).then(result => {
       this.im.userLogic.contact().then(result => {
-        this.contactRows = result.rowsList
+        this.contactRows = result
       })
     }).catch(error => {
       this.$bvToast.toast(error.getMessage(), {

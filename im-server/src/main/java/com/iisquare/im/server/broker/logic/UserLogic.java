@@ -1,11 +1,9 @@
 package com.iisquare.im.server.broker.logic;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.google.protobuf.ByteString;
 import com.iisquare.im.protobuf.IM;
 import com.iisquare.im.protobuf.IMUser;
 import com.iisquare.im.server.api.entity.Message;
-import com.iisquare.im.server.api.entity.Scatter;
 import com.iisquare.im.server.api.entity.User;
 import com.iisquare.im.server.api.service.UserService;
 import com.iisquare.im.server.broker.core.Logic;
@@ -110,7 +108,7 @@ public class UserLogic extends Logic {
      * ByteString.toStringUtf8()->new String(byte[])
      * ByteString.copyFromUtf8()->string.getBytes()
      */
-    public void sync(User sender, Message message, User receiver, Scatter scatter) throws UnsupportedEncodingException {
+    public void sync(User sender, User receiver, Message message) throws UnsupportedEncodingException {
         // 发送方
         IMUser.Contact.Row.Builder builder = IMUser.Contact.Row.newBuilder();
         builder.setUserId(receiver.getId()).setMessageId(message.getId()).setDirection("send")
@@ -127,7 +125,7 @@ public class UserLogic extends Logic {
         ObjectNode sync = DPUtil.objectNode();
         sync.put("u", sender.getId()).put("v", message.getVersion());
         redis.convertAndSend(SyncJob.CHANNEL_SYNC, DPUtil.parseString(sync));
-        sync.put("u", receiver.getId()).put("v", scatter.getVersion());
+        sync.put("u", receiver.getId()).put("v", message.getVersion());
         redis.convertAndSend(SyncJob.CHANNEL_SYNC, DPUtil.parseString(sync));
     }
 

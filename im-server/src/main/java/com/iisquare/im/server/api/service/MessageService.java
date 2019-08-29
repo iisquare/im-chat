@@ -1,9 +1,7 @@
 package com.iisquare.im.server.api.service;
 
 import com.iisquare.im.server.api.dao.MessageDao;
-import com.iisquare.im.server.api.dao.ScatterDao;
 import com.iisquare.im.server.api.entity.Message;
-import com.iisquare.im.server.api.entity.Scatter;
 import com.iisquare.im.server.api.mvc.ServiceBase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,8 +14,6 @@ public class MessageService extends ServiceBase {
 
     @Autowired
     private MessageDao messageDao;
-    @Autowired
-    private ScatterDao scatterDao;
 
     public String uuid() {
         return UUID.randomUUID().toString().replaceAll("-", "");
@@ -27,10 +23,6 @@ public class MessageService extends ServiceBase {
         info.setTime(new Date());
         if(null == info.getId()) info.setId(uuid());
         return messageDao.save(info);
-    }
-
-    public Scatter save(Scatter info) {
-        return scatterDao.save(info);
     }
 
 }

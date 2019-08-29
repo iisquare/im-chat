@@ -11,7 +11,9 @@ class UserLogic extends LogicBase {
   }
   contact () {
     return this.send('user.contact').then(result => {
-      return this.result(IMUserPB.Contact, result).toObject()
+      return this.result(IMUserPB.Contact, result).toObject().rowsList.sort((a, b) => {
+        return b.time - a.time
+      })
     })
   }
   uncontact (userId) {

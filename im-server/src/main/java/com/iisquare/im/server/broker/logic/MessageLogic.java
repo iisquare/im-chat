@@ -3,7 +3,6 @@ package com.iisquare.im.server.broker.logic;
 import com.iisquare.im.protobuf.IM;
 import com.iisquare.im.protobuf.IMMessage;
 import com.iisquare.im.server.api.entity.Message;
-import com.iisquare.im.server.api.entity.Scatter;
 import com.iisquare.im.server.api.entity.User;
 import com.iisquare.im.server.api.service.MessageService;
 import com.iisquare.im.server.api.service.UserService;
@@ -27,8 +26,8 @@ public class MessageLogic extends Logic {
     @Autowired
     private StringRedisTemplate redis;
 
-    public long increase(String userId) {
-        return redis.opsForValue().increment("im:chat:version:" + userId).longValue();
+    public long increase() {
+        return redis.opsForValue().increment("im:chat:version:message").longValue();
     }
 
     public IM.Result pushAction(String fromType, ChannelHandlerContext ctx, IM.Directive directive) throws Exception {
@@ -44,16 +43,13 @@ public class MessageLogic extends Logic {
             return result(directive, 1003, "消息类型异常", null);
         }
         Message message = Message.builder().sender(sender.getId())
-            .version(increase(sender.getId())).reception(push.getReception())
+            .version(increase()).reception(push.getReception())
             .receiver(receiver.getId()).sequence(directive.getSequence())
             .type(push.getType()).content(push.getContent()).time(new Date()).build();
         message = messageService.save(message);
-        Scatter scatter = Scatter.builder().messageId(message.getId())
-            .receiver(receiver.getId()).version(increase(receiver.getId())).build();
-        scatter = messageService.save(scatter);
         IMMessage.PushACK.Builder ack = IMMessage.PushACK.newBuilder();
         ack.setId(message.getId()).setVersion(message.getVersion()).setTime(message.getTime().getTime());
-        userLogic.sync(sender, message, receiver, scatter);
+        userLogic.sync(sender, receiver, message);
         return result(directive, 0, null, ack.build());
     }
 
