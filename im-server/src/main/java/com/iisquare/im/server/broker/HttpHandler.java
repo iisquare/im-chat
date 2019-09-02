@@ -1,6 +1,12 @@
 package com.iisquare.im.server.broker;
 
+import com.iisquare.im.protobuf.IM;
+import com.iisquare.im.protobuf.IMUser;
 import com.iisquare.im.server.broker.core.Handler;
+import com.iisquare.im.server.broker.logic.MessageLogic;
+import com.iisquare.util.DPUtil;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
@@ -8,6 +14,7 @@ import io.netty.handler.codec.http.*;
 import io.netty.handler.codec.http.websocketx.*;
 import org.springframework.stereotype.Component;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -29,6 +36,15 @@ public class HttpHandler extends Handler {
         }
     }
 
+    private ByteBuf auth(String token) {
+        IM.Directive.Builder directive = IM.Directive.newBuilder();
+        directive.setSequence(MessageLogic.SEQUENCE_AUTH);
+        IMUser.Auth.Builder auth = IMUser.Auth.newBuilder();
+        auth.setToken(token);
+        directive.setCommand("user.auth").setParameter(auth.build().toByteString());
+        return Unpooled.wrappedBuffer(directive.build().toByteArray());
+    }
+
     private void handleHttpRequest(ChannelHandlerContext ctx, FullHttpRequest req) throws Exception {
         if (!req.decoderResult().isSuccess()) {
             sendHttpResponse(ctx, req, new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.BAD_REQUEST));
@@ -38,7 +54,16 @@ public class HttpHandler extends Handler {
             sendHttpResponse(ctx, req, null);
             return;
         }
-        switch (req.uri()) {
+        String[] strings = req.uri().split("\\?");
+        String uri = strings[0];
+        Map<String, String> param = new LinkedHashMap<>();
+        if (strings.length > 1) {
+            for (String str : strings[1].split("&")) {
+                String[] split = str.split("=");
+                param.put(split[0], split.length > 1 ? split[1] : "");
+            }
+        }
+        switch (uri) {
             case COMET_PUSH:
                 return;
             case COMET_PULL:
@@ -57,6 +82,10 @@ public class HttpHandler extends Handler {
                     handshaker.handshake(ctx.channel(), req);
                     handshakers.put(ctx.channel(), handshaker);
                     this.onAccept(MESSAGE_FROM_TYPE_WS, ctx);
+                    String token = param.get("token");
+                    if (!DPUtil.empty(token)) {
+                        this.onReceive(MESSAGE_FROM_TYPE_WS, ctx, auth(token));
+                    }
                 }
                 return;
             default:

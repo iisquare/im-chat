@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.iisquare.im.protobuf.IM;
 import com.iisquare.im.protobuf.IMMessage;
 import com.iisquare.im.server.broker.core.Handler;
+import com.iisquare.im.server.broker.logic.MessageLogic;
 import com.iisquare.im.server.broker.logic.UserLogic;
 import com.iisquare.util.DPUtil;
 import io.netty.buffer.Unpooled;
@@ -26,7 +27,6 @@ import java.util.List;
 public class SyncJob implements MessageListener {
 
     public static final String CHANNEL_SYNC = "im:chat:sync";
-    public static final String SEQUENCE_SYNC = "sync";
     @Autowired
     private StringRedisTemplate redis;
     @Autowired
@@ -53,7 +53,7 @@ public class SyncJob implements MessageListener {
         JsonNode json = DPUtil.parseJSON(new String(message.getBody()));
         if (null == json) return;
         IMMessage.Sync sync = IMMessage.Sync.newBuilder().setVersion(json.get("v").asLong()).build();
-        IM.Result result = IM.Result.newBuilder().setSequence(SEQUENCE_SYNC).setData(sync.toByteString()).build();
+        IM.Result result = IM.Result.newBuilder().setSequence(MessageLogic.SEQUENCE_SYNC).setData(sync.toByteString()).build();
         for (String fromType : fromTypes) {
             ChannelGroup group = userLogic.channelGroup(fromType, json.get("u").asText());
             if (null == group) continue;

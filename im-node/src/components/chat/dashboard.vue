@@ -211,19 +211,22 @@ export default {
       uri: process.env.apiURL,
       onSync (sync) {
         _this.contact()
+      },
+      onAuth (result, auth) {
+        if (auth) {
+          _this.contact()
+        } else {
+          _this.$bvToast.toast(result.getMessage(), {
+            title: '认证失败',
+            toaster: 'b-toaster-top-center',
+            variant: 'danger',
+            solid: true
+          })
+          window.setTimeout(() => { _this.logout() }, 3000)
+        }
       }
     })
-    this.im.connect(this.$store.state.user.data.token).then(result => {
-      this.contact()
-    }).catch(error => {
-      this.$bvToast.toast(error.getMessage(), {
-        title: '认证失败',
-        toaster: 'b-toaster-top-center',
-        variant: 'danger',
-        solid: true
-      })
-      window.setTimeout(() => { this.logout() }, 3000)
-    })
+    this.im.connect(this.$store.state.user.data.token)
   }
 }
 </script>

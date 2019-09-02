@@ -20,6 +20,8 @@ import java.util.Map;
 @Component
 public class MessageLogic extends Logic {
 
+    public static final String SEQUENCE_SYNC = "sync";
+    public static final String SEQUENCE_AUTH = "auth";
     @Autowired
     private UserLogic userLogic;
     @Autowired

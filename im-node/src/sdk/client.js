@@ -1,7 +1,9 @@
 import IMPB from '@/sdk/protobuf/IM_pb'
 import IMMessagePB from '@/sdk/protobuf/IMMessage_pb'
+import IMUserPB from '@/sdk/protobuf/IMUser_pb'
 
 const SEQUENCE_SYNC = 'sync'
+const SEQUENCE_AUTH = 'auth'
 
 let promises = {}
 class Client {
@@ -18,6 +20,10 @@ class Client {
     let sync = IMMessagePB.Sync.deserializeBinary(result.getData())
     this.config.onSync && this.config.onSync(sync)
   }
+  onAuth (result) {
+    let auth = result.getCode() === 0 ? IMUserPB.AuthResult.deserializeBinary(result.getData()) : null
+    this.config.onAuth && this.config.onAuth(result, auth)
+  }
   async onMessage (event) {
     let result = IMPB.Result.deserializeBinary(await this.readAsArrayBuffer(event.data))
     if (result === null) return
@@ -26,6 +32,9 @@ class Client {
     switch (sequence) {
       case SEQUENCE_SYNC:
         this.onSync(result)
+        break
+      case SEQUENCE_AUTH:
+        this.onAuth(result)
         break
       default:
         let promise = promises[sequence]
