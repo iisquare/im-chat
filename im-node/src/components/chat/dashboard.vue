@@ -25,7 +25,7 @@
         </b-row>
       </b-container>
       <div class="im-contacts-container">
-        <iscroll-view class="im-contacts-scroll" :options="{mouseWheel: true, scrollbars: true, fadeScrollbars: true}">
+        <iscroll-view ref="contact" class="im-contacts-scroll" :options="{mouseWheel: true, scrollbars: true, fadeScrollbars: true}">
           <b-row align-v="center" class="im-contacts-item" @click="selectContact(index, item)" :key="index" v-for="(item, index) in contacts">
             <b-col>
               <b-media>
@@ -46,24 +46,33 @@
         </div>
         <div class="im-chat-message">
           <div class="im-message-container">
-            <iscroll-view class="im-message-scroll" :options="{mouseWheel: true, scrollbars: true, fadeScrollbars: true}">
-              <b-row align-v="center" align="center" class="im-message-item">
-                <b-col><b-badge variant="secondary">2019-01-03 13:25:22</b-badge></b-col>
-              </b-row>
-              <b-row align-v="center" :align="item.sender == userId ? 'right' : 'left'" class="im-message-item" :key="index" v-for="(item, index) in messages.rows">
-                <b-col>
-                  <b-media class="im-message-item-left" v-if="item.sender != userId">
-                    <b-img slot="aside" width="35" height="35" rounded="circle" :src="'https://picsum.photos/125/125/?image=' + item.sender.length"></b-img>
-                    <div class="im-message-arrow"></div>
-                    <div class="im-message-body">{{item.content}}</div>
-                  </b-media>
-                  <b-media class="im-message-item-right" right-align v-if="item.sender == userId">
-                    <b-img slot="aside" width="35" height="35" rounded="circle" src="https://avatars2.githubusercontent.com/u/5144531?s=35"></b-img>
-                    <div class="im-message-arrow"></div>
-                    <div class="im-message-body">{{item.content}}</div>
-                  </b-media>
-                </b-col>
-              </b-row>
+            <iscroll-view ref="chat" class="im-message-scroll" :options="{mouseWheel: true, scrollbars: true, fadeScrollbars: true}">
+              <template v-for="(item, index) in messages.rows">
+                <b-row :key="'time-' + index" align-v="center" align="center" class="im-message-item" v-if="item.timeText">
+                  <b-col><b-badge variant="secondary">{{item.timeText}}</b-badge></b-col>
+                </b-row>
+                <b-row :key="'withdraw-' + index" align-v="center" align="center" class="im-message-item" v-if="item.withdraw">
+                  <b-col><b-badge variant="secondary">消息已撤回</b-badge></b-col>
+                </b-row>
+                <b-row align-v="center" :key="'message-' + index" align="left" class="im-message-item" v-else-if="item.sender != userId">
+                  <b-col>
+                    <b-media class="im-message-item-left">
+                      <b-img slot="aside" width="35" height="35" rounded="circle" :src="'https://picsum.photos/125/125/?image=' + item.sender.length"></b-img>
+                      <div class="im-message-arrow"></div>
+                      <div class="im-message-body">{{item.content}}</div>
+                    </b-media>
+                  </b-col>
+                </b-row>
+                <b-row align-v="center" :key="'message-' + index" align="right" class="im-message-item" v-else>
+                  <b-col>
+                    <b-media class="im-message-item-right" right-align>
+                      <b-img slot="aside" width="35" height="35" rounded="circle" src="https://avatars2.githubusercontent.com/u/5144531?s=35"></b-img>
+                      <div class="im-message-arrow"></div>
+                      <div class="im-message-body">{{item.content}}</div>
+                    </b-media>
+                  </b-col>
+                </b-row>
+              </template>
             </iscroll-view>
           </div>
         </div>
@@ -82,6 +91,7 @@
 import ImClient from '@/sdk'
 import wrapper from '@/core/RequestWrapper'
 import userService from '@/service/user'
+import DateUtil from '@/utils/date'
 export default {
   data () {
     return {
@@ -93,8 +103,7 @@ export default {
       searchRows: [],
       talk: null,
       messages: { more: true, rows: [] },
-      message: '',
-      items: [58, 1, 21, 33, 4, 57, 61, 7, 8, 9]
+      message: ''
     }
   },
   watch: {
@@ -111,6 +120,15 @@ export default {
     }
   },
   methods: {
+    contact () {
+      this.im.userLogic.contact().then(result => {
+        this.contactRows = result
+        if (result.length > 0 && this.talk && result[0].userId === this.talk.userId) {
+          this.history(true)
+        }
+        this.$refs.contact.refresh()
+      })
+    },
     uncontact () {
       let userId = this.talk.userId
       this.im.userLogic.uncontact(userId)
@@ -143,17 +161,33 @@ export default {
       }
       if (this.talk && this.talk.userId === item.userId) return
       this.talk = item
-      this.messages = { more: true, rows: [] }
-      this.history()
+      this.history(true)
     },
-    history () {
+    history (renew) {
+      renew && (this.messages = { more: true, rows: [] })
       if (!this.messages.more) return
       let length = this.messages.rows.length
       let version = length > 0 ? this.messages.rows[0].version : null
       this.im.messageLogic.history({receiver: this.talk.userId, version}).then(result => {
         if (result.receiver !== this.talk.userId) return
         this.messages.more = result.more
-        this.messages.rows.unshift(...result.rows)
+        let rows = []
+        result.rows.concat(this.messages.rows).forEach(item => {
+          let showTime = true
+          if (rows.length > 0) {
+            let row = rows[rows.length - 1]
+            if (item.time - row.time < 900000) showTime = false
+          }
+          showTime && (item.timeText = DateUtil.format(item.time))
+          rows.push(item)
+        })
+        this.messages.rows = rows
+        this.$nextTick(() => {
+          let chat = this.$refs.chat
+          console.log(chat, chat.iscroll.scrollerHeight)
+          chat.refresh()
+          chat.scrollTo(0, -chat.iscroll.scrollerHeight + 60, 0)
+        })
       })
     },
     search () {
@@ -173,12 +207,16 @@ export default {
     }
   },
   mounted () {
+    let _this = this
     this.userId = this.$store.state.user.data.userId || ''
-    this.im = new ImClient(process.env.apiURL)
+    this.im = new ImClient({
+      uri: process.env.apiURL,
+      onSync (sync) {
+        _this.contact()
+      }
+    })
     this.im.connect(this.$store.state.user.data.token).then(result => {
-      this.im.userLogic.contact().then(result => {
-        this.contactRows = result
-      })
+      this.contact()
     }).catch(error => {
       this.$bvToast.toast(error.getMessage(), {
         title: '认证失败',

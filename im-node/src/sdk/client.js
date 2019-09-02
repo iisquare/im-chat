@@ -1,4 +1,7 @@
 import IMPB from '@/sdk/protobuf/IM_pb'
+import IMMessagePB from '@/sdk/protobuf/IMMessage_pb'
+
+const SEQUENCE_SYNC = 'sync'
 
 let promises = {}
 class Client {
@@ -11,19 +14,29 @@ class Client {
   onClose (event) {
     this.config.onClose && this.config.onClose(event)
   }
+  onSync (result) {
+    let sync = IMMessagePB.Sync.deserializeBinary(result.getData())
+    this.config.onSync && this.config.onSync(sync)
+  }
   async onMessage (event) {
     let result = IMPB.Result.deserializeBinary(await this.readAsArrayBuffer(event.data))
     if (result === null) return
     this.config.onMessage && this.config.onMessage(result)
     let sequence = result.getSequence()
-    let promise = promises[sequence]
-    if (!promise) return
-    if (result.getCode() === 0) {
-      promise.resolve(result)
-    } else {
-      promise.reject(result)
+    switch (sequence) {
+      case SEQUENCE_SYNC:
+        this.onSync(result)
+        break
+      default:
+        let promise = promises[sequence]
+        if (!promise) return
+        if (result.getCode() === 0) {
+          promise.resolve(result)
+        } else {
+          promise.reject(result)
+        }
+        delete promises[sequence]
     }
-    delete promises[sequence]
   }
   onError (event) {
     this.config.onError && this.config.onError(event)

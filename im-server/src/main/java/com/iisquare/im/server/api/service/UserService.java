@@ -97,7 +97,7 @@ public class UserService extends ServiceBase {
         if (null == user) return false;
         user.setBlock(block);
         user = userDao.save(user);
-        redis.opsForHash().putAll(userKey(user.getId()), DPUtil.buildMap("id", user.getId(), "block", user.getBlock()));
+        redis.opsForHash().putAll(userKey(user.getId()), DPUtil.buildMap("id", user.getId(), "block", user.getBlock().toString()));
         return true;
     }
 
@@ -106,14 +106,14 @@ public class UserService extends ServiceBase {
         if (null == user) return false;
         user.setPushable(enable ? 1 : 0);
         user = userDao.save(user);
-        redis.opsForHash().putAll(userKey(user.getId()), DPUtil.buildMap("id", user.getId(), "pushable", user.getPushable()));
+        redis.opsForHash().putAll(userKey(user.getId()), DPUtil.buildMap("id", user.getId(), "pushable", user.getPushable().toString()));
         return true;
     }
 
     public boolean version(String id, long version) {
         User user = info(id);
         if (null == user) return false;
-        redis.opsForHash().putAll(userKey(user.getId()), DPUtil.buildMap("id", user.getId(), "version", version));
+        redis.opsForHash().putAll(userKey(user.getId()), DPUtil.buildMap("id", user.getId(), "version", String.valueOf(version)));
         return true;
     }
 
