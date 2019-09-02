@@ -79,6 +79,7 @@ public class UserLogic extends Logic {
         group.add(ctx.channel());
 //        return result(directive, 0, null, Any.pack(IMUser.AuthResult.newBuilder().setUserId(info.getId()).build()));
         IMUser.AuthResult.Builder result = IMUser.AuthResult.newBuilder();
+        result.setHeartbeat(30000);
         result.setUserId(info.getId()).setVersion(userService.version(info.getId()));
         return result(directive, 0, null, result.build());
     }

@@ -587,6 +587,11 @@ public final class IMUser {
      * <code>int64 version = 2;</code>
      */
     long getVersion();
+
+    /**
+     * <code>int32 heartbeat = 3;</code>
+     */
+    int getHeartbeat();
   }
   /**
    * Protobuf type {@code im.AuthResult}
@@ -643,6 +648,11 @@ public final class IMUser {
             case 16: {
 
               version_ = input.readInt64();
+              break;
+            }
+            case 24: {
+
+              heartbeat_ = input.readInt32();
               break;
             }
             default: {
@@ -720,6 +730,15 @@ public final class IMUser {
       return version_;
     }
 
+    public static final int HEARTBEAT_FIELD_NUMBER = 3;
+    private int heartbeat_;
+    /**
+     * <code>int32 heartbeat = 3;</code>
+     */
+    public int getHeartbeat() {
+      return heartbeat_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -740,6 +759,9 @@ public final class IMUser {
       if (version_ != 0L) {
         output.writeInt64(2, version_);
       }
+      if (heartbeat_ != 0) {
+        output.writeInt32(3, heartbeat_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -755,6 +777,10 @@ public final class IMUser {
       if (version_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, version_);
+      }
+      if (heartbeat_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, heartbeat_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -775,6 +801,8 @@ public final class IMUser {
           .equals(other.getUserId())) return false;
       if (getVersion()
           != other.getVersion()) return false;
+      if (getHeartbeat()
+          != other.getHeartbeat()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -791,6 +819,8 @@ public final class IMUser {
       hash = (37 * hash) + VERSION_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getVersion());
+      hash = (37 * hash) + HEARTBEAT_FIELD_NUMBER;
+      hash = (53 * hash) + getHeartbeat();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -928,6 +958,8 @@ public final class IMUser {
 
         version_ = 0L;
 
+        heartbeat_ = 0;
+
         return this;
       }
 
@@ -956,6 +988,7 @@ public final class IMUser {
         com.iisquare.im.protobuf.IMUser.AuthResult result = new com.iisquare.im.protobuf.IMUser.AuthResult(this);
         result.userId_ = userId_;
         result.version_ = version_;
+        result.heartbeat_ = heartbeat_;
         onBuilt();
         return result;
       }
@@ -1010,6 +1043,9 @@ public final class IMUser {
         }
         if (other.getVersion() != 0L) {
           setVersion(other.getVersion());
+        }
+        if (other.getHeartbeat() != 0) {
+          setHeartbeat(other.getHeartbeat());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1131,6 +1167,32 @@ public final class IMUser {
       public Builder clearVersion() {
         
         version_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private int heartbeat_ ;
+      /**
+       * <code>int32 heartbeat = 3;</code>
+       */
+      public int getHeartbeat() {
+        return heartbeat_;
+      }
+      /**
+       * <code>int32 heartbeat = 3;</code>
+       */
+      public Builder setHeartbeat(int value) {
+        
+        heartbeat_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 heartbeat = 3;</code>
+       */
+      public Builder clearHeartbeat() {
+        
+        heartbeat_ = 0;
         onChanged();
         return this;
       }
@@ -3630,13 +3692,13 @@ public final class IMUser {
   static {
     java.lang.String[] descriptorData = {
       "\n\014IMUser.proto\022\002im\"\025\n\004Auth\022\r\n\005token\030\001 \001(" +
-      "\t\".\n\nAuthResult\022\017\n\007user_id\030\001 \001(\t\022\017\n\007vers" +
-      "ion\030\002 \001(\003\"\206\001\n\007Contact\022\035\n\004rows\030\001 \003(\0132\017.im" +
-      ".Contact.Row\032\\\n\003Row\022\017\n\007user_id\030\001 \001(\t\022\022\n\n" +
-      "message_id\030\002 \001(\t\022\021\n\tdirection\030\003 \001(\t\022\017\n\007c" +
-      "ontent\030\004 \001(\t\022\014\n\004time\030\005 \001(\003\"\034\n\tUncontact\022" +
-      "\017\n\007user_id\030\001 \001(\tB\032\n\030com.iisquare.im.prot" +
-      "obufb\006proto3"
+      "\t\"A\n\nAuthResult\022\017\n\007user_id\030\001 \001(\t\022\017\n\007vers" +
+      "ion\030\002 \001(\003\022\021\n\theartbeat\030\003 \001(\005\"\206\001\n\007Contact" +
+      "\022\035\n\004rows\030\001 \003(\0132\017.im.Contact.Row\032\\\n\003Row\022\017" +
+      "\n\007user_id\030\001 \001(\t\022\022\n\nmessage_id\030\002 \001(\t\022\021\n\td" +
+      "irection\030\003 \001(\t\022\017\n\007content\030\004 \001(\t\022\014\n\004time\030" +
+      "\005 \001(\003\"\034\n\tUncontact\022\017\n\007user_id\030\001 \001(\tB\032\n\030c" +
+      "om.iisquare.im.protobufb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3653,7 +3715,7 @@ public final class IMUser {
     internal_static_im_AuthResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_im_AuthResult_descriptor,
-        new java.lang.String[] { "UserId", "Version", });
+        new java.lang.String[] { "UserId", "Version", "Heartbeat", });
     internal_static_im_Contact_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_im_Contact_fieldAccessorTable = new

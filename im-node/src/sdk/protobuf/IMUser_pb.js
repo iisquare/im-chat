@@ -282,7 +282,8 @@ proto.im.AuthResult.prototype.toObject = function(opt_includeInstance) {
 proto.im.AuthResult.toObject = function(includeInstance, msg) {
   var f, obj = {
     userId: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    version: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    version: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    heartbeat: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -327,6 +328,10 @@ proto.im.AuthResult.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {number} */ (reader.readInt64());
       msg.setVersion(value);
       break;
+    case 3:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setHeartbeat(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -370,6 +375,13 @@ proto.im.AuthResult.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getHeartbeat();
+  if (f !== 0) {
+    writer.writeInt32(
+      3,
+      f
+    );
+  }
 };
 
 
@@ -400,6 +412,21 @@ proto.im.AuthResult.prototype.getVersion = function() {
 /** @param {number} value */
 proto.im.AuthResult.prototype.setVersion = function(value) {
   jspb.Message.setProto3IntField(this, 2, value);
+};
+
+
+/**
+ * optional int32 heartbeat = 3;
+ * @return {number}
+ */
+proto.im.AuthResult.prototype.getHeartbeat = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {number} value */
+proto.im.AuthResult.prototype.setHeartbeat = function(value) {
+  jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
