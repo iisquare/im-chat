@@ -50,15 +50,15 @@
               <b-row align-v="center" align="center" class="im-message-item">
                 <b-col><b-badge variant="secondary">2019-01-03 13:25:22</b-badge></b-col>
               </b-row>
-              <b-row align-v="center" :align="item.sender == talk.userId ? 'right' : 'left'" class="im-message-item" :key="index" v-for="(item, index) in messages.rows">
+              <b-row align-v="center" :align="item.sender == userId ? 'right' : 'left'" class="im-message-item" :key="index" v-for="(item, index) in messages.rows">
                 <b-col>
-                  <b-media class="im-message-item-left" v-if="index % 2 == 0">
-                    <b-img :id="'im-' + index" slot="aside" width="35" height="35" rounded="circle" :src="'https://picsum.photos/125/125/?image=' + item.sender.length" :title="index"></b-img>
+                  <b-media class="im-message-item-left" v-if="item.sender != userId">
+                    <b-img slot="aside" width="35" height="35" rounded="circle" :src="'https://picsum.photos/125/125/?image=' + item.sender.length"></b-img>
                     <div class="im-message-arrow"></div>
                     <div class="im-message-body">{{item.content}}</div>
                   </b-media>
-                  <b-media class="im-message-item-right" right-align v-if="index % 2 != 0">
-                    <b-img slot="aside" width="35" height="35" rounded="circle" src="https://avatars2.githubusercontent.com/u/5144531?s=35" :title="index"></b-img>
+                  <b-media class="im-message-item-right" right-align v-if="item.sender == userId">
+                    <b-img slot="aside" width="35" height="35" rounded="circle" src="https://avatars2.githubusercontent.com/u/5144531?s=35"></b-img>
                     <div class="im-message-arrow"></div>
                     <div class="im-message-body">{{item.content}}</div>
                   </b-media>
@@ -153,7 +153,7 @@ export default {
       this.im.messageLogic.history({receiver: this.talk.userId, version}).then(result => {
         if (result.receiver !== this.talk.userId) return
         this.messages.more = result.more
-        this.messages.more.unshift(...result.rows)
+        this.messages.rows.unshift(...result.rows)
       })
     },
     search () {
