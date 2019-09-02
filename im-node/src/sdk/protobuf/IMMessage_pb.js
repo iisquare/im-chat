@@ -1065,10 +1065,12 @@ proto.im.Pull.toObject = function(includeInstance, msg) {
     page: jspb.Message.getFieldWithDefault(msg, 1, 0),
     pageSize: jspb.Message.getFieldWithDefault(msg, 2, 0),
     sort: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    minVersion: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    maxVersion: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    minTime: jspb.Message.getFieldWithDefault(msg, 6, 0),
-    maxTime: jspb.Message.getFieldWithDefault(msg, 7, 0)
+    reception: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    receiver: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    minVersion: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    maxVersion: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    minTime: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    maxTime: jspb.Message.getFieldWithDefault(msg, 9, 0)
   };
 
   if (includeInstance) {
@@ -1118,18 +1120,26 @@ proto.im.Pull.deserializeBinaryFromReader = function(msg, reader) {
       msg.setSort(value);
       break;
     case 4:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.setMinVersion(value);
+      var value = /** @type {string} */ (reader.readString());
+      msg.setReception(value);
       break;
     case 5:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.setMaxVersion(value);
+      var value = /** @type {string} */ (reader.readString());
+      msg.setReceiver(value);
       break;
     case 6:
       var value = /** @type {number} */ (reader.readInt64());
-      msg.setMinTime(value);
+      msg.setMinVersion(value);
       break;
     case 7:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setMaxVersion(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setMinTime(value);
+      break;
+    case 9:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setMaxTime(value);
       break;
@@ -1183,31 +1193,45 @@ proto.im.Pull.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getMinVersion();
-  if (f !== 0) {
-    writer.writeInt64(
+  f = message.getReception();
+  if (f.length > 0) {
+    writer.writeString(
       4,
       f
     );
   }
-  f = message.getMaxVersion();
-  if (f !== 0) {
-    writer.writeInt64(
+  f = message.getReceiver();
+  if (f.length > 0) {
+    writer.writeString(
       5,
       f
     );
   }
-  f = message.getMinTime();
+  f = message.getMinVersion();
   if (f !== 0) {
     writer.writeInt64(
       6,
       f
     );
   }
-  f = message.getMaxTime();
+  f = message.getMaxVersion();
   if (f !== 0) {
     writer.writeInt64(
       7,
+      f
+    );
+  }
+  f = message.getMinTime();
+  if (f !== 0) {
+    writer.writeInt64(
+      8,
+      f
+    );
+  }
+  f = message.getMaxTime();
+  if (f !== 0) {
+    writer.writeInt64(
+      9,
       f
     );
   }
@@ -1260,62 +1284,92 @@ proto.im.Pull.prototype.setSort = function(value) {
 
 
 /**
- * optional int64 min_version = 4;
+ * optional string reception = 4;
+ * @return {string}
+ */
+proto.im.Pull.prototype.getReception = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/** @param {string} value */
+proto.im.Pull.prototype.setReception = function(value) {
+  jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * optional string receiver = 5;
+ * @return {string}
+ */
+proto.im.Pull.prototype.getReceiver = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/** @param {string} value */
+proto.im.Pull.prototype.setReceiver = function(value) {
+  jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional int64 min_version = 6;
  * @return {number}
  */
 proto.im.Pull.prototype.getMinVersion = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
-};
-
-
-/** @param {number} value */
-proto.im.Pull.prototype.setMinVersion = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
-};
-
-
-/**
- * optional int64 max_version = 5;
- * @return {number}
- */
-proto.im.Pull.prototype.getMaxVersion = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
-};
-
-
-/** @param {number} value */
-proto.im.Pull.prototype.setMaxVersion = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
-};
-
-
-/**
- * optional int64 min_time = 6;
- * @return {number}
- */
-proto.im.Pull.prototype.getMinTime = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
 /** @param {number} value */
-proto.im.Pull.prototype.setMinTime = function(value) {
+proto.im.Pull.prototype.setMinVersion = function(value) {
   jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
 /**
- * optional int64 max_time = 7;
+ * optional int64 max_version = 7;
  * @return {number}
  */
-proto.im.Pull.prototype.getMaxTime = function() {
+proto.im.Pull.prototype.getMaxVersion = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
 };
 
 
 /** @param {number} value */
-proto.im.Pull.prototype.setMaxTime = function(value) {
+proto.im.Pull.prototype.setMaxVersion = function(value) {
   jspb.Message.setProto3IntField(this, 7, value);
+};
+
+
+/**
+ * optional int64 min_time = 8;
+ * @return {number}
+ */
+proto.im.Pull.prototype.getMinTime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/** @param {number} value */
+proto.im.Pull.prototype.setMinTime = function(value) {
+  jspb.Message.setProto3IntField(this, 8, value);
+};
+
+
+/**
+ * optional int64 max_time = 9;
+ * @return {number}
+ */
+proto.im.Pull.prototype.getMaxTime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/** @param {number} value */
+proto.im.Pull.prototype.setMaxTime = function(value) {
+  jspb.Message.setProto3IntField(this, 9, value);
 };
 
 

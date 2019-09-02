@@ -31,10 +31,12 @@ message Pull {
    int32 page = 1;
    int32 page_size = 2;
    string sort = 3;
-   int64 min_version = 4;
-   int64 max_version = 5;
-   int64 min_time = 6;
-   int64 max_time = 7;
+   string reception = 4;
+   string receiver = 5;
+   int64 min_version = 6;
+   int64 max_version = 7;
+   int64 min_time = 8;
+   int64 max_time = 9;
 }
 message PullResult {
    int32 page = 1;

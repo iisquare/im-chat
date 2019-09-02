@@ -38,7 +38,7 @@ public class UserService extends ServiceBase {
             }
             String except = DPUtil.trim(DPUtil.parseString(param.get("except")));
             if(!DPUtil.empty(except)) {
-                predicates.add(cb.equal(root.get("id"), except));
+                predicates.add(cb.notEqual(root.get("id"), except));
             }
             return cb.and(predicates.toArray(new Predicate[predicates.size()]));
         }, PageRequest.of(page - 1, pageSize, sort));

@@ -40,6 +40,8 @@ public class MessageLogic extends Logic {
         IMMessage.Pull pull = IMMessage.Pull.parseFrom(directive.getParameter());
         Map<String, Object> search = messageService.search(DPUtil.buildMap(
             "page", pull.getPage(), "pageSize", pull.getPageSize(), "sort", pull.getSort(),
+            "reception", pull.getReception(), "receiver", pull.getReceiver(),
+            "minVersion", pull.getMinVersion(), "maxVersion", pull.getMaxVersion(),
             "minVersion", pull.getMinVersion(), "maxVersion", pull.getMaxVersion(),
             "minTime", pull.getMinTime(), "maxTime", pull.getMaxTime()), DPUtil.buildMap());
         IMMessage.PullResult.Builder result = IMMessage.PullResult.newBuilder();

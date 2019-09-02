@@ -3733,22 +3733,42 @@ public final class IMMessage {
         getSortBytes();
 
     /**
-     * <code>int64 min_version = 4;</code>
+     * <code>string reception = 4;</code>
+     */
+    java.lang.String getReception();
+    /**
+     * <code>string reception = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getReceptionBytes();
+
+    /**
+     * <code>string receiver = 5;</code>
+     */
+    java.lang.String getReceiver();
+    /**
+     * <code>string receiver = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getReceiverBytes();
+
+    /**
+     * <code>int64 min_version = 6;</code>
      */
     long getMinVersion();
 
     /**
-     * <code>int64 max_version = 5;</code>
+     * <code>int64 max_version = 7;</code>
      */
     long getMaxVersion();
 
     /**
-     * <code>int64 min_time = 6;</code>
+     * <code>int64 min_time = 8;</code>
      */
     long getMinTime();
 
     /**
-     * <code>int64 max_time = 7;</code>
+     * <code>int64 max_time = 9;</code>
      */
     long getMaxTime();
   }
@@ -3766,6 +3786,8 @@ public final class IMMessage {
     }
     private Pull() {
       sort_ = "";
+      reception_ = "";
+      receiver_ = "";
     }
 
     @java.lang.Override
@@ -3814,22 +3836,34 @@ public final class IMMessage {
               sort_ = s;
               break;
             }
-            case 32: {
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              minVersion_ = input.readInt64();
+              reception_ = s;
               break;
             }
-            case 40: {
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              maxVersion_ = input.readInt64();
+              receiver_ = s;
               break;
             }
             case 48: {
 
-              minTime_ = input.readInt64();
+              minVersion_ = input.readInt64();
               break;
             }
             case 56: {
+
+              maxVersion_ = input.readInt64();
+              break;
+            }
+            case 64: {
+
+              minTime_ = input.readInt64();
+              break;
+            }
+            case 72: {
 
               maxTime_ = input.readInt64();
               break;
@@ -3918,37 +3952,105 @@ public final class IMMessage {
       }
     }
 
-    public static final int MIN_VERSION_FIELD_NUMBER = 4;
+    public static final int RECEPTION_FIELD_NUMBER = 4;
+    private volatile java.lang.Object reception_;
+    /**
+     * <code>string reception = 4;</code>
+     */
+    public java.lang.String getReception() {
+      java.lang.Object ref = reception_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        reception_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string reception = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getReceptionBytes() {
+      java.lang.Object ref = reception_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        reception_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int RECEIVER_FIELD_NUMBER = 5;
+    private volatile java.lang.Object receiver_;
+    /**
+     * <code>string receiver = 5;</code>
+     */
+    public java.lang.String getReceiver() {
+      java.lang.Object ref = receiver_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        receiver_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string receiver = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getReceiverBytes() {
+      java.lang.Object ref = receiver_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        receiver_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int MIN_VERSION_FIELD_NUMBER = 6;
     private long minVersion_;
     /**
-     * <code>int64 min_version = 4;</code>
+     * <code>int64 min_version = 6;</code>
      */
     public long getMinVersion() {
       return minVersion_;
     }
 
-    public static final int MAX_VERSION_FIELD_NUMBER = 5;
+    public static final int MAX_VERSION_FIELD_NUMBER = 7;
     private long maxVersion_;
     /**
-     * <code>int64 max_version = 5;</code>
+     * <code>int64 max_version = 7;</code>
      */
     public long getMaxVersion() {
       return maxVersion_;
     }
 
-    public static final int MIN_TIME_FIELD_NUMBER = 6;
+    public static final int MIN_TIME_FIELD_NUMBER = 8;
     private long minTime_;
     /**
-     * <code>int64 min_time = 6;</code>
+     * <code>int64 min_time = 8;</code>
      */
     public long getMinTime() {
       return minTime_;
     }
 
-    public static final int MAX_TIME_FIELD_NUMBER = 7;
+    public static final int MAX_TIME_FIELD_NUMBER = 9;
     private long maxTime_;
     /**
-     * <code>int64 max_time = 7;</code>
+     * <code>int64 max_time = 9;</code>
      */
     public long getMaxTime() {
       return maxTime_;
@@ -3977,17 +4079,23 @@ public final class IMMessage {
       if (!getSortBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, sort_);
       }
+      if (!getReceptionBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, reception_);
+      }
+      if (!getReceiverBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, receiver_);
+      }
       if (minVersion_ != 0L) {
-        output.writeInt64(4, minVersion_);
+        output.writeInt64(6, minVersion_);
       }
       if (maxVersion_ != 0L) {
-        output.writeInt64(5, maxVersion_);
+        output.writeInt64(7, maxVersion_);
       }
       if (minTime_ != 0L) {
-        output.writeInt64(6, minTime_);
+        output.writeInt64(8, minTime_);
       }
       if (maxTime_ != 0L) {
-        output.writeInt64(7, maxTime_);
+        output.writeInt64(9, maxTime_);
       }
       unknownFields.writeTo(output);
     }
@@ -4009,21 +4117,27 @@ public final class IMMessage {
       if (!getSortBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, sort_);
       }
+      if (!getReceptionBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, reception_);
+      }
+      if (!getReceiverBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, receiver_);
+      }
       if (minVersion_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(4, minVersion_);
+          .computeInt64Size(6, minVersion_);
       }
       if (maxVersion_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(5, maxVersion_);
+          .computeInt64Size(7, maxVersion_);
       }
       if (minTime_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(6, minTime_);
+          .computeInt64Size(8, minTime_);
       }
       if (maxTime_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(7, maxTime_);
+          .computeInt64Size(9, maxTime_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4046,6 +4160,10 @@ public final class IMMessage {
           != other.getPageSize()) return false;
       if (!getSort()
           .equals(other.getSort())) return false;
+      if (!getReception()
+          .equals(other.getReception())) return false;
+      if (!getReceiver()
+          .equals(other.getReceiver())) return false;
       if (getMinVersion()
           != other.getMinVersion()) return false;
       if (getMaxVersion()
@@ -4071,6 +4189,10 @@ public final class IMMessage {
       hash = (53 * hash) + getPageSize();
       hash = (37 * hash) + SORT_FIELD_NUMBER;
       hash = (53 * hash) + getSort().hashCode();
+      hash = (37 * hash) + RECEPTION_FIELD_NUMBER;
+      hash = (53 * hash) + getReception().hashCode();
+      hash = (37 * hash) + RECEIVER_FIELD_NUMBER;
+      hash = (53 * hash) + getReceiver().hashCode();
       hash = (37 * hash) + MIN_VERSION_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getMinVersion());
@@ -4222,6 +4344,10 @@ public final class IMMessage {
 
         sort_ = "";
 
+        reception_ = "";
+
+        receiver_ = "";
+
         minVersion_ = 0L;
 
         maxVersion_ = 0L;
@@ -4259,6 +4385,8 @@ public final class IMMessage {
         result.page_ = page_;
         result.pageSize_ = pageSize_;
         result.sort_ = sort_;
+        result.reception_ = reception_;
+        result.receiver_ = receiver_;
         result.minVersion_ = minVersion_;
         result.maxVersion_ = maxVersion_;
         result.minTime_ = minTime_;
@@ -4319,6 +4447,14 @@ public final class IMMessage {
         }
         if (!other.getSort().isEmpty()) {
           sort_ = other.sort_;
+          onChanged();
+        }
+        if (!other.getReception().isEmpty()) {
+          reception_ = other.reception_;
+          onChanged();
+        }
+        if (!other.getReceiver().isEmpty()) {
+          receiver_ = other.receiver_;
           onChanged();
         }
         if (other.getMinVersion() != 0L) {
@@ -4483,15 +4619,153 @@ public final class IMMessage {
         return this;
       }
 
+      private java.lang.Object reception_ = "";
+      /**
+       * <code>string reception = 4;</code>
+       */
+      public java.lang.String getReception() {
+        java.lang.Object ref = reception_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          reception_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string reception = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getReceptionBytes() {
+        java.lang.Object ref = reception_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          reception_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string reception = 4;</code>
+       */
+      public Builder setReception(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        reception_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string reception = 4;</code>
+       */
+      public Builder clearReception() {
+        
+        reception_ = getDefaultInstance().getReception();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string reception = 4;</code>
+       */
+      public Builder setReceptionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        reception_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object receiver_ = "";
+      /**
+       * <code>string receiver = 5;</code>
+       */
+      public java.lang.String getReceiver() {
+        java.lang.Object ref = receiver_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          receiver_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string receiver = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getReceiverBytes() {
+        java.lang.Object ref = receiver_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          receiver_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string receiver = 5;</code>
+       */
+      public Builder setReceiver(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        receiver_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string receiver = 5;</code>
+       */
+      public Builder clearReceiver() {
+        
+        receiver_ = getDefaultInstance().getReceiver();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string receiver = 5;</code>
+       */
+      public Builder setReceiverBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        receiver_ = value;
+        onChanged();
+        return this;
+      }
+
       private long minVersion_ ;
       /**
-       * <code>int64 min_version = 4;</code>
+       * <code>int64 min_version = 6;</code>
        */
       public long getMinVersion() {
         return minVersion_;
       }
       /**
-       * <code>int64 min_version = 4;</code>
+       * <code>int64 min_version = 6;</code>
        */
       public Builder setMinVersion(long value) {
         
@@ -4500,7 +4774,7 @@ public final class IMMessage {
         return this;
       }
       /**
-       * <code>int64 min_version = 4;</code>
+       * <code>int64 min_version = 6;</code>
        */
       public Builder clearMinVersion() {
         
@@ -4511,13 +4785,13 @@ public final class IMMessage {
 
       private long maxVersion_ ;
       /**
-       * <code>int64 max_version = 5;</code>
+       * <code>int64 max_version = 7;</code>
        */
       public long getMaxVersion() {
         return maxVersion_;
       }
       /**
-       * <code>int64 max_version = 5;</code>
+       * <code>int64 max_version = 7;</code>
        */
       public Builder setMaxVersion(long value) {
         
@@ -4526,7 +4800,7 @@ public final class IMMessage {
         return this;
       }
       /**
-       * <code>int64 max_version = 5;</code>
+       * <code>int64 max_version = 7;</code>
        */
       public Builder clearMaxVersion() {
         
@@ -4537,13 +4811,13 @@ public final class IMMessage {
 
       private long minTime_ ;
       /**
-       * <code>int64 min_time = 6;</code>
+       * <code>int64 min_time = 8;</code>
        */
       public long getMinTime() {
         return minTime_;
       }
       /**
-       * <code>int64 min_time = 6;</code>
+       * <code>int64 min_time = 8;</code>
        */
       public Builder setMinTime(long value) {
         
@@ -4552,7 +4826,7 @@ public final class IMMessage {
         return this;
       }
       /**
-       * <code>int64 min_time = 6;</code>
+       * <code>int64 min_time = 8;</code>
        */
       public Builder clearMinTime() {
         
@@ -4563,13 +4837,13 @@ public final class IMMessage {
 
       private long maxTime_ ;
       /**
-       * <code>int64 max_time = 7;</code>
+       * <code>int64 max_time = 9;</code>
        */
       public long getMaxTime() {
         return maxTime_;
       }
       /**
-       * <code>int64 max_time = 7;</code>
+       * <code>int64 max_time = 9;</code>
        */
       public Builder setMaxTime(long value) {
         
@@ -4578,7 +4852,7 @@ public final class IMMessage {
         return this;
       }
       /**
-       * <code>int64 max_time = 7;</code>
+       * <code>int64 max_time = 9;</code>
        */
       public Builder clearMaxTime() {
         
@@ -5661,14 +5935,15 @@ public final class IMMessage {
       "\022\017\n\007version\030\002 \001(\003\022\020\n\010sequence\030\003 \001(\t\022\016\n\006s" +
       "ender\030\004 \001(\t\022\021\n\treception\030\005 \001(\t\022\020\n\010receiv" +
       "er\030\006 \001(\t\022\014\n\004type\030\007 \001(\t\022\017\n\007content\030\010 \001(\t\022" +
-      "\014\n\004time\030\t \001(\003\022\020\n\010withdraw\030\n \001(\003\"\203\001\n\004Pull" +
+      "\014\n\004time\030\t \001(\003\022\020\n\010withdraw\030\n \001(\003\"\250\001\n\004Pull" +
       "\022\014\n\004page\030\001 \001(\005\022\021\n\tpage_size\030\002 \001(\005\022\014\n\004sor" +
-      "t\030\003 \001(\t\022\023\n\013min_version\030\004 \001(\003\022\023\n\013max_vers" +
-      "ion\030\005 \001(\003\022\020\n\010min_time\030\006 \001(\003\022\020\n\010max_time\030" +
-      "\007 \001(\003\"S\n\nPullResult\022\014\n\004page\030\001 \001(\005\022\020\n\010pag" +
-      "eSize\030\002 \001(\005\022\r\n\005total\030\003 \001(\003\022\026\n\004rows\030\004 \003(\013" +
-      "2\010.im.BodyB\032\n\030com.iisquare.im.protobufb\006" +
-      "proto3"
+      "t\030\003 \001(\t\022\021\n\treception\030\004 \001(\t\022\020\n\010receiver\030\005" +
+      " \001(\t\022\023\n\013min_version\030\006 \001(\003\022\023\n\013max_version" +
+      "\030\007 \001(\003\022\020\n\010min_time\030\010 \001(\003\022\020\n\010max_time\030\t \001" +
+      "(\003\"S\n\nPullResult\022\014\n\004page\030\001 \001(\005\022\020\n\010pageSi" +
+      "ze\030\002 \001(\005\022\r\n\005total\030\003 \001(\003\022\026\n\004rows\030\004 \003(\0132\010." +
+      "im.BodyB\032\n\030com.iisquare.im.protobufb\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -5703,7 +5978,7 @@ public final class IMMessage {
     internal_static_im_Pull_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_im_Pull_descriptor,
-        new java.lang.String[] { "Page", "PageSize", "Sort", "MinVersion", "MaxVersion", "MinTime", "MaxTime", });
+        new java.lang.String[] { "Page", "PageSize", "Sort", "Reception", "Receiver", "MinVersion", "MaxVersion", "MinTime", "MaxTime", });
     internal_static_im_PullResult_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_im_PullResult_fieldAccessorTable = new

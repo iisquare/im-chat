@@ -40,6 +40,14 @@ public class MessageService extends ServiceBase {
         if (null == sort) sort = Sort.by(Sort.Order.asc("version"));
         Page<User> data = messageDao.findAll((Specification) (root, query, cb) -> {
             List<Predicate> predicates = new ArrayList<>();
+            String reception = DPUtil.trim(DPUtil.parseString(param.get("reception")));
+            if(!DPUtil.empty(reception)) {
+                predicates.add(cb.equal(root.get("reception"), reception));
+            }
+            String receiver = DPUtil.trim(DPUtil.parseString(param.get("receiver")));
+            if(!DPUtil.empty(receiver)) {
+                predicates.add(cb.equal(root.get("receiver"), receiver));
+            }
             if (param.containsKey("minVersion")) {
                 predicates.add(cb.ge(root.get("version"), DPUtil.parseLong(param.containsKey("minVersion"))));
             }
