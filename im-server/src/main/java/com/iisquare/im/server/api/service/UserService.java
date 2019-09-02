@@ -92,12 +92,12 @@ public class UserService extends ServiceBase {
         return DPUtil.parseString(list.get(0));
     }
 
-    public boolean block(String id, Date block) {
+    public boolean block(String id, long block) {
         User user = info(id);
         if (null == user) return false;
         user.setBlock(block);
         user = userDao.save(user);
-        redis.opsForHash().putAll(userKey(user.getId()), DPUtil.buildMap("id", user.getId(), "block", user.block()));
+        redis.opsForHash().putAll(userKey(user.getId()), DPUtil.buildMap("id", user.getId(), "block", user.getBlock()));
         return true;
     }
 
@@ -106,7 +106,7 @@ public class UserService extends ServiceBase {
         if (null == user) return false;
         user.setPushable(enable ? 1 : 0);
         user = userDao.save(user);
-        redis.opsForHash().putAll(userKey(user.getId()), DPUtil.buildMap("id", user.getId(), "pushable", user.pushable()));
+        redis.opsForHash().putAll(userKey(user.getId()), DPUtil.buildMap("id", user.getId(), "pushable", user.getPushable()));
         return true;
     }
 

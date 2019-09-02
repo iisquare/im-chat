@@ -50,17 +50,17 @@
               <b-row align-v="center" align="center" class="im-message-item">
                 <b-col><b-badge variant="secondary">2019-01-03 13:25:22</b-badge></b-col>
               </b-row>
-              <b-row align-v="center" :align="index % 2 == 0 ? 'left' : 'right'" class="im-message-item" :key="index" v-for="(item, index) in items">
+              <b-row align-v="center" :align="item.sender == talk.userId ? 'right' : 'left'" class="im-message-item" :key="index" v-for="(item, index) in messages.rows">
                 <b-col>
                   <b-media class="im-message-item-left" v-if="index % 2 == 0">
-                    <b-img :id="'im-' + index" slot="aside" width="35" height="35" rounded="circle" :src="'https://picsum.photos/125/125/?image=' + item" :title="index"></b-img>
+                    <b-img :id="'im-' + index" slot="aside" width="35" height="35" rounded="circle" :src="'https://picsum.photos/125/125/?image=' + item.sender.length" :title="index"></b-img>
                     <div class="im-message-arrow"></div>
-                    <div class="im-message-body">posuereposuereposueresuereosuereposuere</div>
+                    <div class="im-message-body">{{item.content}}</div>
                   </b-media>
                   <b-media class="im-message-item-right" right-align v-if="index % 2 != 0">
                     <b-img slot="aside" width="35" height="35" rounded="circle" src="https://avatars2.githubusercontent.com/u/5144531?s=35" :title="index"></b-img>
                     <div class="im-message-arrow"></div>
-                    <div class="im-message-body">SedSedSedSedSedSedSedSedSedSedSSeSedSedSedSedSedSedSedSedSedSed</div>
+                    <div class="im-message-body">{{item.content}}</div>
                   </b-media>
                 </b-col>
               </b-row>
@@ -92,6 +92,7 @@ export default {
       contactRows: [],
       searchRows: [],
       talk: null,
+      messages: { more: true, rows: [] },
       message: '',
       items: [58, 1, 21, 33, 4, 57, 61, 7, 8, 9]
     }
@@ -140,11 +141,24 @@ export default {
         this.contactRows.unshift(item)
         this.keyword = ''
       }
+      if (this.talk && this.talk.userId === item.userId) return
       this.talk = item
+      this.messages = { more: true, rows: [] }
+      this.history()
+    },
+    history () {
+      if (!this.messages.more) return
+      let length = this.messages.rows.length
+      let version = length > 0 ? this.messages.rows[0].version : null
+      this.im.messageLogic.history({receiver: this.talk.userId, version}).then(result => {
+        if (result.receiver !== this.talk.userId) return
+        this.messages.more = result.more
+        this.messages.more.unshift(...result.rows)
+      })
     },
     search () {
       this.keywording = false
-      wrapper.tips.bind(this)(userService.search({id: this.keyword})).then(response => {
+      wrapper.tips.bind(this)(userService.search({id: this.keyword, except: this.userId})).then(response => {
         if (response.code === 0) {
           this.searchRows = response.data.rows.map(item => {
             item.userId = item.id

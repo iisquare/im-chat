@@ -8,7 +8,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
-import java.util.Date;
 
 @Entity
 @Getter
@@ -40,18 +39,8 @@ public class Message implements Serializable {
     @Column
     private String content; // 消息内容
     @Column
-    private Date time; // 发送时间
+    private Long time; // 发送时间
     @Column
-    private Date withdraw; // 撤回时间
-
-    public long time() {
-        if (null == time) return 0;
-        return time.getTime();
-    }
-
-    public long withdraw() {
-        if (null == withdraw) return 0;
-        return withdraw.getTime();
-    }
+    private Long withdraw; // 撤回时间
 
 }

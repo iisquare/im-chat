@@ -30,12 +30,30 @@ class MessageLogic extends LogicBase {
     parameter.setPage(param.page)
     parameter.setPageSize(param.pageSize)
     parameter.setSort(param.sort)
+    parameter.setReception(param.reception)
+    parameter.setReceiver(param.receiver)
     parameter.setMinVersion(param.minVersion)
     parameter.setMaxVersion(param.maxVersion)
     parameter.setMinTime(param.minTime)
     parameter.setMaxTime(param.maxTime)
     return this.send('message.pull', parameter).then(result => {
       return this.result(IMMessagePB.PullResult, result)
+    })
+  }
+  history ({receiver, version}) {
+    let param = {
+      reception: MESSAGE_RECEPTION_PERSON,
+      receiver,
+      maxVersion: version ? version - 1 : version,
+      sort: 'version.desc'
+    }
+    return this.pull(param).then(result => {
+      result = result.toObject()
+      return {
+        receiver,
+        more: result.total / result.pageSize > 1,
+        rows: result.rowsList.sort((a, b) => { return a.version - b.version })
+      }
     })
   }
 }

@@ -8,7 +8,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
-import java.util.Date;
 
 @Entity
 @Getter
@@ -28,23 +27,13 @@ public class User implements Serializable {
     @Column
     private String token; // Token，唯一约束
     @Column
-    private Date block; // 封禁结束时间
+    private Long block; // 封禁结束时间
     @Column
     private Integer pushable; // 客户端通知
 
-    public String block() {
-        if (null == block) return null;
-        return String.valueOf(block.getTime());
-    }
-
-    public String pushable() {
-        if (null == pushable) return null;
-        return String.valueOf(pushable);
-    }
-
     public boolean isBlocked() {
         if (null == block) return false;
-        return block.getTime() > System.currentTimeMillis();
+        return block > System.currentTimeMillis();
     }
 
 }

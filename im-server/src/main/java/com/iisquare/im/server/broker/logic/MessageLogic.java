@@ -14,7 +14,6 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -55,7 +54,7 @@ public class MessageLogic extends Logic {
             body.setSender(item.getSequence()).setSender(item.getSender());
             body.setReception(item.getReception()).setReceiver(item.getReceiver());
             body.setType(item.getType()).setContent(item.getContent());
-            body.setTime(item.time()).setWithdraw(item.withdraw());
+            body.setTime(item.getTime()).setWithdraw(item.getWithdraw());
             rows.add(body.build());
         }
         result.addAllRows(rows);
@@ -85,10 +84,10 @@ public class MessageLogic extends Logic {
         Message message = Message.builder().sender(sender.getId())
             .version(increase()).reception(push.getReception())
             .receiver(receiver.getId()).sequence(directive.getSequence())
-            .type(push.getType()).content(push.getContent()).time(new Date()).build();
+            .type(push.getType()).content(push.getContent()).time(System.currentTimeMillis()).build();
         message = messageService.save(message);
         IMMessage.PushResult.Builder ack = IMMessage.PushResult.newBuilder();
-        ack.setId(message.getId()).setVersion(message.getVersion()).setTime(message.getTime().getTime());
+        ack.setId(message.getId()).setVersion(message.getVersion()).setTime(message.getTime());
         userLogic.sync(sender, receiver, message);
         return result(directive, 0, null, ack.build());
     }

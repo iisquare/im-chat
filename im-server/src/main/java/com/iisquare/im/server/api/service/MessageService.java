@@ -27,7 +27,7 @@ public class MessageService extends ServiceBase {
     }
 
     public Message save(Message info) {
-        info.setTime(new Date());
+        info.setTime(System.currentTimeMillis());
         if(null == info.getId()) info.setId(uuid());
         return messageDao.save(info);
     }
@@ -41,25 +41,17 @@ public class MessageService extends ServiceBase {
         Page<User> data = messageDao.findAll((Specification) (root, query, cb) -> {
             List<Predicate> predicates = new ArrayList<>();
             String reception = DPUtil.trim(DPUtil.parseString(param.get("reception")));
-            if(!DPUtil.empty(reception)) {
-                predicates.add(cb.equal(root.get("reception"), reception));
-            }
+            if(!DPUtil.empty(reception)) predicates.add(cb.equal(root.get("reception"), reception));
             String receiver = DPUtil.trim(DPUtil.parseString(param.get("receiver")));
-            if(!DPUtil.empty(receiver)) {
-                predicates.add(cb.equal(root.get("receiver"), receiver));
-            }
-            if (param.containsKey("minVersion")) {
-                predicates.add(cb.ge(root.get("version"), DPUtil.parseLong(param.containsKey("minVersion"))));
-            }
-            if (param.containsKey("maxVersion")) {
-                predicates.add(cb.le(root.get("version"), DPUtil.parseLong(param.containsKey("maxVersion"))));
-            }
-            if (param.containsKey("minTime")) {
-                predicates.add(cb.ge(root.get("time"), DPUtil.parseLong(param.containsKey("minTime"))));
-            }
-            if (param.containsKey("maxTime")) {
-                predicates.add(cb.le(root.get("time"), DPUtil.parseLong(param.containsKey("maxTime"))));
-            }
+            if(!DPUtil.empty(receiver)) predicates.add(cb.equal(root.get("receiver"), receiver));
+            long minVersion = DPUtil.parseLong(param.containsKey("minVersion"));
+            if (minVersion > 0) predicates.add(cb.ge(root.get("version"),minVersion ));
+            long maxVersion = DPUtil.parseLong(param.containsKey("maxVersion"));
+            if (maxVersion > 0) predicates.add(cb.le(root.get("version"), maxVersion));
+            long minTime = DPUtil.parseLong(param.containsKey("minTime"));
+            if (minTime > 0) predicates.add(cb.ge(root.get("time"), minTime));
+            long maxTime = DPUtil.parseLong(param.containsKey("maxTime"));
+            if (maxTime > 0) predicates.add(cb.le(root.get("time"), maxTime));
             return cb.and(predicates.toArray(new Predicate[predicates.size()]));
         }, PageRequest.of(page - 1, pageSize, sort));
         List<User> rows = data.getContent();

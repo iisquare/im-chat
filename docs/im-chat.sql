@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2019-08-29 19:14:59
+Date: 2019-09-02 11:47:32
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,8 +28,8 @@ CREATE TABLE `im_message` (
   `receiver` varchar(32) NOT NULL DEFAULT '',
   `type` varchar(16) NOT NULL DEFAULT '',
   `content` text NOT NULL,
-  `time` datetime(3) DEFAULT NULL,
-  `withdraw` datetime(3) DEFAULT NULL,
+  `time` bigint(20) NOT NULL DEFAULT '0',
+  `withdraw` bigint(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uni_version` (`version`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -41,7 +41,7 @@ DROP TABLE IF EXISTS `im_user`;
 CREATE TABLE `im_user` (
   `id` varchar(32) NOT NULL DEFAULT '',
   `token` char(32) NOT NULL DEFAULT '',
-  `block` datetime(3) DEFAULT NULL,
+  `block` bigint(20) NOT NULL DEFAULT '0',
   `pushable` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uni_token` (`token`)

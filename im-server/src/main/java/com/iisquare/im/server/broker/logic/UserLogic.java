@@ -114,14 +114,14 @@ public class UserLogic extends Logic {
         // 发送方
         IMUser.Contact.Row.Builder builder = IMUser.Contact.Row.newBuilder();
         builder.setUserId(receiver.getId()).setMessageId(message.getId()).setDirection("send")
-            .setContent(message.getContent()).setTime(message.getTime().getTime());
+            .setContent(message.getContent()).setTime(message.getTime());
         String data = DPUtil.encode(builder.build().toByteArray());
         redis.opsForHash().put(contact(sender.getId()), receiver.getId(), data);
         userService.version(sender.getId(), message.getVersion());
         // 接收方
         builder = IMUser.Contact.Row.newBuilder();
         builder.setUserId(sender.getId()).setMessageId(message.getId()).setDirection("receive")
-            .setContent(message.getContent()).setTime(message.getTime().getTime());
+            .setContent(message.getContent()).setTime(message.getTime());
         data = DPUtil.encode(builder.build().toByteArray());
         redis.opsForHash().put(contact(receiver.getId()), sender.getId(), data);
         userService.version(receiver.getId(), message.getVersion());
