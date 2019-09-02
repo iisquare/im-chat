@@ -582,6 +582,11 @@ public final class IMUser {
      */
     com.google.protobuf.ByteString
         getUserIdBytes();
+
+    /**
+     * <code>int64 version = 2;</code>
+     */
+    long getVersion();
   }
   /**
    * Protobuf type {@code im.AuthResult}
@@ -633,6 +638,11 @@ public final class IMUser {
               java.lang.String s = input.readStringRequireUtf8();
 
               userId_ = s;
+              break;
+            }
+            case 16: {
+
+              version_ = input.readInt64();
               break;
             }
             default: {
@@ -701,6 +711,15 @@ public final class IMUser {
       }
     }
 
+    public static final int VERSION_FIELD_NUMBER = 2;
+    private long version_;
+    /**
+     * <code>int64 version = 2;</code>
+     */
+    public long getVersion() {
+      return version_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -718,6 +737,9 @@ public final class IMUser {
       if (!getUserIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userId_);
       }
+      if (version_ != 0L) {
+        output.writeInt64(2, version_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -729,6 +751,10 @@ public final class IMUser {
       size = 0;
       if (!getUserIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userId_);
+      }
+      if (version_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, version_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -747,6 +773,8 @@ public final class IMUser {
 
       if (!getUserId()
           .equals(other.getUserId())) return false;
+      if (getVersion()
+          != other.getVersion()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -760,6 +788,9 @@ public final class IMUser {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + USER_ID_FIELD_NUMBER;
       hash = (53 * hash) + getUserId().hashCode();
+      hash = (37 * hash) + VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getVersion());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -895,6 +926,8 @@ public final class IMUser {
         super.clear();
         userId_ = "";
 
+        version_ = 0L;
+
         return this;
       }
 
@@ -922,6 +955,7 @@ public final class IMUser {
       public com.iisquare.im.protobuf.IMUser.AuthResult buildPartial() {
         com.iisquare.im.protobuf.IMUser.AuthResult result = new com.iisquare.im.protobuf.IMUser.AuthResult(this);
         result.userId_ = userId_;
+        result.version_ = version_;
         onBuilt();
         return result;
       }
@@ -973,6 +1007,9 @@ public final class IMUser {
         if (!other.getUserId().isEmpty()) {
           userId_ = other.userId_;
           onChanged();
+        }
+        if (other.getVersion() != 0L) {
+          setVersion(other.getVersion());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1068,6 +1105,32 @@ public final class IMUser {
   checkByteStringIsUtf8(value);
         
         userId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long version_ ;
+      /**
+       * <code>int64 version = 2;</code>
+       */
+      public long getVersion() {
+        return version_;
+      }
+      /**
+       * <code>int64 version = 2;</code>
+       */
+      public Builder setVersion(long value) {
+        
+        version_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 version = 2;</code>
+       */
+      public Builder clearVersion() {
+        
+        version_ = 0L;
         onChanged();
         return this;
       }
@@ -3567,12 +3630,13 @@ public final class IMUser {
   static {
     java.lang.String[] descriptorData = {
       "\n\014IMUser.proto\022\002im\"\025\n\004Auth\022\r\n\005token\030\001 \001(" +
-      "\t\"\035\n\nAuthResult\022\017\n\007user_id\030\001 \001(\t\"\206\001\n\007Con" +
-      "tact\022\035\n\004rows\030\001 \003(\0132\017.im.Contact.Row\032\\\n\003R" +
-      "ow\022\017\n\007user_id\030\001 \001(\t\022\022\n\nmessage_id\030\002 \001(\t\022" +
-      "\021\n\tdirection\030\003 \001(\t\022\017\n\007content\030\004 \001(\t\022\014\n\004t" +
-      "ime\030\005 \001(\003\"\034\n\tUncontact\022\017\n\007user_id\030\001 \001(\tB" +
-      "\032\n\030com.iisquare.im.protobufb\006proto3"
+      "\t\".\n\nAuthResult\022\017\n\007user_id\030\001 \001(\t\022\017\n\007vers" +
+      "ion\030\002 \001(\003\"\206\001\n\007Contact\022\035\n\004rows\030\001 \003(\0132\017.im" +
+      ".Contact.Row\032\\\n\003Row\022\017\n\007user_id\030\001 \001(\t\022\022\n\n" +
+      "message_id\030\002 \001(\t\022\021\n\tdirection\030\003 \001(\t\022\017\n\007c" +
+      "ontent\030\004 \001(\t\022\014\n\004time\030\005 \001(\003\"\034\n\tUncontact\022" +
+      "\017\n\007user_id\030\001 \001(\tB\032\n\030com.iisquare.im.prot" +
+      "obufb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3589,7 +3653,7 @@ public final class IMUser {
     internal_static_im_AuthResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_im_AuthResult_descriptor,
-        new java.lang.String[] { "UserId", });
+        new java.lang.String[] { "UserId", "Version", });
     internal_static_im_Contact_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_im_Contact_fieldAccessorTable = new

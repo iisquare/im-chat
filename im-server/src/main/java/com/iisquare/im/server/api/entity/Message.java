@@ -44,4 +44,14 @@ public class Message implements Serializable {
     @Column
     private Date withdraw; // 撤回时间
 
+    public long time() {
+        if (null == time) return 0;
+        return time.getTime();
+    }
+
+    public long withdraw() {
+        if (null == withdraw) return 0;
+        return withdraw.getTime();
+    }
+
 }

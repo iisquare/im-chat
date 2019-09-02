@@ -980,8 +980,8 @@ public final class IMMessage {
 
   }
 
-  public interface PushACKOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:im.PushACK)
+  public interface PushResultOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:im.PushResult)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -1005,18 +1005,18 @@ public final class IMMessage {
     long getTime();
   }
   /**
-   * Protobuf type {@code im.PushACK}
+   * Protobuf type {@code im.PushResult}
    */
-  public  static final class PushACK extends
+  public  static final class PushResult extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:im.PushACK)
-      PushACKOrBuilder {
+      // @@protoc_insertion_point(message_implements:im.PushResult)
+      PushResultOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use PushACK.newBuilder() to construct.
-    private PushACK(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use PushResult.newBuilder() to construct.
+    private PushResult(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private PushACK() {
+    private PushResult() {
       id_ = "";
     }
 
@@ -1024,7 +1024,7 @@ public final class IMMessage {
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new PushACK();
+      return new PushResult();
     }
 
     @java.lang.Override
@@ -1032,7 +1032,7 @@ public final class IMMessage {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PushACK(
+    private PushResult(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1087,15 +1087,15 @@ public final class IMMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.iisquare.im.protobuf.IMMessage.internal_static_im_PushACK_descriptor;
+      return com.iisquare.im.protobuf.IMMessage.internal_static_im_PushResult_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.iisquare.im.protobuf.IMMessage.internal_static_im_PushACK_fieldAccessorTable
+      return com.iisquare.im.protobuf.IMMessage.internal_static_im_PushResult_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.iisquare.im.protobuf.IMMessage.PushACK.class, com.iisquare.im.protobuf.IMMessage.PushACK.Builder.class);
+              com.iisquare.im.protobuf.IMMessage.PushResult.class, com.iisquare.im.protobuf.IMMessage.PushResult.Builder.class);
     }
 
     public static final int ID_FIELD_NUMBER = 1;
@@ -1203,10 +1203,10 @@ public final class IMMessage {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.iisquare.im.protobuf.IMMessage.PushACK)) {
+      if (!(obj instanceof com.iisquare.im.protobuf.IMMessage.PushResult)) {
         return super.equals(obj);
       }
-      com.iisquare.im.protobuf.IMMessage.PushACK other = (com.iisquare.im.protobuf.IMMessage.PushACK) obj;
+      com.iisquare.im.protobuf.IMMessage.PushResult other = (com.iisquare.im.protobuf.IMMessage.PushResult) obj;
 
       if (!getId()
           .equals(other.getId())) return false;
@@ -1238,69 +1238,69 @@ public final class IMMessage {
       return hash;
     }
 
-    public static com.iisquare.im.protobuf.IMMessage.PushACK parseFrom(
+    public static com.iisquare.im.protobuf.IMMessage.PushResult parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.iisquare.im.protobuf.IMMessage.PushACK parseFrom(
+    public static com.iisquare.im.protobuf.IMMessage.PushResult parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.iisquare.im.protobuf.IMMessage.PushACK parseFrom(
+    public static com.iisquare.im.protobuf.IMMessage.PushResult parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.iisquare.im.protobuf.IMMessage.PushACK parseFrom(
+    public static com.iisquare.im.protobuf.IMMessage.PushResult parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.iisquare.im.protobuf.IMMessage.PushACK parseFrom(byte[] data)
+    public static com.iisquare.im.protobuf.IMMessage.PushResult parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.iisquare.im.protobuf.IMMessage.PushACK parseFrom(
+    public static com.iisquare.im.protobuf.IMMessage.PushResult parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.iisquare.im.protobuf.IMMessage.PushACK parseFrom(java.io.InputStream input)
+    public static com.iisquare.im.protobuf.IMMessage.PushResult parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.iisquare.im.protobuf.IMMessage.PushACK parseFrom(
+    public static com.iisquare.im.protobuf.IMMessage.PushResult parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.iisquare.im.protobuf.IMMessage.PushACK parseDelimitedFrom(java.io.InputStream input)
+    public static com.iisquare.im.protobuf.IMMessage.PushResult parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.iisquare.im.protobuf.IMMessage.PushACK parseDelimitedFrom(
+    public static com.iisquare.im.protobuf.IMMessage.PushResult parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.iisquare.im.protobuf.IMMessage.PushACK parseFrom(
+    public static com.iisquare.im.protobuf.IMMessage.PushResult parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.iisquare.im.protobuf.IMMessage.PushACK parseFrom(
+    public static com.iisquare.im.protobuf.IMMessage.PushResult parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1313,7 +1313,7 @@ public final class IMMessage {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.iisquare.im.protobuf.IMMessage.PushACK prototype) {
+    public static Builder newBuilder(com.iisquare.im.protobuf.IMMessage.PushResult prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -1329,26 +1329,26 @@ public final class IMMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code im.PushACK}
+     * Protobuf type {@code im.PushResult}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:im.PushACK)
-        com.iisquare.im.protobuf.IMMessage.PushACKOrBuilder {
+        // @@protoc_insertion_point(builder_implements:im.PushResult)
+        com.iisquare.im.protobuf.IMMessage.PushResultOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.iisquare.im.protobuf.IMMessage.internal_static_im_PushACK_descriptor;
+        return com.iisquare.im.protobuf.IMMessage.internal_static_im_PushResult_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.iisquare.im.protobuf.IMMessage.internal_static_im_PushACK_fieldAccessorTable
+        return com.iisquare.im.protobuf.IMMessage.internal_static_im_PushResult_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.iisquare.im.protobuf.IMMessage.PushACK.class, com.iisquare.im.protobuf.IMMessage.PushACK.Builder.class);
+                com.iisquare.im.protobuf.IMMessage.PushResult.class, com.iisquare.im.protobuf.IMMessage.PushResult.Builder.class);
       }
 
-      // Construct using com.iisquare.im.protobuf.IMMessage.PushACK.newBuilder()
+      // Construct using com.iisquare.im.protobuf.IMMessage.PushResult.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1378,17 +1378,17 @@ public final class IMMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.iisquare.im.protobuf.IMMessage.internal_static_im_PushACK_descriptor;
+        return com.iisquare.im.protobuf.IMMessage.internal_static_im_PushResult_descriptor;
       }
 
       @java.lang.Override
-      public com.iisquare.im.protobuf.IMMessage.PushACK getDefaultInstanceForType() {
-        return com.iisquare.im.protobuf.IMMessage.PushACK.getDefaultInstance();
+      public com.iisquare.im.protobuf.IMMessage.PushResult getDefaultInstanceForType() {
+        return com.iisquare.im.protobuf.IMMessage.PushResult.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.iisquare.im.protobuf.IMMessage.PushACK build() {
-        com.iisquare.im.protobuf.IMMessage.PushACK result = buildPartial();
+      public com.iisquare.im.protobuf.IMMessage.PushResult build() {
+        com.iisquare.im.protobuf.IMMessage.PushResult result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -1396,8 +1396,8 @@ public final class IMMessage {
       }
 
       @java.lang.Override
-      public com.iisquare.im.protobuf.IMMessage.PushACK buildPartial() {
-        com.iisquare.im.protobuf.IMMessage.PushACK result = new com.iisquare.im.protobuf.IMMessage.PushACK(this);
+      public com.iisquare.im.protobuf.IMMessage.PushResult buildPartial() {
+        com.iisquare.im.protobuf.IMMessage.PushResult result = new com.iisquare.im.protobuf.IMMessage.PushResult(this);
         result.id_ = id_;
         result.version_ = version_;
         result.time_ = time_;
@@ -1439,16 +1439,16 @@ public final class IMMessage {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.iisquare.im.protobuf.IMMessage.PushACK) {
-          return mergeFrom((com.iisquare.im.protobuf.IMMessage.PushACK)other);
+        if (other instanceof com.iisquare.im.protobuf.IMMessage.PushResult) {
+          return mergeFrom((com.iisquare.im.protobuf.IMMessage.PushResult)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.iisquare.im.protobuf.IMMessage.PushACK other) {
-        if (other == com.iisquare.im.protobuf.IMMessage.PushACK.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.iisquare.im.protobuf.IMMessage.PushResult other) {
+        if (other == com.iisquare.im.protobuf.IMMessage.PushResult.getDefaultInstance()) return this;
         if (!other.getId().isEmpty()) {
           id_ = other.id_;
           onChanged();
@@ -1474,11 +1474,11 @@ public final class IMMessage {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.iisquare.im.protobuf.IMMessage.PushACK parsedMessage = null;
+        com.iisquare.im.protobuf.IMMessage.PushResult parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.iisquare.im.protobuf.IMMessage.PushACK) e.getUnfinishedMessage();
+          parsedMessage = (com.iisquare.im.protobuf.IMMessage.PushResult) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1621,41 +1621,41 @@ public final class IMMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:im.PushACK)
+      // @@protoc_insertion_point(builder_scope:im.PushResult)
     }
 
-    // @@protoc_insertion_point(class_scope:im.PushACK)
-    private static final com.iisquare.im.protobuf.IMMessage.PushACK DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:im.PushResult)
+    private static final com.iisquare.im.protobuf.IMMessage.PushResult DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.iisquare.im.protobuf.IMMessage.PushACK();
+      DEFAULT_INSTANCE = new com.iisquare.im.protobuf.IMMessage.PushResult();
     }
 
-    public static com.iisquare.im.protobuf.IMMessage.PushACK getDefaultInstance() {
+    public static com.iisquare.im.protobuf.IMMessage.PushResult getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<PushACK>
-        PARSER = new com.google.protobuf.AbstractParser<PushACK>() {
+    private static final com.google.protobuf.Parser<PushResult>
+        PARSER = new com.google.protobuf.AbstractParser<PushResult>() {
       @java.lang.Override
-      public PushACK parsePartialFrom(
+      public PushResult parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PushACK(input, extensionRegistry);
+        return new PushResult(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<PushACK> parser() {
+    public static com.google.protobuf.Parser<PushResult> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<PushACK> getParserForType() {
+    public com.google.protobuf.Parser<PushResult> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.iisquare.im.protobuf.IMMessage.PushACK getDefaultInstanceForType() {
+    public com.iisquare.im.protobuf.IMMessage.PushResult getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2142,6 +2142,1572 @@ public final class IMMessage {
 
   }
 
+  public interface BodyOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:im.Body)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string id = 1;</code>
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+
+    /**
+     * <code>int64 version = 2;</code>
+     */
+    long getVersion();
+
+    /**
+     * <code>string sequence = 3;</code>
+     */
+    java.lang.String getSequence();
+    /**
+     * <code>string sequence = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getSequenceBytes();
+
+    /**
+     * <code>string sender = 4;</code>
+     */
+    java.lang.String getSender();
+    /**
+     * <code>string sender = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getSenderBytes();
+
+    /**
+     * <code>string reception = 5;</code>
+     */
+    java.lang.String getReception();
+    /**
+     * <code>string reception = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getReceptionBytes();
+
+    /**
+     * <code>string receiver = 6;</code>
+     */
+    java.lang.String getReceiver();
+    /**
+     * <code>string receiver = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getReceiverBytes();
+
+    /**
+     * <code>string type = 7;</code>
+     */
+    java.lang.String getType();
+    /**
+     * <code>string type = 7;</code>
+     */
+    com.google.protobuf.ByteString
+        getTypeBytes();
+
+    /**
+     * <code>string content = 8;</code>
+     */
+    java.lang.String getContent();
+    /**
+     * <code>string content = 8;</code>
+     */
+    com.google.protobuf.ByteString
+        getContentBytes();
+
+    /**
+     * <code>int64 time = 9;</code>
+     */
+    long getTime();
+
+    /**
+     * <code>int64 withdraw = 10;</code>
+     */
+    long getWithdraw();
+  }
+  /**
+   * Protobuf type {@code im.Body}
+   */
+  public  static final class Body extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:im.Body)
+      BodyOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Body.newBuilder() to construct.
+    private Body(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Body() {
+      id_ = "";
+      sequence_ = "";
+      sender_ = "";
+      reception_ = "";
+      receiver_ = "";
+      type_ = "";
+      content_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Body();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Body(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              id_ = s;
+              break;
+            }
+            case 16: {
+
+              version_ = input.readInt64();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              sequence_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              sender_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              reception_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              receiver_ = s;
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              type_ = s;
+              break;
+            }
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              content_ = s;
+              break;
+            }
+            case 72: {
+
+              time_ = input.readInt64();
+              break;
+            }
+            case 80: {
+
+              withdraw_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.iisquare.im.protobuf.IMMessage.internal_static_im_Body_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.iisquare.im.protobuf.IMMessage.internal_static_im_Body_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.iisquare.im.protobuf.IMMessage.Body.class, com.iisquare.im.protobuf.IMMessage.Body.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object id_;
+    /**
+     * <code>string id = 1;</code>
+     */
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int VERSION_FIELD_NUMBER = 2;
+    private long version_;
+    /**
+     * <code>int64 version = 2;</code>
+     */
+    public long getVersion() {
+      return version_;
+    }
+
+    public static final int SEQUENCE_FIELD_NUMBER = 3;
+    private volatile java.lang.Object sequence_;
+    /**
+     * <code>string sequence = 3;</code>
+     */
+    public java.lang.String getSequence() {
+      java.lang.Object ref = sequence_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        sequence_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string sequence = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSequenceBytes() {
+      java.lang.Object ref = sequence_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        sequence_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SENDER_FIELD_NUMBER = 4;
+    private volatile java.lang.Object sender_;
+    /**
+     * <code>string sender = 4;</code>
+     */
+    public java.lang.String getSender() {
+      java.lang.Object ref = sender_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        sender_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string sender = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSenderBytes() {
+      java.lang.Object ref = sender_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        sender_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int RECEPTION_FIELD_NUMBER = 5;
+    private volatile java.lang.Object reception_;
+    /**
+     * <code>string reception = 5;</code>
+     */
+    public java.lang.String getReception() {
+      java.lang.Object ref = reception_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        reception_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string reception = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getReceptionBytes() {
+      java.lang.Object ref = reception_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        reception_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int RECEIVER_FIELD_NUMBER = 6;
+    private volatile java.lang.Object receiver_;
+    /**
+     * <code>string receiver = 6;</code>
+     */
+    public java.lang.String getReceiver() {
+      java.lang.Object ref = receiver_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        receiver_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string receiver = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getReceiverBytes() {
+      java.lang.Object ref = receiver_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        receiver_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 7;
+    private volatile java.lang.Object type_;
+    /**
+     * <code>string type = 7;</code>
+     */
+    public java.lang.String getType() {
+      java.lang.Object ref = type_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        type_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string type = 7;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTypeBytes() {
+      java.lang.Object ref = type_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        type_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CONTENT_FIELD_NUMBER = 8;
+    private volatile java.lang.Object content_;
+    /**
+     * <code>string content = 8;</code>
+     */
+    public java.lang.String getContent() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        content_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string content = 8;</code>
+     */
+    public com.google.protobuf.ByteString
+        getContentBytes() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        content_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIME_FIELD_NUMBER = 9;
+    private long time_;
+    /**
+     * <code>int64 time = 9;</code>
+     */
+    public long getTime() {
+      return time_;
+    }
+
+    public static final int WITHDRAW_FIELD_NUMBER = 10;
+    private long withdraw_;
+    /**
+     * <code>int64 withdraw = 10;</code>
+     */
+    public long getWithdraw() {
+      return withdraw_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      }
+      if (version_ != 0L) {
+        output.writeInt64(2, version_);
+      }
+      if (!getSequenceBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, sequence_);
+      }
+      if (!getSenderBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, sender_);
+      }
+      if (!getReceptionBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, reception_);
+      }
+      if (!getReceiverBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, receiver_);
+      }
+      if (!getTypeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, type_);
+      }
+      if (!getContentBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, content_);
+      }
+      if (time_ != 0L) {
+        output.writeInt64(9, time_);
+      }
+      if (withdraw_ != 0L) {
+        output.writeInt64(10, withdraw_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      }
+      if (version_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, version_);
+      }
+      if (!getSequenceBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, sequence_);
+      }
+      if (!getSenderBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, sender_);
+      }
+      if (!getReceptionBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, reception_);
+      }
+      if (!getReceiverBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, receiver_);
+      }
+      if (!getTypeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, type_);
+      }
+      if (!getContentBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, content_);
+      }
+      if (time_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(9, time_);
+      }
+      if (withdraw_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(10, withdraw_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.iisquare.im.protobuf.IMMessage.Body)) {
+        return super.equals(obj);
+      }
+      com.iisquare.im.protobuf.IMMessage.Body other = (com.iisquare.im.protobuf.IMMessage.Body) obj;
+
+      if (!getId()
+          .equals(other.getId())) return false;
+      if (getVersion()
+          != other.getVersion()) return false;
+      if (!getSequence()
+          .equals(other.getSequence())) return false;
+      if (!getSender()
+          .equals(other.getSender())) return false;
+      if (!getReception()
+          .equals(other.getReception())) return false;
+      if (!getReceiver()
+          .equals(other.getReceiver())) return false;
+      if (!getType()
+          .equals(other.getType())) return false;
+      if (!getContent()
+          .equals(other.getContent())) return false;
+      if (getTime()
+          != other.getTime()) return false;
+      if (getWithdraw()
+          != other.getWithdraw()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      hash = (37 * hash) + VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getVersion());
+      hash = (37 * hash) + SEQUENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getSequence().hashCode();
+      hash = (37 * hash) + SENDER_FIELD_NUMBER;
+      hash = (53 * hash) + getSender().hashCode();
+      hash = (37 * hash) + RECEPTION_FIELD_NUMBER;
+      hash = (53 * hash) + getReception().hashCode();
+      hash = (37 * hash) + RECEIVER_FIELD_NUMBER;
+      hash = (53 * hash) + getReceiver().hashCode();
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + getType().hashCode();
+      hash = (37 * hash) + CONTENT_FIELD_NUMBER;
+      hash = (53 * hash) + getContent().hashCode();
+      hash = (37 * hash) + TIME_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTime());
+      hash = (37 * hash) + WITHDRAW_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getWithdraw());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.iisquare.im.protobuf.IMMessage.Body parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.iisquare.im.protobuf.IMMessage.Body parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.iisquare.im.protobuf.IMMessage.Body parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.iisquare.im.protobuf.IMMessage.Body parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.iisquare.im.protobuf.IMMessage.Body parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.iisquare.im.protobuf.IMMessage.Body parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.iisquare.im.protobuf.IMMessage.Body parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.iisquare.im.protobuf.IMMessage.Body parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.iisquare.im.protobuf.IMMessage.Body parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.iisquare.im.protobuf.IMMessage.Body parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.iisquare.im.protobuf.IMMessage.Body parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.iisquare.im.protobuf.IMMessage.Body parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.iisquare.im.protobuf.IMMessage.Body prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code im.Body}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:im.Body)
+        com.iisquare.im.protobuf.IMMessage.BodyOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.iisquare.im.protobuf.IMMessage.internal_static_im_Body_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.iisquare.im.protobuf.IMMessage.internal_static_im_Body_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.iisquare.im.protobuf.IMMessage.Body.class, com.iisquare.im.protobuf.IMMessage.Body.Builder.class);
+      }
+
+      // Construct using com.iisquare.im.protobuf.IMMessage.Body.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = "";
+
+        version_ = 0L;
+
+        sequence_ = "";
+
+        sender_ = "";
+
+        reception_ = "";
+
+        receiver_ = "";
+
+        type_ = "";
+
+        content_ = "";
+
+        time_ = 0L;
+
+        withdraw_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.iisquare.im.protobuf.IMMessage.internal_static_im_Body_descriptor;
+      }
+
+      @java.lang.Override
+      public com.iisquare.im.protobuf.IMMessage.Body getDefaultInstanceForType() {
+        return com.iisquare.im.protobuf.IMMessage.Body.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.iisquare.im.protobuf.IMMessage.Body build() {
+        com.iisquare.im.protobuf.IMMessage.Body result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.iisquare.im.protobuf.IMMessage.Body buildPartial() {
+        com.iisquare.im.protobuf.IMMessage.Body result = new com.iisquare.im.protobuf.IMMessage.Body(this);
+        result.id_ = id_;
+        result.version_ = version_;
+        result.sequence_ = sequence_;
+        result.sender_ = sender_;
+        result.reception_ = reception_;
+        result.receiver_ = receiver_;
+        result.type_ = type_;
+        result.content_ = content_;
+        result.time_ = time_;
+        result.withdraw_ = withdraw_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.iisquare.im.protobuf.IMMessage.Body) {
+          return mergeFrom((com.iisquare.im.protobuf.IMMessage.Body)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.iisquare.im.protobuf.IMMessage.Body other) {
+        if (other == com.iisquare.im.protobuf.IMMessage.Body.getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
+        }
+        if (other.getVersion() != 0L) {
+          setVersion(other.getVersion());
+        }
+        if (!other.getSequence().isEmpty()) {
+          sequence_ = other.sequence_;
+          onChanged();
+        }
+        if (!other.getSender().isEmpty()) {
+          sender_ = other.sender_;
+          onChanged();
+        }
+        if (!other.getReception().isEmpty()) {
+          reception_ = other.reception_;
+          onChanged();
+        }
+        if (!other.getReceiver().isEmpty()) {
+          receiver_ = other.receiver_;
+          onChanged();
+        }
+        if (!other.getType().isEmpty()) {
+          type_ = other.type_;
+          onChanged();
+        }
+        if (!other.getContent().isEmpty()) {
+          content_ = other.content_;
+          onChanged();
+        }
+        if (other.getTime() != 0L) {
+          setTime(other.getTime());
+        }
+        if (other.getWithdraw() != 0L) {
+          setWithdraw(other.getWithdraw());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.iisquare.im.protobuf.IMMessage.Body parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.iisquare.im.protobuf.IMMessage.Body) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object id_ = "";
+      /**
+       * <code>string id = 1;</code>
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public Builder clearId() {
+        
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long version_ ;
+      /**
+       * <code>int64 version = 2;</code>
+       */
+      public long getVersion() {
+        return version_;
+      }
+      /**
+       * <code>int64 version = 2;</code>
+       */
+      public Builder setVersion(long value) {
+        
+        version_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 version = 2;</code>
+       */
+      public Builder clearVersion() {
+        
+        version_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object sequence_ = "";
+      /**
+       * <code>string sequence = 3;</code>
+       */
+      public java.lang.String getSequence() {
+        java.lang.Object ref = sequence_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          sequence_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string sequence = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSequenceBytes() {
+        java.lang.Object ref = sequence_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          sequence_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string sequence = 3;</code>
+       */
+      public Builder setSequence(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        sequence_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string sequence = 3;</code>
+       */
+      public Builder clearSequence() {
+        
+        sequence_ = getDefaultInstance().getSequence();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string sequence = 3;</code>
+       */
+      public Builder setSequenceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        sequence_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object sender_ = "";
+      /**
+       * <code>string sender = 4;</code>
+       */
+      public java.lang.String getSender() {
+        java.lang.Object ref = sender_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          sender_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string sender = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSenderBytes() {
+        java.lang.Object ref = sender_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          sender_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string sender = 4;</code>
+       */
+      public Builder setSender(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        sender_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string sender = 4;</code>
+       */
+      public Builder clearSender() {
+        
+        sender_ = getDefaultInstance().getSender();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string sender = 4;</code>
+       */
+      public Builder setSenderBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        sender_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object reception_ = "";
+      /**
+       * <code>string reception = 5;</code>
+       */
+      public java.lang.String getReception() {
+        java.lang.Object ref = reception_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          reception_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string reception = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getReceptionBytes() {
+        java.lang.Object ref = reception_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          reception_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string reception = 5;</code>
+       */
+      public Builder setReception(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        reception_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string reception = 5;</code>
+       */
+      public Builder clearReception() {
+        
+        reception_ = getDefaultInstance().getReception();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string reception = 5;</code>
+       */
+      public Builder setReceptionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        reception_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object receiver_ = "";
+      /**
+       * <code>string receiver = 6;</code>
+       */
+      public java.lang.String getReceiver() {
+        java.lang.Object ref = receiver_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          receiver_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string receiver = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getReceiverBytes() {
+        java.lang.Object ref = receiver_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          receiver_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string receiver = 6;</code>
+       */
+      public Builder setReceiver(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        receiver_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string receiver = 6;</code>
+       */
+      public Builder clearReceiver() {
+        
+        receiver_ = getDefaultInstance().getReceiver();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string receiver = 6;</code>
+       */
+      public Builder setReceiverBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        receiver_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object type_ = "";
+      /**
+       * <code>string type = 7;</code>
+       */
+      public java.lang.String getType() {
+        java.lang.Object ref = type_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          type_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string type = 7;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTypeBytes() {
+        java.lang.Object ref = type_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          type_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string type = 7;</code>
+       */
+      public Builder setType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string type = 7;</code>
+       */
+      public Builder clearType() {
+        
+        type_ = getDefaultInstance().getType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string type = 7;</code>
+       */
+      public Builder setTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        type_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object content_ = "";
+      /**
+       * <code>string content = 8;</code>
+       */
+      public java.lang.String getContent() {
+        java.lang.Object ref = content_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          content_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string content = 8;</code>
+       */
+      public com.google.protobuf.ByteString
+          getContentBytes() {
+        java.lang.Object ref = content_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          content_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string content = 8;</code>
+       */
+      public Builder setContent(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        content_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string content = 8;</code>
+       */
+      public Builder clearContent() {
+        
+        content_ = getDefaultInstance().getContent();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string content = 8;</code>
+       */
+      public Builder setContentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        content_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long time_ ;
+      /**
+       * <code>int64 time = 9;</code>
+       */
+      public long getTime() {
+        return time_;
+      }
+      /**
+       * <code>int64 time = 9;</code>
+       */
+      public Builder setTime(long value) {
+        
+        time_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 time = 9;</code>
+       */
+      public Builder clearTime() {
+        
+        time_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long withdraw_ ;
+      /**
+       * <code>int64 withdraw = 10;</code>
+       */
+      public long getWithdraw() {
+        return withdraw_;
+      }
+      /**
+       * <code>int64 withdraw = 10;</code>
+       */
+      public Builder setWithdraw(long value) {
+        
+        withdraw_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 withdraw = 10;</code>
+       */
+      public Builder clearWithdraw() {
+        
+        withdraw_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:im.Body)
+    }
+
+    // @@protoc_insertion_point(class_scope:im.Body)
+    private static final com.iisquare.im.protobuf.IMMessage.Body DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.iisquare.im.protobuf.IMMessage.Body();
+    }
+
+    public static com.iisquare.im.protobuf.IMMessage.Body getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Body>
+        PARSER = new com.google.protobuf.AbstractParser<Body>() {
+      @java.lang.Override
+      public Body parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Body(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Body> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Body> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.iisquare.im.protobuf.IMMessage.Body getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface PullOrBuilder extends
       // @@protoc_insertion_point(interface_extends:im.Pull)
       com.google.protobuf.MessageOrBuilder {
@@ -2167,19 +3733,24 @@ public final class IMMessage {
         getSortBytes();
 
     /**
-     * <code>int64 version = 4;</code>
+     * <code>int64 min_version = 4;</code>
      */
-    long getVersion();
+    long getMinVersion();
 
     /**
-     * <code>string direction = 5;</code>
+     * <code>int64 max_version = 5;</code>
      */
-    java.lang.String getDirection();
+    long getMaxVersion();
+
     /**
-     * <code>string direction = 5;</code>
+     * <code>int64 min_time = 6;</code>
      */
-    com.google.protobuf.ByteString
-        getDirectionBytes();
+    long getMinTime();
+
+    /**
+     * <code>int64 max_time = 7;</code>
+     */
+    long getMaxTime();
   }
   /**
    * Protobuf type {@code im.Pull}
@@ -2195,7 +3766,6 @@ public final class IMMessage {
     }
     private Pull() {
       sort_ = "";
-      direction_ = "";
     }
 
     @java.lang.Override
@@ -2246,13 +3816,22 @@ public final class IMMessage {
             }
             case 32: {
 
-              version_ = input.readInt64();
+              minVersion_ = input.readInt64();
               break;
             }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 40: {
 
-              direction_ = s;
+              maxVersion_ = input.readInt64();
+              break;
+            }
+            case 48: {
+
+              minTime_ = input.readInt64();
+              break;
+            }
+            case 56: {
+
+              maxTime_ = input.readInt64();
               break;
             }
             default: {
@@ -2339,47 +3918,40 @@ public final class IMMessage {
       }
     }
 
-    public static final int VERSION_FIELD_NUMBER = 4;
-    private long version_;
+    public static final int MIN_VERSION_FIELD_NUMBER = 4;
+    private long minVersion_;
     /**
-     * <code>int64 version = 4;</code>
+     * <code>int64 min_version = 4;</code>
      */
-    public long getVersion() {
-      return version_;
+    public long getMinVersion() {
+      return minVersion_;
     }
 
-    public static final int DIRECTION_FIELD_NUMBER = 5;
-    private volatile java.lang.Object direction_;
+    public static final int MAX_VERSION_FIELD_NUMBER = 5;
+    private long maxVersion_;
     /**
-     * <code>string direction = 5;</code>
+     * <code>int64 max_version = 5;</code>
      */
-    public java.lang.String getDirection() {
-      java.lang.Object ref = direction_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        direction_ = s;
-        return s;
-      }
+    public long getMaxVersion() {
+      return maxVersion_;
     }
+
+    public static final int MIN_TIME_FIELD_NUMBER = 6;
+    private long minTime_;
     /**
-     * <code>string direction = 5;</code>
+     * <code>int64 min_time = 6;</code>
      */
-    public com.google.protobuf.ByteString
-        getDirectionBytes() {
-      java.lang.Object ref = direction_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        direction_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getMinTime() {
+      return minTime_;
+    }
+
+    public static final int MAX_TIME_FIELD_NUMBER = 7;
+    private long maxTime_;
+    /**
+     * <code>int64 max_time = 7;</code>
+     */
+    public long getMaxTime() {
+      return maxTime_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2405,11 +3977,17 @@ public final class IMMessage {
       if (!getSortBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, sort_);
       }
-      if (version_ != 0L) {
-        output.writeInt64(4, version_);
+      if (minVersion_ != 0L) {
+        output.writeInt64(4, minVersion_);
       }
-      if (!getDirectionBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, direction_);
+      if (maxVersion_ != 0L) {
+        output.writeInt64(5, maxVersion_);
+      }
+      if (minTime_ != 0L) {
+        output.writeInt64(6, minTime_);
+      }
+      if (maxTime_ != 0L) {
+        output.writeInt64(7, maxTime_);
       }
       unknownFields.writeTo(output);
     }
@@ -2431,12 +4009,21 @@ public final class IMMessage {
       if (!getSortBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, sort_);
       }
-      if (version_ != 0L) {
+      if (minVersion_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(4, version_);
+          .computeInt64Size(4, minVersion_);
       }
-      if (!getDirectionBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, direction_);
+      if (maxVersion_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(5, maxVersion_);
+      }
+      if (minTime_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(6, minTime_);
+      }
+      if (maxTime_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(7, maxTime_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2459,10 +4046,14 @@ public final class IMMessage {
           != other.getPageSize()) return false;
       if (!getSort()
           .equals(other.getSort())) return false;
-      if (getVersion()
-          != other.getVersion()) return false;
-      if (!getDirection()
-          .equals(other.getDirection())) return false;
+      if (getMinVersion()
+          != other.getMinVersion()) return false;
+      if (getMaxVersion()
+          != other.getMaxVersion()) return false;
+      if (getMinTime()
+          != other.getMinTime()) return false;
+      if (getMaxTime()
+          != other.getMaxTime()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2480,11 +4071,18 @@ public final class IMMessage {
       hash = (53 * hash) + getPageSize();
       hash = (37 * hash) + SORT_FIELD_NUMBER;
       hash = (53 * hash) + getSort().hashCode();
-      hash = (37 * hash) + VERSION_FIELD_NUMBER;
+      hash = (37 * hash) + MIN_VERSION_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getVersion());
-      hash = (37 * hash) + DIRECTION_FIELD_NUMBER;
-      hash = (53 * hash) + getDirection().hashCode();
+          getMinVersion());
+      hash = (37 * hash) + MAX_VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getMaxVersion());
+      hash = (37 * hash) + MIN_TIME_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getMinTime());
+      hash = (37 * hash) + MAX_TIME_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getMaxTime());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2624,9 +4222,13 @@ public final class IMMessage {
 
         sort_ = "";
 
-        version_ = 0L;
+        minVersion_ = 0L;
 
-        direction_ = "";
+        maxVersion_ = 0L;
+
+        minTime_ = 0L;
+
+        maxTime_ = 0L;
 
         return this;
       }
@@ -2657,8 +4259,10 @@ public final class IMMessage {
         result.page_ = page_;
         result.pageSize_ = pageSize_;
         result.sort_ = sort_;
-        result.version_ = version_;
-        result.direction_ = direction_;
+        result.minVersion_ = minVersion_;
+        result.maxVersion_ = maxVersion_;
+        result.minTime_ = minTime_;
+        result.maxTime_ = maxTime_;
         onBuilt();
         return result;
       }
@@ -2717,12 +4321,17 @@ public final class IMMessage {
           sort_ = other.sort_;
           onChanged();
         }
-        if (other.getVersion() != 0L) {
-          setVersion(other.getVersion());
+        if (other.getMinVersion() != 0L) {
+          setMinVersion(other.getMinVersion());
         }
-        if (!other.getDirection().isEmpty()) {
-          direction_ = other.direction_;
-          onChanged();
+        if (other.getMaxVersion() != 0L) {
+          setMaxVersion(other.getMaxVersion());
+        }
+        if (other.getMinTime() != 0L) {
+          setMinTime(other.getMinTime());
+        }
+        if (other.getMaxTime() != 0L) {
+          setMaxTime(other.getMaxTime());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2874,97 +4483,106 @@ public final class IMMessage {
         return this;
       }
 
-      private long version_ ;
+      private long minVersion_ ;
       /**
-       * <code>int64 version = 4;</code>
+       * <code>int64 min_version = 4;</code>
        */
-      public long getVersion() {
-        return version_;
+      public long getMinVersion() {
+        return minVersion_;
       }
       /**
-       * <code>int64 version = 4;</code>
+       * <code>int64 min_version = 4;</code>
        */
-      public Builder setVersion(long value) {
+      public Builder setMinVersion(long value) {
         
-        version_ = value;
+        minVersion_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 version = 4;</code>
+       * <code>int64 min_version = 4;</code>
        */
-      public Builder clearVersion() {
+      public Builder clearMinVersion() {
         
-        version_ = 0L;
+        minVersion_ = 0L;
         onChanged();
         return this;
       }
 
-      private java.lang.Object direction_ = "";
+      private long maxVersion_ ;
       /**
-       * <code>string direction = 5;</code>
+       * <code>int64 max_version = 5;</code>
        */
-      public java.lang.String getDirection() {
-        java.lang.Object ref = direction_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          direction_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getMaxVersion() {
+        return maxVersion_;
       }
       /**
-       * <code>string direction = 5;</code>
+       * <code>int64 max_version = 5;</code>
        */
-      public com.google.protobuf.ByteString
-          getDirectionBytes() {
-        java.lang.Object ref = direction_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          direction_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string direction = 5;</code>
-       */
-      public Builder setDirection(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        direction_ = value;
+      public Builder setMaxVersion(long value) {
+        
+        maxVersion_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string direction = 5;</code>
+       * <code>int64 max_version = 5;</code>
        */
-      public Builder clearDirection() {
+      public Builder clearMaxVersion() {
         
-        direction_ = getDefaultInstance().getDirection();
+        maxVersion_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long minTime_ ;
+      /**
+       * <code>int64 min_time = 6;</code>
+       */
+      public long getMinTime() {
+        return minTime_;
+      }
+      /**
+       * <code>int64 min_time = 6;</code>
+       */
+      public Builder setMinTime(long value) {
+        
+        minTime_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string direction = 5;</code>
+       * <code>int64 min_time = 6;</code>
        */
-      public Builder setDirectionBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      public Builder clearMinTime() {
         
-        direction_ = value;
+        minTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long maxTime_ ;
+      /**
+       * <code>int64 max_time = 7;</code>
+       */
+      public long getMaxTime() {
+        return maxTime_;
+      }
+      /**
+       * <code>int64 max_time = 7;</code>
+       */
+      public Builder setMaxTime(long value) {
+        
+        maxTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 max_time = 7;</code>
+       */
+      public Builder clearMaxTime() {
+        
+        maxTime_ = 0L;
         onChanged();
         return this;
       }
@@ -3021,8 +4639,8 @@ public final class IMMessage {
 
   }
 
-  public interface PullSendResultOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:im.PullSendResult)
+  public interface PullResultOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:im.PullResult)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -3041,42 +4659,42 @@ public final class IMMessage {
     long getTotal();
 
     /**
-     * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+     * <code>repeated .im.Body rows = 4;</code>
      */
-    java.util.List<com.iisquare.im.protobuf.IMMessage.PullSendResult.Row> 
+    java.util.List<com.iisquare.im.protobuf.IMMessage.Body> 
         getRowsList();
     /**
-     * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+     * <code>repeated .im.Body rows = 4;</code>
      */
-    com.iisquare.im.protobuf.IMMessage.PullSendResult.Row getRows(int index);
+    com.iisquare.im.protobuf.IMMessage.Body getRows(int index);
     /**
-     * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+     * <code>repeated .im.Body rows = 4;</code>
      */
     int getRowsCount();
     /**
-     * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+     * <code>repeated .im.Body rows = 4;</code>
      */
-    java.util.List<? extends com.iisquare.im.protobuf.IMMessage.PullSendResult.RowOrBuilder> 
+    java.util.List<? extends com.iisquare.im.protobuf.IMMessage.BodyOrBuilder> 
         getRowsOrBuilderList();
     /**
-     * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+     * <code>repeated .im.Body rows = 4;</code>
      */
-    com.iisquare.im.protobuf.IMMessage.PullSendResult.RowOrBuilder getRowsOrBuilder(
+    com.iisquare.im.protobuf.IMMessage.BodyOrBuilder getRowsOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code im.PullSendResult}
+   * Protobuf type {@code im.PullResult}
    */
-  public  static final class PullSendResult extends
+  public  static final class PullResult extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:im.PullSendResult)
-      PullSendResultOrBuilder {
+      // @@protoc_insertion_point(message_implements:im.PullResult)
+      PullResultOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use PullSendResult.newBuilder() to construct.
-    private PullSendResult(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use PullResult.newBuilder() to construct.
+    private PullResult(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private PullSendResult() {
+    private PullResult() {
       rows_ = java.util.Collections.emptyList();
     }
 
@@ -3084,7 +4702,7 @@ public final class IMMessage {
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new PullSendResult();
+      return new PullResult();
     }
 
     @java.lang.Override
@@ -3092,7 +4710,7 @@ public final class IMMessage {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PullSendResult(
+    private PullResult(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3128,11 +4746,11 @@ public final class IMMessage {
             }
             case 34: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                rows_ = new java.util.ArrayList<com.iisquare.im.protobuf.IMMessage.PullSendResult.Row>();
+                rows_ = new java.util.ArrayList<com.iisquare.im.protobuf.IMMessage.Body>();
                 mutable_bitField0_ |= 0x00000001;
               }
               rows_.add(
-                  input.readMessage(com.iisquare.im.protobuf.IMMessage.PullSendResult.Row.parser(), extensionRegistry));
+                  input.readMessage(com.iisquare.im.protobuf.IMMessage.Body.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -3159,1513 +4777,15 @@ public final class IMMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.iisquare.im.protobuf.IMMessage.internal_static_im_PullSendResult_descriptor;
+      return com.iisquare.im.protobuf.IMMessage.internal_static_im_PullResult_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.iisquare.im.protobuf.IMMessage.internal_static_im_PullSendResult_fieldAccessorTable
+      return com.iisquare.im.protobuf.IMMessage.internal_static_im_PullResult_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.iisquare.im.protobuf.IMMessage.PullSendResult.class, com.iisquare.im.protobuf.IMMessage.PullSendResult.Builder.class);
-    }
-
-    public interface RowOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:im.PullSendResult.Row)
-        com.google.protobuf.MessageOrBuilder {
-
-      /**
-       * <code>string id = 1;</code>
-       */
-      java.lang.String getId();
-      /**
-       * <code>string id = 1;</code>
-       */
-      com.google.protobuf.ByteString
-          getIdBytes();
-
-      /**
-       * <pre>
-       * 发送表版本
-       * </pre>
-       *
-       * <code>int64 version = 2;</code>
-       */
-      long getVersion();
-
-      /**
-       * <code>string reception = 3;</code>
-       */
-      java.lang.String getReception();
-      /**
-       * <code>string reception = 3;</code>
-       */
-      com.google.protobuf.ByteString
-          getReceptionBytes();
-
-      /**
-       * <code>string receiver = 4;</code>
-       */
-      java.lang.String getReceiver();
-      /**
-       * <code>string receiver = 4;</code>
-       */
-      com.google.protobuf.ByteString
-          getReceiverBytes();
-
-      /**
-       * <code>string type = 5;</code>
-       */
-      java.lang.String getType();
-      /**
-       * <code>string type = 5;</code>
-       */
-      com.google.protobuf.ByteString
-          getTypeBytes();
-
-      /**
-       * <code>string content = 6;</code>
-       */
-      java.lang.String getContent();
-      /**
-       * <code>string content = 6;</code>
-       */
-      com.google.protobuf.ByteString
-          getContentBytes();
-
-      /**
-       * <code>int64 time = 7;</code>
-       */
-      long getTime();
-
-      /**
-       * <pre>
-       * 发送表撤回
-       * </pre>
-       *
-       * <code>int64 withdraw = 8;</code>
-       */
-      long getWithdraw();
-
-      /**
-       * <pre>
-       * 发送表删除
-       * </pre>
-       *
-       * <code>int64 delete = 9;</code>
-       */
-      long getDelete();
-
-      /**
-       * <pre>
-       * 接收表已读（单聊）
-       * </pre>
-       *
-       * <code>int64 read = 10;</code>
-       */
-      long getRead();
-    }
-    /**
-     * Protobuf type {@code im.PullSendResult.Row}
-     */
-    public  static final class Row extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:im.PullSendResult.Row)
-        RowOrBuilder {
-    private static final long serialVersionUID = 0L;
-      // Use Row.newBuilder() to construct.
-      private Row(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-      }
-      private Row() {
-        id_ = "";
-        reception_ = "";
-        receiver_ = "";
-        type_ = "";
-        content_ = "";
-      }
-
-      @java.lang.Override
-      @SuppressWarnings({"unused"})
-      protected java.lang.Object newInstance(
-          UnusedPrivateParameter unused) {
-        return new Row();
-      }
-
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-      getUnknownFields() {
-        return this.unknownFields;
-      }
-      private Row(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                id_ = s;
-                break;
-              }
-              case 16: {
-
-                version_ = input.readInt64();
-                break;
-              }
-              case 26: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                reception_ = s;
-                break;
-              }
-              case 34: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                receiver_ = s;
-                break;
-              }
-              case 42: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                type_ = s;
-                break;
-              }
-              case 50: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                content_ = s;
-                break;
-              }
-              case 56: {
-
-                time_ = input.readInt64();
-                break;
-              }
-              case 64: {
-
-                withdraw_ = input.readInt64();
-                break;
-              }
-              case 72: {
-
-                delete_ = input.readInt64();
-                break;
-              }
-              case 80: {
-
-                read_ = input.readInt64();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.iisquare.im.protobuf.IMMessage.internal_static_im_PullSendResult_Row_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.iisquare.im.protobuf.IMMessage.internal_static_im_PullSendResult_Row_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.iisquare.im.protobuf.IMMessage.PullSendResult.Row.class, com.iisquare.im.protobuf.IMMessage.PullSendResult.Row.Builder.class);
-      }
-
-      public static final int ID_FIELD_NUMBER = 1;
-      private volatile java.lang.Object id_;
-      /**
-       * <code>string id = 1;</code>
-       */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (ref instanceof java.lang.String) {
-          return (java.lang.String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          id_ = s;
-          return s;
-        }
-      }
-      /**
-       * <code>string id = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-
-      public static final int VERSION_FIELD_NUMBER = 2;
-      private long version_;
-      /**
-       * <pre>
-       * 发送表版本
-       * </pre>
-       *
-       * <code>int64 version = 2;</code>
-       */
-      public long getVersion() {
-        return version_;
-      }
-
-      public static final int RECEPTION_FIELD_NUMBER = 3;
-      private volatile java.lang.Object reception_;
-      /**
-       * <code>string reception = 3;</code>
-       */
-      public java.lang.String getReception() {
-        java.lang.Object ref = reception_;
-        if (ref instanceof java.lang.String) {
-          return (java.lang.String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          reception_ = s;
-          return s;
-        }
-      }
-      /**
-       * <code>string reception = 3;</code>
-       */
-      public com.google.protobuf.ByteString
-          getReceptionBytes() {
-        java.lang.Object ref = reception_;
-        if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          reception_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-
-      public static final int RECEIVER_FIELD_NUMBER = 4;
-      private volatile java.lang.Object receiver_;
-      /**
-       * <code>string receiver = 4;</code>
-       */
-      public java.lang.String getReceiver() {
-        java.lang.Object ref = receiver_;
-        if (ref instanceof java.lang.String) {
-          return (java.lang.String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          receiver_ = s;
-          return s;
-        }
-      }
-      /**
-       * <code>string receiver = 4;</code>
-       */
-      public com.google.protobuf.ByteString
-          getReceiverBytes() {
-        java.lang.Object ref = receiver_;
-        if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          receiver_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-
-      public static final int TYPE_FIELD_NUMBER = 5;
-      private volatile java.lang.Object type_;
-      /**
-       * <code>string type = 5;</code>
-       */
-      public java.lang.String getType() {
-        java.lang.Object ref = type_;
-        if (ref instanceof java.lang.String) {
-          return (java.lang.String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          type_ = s;
-          return s;
-        }
-      }
-      /**
-       * <code>string type = 5;</code>
-       */
-      public com.google.protobuf.ByteString
-          getTypeBytes() {
-        java.lang.Object ref = type_;
-        if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          type_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-
-      public static final int CONTENT_FIELD_NUMBER = 6;
-      private volatile java.lang.Object content_;
-      /**
-       * <code>string content = 6;</code>
-       */
-      public java.lang.String getContent() {
-        java.lang.Object ref = content_;
-        if (ref instanceof java.lang.String) {
-          return (java.lang.String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          content_ = s;
-          return s;
-        }
-      }
-      /**
-       * <code>string content = 6;</code>
-       */
-      public com.google.protobuf.ByteString
-          getContentBytes() {
-        java.lang.Object ref = content_;
-        if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          content_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-
-      public static final int TIME_FIELD_NUMBER = 7;
-      private long time_;
-      /**
-       * <code>int64 time = 7;</code>
-       */
-      public long getTime() {
-        return time_;
-      }
-
-      public static final int WITHDRAW_FIELD_NUMBER = 8;
-      private long withdraw_;
-      /**
-       * <pre>
-       * 发送表撤回
-       * </pre>
-       *
-       * <code>int64 withdraw = 8;</code>
-       */
-      public long getWithdraw() {
-        return withdraw_;
-      }
-
-      public static final int DELETE_FIELD_NUMBER = 9;
-      private long delete_;
-      /**
-       * <pre>
-       * 发送表删除
-       * </pre>
-       *
-       * <code>int64 delete = 9;</code>
-       */
-      public long getDelete() {
-        return delete_;
-      }
-
-      public static final int READ_FIELD_NUMBER = 10;
-      private long read_;
-      /**
-       * <pre>
-       * 接收表已读（单聊）
-       * </pre>
-       *
-       * <code>int64 read = 10;</code>
-       */
-      public long getRead() {
-        return read_;
-      }
-
-      private byte memoizedIsInitialized = -1;
-      @java.lang.Override
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      @java.lang.Override
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        if (!getIdBytes().isEmpty()) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
-        }
-        if (version_ != 0L) {
-          output.writeInt64(2, version_);
-        }
-        if (!getReceptionBytes().isEmpty()) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 3, reception_);
-        }
-        if (!getReceiverBytes().isEmpty()) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 4, receiver_);
-        }
-        if (!getTypeBytes().isEmpty()) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 5, type_);
-        }
-        if (!getContentBytes().isEmpty()) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 6, content_);
-        }
-        if (time_ != 0L) {
-          output.writeInt64(7, time_);
-        }
-        if (withdraw_ != 0L) {
-          output.writeInt64(8, withdraw_);
-        }
-        if (delete_ != 0L) {
-          output.writeInt64(9, delete_);
-        }
-        if (read_ != 0L) {
-          output.writeInt64(10, read_);
-        }
-        unknownFields.writeTo(output);
-      }
-
-      @java.lang.Override
-      public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (!getIdBytes().isEmpty()) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
-        }
-        if (version_ != 0L) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(2, version_);
-        }
-        if (!getReceptionBytes().isEmpty()) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, reception_);
-        }
-        if (!getReceiverBytes().isEmpty()) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, receiver_);
-        }
-        if (!getTypeBytes().isEmpty()) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, type_);
-        }
-        if (!getContentBytes().isEmpty()) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, content_);
-        }
-        if (time_ != 0L) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(7, time_);
-        }
-        if (withdraw_ != 0L) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(8, withdraw_);
-        }
-        if (delete_ != 0L) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(9, delete_);
-        }
-        if (read_ != 0L) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(10, read_);
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSize = size;
-        return size;
-      }
-
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-         return true;
-        }
-        if (!(obj instanceof com.iisquare.im.protobuf.IMMessage.PullSendResult.Row)) {
-          return super.equals(obj);
-        }
-        com.iisquare.im.protobuf.IMMessage.PullSendResult.Row other = (com.iisquare.im.protobuf.IMMessage.PullSendResult.Row) obj;
-
-        if (!getId()
-            .equals(other.getId())) return false;
-        if (getVersion()
-            != other.getVersion()) return false;
-        if (!getReception()
-            .equals(other.getReception())) return false;
-        if (!getReceiver()
-            .equals(other.getReceiver())) return false;
-        if (!getType()
-            .equals(other.getType())) return false;
-        if (!getContent()
-            .equals(other.getContent())) return false;
-        if (getTime()
-            != other.getTime()) return false;
-        if (getWithdraw()
-            != other.getWithdraw()) return false;
-        if (getDelete()
-            != other.getDelete()) return false;
-        if (getRead()
-            != other.getRead()) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
-        return true;
-      }
-
-      @java.lang.Override
-      public int hashCode() {
-        if (memoizedHashCode != 0) {
-          return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + ID_FIELD_NUMBER;
-        hash = (53 * hash) + getId().hashCode();
-        hash = (37 * hash) + VERSION_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getVersion());
-        hash = (37 * hash) + RECEPTION_FIELD_NUMBER;
-        hash = (53 * hash) + getReception().hashCode();
-        hash = (37 * hash) + RECEIVER_FIELD_NUMBER;
-        hash = (53 * hash) + getReceiver().hashCode();
-        hash = (37 * hash) + TYPE_FIELD_NUMBER;
-        hash = (53 * hash) + getType().hashCode();
-        hash = (37 * hash) + CONTENT_FIELD_NUMBER;
-        hash = (53 * hash) + getContent().hashCode();
-        hash = (37 * hash) + TIME_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getTime());
-        hash = (37 * hash) + WITHDRAW_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getWithdraw());
-        hash = (37 * hash) + DELETE_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getDelete());
-        hash = (37 * hash) + READ_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getRead());
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-      }
-
-      public static com.iisquare.im.protobuf.IMMessage.PullSendResult.Row parseFrom(
-          java.nio.ByteBuffer data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.PullSendResult.Row parseFrom(
-          java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.PullSendResult.Row parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.PullSendResult.Row parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.PullSendResult.Row parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.PullSendResult.Row parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.PullSendResult.Row parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.PullSendResult.Row parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.PullSendResult.Row parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.PullSendResult.Row parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.PullSendResult.Row parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.PullSendResult.Row parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-
-      @java.lang.Override
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-      }
-      public static Builder newBuilder(com.iisquare.im.protobuf.IMMessage.PullSendResult.Row prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-      }
-      @java.lang.Override
-      public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
-      }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code im.PullSendResult.Row}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:im.PullSendResult.Row)
-          com.iisquare.im.protobuf.IMMessage.PullSendResult.RowOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return com.iisquare.im.protobuf.IMMessage.internal_static_im_PullSendResult_Row_descriptor;
-        }
-
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return com.iisquare.im.protobuf.IMMessage.internal_static_im_PullSendResult_Row_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  com.iisquare.im.protobuf.IMMessage.PullSendResult.Row.class, com.iisquare.im.protobuf.IMMessage.PullSendResult.Row.Builder.class);
-        }
-
-        // Construct using com.iisquare.im.protobuf.IMMessage.PullSendResult.Row.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
-        }
-        @java.lang.Override
-        public Builder clear() {
-          super.clear();
-          id_ = "";
-
-          version_ = 0L;
-
-          reception_ = "";
-
-          receiver_ = "";
-
-          type_ = "";
-
-          content_ = "";
-
-          time_ = 0L;
-
-          withdraw_ = 0L;
-
-          delete_ = 0L;
-
-          read_ = 0L;
-
-          return this;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return com.iisquare.im.protobuf.IMMessage.internal_static_im_PullSendResult_Row_descriptor;
-        }
-
-        @java.lang.Override
-        public com.iisquare.im.protobuf.IMMessage.PullSendResult.Row getDefaultInstanceForType() {
-          return com.iisquare.im.protobuf.IMMessage.PullSendResult.Row.getDefaultInstance();
-        }
-
-        @java.lang.Override
-        public com.iisquare.im.protobuf.IMMessage.PullSendResult.Row build() {
-          com.iisquare.im.protobuf.IMMessage.PullSendResult.Row result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        @java.lang.Override
-        public com.iisquare.im.protobuf.IMMessage.PullSendResult.Row buildPartial() {
-          com.iisquare.im.protobuf.IMMessage.PullSendResult.Row result = new com.iisquare.im.protobuf.IMMessage.PullSendResult.Row(this);
-          result.id_ = id_;
-          result.version_ = version_;
-          result.reception_ = reception_;
-          result.receiver_ = receiver_;
-          result.type_ = type_;
-          result.content_ = content_;
-          result.time_ = time_;
-          result.withdraw_ = withdraw_;
-          result.delete_ = delete_;
-          result.read_ = read_;
-          onBuilt();
-          return result;
-        }
-
-        @java.lang.Override
-        public Builder clone() {
-          return super.clone();
-        }
-        @java.lang.Override
-        public Builder setField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.setField(field, value);
-        }
-        @java.lang.Override
-        public Builder clearField(
-            com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return super.clearField(field);
-        }
-        @java.lang.Override
-        public Builder clearOneof(
-            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return super.clearOneof(oneof);
-        }
-        @java.lang.Override
-        public Builder setRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
-          return super.setRepeatedField(field, index, value);
-        }
-        @java.lang.Override
-        public Builder addRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.addRepeatedField(field, value);
-        }
-        @java.lang.Override
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof com.iisquare.im.protobuf.IMMessage.PullSendResult.Row) {
-            return mergeFrom((com.iisquare.im.protobuf.IMMessage.PullSendResult.Row)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(com.iisquare.im.protobuf.IMMessage.PullSendResult.Row other) {
-          if (other == com.iisquare.im.protobuf.IMMessage.PullSendResult.Row.getDefaultInstance()) return this;
-          if (!other.getId().isEmpty()) {
-            id_ = other.id_;
-            onChanged();
-          }
-          if (other.getVersion() != 0L) {
-            setVersion(other.getVersion());
-          }
-          if (!other.getReception().isEmpty()) {
-            reception_ = other.reception_;
-            onChanged();
-          }
-          if (!other.getReceiver().isEmpty()) {
-            receiver_ = other.receiver_;
-            onChanged();
-          }
-          if (!other.getType().isEmpty()) {
-            type_ = other.type_;
-            onChanged();
-          }
-          if (!other.getContent().isEmpty()) {
-            content_ = other.content_;
-            onChanged();
-          }
-          if (other.getTime() != 0L) {
-            setTime(other.getTime());
-          }
-          if (other.getWithdraw() != 0L) {
-            setWithdraw(other.getWithdraw());
-          }
-          if (other.getDelete() != 0L) {
-            setDelete(other.getDelete());
-          }
-          if (other.getRead() != 0L) {
-            setRead(other.getRead());
-          }
-          this.mergeUnknownFields(other.unknownFields);
-          onChanged();
-          return this;
-        }
-
-        @java.lang.Override
-        public final boolean isInitialized() {
-          return true;
-        }
-
-        @java.lang.Override
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          com.iisquare.im.protobuf.IMMessage.PullSendResult.Row parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.iisquare.im.protobuf.IMMessage.PullSendResult.Row) e.getUnfinishedMessage();
-            throw e.unwrapIOException();
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-
-        private java.lang.Object id_ = "";
-        /**
-         * <code>string id = 1;</code>
-         */
-        public java.lang.String getId() {
-          java.lang.Object ref = id_;
-          if (!(ref instanceof java.lang.String)) {
-            com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            id_ = s;
-            return s;
-          } else {
-            return (java.lang.String) ref;
-          }
-        }
-        /**
-         * <code>string id = 1;</code>
-         */
-        public com.google.protobuf.ByteString
-            getIdBytes() {
-          java.lang.Object ref = id_;
-          if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
-            id_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
-        }
-        /**
-         * <code>string id = 1;</code>
-         */
-        public Builder setId(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
-          id_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string id = 1;</code>
-         */
-        public Builder clearId() {
-          
-          id_ = getDefaultInstance().getId();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string id = 1;</code>
-         */
-        public Builder setIdBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
-          id_ = value;
-          onChanged();
-          return this;
-        }
-
-        private long version_ ;
-        /**
-         * <pre>
-         * 发送表版本
-         * </pre>
-         *
-         * <code>int64 version = 2;</code>
-         */
-        public long getVersion() {
-          return version_;
-        }
-        /**
-         * <pre>
-         * 发送表版本
-         * </pre>
-         *
-         * <code>int64 version = 2;</code>
-         */
-        public Builder setVersion(long value) {
-          
-          version_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <pre>
-         * 发送表版本
-         * </pre>
-         *
-         * <code>int64 version = 2;</code>
-         */
-        public Builder clearVersion() {
-          
-          version_ = 0L;
-          onChanged();
-          return this;
-        }
-
-        private java.lang.Object reception_ = "";
-        /**
-         * <code>string reception = 3;</code>
-         */
-        public java.lang.String getReception() {
-          java.lang.Object ref = reception_;
-          if (!(ref instanceof java.lang.String)) {
-            com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            reception_ = s;
-            return s;
-          } else {
-            return (java.lang.String) ref;
-          }
-        }
-        /**
-         * <code>string reception = 3;</code>
-         */
-        public com.google.protobuf.ByteString
-            getReceptionBytes() {
-          java.lang.Object ref = reception_;
-          if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
-            reception_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
-        }
-        /**
-         * <code>string reception = 3;</code>
-         */
-        public Builder setReception(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
-          reception_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string reception = 3;</code>
-         */
-        public Builder clearReception() {
-          
-          reception_ = getDefaultInstance().getReception();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string reception = 3;</code>
-         */
-        public Builder setReceptionBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
-          reception_ = value;
-          onChanged();
-          return this;
-        }
-
-        private java.lang.Object receiver_ = "";
-        /**
-         * <code>string receiver = 4;</code>
-         */
-        public java.lang.String getReceiver() {
-          java.lang.Object ref = receiver_;
-          if (!(ref instanceof java.lang.String)) {
-            com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            receiver_ = s;
-            return s;
-          } else {
-            return (java.lang.String) ref;
-          }
-        }
-        /**
-         * <code>string receiver = 4;</code>
-         */
-        public com.google.protobuf.ByteString
-            getReceiverBytes() {
-          java.lang.Object ref = receiver_;
-          if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
-            receiver_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
-        }
-        /**
-         * <code>string receiver = 4;</code>
-         */
-        public Builder setReceiver(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
-          receiver_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string receiver = 4;</code>
-         */
-        public Builder clearReceiver() {
-          
-          receiver_ = getDefaultInstance().getReceiver();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string receiver = 4;</code>
-         */
-        public Builder setReceiverBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
-          receiver_ = value;
-          onChanged();
-          return this;
-        }
-
-        private java.lang.Object type_ = "";
-        /**
-         * <code>string type = 5;</code>
-         */
-        public java.lang.String getType() {
-          java.lang.Object ref = type_;
-          if (!(ref instanceof java.lang.String)) {
-            com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            type_ = s;
-            return s;
-          } else {
-            return (java.lang.String) ref;
-          }
-        }
-        /**
-         * <code>string type = 5;</code>
-         */
-        public com.google.protobuf.ByteString
-            getTypeBytes() {
-          java.lang.Object ref = type_;
-          if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
-            type_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
-        }
-        /**
-         * <code>string type = 5;</code>
-         */
-        public Builder setType(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
-          type_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string type = 5;</code>
-         */
-        public Builder clearType() {
-          
-          type_ = getDefaultInstance().getType();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string type = 5;</code>
-         */
-        public Builder setTypeBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
-          type_ = value;
-          onChanged();
-          return this;
-        }
-
-        private java.lang.Object content_ = "";
-        /**
-         * <code>string content = 6;</code>
-         */
-        public java.lang.String getContent() {
-          java.lang.Object ref = content_;
-          if (!(ref instanceof java.lang.String)) {
-            com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            content_ = s;
-            return s;
-          } else {
-            return (java.lang.String) ref;
-          }
-        }
-        /**
-         * <code>string content = 6;</code>
-         */
-        public com.google.protobuf.ByteString
-            getContentBytes() {
-          java.lang.Object ref = content_;
-          if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
-            content_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
-        }
-        /**
-         * <code>string content = 6;</code>
-         */
-        public Builder setContent(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
-          content_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string content = 6;</code>
-         */
-        public Builder clearContent() {
-          
-          content_ = getDefaultInstance().getContent();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string content = 6;</code>
-         */
-        public Builder setContentBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
-          content_ = value;
-          onChanged();
-          return this;
-        }
-
-        private long time_ ;
-        /**
-         * <code>int64 time = 7;</code>
-         */
-        public long getTime() {
-          return time_;
-        }
-        /**
-         * <code>int64 time = 7;</code>
-         */
-        public Builder setTime(long value) {
-          
-          time_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int64 time = 7;</code>
-         */
-        public Builder clearTime() {
-          
-          time_ = 0L;
-          onChanged();
-          return this;
-        }
-
-        private long withdraw_ ;
-        /**
-         * <pre>
-         * 发送表撤回
-         * </pre>
-         *
-         * <code>int64 withdraw = 8;</code>
-         */
-        public long getWithdraw() {
-          return withdraw_;
-        }
-        /**
-         * <pre>
-         * 发送表撤回
-         * </pre>
-         *
-         * <code>int64 withdraw = 8;</code>
-         */
-        public Builder setWithdraw(long value) {
-          
-          withdraw_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <pre>
-         * 发送表撤回
-         * </pre>
-         *
-         * <code>int64 withdraw = 8;</code>
-         */
-        public Builder clearWithdraw() {
-          
-          withdraw_ = 0L;
-          onChanged();
-          return this;
-        }
-
-        private long delete_ ;
-        /**
-         * <pre>
-         * 发送表删除
-         * </pre>
-         *
-         * <code>int64 delete = 9;</code>
-         */
-        public long getDelete() {
-          return delete_;
-        }
-        /**
-         * <pre>
-         * 发送表删除
-         * </pre>
-         *
-         * <code>int64 delete = 9;</code>
-         */
-        public Builder setDelete(long value) {
-          
-          delete_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <pre>
-         * 发送表删除
-         * </pre>
-         *
-         * <code>int64 delete = 9;</code>
-         */
-        public Builder clearDelete() {
-          
-          delete_ = 0L;
-          onChanged();
-          return this;
-        }
-
-        private long read_ ;
-        /**
-         * <pre>
-         * 接收表已读（单聊）
-         * </pre>
-         *
-         * <code>int64 read = 10;</code>
-         */
-        public long getRead() {
-          return read_;
-        }
-        /**
-         * <pre>
-         * 接收表已读（单聊）
-         * </pre>
-         *
-         * <code>int64 read = 10;</code>
-         */
-        public Builder setRead(long value) {
-          
-          read_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <pre>
-         * 接收表已读（单聊）
-         * </pre>
-         *
-         * <code>int64 read = 10;</code>
-         */
-        public Builder clearRead() {
-          
-          read_ = 0L;
-          onChanged();
-          return this;
-        }
-        @java.lang.Override
-        public final Builder setUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFields(unknownFields);
-        }
-
-        @java.lang.Override
-        public final Builder mergeUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.mergeUnknownFields(unknownFields);
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:im.PullSendResult.Row)
-      }
-
-      // @@protoc_insertion_point(class_scope:im.PullSendResult.Row)
-      private static final com.iisquare.im.protobuf.IMMessage.PullSendResult.Row DEFAULT_INSTANCE;
-      static {
-        DEFAULT_INSTANCE = new com.iisquare.im.protobuf.IMMessage.PullSendResult.Row();
-      }
-
-      public static com.iisquare.im.protobuf.IMMessage.PullSendResult.Row getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-      }
-
-      private static final com.google.protobuf.Parser<Row>
-          PARSER = new com.google.protobuf.AbstractParser<Row>() {
-        @java.lang.Override
-        public Row parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Row(input, extensionRegistry);
-        }
-      };
-
-      public static com.google.protobuf.Parser<Row> parser() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<Row> getParserForType() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.iisquare.im.protobuf.IMMessage.PullSendResult.Row getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
-      }
-
+              com.iisquare.im.protobuf.IMMessage.PullResult.class, com.iisquare.im.protobuf.IMMessage.PullResult.Builder.class);
     }
 
     public static final int PAGE_FIELD_NUMBER = 1;
@@ -4696,36 +4816,36 @@ public final class IMMessage {
     }
 
     public static final int ROWS_FIELD_NUMBER = 4;
-    private java.util.List<com.iisquare.im.protobuf.IMMessage.PullSendResult.Row> rows_;
+    private java.util.List<com.iisquare.im.protobuf.IMMessage.Body> rows_;
     /**
-     * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+     * <code>repeated .im.Body rows = 4;</code>
      */
-    public java.util.List<com.iisquare.im.protobuf.IMMessage.PullSendResult.Row> getRowsList() {
+    public java.util.List<com.iisquare.im.protobuf.IMMessage.Body> getRowsList() {
       return rows_;
     }
     /**
-     * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+     * <code>repeated .im.Body rows = 4;</code>
      */
-    public java.util.List<? extends com.iisquare.im.protobuf.IMMessage.PullSendResult.RowOrBuilder> 
+    public java.util.List<? extends com.iisquare.im.protobuf.IMMessage.BodyOrBuilder> 
         getRowsOrBuilderList() {
       return rows_;
     }
     /**
-     * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+     * <code>repeated .im.Body rows = 4;</code>
      */
     public int getRowsCount() {
       return rows_.size();
     }
     /**
-     * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+     * <code>repeated .im.Body rows = 4;</code>
      */
-    public com.iisquare.im.protobuf.IMMessage.PullSendResult.Row getRows(int index) {
+    public com.iisquare.im.protobuf.IMMessage.Body getRows(int index) {
       return rows_.get(index);
     }
     /**
-     * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+     * <code>repeated .im.Body rows = 4;</code>
      */
-    public com.iisquare.im.protobuf.IMMessage.PullSendResult.RowOrBuilder getRowsOrBuilder(
+    public com.iisquare.im.protobuf.IMMessage.BodyOrBuilder getRowsOrBuilder(
         int index) {
       return rows_.get(index);
     }
@@ -4791,10 +4911,10 @@ public final class IMMessage {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.iisquare.im.protobuf.IMMessage.PullSendResult)) {
+      if (!(obj instanceof com.iisquare.im.protobuf.IMMessage.PullResult)) {
         return super.equals(obj);
       }
-      com.iisquare.im.protobuf.IMMessage.PullSendResult other = (com.iisquare.im.protobuf.IMMessage.PullSendResult) obj;
+      com.iisquare.im.protobuf.IMMessage.PullResult other = (com.iisquare.im.protobuf.IMMessage.PullResult) obj;
 
       if (getPage()
           != other.getPage()) return false;
@@ -4831,69 +4951,69 @@ public final class IMMessage {
       return hash;
     }
 
-    public static com.iisquare.im.protobuf.IMMessage.PullSendResult parseFrom(
+    public static com.iisquare.im.protobuf.IMMessage.PullResult parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.iisquare.im.protobuf.IMMessage.PullSendResult parseFrom(
+    public static com.iisquare.im.protobuf.IMMessage.PullResult parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.iisquare.im.protobuf.IMMessage.PullSendResult parseFrom(
+    public static com.iisquare.im.protobuf.IMMessage.PullResult parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.iisquare.im.protobuf.IMMessage.PullSendResult parseFrom(
+    public static com.iisquare.im.protobuf.IMMessage.PullResult parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.iisquare.im.protobuf.IMMessage.PullSendResult parseFrom(byte[] data)
+    public static com.iisquare.im.protobuf.IMMessage.PullResult parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.iisquare.im.protobuf.IMMessage.PullSendResult parseFrom(
+    public static com.iisquare.im.protobuf.IMMessage.PullResult parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.iisquare.im.protobuf.IMMessage.PullSendResult parseFrom(java.io.InputStream input)
+    public static com.iisquare.im.protobuf.IMMessage.PullResult parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.iisquare.im.protobuf.IMMessage.PullSendResult parseFrom(
+    public static com.iisquare.im.protobuf.IMMessage.PullResult parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.iisquare.im.protobuf.IMMessage.PullSendResult parseDelimitedFrom(java.io.InputStream input)
+    public static com.iisquare.im.protobuf.IMMessage.PullResult parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.iisquare.im.protobuf.IMMessage.PullSendResult parseDelimitedFrom(
+    public static com.iisquare.im.protobuf.IMMessage.PullResult parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.iisquare.im.protobuf.IMMessage.PullSendResult parseFrom(
+    public static com.iisquare.im.protobuf.IMMessage.PullResult parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.iisquare.im.protobuf.IMMessage.PullSendResult parseFrom(
+    public static com.iisquare.im.protobuf.IMMessage.PullResult parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4906,7 +5026,7 @@ public final class IMMessage {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.iisquare.im.protobuf.IMMessage.PullSendResult prototype) {
+    public static Builder newBuilder(com.iisquare.im.protobuf.IMMessage.PullResult prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -4922,26 +5042,26 @@ public final class IMMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code im.PullSendResult}
+     * Protobuf type {@code im.PullResult}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:im.PullSendResult)
-        com.iisquare.im.protobuf.IMMessage.PullSendResultOrBuilder {
+        // @@protoc_insertion_point(builder_implements:im.PullResult)
+        com.iisquare.im.protobuf.IMMessage.PullResultOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.iisquare.im.protobuf.IMMessage.internal_static_im_PullSendResult_descriptor;
+        return com.iisquare.im.protobuf.IMMessage.internal_static_im_PullResult_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.iisquare.im.protobuf.IMMessage.internal_static_im_PullSendResult_fieldAccessorTable
+        return com.iisquare.im.protobuf.IMMessage.internal_static_im_PullResult_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.iisquare.im.protobuf.IMMessage.PullSendResult.class, com.iisquare.im.protobuf.IMMessage.PullSendResult.Builder.class);
+                com.iisquare.im.protobuf.IMMessage.PullResult.class, com.iisquare.im.protobuf.IMMessage.PullResult.Builder.class);
       }
 
-      // Construct using com.iisquare.im.protobuf.IMMessage.PullSendResult.newBuilder()
+      // Construct using com.iisquare.im.protobuf.IMMessage.PullResult.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4978,17 +5098,17 @@ public final class IMMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.iisquare.im.protobuf.IMMessage.internal_static_im_PullSendResult_descriptor;
+        return com.iisquare.im.protobuf.IMMessage.internal_static_im_PullResult_descriptor;
       }
 
       @java.lang.Override
-      public com.iisquare.im.protobuf.IMMessage.PullSendResult getDefaultInstanceForType() {
-        return com.iisquare.im.protobuf.IMMessage.PullSendResult.getDefaultInstance();
+      public com.iisquare.im.protobuf.IMMessage.PullResult getDefaultInstanceForType() {
+        return com.iisquare.im.protobuf.IMMessage.PullResult.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.iisquare.im.protobuf.IMMessage.PullSendResult build() {
-        com.iisquare.im.protobuf.IMMessage.PullSendResult result = buildPartial();
+      public com.iisquare.im.protobuf.IMMessage.PullResult build() {
+        com.iisquare.im.protobuf.IMMessage.PullResult result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -4996,8 +5116,8 @@ public final class IMMessage {
       }
 
       @java.lang.Override
-      public com.iisquare.im.protobuf.IMMessage.PullSendResult buildPartial() {
-        com.iisquare.im.protobuf.IMMessage.PullSendResult result = new com.iisquare.im.protobuf.IMMessage.PullSendResult(this);
+      public com.iisquare.im.protobuf.IMMessage.PullResult buildPartial() {
+        com.iisquare.im.protobuf.IMMessage.PullResult result = new com.iisquare.im.protobuf.IMMessage.PullResult(this);
         int from_bitField0_ = bitField0_;
         result.page_ = page_;
         result.pageSize_ = pageSize_;
@@ -5049,16 +5169,16 @@ public final class IMMessage {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.iisquare.im.protobuf.IMMessage.PullSendResult) {
-          return mergeFrom((com.iisquare.im.protobuf.IMMessage.PullSendResult)other);
+        if (other instanceof com.iisquare.im.protobuf.IMMessage.PullResult) {
+          return mergeFrom((com.iisquare.im.protobuf.IMMessage.PullResult)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.iisquare.im.protobuf.IMMessage.PullSendResult other) {
-        if (other == com.iisquare.im.protobuf.IMMessage.PullSendResult.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.iisquare.im.protobuf.IMMessage.PullResult other) {
+        if (other == com.iisquare.im.protobuf.IMMessage.PullResult.getDefaultInstance()) return this;
         if (other.getPage() != 0) {
           setPage(other.getPage());
         }
@@ -5109,11 +5229,11 @@ public final class IMMessage {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.iisquare.im.protobuf.IMMessage.PullSendResult parsedMessage = null;
+        com.iisquare.im.protobuf.IMMessage.PullResult parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.iisquare.im.protobuf.IMMessage.PullSendResult) e.getUnfinishedMessage();
+          parsedMessage = (com.iisquare.im.protobuf.IMMessage.PullResult) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -5202,22 +5322,22 @@ public final class IMMessage {
         return this;
       }
 
-      private java.util.List<com.iisquare.im.protobuf.IMMessage.PullSendResult.Row> rows_ =
+      private java.util.List<com.iisquare.im.protobuf.IMMessage.Body> rows_ =
         java.util.Collections.emptyList();
       private void ensureRowsIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          rows_ = new java.util.ArrayList<com.iisquare.im.protobuf.IMMessage.PullSendResult.Row>(rows_);
+          rows_ = new java.util.ArrayList<com.iisquare.im.protobuf.IMMessage.Body>(rows_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.iisquare.im.protobuf.IMMessage.PullSendResult.Row, com.iisquare.im.protobuf.IMMessage.PullSendResult.Row.Builder, com.iisquare.im.protobuf.IMMessage.PullSendResult.RowOrBuilder> rowsBuilder_;
+          com.iisquare.im.protobuf.IMMessage.Body, com.iisquare.im.protobuf.IMMessage.Body.Builder, com.iisquare.im.protobuf.IMMessage.BodyOrBuilder> rowsBuilder_;
 
       /**
-       * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+       * <code>repeated .im.Body rows = 4;</code>
        */
-      public java.util.List<com.iisquare.im.protobuf.IMMessage.PullSendResult.Row> getRowsList() {
+      public java.util.List<com.iisquare.im.protobuf.IMMessage.Body> getRowsList() {
         if (rowsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(rows_);
         } else {
@@ -5225,7 +5345,7 @@ public final class IMMessage {
         }
       }
       /**
-       * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+       * <code>repeated .im.Body rows = 4;</code>
        */
       public int getRowsCount() {
         if (rowsBuilder_ == null) {
@@ -5235,9 +5355,9 @@ public final class IMMessage {
         }
       }
       /**
-       * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+       * <code>repeated .im.Body rows = 4;</code>
        */
-      public com.iisquare.im.protobuf.IMMessage.PullSendResult.Row getRows(int index) {
+      public com.iisquare.im.protobuf.IMMessage.Body getRows(int index) {
         if (rowsBuilder_ == null) {
           return rows_.get(index);
         } else {
@@ -5245,10 +5365,10 @@ public final class IMMessage {
         }
       }
       /**
-       * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+       * <code>repeated .im.Body rows = 4;</code>
        */
       public Builder setRows(
-          int index, com.iisquare.im.protobuf.IMMessage.PullSendResult.Row value) {
+          int index, com.iisquare.im.protobuf.IMMessage.Body value) {
         if (rowsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5262,10 +5382,10 @@ public final class IMMessage {
         return this;
       }
       /**
-       * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+       * <code>repeated .im.Body rows = 4;</code>
        */
       public Builder setRows(
-          int index, com.iisquare.im.protobuf.IMMessage.PullSendResult.Row.Builder builderForValue) {
+          int index, com.iisquare.im.protobuf.IMMessage.Body.Builder builderForValue) {
         if (rowsBuilder_ == null) {
           ensureRowsIsMutable();
           rows_.set(index, builderForValue.build());
@@ -5276,9 +5396,9 @@ public final class IMMessage {
         return this;
       }
       /**
-       * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+       * <code>repeated .im.Body rows = 4;</code>
        */
-      public Builder addRows(com.iisquare.im.protobuf.IMMessage.PullSendResult.Row value) {
+      public Builder addRows(com.iisquare.im.protobuf.IMMessage.Body value) {
         if (rowsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5292,10 +5412,10 @@ public final class IMMessage {
         return this;
       }
       /**
-       * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+       * <code>repeated .im.Body rows = 4;</code>
        */
       public Builder addRows(
-          int index, com.iisquare.im.protobuf.IMMessage.PullSendResult.Row value) {
+          int index, com.iisquare.im.protobuf.IMMessage.Body value) {
         if (rowsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5309,10 +5429,10 @@ public final class IMMessage {
         return this;
       }
       /**
-       * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+       * <code>repeated .im.Body rows = 4;</code>
        */
       public Builder addRows(
-          com.iisquare.im.protobuf.IMMessage.PullSendResult.Row.Builder builderForValue) {
+          com.iisquare.im.protobuf.IMMessage.Body.Builder builderForValue) {
         if (rowsBuilder_ == null) {
           ensureRowsIsMutable();
           rows_.add(builderForValue.build());
@@ -5323,10 +5443,10 @@ public final class IMMessage {
         return this;
       }
       /**
-       * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+       * <code>repeated .im.Body rows = 4;</code>
        */
       public Builder addRows(
-          int index, com.iisquare.im.protobuf.IMMessage.PullSendResult.Row.Builder builderForValue) {
+          int index, com.iisquare.im.protobuf.IMMessage.Body.Builder builderForValue) {
         if (rowsBuilder_ == null) {
           ensureRowsIsMutable();
           rows_.add(index, builderForValue.build());
@@ -5337,10 +5457,10 @@ public final class IMMessage {
         return this;
       }
       /**
-       * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+       * <code>repeated .im.Body rows = 4;</code>
        */
       public Builder addAllRows(
-          java.lang.Iterable<? extends com.iisquare.im.protobuf.IMMessage.PullSendResult.Row> values) {
+          java.lang.Iterable<? extends com.iisquare.im.protobuf.IMMessage.Body> values) {
         if (rowsBuilder_ == null) {
           ensureRowsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -5352,7 +5472,7 @@ public final class IMMessage {
         return this;
       }
       /**
-       * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+       * <code>repeated .im.Body rows = 4;</code>
        */
       public Builder clearRows() {
         if (rowsBuilder_ == null) {
@@ -5365,7 +5485,7 @@ public final class IMMessage {
         return this;
       }
       /**
-       * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+       * <code>repeated .im.Body rows = 4;</code>
        */
       public Builder removeRows(int index) {
         if (rowsBuilder_ == null) {
@@ -5378,16 +5498,16 @@ public final class IMMessage {
         return this;
       }
       /**
-       * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+       * <code>repeated .im.Body rows = 4;</code>
        */
-      public com.iisquare.im.protobuf.IMMessage.PullSendResult.Row.Builder getRowsBuilder(
+      public com.iisquare.im.protobuf.IMMessage.Body.Builder getRowsBuilder(
           int index) {
         return getRowsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+       * <code>repeated .im.Body rows = 4;</code>
        */
-      public com.iisquare.im.protobuf.IMMessage.PullSendResult.RowOrBuilder getRowsOrBuilder(
+      public com.iisquare.im.protobuf.IMMessage.BodyOrBuilder getRowsOrBuilder(
           int index) {
         if (rowsBuilder_ == null) {
           return rows_.get(index);  } else {
@@ -5395,9 +5515,9 @@ public final class IMMessage {
         }
       }
       /**
-       * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+       * <code>repeated .im.Body rows = 4;</code>
        */
-      public java.util.List<? extends com.iisquare.im.protobuf.IMMessage.PullSendResult.RowOrBuilder> 
+      public java.util.List<? extends com.iisquare.im.protobuf.IMMessage.BodyOrBuilder> 
            getRowsOrBuilderList() {
         if (rowsBuilder_ != null) {
           return rowsBuilder_.getMessageOrBuilderList();
@@ -5406,33 +5526,33 @@ public final class IMMessage {
         }
       }
       /**
-       * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+       * <code>repeated .im.Body rows = 4;</code>
        */
-      public com.iisquare.im.protobuf.IMMessage.PullSendResult.Row.Builder addRowsBuilder() {
+      public com.iisquare.im.protobuf.IMMessage.Body.Builder addRowsBuilder() {
         return getRowsFieldBuilder().addBuilder(
-            com.iisquare.im.protobuf.IMMessage.PullSendResult.Row.getDefaultInstance());
+            com.iisquare.im.protobuf.IMMessage.Body.getDefaultInstance());
       }
       /**
-       * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+       * <code>repeated .im.Body rows = 4;</code>
        */
-      public com.iisquare.im.protobuf.IMMessage.PullSendResult.Row.Builder addRowsBuilder(
+      public com.iisquare.im.protobuf.IMMessage.Body.Builder addRowsBuilder(
           int index) {
         return getRowsFieldBuilder().addBuilder(
-            index, com.iisquare.im.protobuf.IMMessage.PullSendResult.Row.getDefaultInstance());
+            index, com.iisquare.im.protobuf.IMMessage.Body.getDefaultInstance());
       }
       /**
-       * <code>repeated .im.PullSendResult.Row rows = 4;</code>
+       * <code>repeated .im.Body rows = 4;</code>
        */
-      public java.util.List<com.iisquare.im.protobuf.IMMessage.PullSendResult.Row.Builder> 
+      public java.util.List<com.iisquare.im.protobuf.IMMessage.Body.Builder> 
            getRowsBuilderList() {
         return getRowsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.iisquare.im.protobuf.IMMessage.PullSendResult.Row, com.iisquare.im.protobuf.IMMessage.PullSendResult.Row.Builder, com.iisquare.im.protobuf.IMMessage.PullSendResult.RowOrBuilder> 
+          com.iisquare.im.protobuf.IMMessage.Body, com.iisquare.im.protobuf.IMMessage.Body.Builder, com.iisquare.im.protobuf.IMMessage.BodyOrBuilder> 
           getRowsFieldBuilder() {
         if (rowsBuilder_ == null) {
           rowsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              com.iisquare.im.protobuf.IMMessage.PullSendResult.Row, com.iisquare.im.protobuf.IMMessage.PullSendResult.Row.Builder, com.iisquare.im.protobuf.IMMessage.PullSendResult.RowOrBuilder>(
+              com.iisquare.im.protobuf.IMMessage.Body, com.iisquare.im.protobuf.IMMessage.Body.Builder, com.iisquare.im.protobuf.IMMessage.BodyOrBuilder>(
                   rows_,
                   ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
@@ -5454,5509 +5574,41 @@ public final class IMMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:im.PullSendResult)
+      // @@protoc_insertion_point(builder_scope:im.PullResult)
     }
 
-    // @@protoc_insertion_point(class_scope:im.PullSendResult)
-    private static final com.iisquare.im.protobuf.IMMessage.PullSendResult DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:im.PullResult)
+    private static final com.iisquare.im.protobuf.IMMessage.PullResult DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.iisquare.im.protobuf.IMMessage.PullSendResult();
+      DEFAULT_INSTANCE = new com.iisquare.im.protobuf.IMMessage.PullResult();
     }
 
-    public static com.iisquare.im.protobuf.IMMessage.PullSendResult getDefaultInstance() {
+    public static com.iisquare.im.protobuf.IMMessage.PullResult getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<PullSendResult>
-        PARSER = new com.google.protobuf.AbstractParser<PullSendResult>() {
+    private static final com.google.protobuf.Parser<PullResult>
+        PARSER = new com.google.protobuf.AbstractParser<PullResult>() {
       @java.lang.Override
-      public PullSendResult parsePartialFrom(
+      public PullResult parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PullSendResult(input, extensionRegistry);
+        return new PullResult(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<PullSendResult> parser() {
+    public static com.google.protobuf.Parser<PullResult> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<PullSendResult> getParserForType() {
+    public com.google.protobuf.Parser<PullResult> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.iisquare.im.protobuf.IMMessage.PullSendResult getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface PullRecieveResultOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:im.PullRecieveResult)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>int32 page = 1;</code>
-     */
-    int getPage();
-
-    /**
-     * <code>int32 pageSize = 2;</code>
-     */
-    int getPageSize();
-
-    /**
-     * <code>int64 total = 3;</code>
-     */
-    long getTotal();
-
-    /**
-     * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-     */
-    java.util.List<com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row> 
-        getRowsList();
-    /**
-     * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-     */
-    com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row getRows(int index);
-    /**
-     * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-     */
-    int getRowsCount();
-    /**
-     * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-     */
-    java.util.List<? extends com.iisquare.im.protobuf.IMMessage.PullRecieveResult.RowOrBuilder> 
-        getRowsOrBuilderList();
-    /**
-     * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-     */
-    com.iisquare.im.protobuf.IMMessage.PullRecieveResult.RowOrBuilder getRowsOrBuilder(
-        int index);
-  }
-  /**
-   * Protobuf type {@code im.PullRecieveResult}
-   */
-  public  static final class PullRecieveResult extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:im.PullRecieveResult)
-      PullRecieveResultOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use PullRecieveResult.newBuilder() to construct.
-    private PullRecieveResult(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private PullRecieveResult() {
-      rows_ = java.util.Collections.emptyList();
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new PullRecieveResult();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private PullRecieveResult(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              page_ = input.readInt32();
-              break;
-            }
-            case 16: {
-
-              pageSize_ = input.readInt32();
-              break;
-            }
-            case 24: {
-
-              total_ = input.readInt64();
-              break;
-            }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                rows_ = new java.util.ArrayList<com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              rows_.add(
-                  input.readMessage(com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          rows_ = java.util.Collections.unmodifiableList(rows_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.iisquare.im.protobuf.IMMessage.internal_static_im_PullRecieveResult_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.iisquare.im.protobuf.IMMessage.internal_static_im_PullRecieveResult_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.iisquare.im.protobuf.IMMessage.PullRecieveResult.class, com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Builder.class);
-    }
-
-    public interface RowOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:im.PullRecieveResult.Row)
-        com.google.protobuf.MessageOrBuilder {
-
-      /**
-       * <code>string id = 1;</code>
-       */
-      java.lang.String getId();
-      /**
-       * <code>string id = 1;</code>
-       */
-      com.google.protobuf.ByteString
-          getIdBytes();
-
-      /**
-       * <pre>
-       * 接收表版本
-       * </pre>
-       *
-       * <code>int64 version = 2;</code>
-       */
-      long getVersion();
-
-      /**
-       * <code>string type = 3;</code>
-       */
-      java.lang.String getType();
-      /**
-       * <code>string type = 3;</code>
-       */
-      com.google.protobuf.ByteString
-          getTypeBytes();
-
-      /**
-       * <code>string content = 4;</code>
-       */
-      java.lang.String getContent();
-      /**
-       * <code>string content = 4;</code>
-       */
-      com.google.protobuf.ByteString
-          getContentBytes();
-
-      /**
-       * <code>int64 time = 5;</code>
-       */
-      long getTime();
-
-      /**
-       * <pre>
-       * 发送表撤回
-       * </pre>
-       *
-       * <code>int64 withdraw = 6;</code>
-       */
-      long getWithdraw();
-
-      /**
-       * <pre>
-       * 接收表删除
-       * </pre>
-       *
-       * <code>int64 delete = 7;</code>
-       */
-      long getDelete();
-
-      /**
-       * <pre>
-       * 接收表已读
-       * </pre>
-       *
-       * <code>int64 read = 8;</code>
-       */
-      long getRead();
-    }
-    /**
-     * Protobuf type {@code im.PullRecieveResult.Row}
-     */
-    public  static final class Row extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:im.PullRecieveResult.Row)
-        RowOrBuilder {
-    private static final long serialVersionUID = 0L;
-      // Use Row.newBuilder() to construct.
-      private Row(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-      }
-      private Row() {
-        id_ = "";
-        type_ = "";
-        content_ = "";
-      }
-
-      @java.lang.Override
-      @SuppressWarnings({"unused"})
-      protected java.lang.Object newInstance(
-          UnusedPrivateParameter unused) {
-        return new Row();
-      }
-
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-      getUnknownFields() {
-        return this.unknownFields;
-      }
-      private Row(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                id_ = s;
-                break;
-              }
-              case 16: {
-
-                version_ = input.readInt64();
-                break;
-              }
-              case 26: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                type_ = s;
-                break;
-              }
-              case 34: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                content_ = s;
-                break;
-              }
-              case 40: {
-
-                time_ = input.readInt64();
-                break;
-              }
-              case 48: {
-
-                withdraw_ = input.readInt64();
-                break;
-              }
-              case 56: {
-
-                delete_ = input.readInt64();
-                break;
-              }
-              case 64: {
-
-                read_ = input.readInt64();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.iisquare.im.protobuf.IMMessage.internal_static_im_PullRecieveResult_Row_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.iisquare.im.protobuf.IMMessage.internal_static_im_PullRecieveResult_Row_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row.class, com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row.Builder.class);
-      }
-
-      public static final int ID_FIELD_NUMBER = 1;
-      private volatile java.lang.Object id_;
-      /**
-       * <code>string id = 1;</code>
-       */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (ref instanceof java.lang.String) {
-          return (java.lang.String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          id_ = s;
-          return s;
-        }
-      }
-      /**
-       * <code>string id = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-
-      public static final int VERSION_FIELD_NUMBER = 2;
-      private long version_;
-      /**
-       * <pre>
-       * 接收表版本
-       * </pre>
-       *
-       * <code>int64 version = 2;</code>
-       */
-      public long getVersion() {
-        return version_;
-      }
-
-      public static final int TYPE_FIELD_NUMBER = 3;
-      private volatile java.lang.Object type_;
-      /**
-       * <code>string type = 3;</code>
-       */
-      public java.lang.String getType() {
-        java.lang.Object ref = type_;
-        if (ref instanceof java.lang.String) {
-          return (java.lang.String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          type_ = s;
-          return s;
-        }
-      }
-      /**
-       * <code>string type = 3;</code>
-       */
-      public com.google.protobuf.ByteString
-          getTypeBytes() {
-        java.lang.Object ref = type_;
-        if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          type_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-
-      public static final int CONTENT_FIELD_NUMBER = 4;
-      private volatile java.lang.Object content_;
-      /**
-       * <code>string content = 4;</code>
-       */
-      public java.lang.String getContent() {
-        java.lang.Object ref = content_;
-        if (ref instanceof java.lang.String) {
-          return (java.lang.String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          content_ = s;
-          return s;
-        }
-      }
-      /**
-       * <code>string content = 4;</code>
-       */
-      public com.google.protobuf.ByteString
-          getContentBytes() {
-        java.lang.Object ref = content_;
-        if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          content_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-
-      public static final int TIME_FIELD_NUMBER = 5;
-      private long time_;
-      /**
-       * <code>int64 time = 5;</code>
-       */
-      public long getTime() {
-        return time_;
-      }
-
-      public static final int WITHDRAW_FIELD_NUMBER = 6;
-      private long withdraw_;
-      /**
-       * <pre>
-       * 发送表撤回
-       * </pre>
-       *
-       * <code>int64 withdraw = 6;</code>
-       */
-      public long getWithdraw() {
-        return withdraw_;
-      }
-
-      public static final int DELETE_FIELD_NUMBER = 7;
-      private long delete_;
-      /**
-       * <pre>
-       * 接收表删除
-       * </pre>
-       *
-       * <code>int64 delete = 7;</code>
-       */
-      public long getDelete() {
-        return delete_;
-      }
-
-      public static final int READ_FIELD_NUMBER = 8;
-      private long read_;
-      /**
-       * <pre>
-       * 接收表已读
-       * </pre>
-       *
-       * <code>int64 read = 8;</code>
-       */
-      public long getRead() {
-        return read_;
-      }
-
-      private byte memoizedIsInitialized = -1;
-      @java.lang.Override
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      @java.lang.Override
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        if (!getIdBytes().isEmpty()) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
-        }
-        if (version_ != 0L) {
-          output.writeInt64(2, version_);
-        }
-        if (!getTypeBytes().isEmpty()) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 3, type_);
-        }
-        if (!getContentBytes().isEmpty()) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 4, content_);
-        }
-        if (time_ != 0L) {
-          output.writeInt64(5, time_);
-        }
-        if (withdraw_ != 0L) {
-          output.writeInt64(6, withdraw_);
-        }
-        if (delete_ != 0L) {
-          output.writeInt64(7, delete_);
-        }
-        if (read_ != 0L) {
-          output.writeInt64(8, read_);
-        }
-        unknownFields.writeTo(output);
-      }
-
-      @java.lang.Override
-      public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (!getIdBytes().isEmpty()) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
-        }
-        if (version_ != 0L) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(2, version_);
-        }
-        if (!getTypeBytes().isEmpty()) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, type_);
-        }
-        if (!getContentBytes().isEmpty()) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, content_);
-        }
-        if (time_ != 0L) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(5, time_);
-        }
-        if (withdraw_ != 0L) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(6, withdraw_);
-        }
-        if (delete_ != 0L) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(7, delete_);
-        }
-        if (read_ != 0L) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(8, read_);
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSize = size;
-        return size;
-      }
-
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-         return true;
-        }
-        if (!(obj instanceof com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row)) {
-          return super.equals(obj);
-        }
-        com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row other = (com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row) obj;
-
-        if (!getId()
-            .equals(other.getId())) return false;
-        if (getVersion()
-            != other.getVersion()) return false;
-        if (!getType()
-            .equals(other.getType())) return false;
-        if (!getContent()
-            .equals(other.getContent())) return false;
-        if (getTime()
-            != other.getTime()) return false;
-        if (getWithdraw()
-            != other.getWithdraw()) return false;
-        if (getDelete()
-            != other.getDelete()) return false;
-        if (getRead()
-            != other.getRead()) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
-        return true;
-      }
-
-      @java.lang.Override
-      public int hashCode() {
-        if (memoizedHashCode != 0) {
-          return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + ID_FIELD_NUMBER;
-        hash = (53 * hash) + getId().hashCode();
-        hash = (37 * hash) + VERSION_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getVersion());
-        hash = (37 * hash) + TYPE_FIELD_NUMBER;
-        hash = (53 * hash) + getType().hashCode();
-        hash = (37 * hash) + CONTENT_FIELD_NUMBER;
-        hash = (53 * hash) + getContent().hashCode();
-        hash = (37 * hash) + TIME_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getTime());
-        hash = (37 * hash) + WITHDRAW_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getWithdraw());
-        hash = (37 * hash) + DELETE_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getDelete());
-        hash = (37 * hash) + READ_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getRead());
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-      }
-
-      public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row parseFrom(
-          java.nio.ByteBuffer data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row parseFrom(
-          java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-
-      @java.lang.Override
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-      }
-      public static Builder newBuilder(com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-      }
-      @java.lang.Override
-      public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
-      }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code im.PullRecieveResult.Row}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:im.PullRecieveResult.Row)
-          com.iisquare.im.protobuf.IMMessage.PullRecieveResult.RowOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return com.iisquare.im.protobuf.IMMessage.internal_static_im_PullRecieveResult_Row_descriptor;
-        }
-
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return com.iisquare.im.protobuf.IMMessage.internal_static_im_PullRecieveResult_Row_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row.class, com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row.Builder.class);
-        }
-
-        // Construct using com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
-        }
-        @java.lang.Override
-        public Builder clear() {
-          super.clear();
-          id_ = "";
-
-          version_ = 0L;
-
-          type_ = "";
-
-          content_ = "";
-
-          time_ = 0L;
-
-          withdraw_ = 0L;
-
-          delete_ = 0L;
-
-          read_ = 0L;
-
-          return this;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return com.iisquare.im.protobuf.IMMessage.internal_static_im_PullRecieveResult_Row_descriptor;
-        }
-
-        @java.lang.Override
-        public com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row getDefaultInstanceForType() {
-          return com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row.getDefaultInstance();
-        }
-
-        @java.lang.Override
-        public com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row build() {
-          com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        @java.lang.Override
-        public com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row buildPartial() {
-          com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row result = new com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row(this);
-          result.id_ = id_;
-          result.version_ = version_;
-          result.type_ = type_;
-          result.content_ = content_;
-          result.time_ = time_;
-          result.withdraw_ = withdraw_;
-          result.delete_ = delete_;
-          result.read_ = read_;
-          onBuilt();
-          return result;
-        }
-
-        @java.lang.Override
-        public Builder clone() {
-          return super.clone();
-        }
-        @java.lang.Override
-        public Builder setField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.setField(field, value);
-        }
-        @java.lang.Override
-        public Builder clearField(
-            com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return super.clearField(field);
-        }
-        @java.lang.Override
-        public Builder clearOneof(
-            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return super.clearOneof(oneof);
-        }
-        @java.lang.Override
-        public Builder setRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
-          return super.setRepeatedField(field, index, value);
-        }
-        @java.lang.Override
-        public Builder addRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.addRepeatedField(field, value);
-        }
-        @java.lang.Override
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row) {
-            return mergeFrom((com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row other) {
-          if (other == com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row.getDefaultInstance()) return this;
-          if (!other.getId().isEmpty()) {
-            id_ = other.id_;
-            onChanged();
-          }
-          if (other.getVersion() != 0L) {
-            setVersion(other.getVersion());
-          }
-          if (!other.getType().isEmpty()) {
-            type_ = other.type_;
-            onChanged();
-          }
-          if (!other.getContent().isEmpty()) {
-            content_ = other.content_;
-            onChanged();
-          }
-          if (other.getTime() != 0L) {
-            setTime(other.getTime());
-          }
-          if (other.getWithdraw() != 0L) {
-            setWithdraw(other.getWithdraw());
-          }
-          if (other.getDelete() != 0L) {
-            setDelete(other.getDelete());
-          }
-          if (other.getRead() != 0L) {
-            setRead(other.getRead());
-          }
-          this.mergeUnknownFields(other.unknownFields);
-          onChanged();
-          return this;
-        }
-
-        @java.lang.Override
-        public final boolean isInitialized() {
-          return true;
-        }
-
-        @java.lang.Override
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row) e.getUnfinishedMessage();
-            throw e.unwrapIOException();
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-
-        private java.lang.Object id_ = "";
-        /**
-         * <code>string id = 1;</code>
-         */
-        public java.lang.String getId() {
-          java.lang.Object ref = id_;
-          if (!(ref instanceof java.lang.String)) {
-            com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            id_ = s;
-            return s;
-          } else {
-            return (java.lang.String) ref;
-          }
-        }
-        /**
-         * <code>string id = 1;</code>
-         */
-        public com.google.protobuf.ByteString
-            getIdBytes() {
-          java.lang.Object ref = id_;
-          if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
-            id_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
-        }
-        /**
-         * <code>string id = 1;</code>
-         */
-        public Builder setId(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
-          id_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string id = 1;</code>
-         */
-        public Builder clearId() {
-          
-          id_ = getDefaultInstance().getId();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string id = 1;</code>
-         */
-        public Builder setIdBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
-          id_ = value;
-          onChanged();
-          return this;
-        }
-
-        private long version_ ;
-        /**
-         * <pre>
-         * 接收表版本
-         * </pre>
-         *
-         * <code>int64 version = 2;</code>
-         */
-        public long getVersion() {
-          return version_;
-        }
-        /**
-         * <pre>
-         * 接收表版本
-         * </pre>
-         *
-         * <code>int64 version = 2;</code>
-         */
-        public Builder setVersion(long value) {
-          
-          version_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <pre>
-         * 接收表版本
-         * </pre>
-         *
-         * <code>int64 version = 2;</code>
-         */
-        public Builder clearVersion() {
-          
-          version_ = 0L;
-          onChanged();
-          return this;
-        }
-
-        private java.lang.Object type_ = "";
-        /**
-         * <code>string type = 3;</code>
-         */
-        public java.lang.String getType() {
-          java.lang.Object ref = type_;
-          if (!(ref instanceof java.lang.String)) {
-            com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            type_ = s;
-            return s;
-          } else {
-            return (java.lang.String) ref;
-          }
-        }
-        /**
-         * <code>string type = 3;</code>
-         */
-        public com.google.protobuf.ByteString
-            getTypeBytes() {
-          java.lang.Object ref = type_;
-          if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
-            type_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
-        }
-        /**
-         * <code>string type = 3;</code>
-         */
-        public Builder setType(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
-          type_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string type = 3;</code>
-         */
-        public Builder clearType() {
-          
-          type_ = getDefaultInstance().getType();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string type = 3;</code>
-         */
-        public Builder setTypeBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
-          type_ = value;
-          onChanged();
-          return this;
-        }
-
-        private java.lang.Object content_ = "";
-        /**
-         * <code>string content = 4;</code>
-         */
-        public java.lang.String getContent() {
-          java.lang.Object ref = content_;
-          if (!(ref instanceof java.lang.String)) {
-            com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            content_ = s;
-            return s;
-          } else {
-            return (java.lang.String) ref;
-          }
-        }
-        /**
-         * <code>string content = 4;</code>
-         */
-        public com.google.protobuf.ByteString
-            getContentBytes() {
-          java.lang.Object ref = content_;
-          if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
-            content_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
-        }
-        /**
-         * <code>string content = 4;</code>
-         */
-        public Builder setContent(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
-          content_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string content = 4;</code>
-         */
-        public Builder clearContent() {
-          
-          content_ = getDefaultInstance().getContent();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string content = 4;</code>
-         */
-        public Builder setContentBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
-          content_ = value;
-          onChanged();
-          return this;
-        }
-
-        private long time_ ;
-        /**
-         * <code>int64 time = 5;</code>
-         */
-        public long getTime() {
-          return time_;
-        }
-        /**
-         * <code>int64 time = 5;</code>
-         */
-        public Builder setTime(long value) {
-          
-          time_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int64 time = 5;</code>
-         */
-        public Builder clearTime() {
-          
-          time_ = 0L;
-          onChanged();
-          return this;
-        }
-
-        private long withdraw_ ;
-        /**
-         * <pre>
-         * 发送表撤回
-         * </pre>
-         *
-         * <code>int64 withdraw = 6;</code>
-         */
-        public long getWithdraw() {
-          return withdraw_;
-        }
-        /**
-         * <pre>
-         * 发送表撤回
-         * </pre>
-         *
-         * <code>int64 withdraw = 6;</code>
-         */
-        public Builder setWithdraw(long value) {
-          
-          withdraw_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <pre>
-         * 发送表撤回
-         * </pre>
-         *
-         * <code>int64 withdraw = 6;</code>
-         */
-        public Builder clearWithdraw() {
-          
-          withdraw_ = 0L;
-          onChanged();
-          return this;
-        }
-
-        private long delete_ ;
-        /**
-         * <pre>
-         * 接收表删除
-         * </pre>
-         *
-         * <code>int64 delete = 7;</code>
-         */
-        public long getDelete() {
-          return delete_;
-        }
-        /**
-         * <pre>
-         * 接收表删除
-         * </pre>
-         *
-         * <code>int64 delete = 7;</code>
-         */
-        public Builder setDelete(long value) {
-          
-          delete_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <pre>
-         * 接收表删除
-         * </pre>
-         *
-         * <code>int64 delete = 7;</code>
-         */
-        public Builder clearDelete() {
-          
-          delete_ = 0L;
-          onChanged();
-          return this;
-        }
-
-        private long read_ ;
-        /**
-         * <pre>
-         * 接收表已读
-         * </pre>
-         *
-         * <code>int64 read = 8;</code>
-         */
-        public long getRead() {
-          return read_;
-        }
-        /**
-         * <pre>
-         * 接收表已读
-         * </pre>
-         *
-         * <code>int64 read = 8;</code>
-         */
-        public Builder setRead(long value) {
-          
-          read_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <pre>
-         * 接收表已读
-         * </pre>
-         *
-         * <code>int64 read = 8;</code>
-         */
-        public Builder clearRead() {
-          
-          read_ = 0L;
-          onChanged();
-          return this;
-        }
-        @java.lang.Override
-        public final Builder setUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFields(unknownFields);
-        }
-
-        @java.lang.Override
-        public final Builder mergeUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.mergeUnknownFields(unknownFields);
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:im.PullRecieveResult.Row)
-      }
-
-      // @@protoc_insertion_point(class_scope:im.PullRecieveResult.Row)
-      private static final com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row DEFAULT_INSTANCE;
-      static {
-        DEFAULT_INSTANCE = new com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row();
-      }
-
-      public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-      }
-
-      private static final com.google.protobuf.Parser<Row>
-          PARSER = new com.google.protobuf.AbstractParser<Row>() {
-        @java.lang.Override
-        public Row parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Row(input, extensionRegistry);
-        }
-      };
-
-      public static com.google.protobuf.Parser<Row> parser() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<Row> getParserForType() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
-      }
-
-    }
-
-    public static final int PAGE_FIELD_NUMBER = 1;
-    private int page_;
-    /**
-     * <code>int32 page = 1;</code>
-     */
-    public int getPage() {
-      return page_;
-    }
-
-    public static final int PAGESIZE_FIELD_NUMBER = 2;
-    private int pageSize_;
-    /**
-     * <code>int32 pageSize = 2;</code>
-     */
-    public int getPageSize() {
-      return pageSize_;
-    }
-
-    public static final int TOTAL_FIELD_NUMBER = 3;
-    private long total_;
-    /**
-     * <code>int64 total = 3;</code>
-     */
-    public long getTotal() {
-      return total_;
-    }
-
-    public static final int ROWS_FIELD_NUMBER = 4;
-    private java.util.List<com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row> rows_;
-    /**
-     * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-     */
-    public java.util.List<com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row> getRowsList() {
-      return rows_;
-    }
-    /**
-     * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-     */
-    public java.util.List<? extends com.iisquare.im.protobuf.IMMessage.PullRecieveResult.RowOrBuilder> 
-        getRowsOrBuilderList() {
-      return rows_;
-    }
-    /**
-     * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-     */
-    public int getRowsCount() {
-      return rows_.size();
-    }
-    /**
-     * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-     */
-    public com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row getRows(int index) {
-      return rows_.get(index);
-    }
-    /**
-     * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-     */
-    public com.iisquare.im.protobuf.IMMessage.PullRecieveResult.RowOrBuilder getRowsOrBuilder(
-        int index) {
-      return rows_.get(index);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (page_ != 0) {
-        output.writeInt32(1, page_);
-      }
-      if (pageSize_ != 0) {
-        output.writeInt32(2, pageSize_);
-      }
-      if (total_ != 0L) {
-        output.writeInt64(3, total_);
-      }
-      for (int i = 0; i < rows_.size(); i++) {
-        output.writeMessage(4, rows_.get(i));
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (page_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, page_);
-      }
-      if (pageSize_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, pageSize_);
-      }
-      if (total_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, total_);
-      }
-      for (int i = 0; i < rows_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, rows_.get(i));
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.iisquare.im.protobuf.IMMessage.PullRecieveResult)) {
-        return super.equals(obj);
-      }
-      com.iisquare.im.protobuf.IMMessage.PullRecieveResult other = (com.iisquare.im.protobuf.IMMessage.PullRecieveResult) obj;
-
-      if (getPage()
-          != other.getPage()) return false;
-      if (getPageSize()
-          != other.getPageSize()) return false;
-      if (getTotal()
-          != other.getTotal()) return false;
-      if (!getRowsList()
-          .equals(other.getRowsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + PAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getPage();
-      hash = (37 * hash) + PAGESIZE_FIELD_NUMBER;
-      hash = (53 * hash) + getPageSize();
-      hash = (37 * hash) + TOTAL_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getTotal());
-      if (getRowsCount() > 0) {
-        hash = (37 * hash) + ROWS_FIELD_NUMBER;
-        hash = (53 * hash) + getRowsList().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.iisquare.im.protobuf.IMMessage.PullRecieveResult prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code im.PullRecieveResult}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:im.PullRecieveResult)
-        com.iisquare.im.protobuf.IMMessage.PullRecieveResultOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.iisquare.im.protobuf.IMMessage.internal_static_im_PullRecieveResult_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.iisquare.im.protobuf.IMMessage.internal_static_im_PullRecieveResult_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.iisquare.im.protobuf.IMMessage.PullRecieveResult.class, com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Builder.class);
-      }
-
-      // Construct using com.iisquare.im.protobuf.IMMessage.PullRecieveResult.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getRowsFieldBuilder();
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        page_ = 0;
-
-        pageSize_ = 0;
-
-        total_ = 0L;
-
-        if (rowsBuilder_ == null) {
-          rows_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          rowsBuilder_.clear();
-        }
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.iisquare.im.protobuf.IMMessage.internal_static_im_PullRecieveResult_descriptor;
-      }
-
-      @java.lang.Override
-      public com.iisquare.im.protobuf.IMMessage.PullRecieveResult getDefaultInstanceForType() {
-        return com.iisquare.im.protobuf.IMMessage.PullRecieveResult.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.iisquare.im.protobuf.IMMessage.PullRecieveResult build() {
-        com.iisquare.im.protobuf.IMMessage.PullRecieveResult result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.iisquare.im.protobuf.IMMessage.PullRecieveResult buildPartial() {
-        com.iisquare.im.protobuf.IMMessage.PullRecieveResult result = new com.iisquare.im.protobuf.IMMessage.PullRecieveResult(this);
-        int from_bitField0_ = bitField0_;
-        result.page_ = page_;
-        result.pageSize_ = pageSize_;
-        result.total_ = total_;
-        if (rowsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
-            rows_ = java.util.Collections.unmodifiableList(rows_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.rows_ = rows_;
-        } else {
-          result.rows_ = rowsBuilder_.build();
-        }
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.iisquare.im.protobuf.IMMessage.PullRecieveResult) {
-          return mergeFrom((com.iisquare.im.protobuf.IMMessage.PullRecieveResult)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.iisquare.im.protobuf.IMMessage.PullRecieveResult other) {
-        if (other == com.iisquare.im.protobuf.IMMessage.PullRecieveResult.getDefaultInstance()) return this;
-        if (other.getPage() != 0) {
-          setPage(other.getPage());
-        }
-        if (other.getPageSize() != 0) {
-          setPageSize(other.getPageSize());
-        }
-        if (other.getTotal() != 0L) {
-          setTotal(other.getTotal());
-        }
-        if (rowsBuilder_ == null) {
-          if (!other.rows_.isEmpty()) {
-            if (rows_.isEmpty()) {
-              rows_ = other.rows_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureRowsIsMutable();
-              rows_.addAll(other.rows_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.rows_.isEmpty()) {
-            if (rowsBuilder_.isEmpty()) {
-              rowsBuilder_.dispose();
-              rowsBuilder_ = null;
-              rows_ = other.rows_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              rowsBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getRowsFieldBuilder() : null;
-            } else {
-              rowsBuilder_.addAllMessages(other.rows_);
-            }
-          }
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.iisquare.im.protobuf.IMMessage.PullRecieveResult parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.iisquare.im.protobuf.IMMessage.PullRecieveResult) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private int page_ ;
-      /**
-       * <code>int32 page = 1;</code>
-       */
-      public int getPage() {
-        return page_;
-      }
-      /**
-       * <code>int32 page = 1;</code>
-       */
-      public Builder setPage(int value) {
-        
-        page_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 page = 1;</code>
-       */
-      public Builder clearPage() {
-        
-        page_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int pageSize_ ;
-      /**
-       * <code>int32 pageSize = 2;</code>
-       */
-      public int getPageSize() {
-        return pageSize_;
-      }
-      /**
-       * <code>int32 pageSize = 2;</code>
-       */
-      public Builder setPageSize(int value) {
-        
-        pageSize_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 pageSize = 2;</code>
-       */
-      public Builder clearPageSize() {
-        
-        pageSize_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private long total_ ;
-      /**
-       * <code>int64 total = 3;</code>
-       */
-      public long getTotal() {
-        return total_;
-      }
-      /**
-       * <code>int64 total = 3;</code>
-       */
-      public Builder setTotal(long value) {
-        
-        total_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int64 total = 3;</code>
-       */
-      public Builder clearTotal() {
-        
-        total_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private java.util.List<com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row> rows_ =
-        java.util.Collections.emptyList();
-      private void ensureRowsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
-          rows_ = new java.util.ArrayList<com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row>(rows_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row, com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row.Builder, com.iisquare.im.protobuf.IMMessage.PullRecieveResult.RowOrBuilder> rowsBuilder_;
-
-      /**
-       * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-       */
-      public java.util.List<com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row> getRowsList() {
-        if (rowsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(rows_);
-        } else {
-          return rowsBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-       */
-      public int getRowsCount() {
-        if (rowsBuilder_ == null) {
-          return rows_.size();
-        } else {
-          return rowsBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-       */
-      public com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row getRows(int index) {
-        if (rowsBuilder_ == null) {
-          return rows_.get(index);
-        } else {
-          return rowsBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-       */
-      public Builder setRows(
-          int index, com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row value) {
-        if (rowsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureRowsIsMutable();
-          rows_.set(index, value);
-          onChanged();
-        } else {
-          rowsBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-       */
-      public Builder setRows(
-          int index, com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row.Builder builderForValue) {
-        if (rowsBuilder_ == null) {
-          ensureRowsIsMutable();
-          rows_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          rowsBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-       */
-      public Builder addRows(com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row value) {
-        if (rowsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureRowsIsMutable();
-          rows_.add(value);
-          onChanged();
-        } else {
-          rowsBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-       */
-      public Builder addRows(
-          int index, com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row value) {
-        if (rowsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureRowsIsMutable();
-          rows_.add(index, value);
-          onChanged();
-        } else {
-          rowsBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-       */
-      public Builder addRows(
-          com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row.Builder builderForValue) {
-        if (rowsBuilder_ == null) {
-          ensureRowsIsMutable();
-          rows_.add(builderForValue.build());
-          onChanged();
-        } else {
-          rowsBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-       */
-      public Builder addRows(
-          int index, com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row.Builder builderForValue) {
-        if (rowsBuilder_ == null) {
-          ensureRowsIsMutable();
-          rows_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          rowsBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-       */
-      public Builder addAllRows(
-          java.lang.Iterable<? extends com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row> values) {
-        if (rowsBuilder_ == null) {
-          ensureRowsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, rows_);
-          onChanged();
-        } else {
-          rowsBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-       */
-      public Builder clearRows() {
-        if (rowsBuilder_ == null) {
-          rows_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
-        } else {
-          rowsBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-       */
-      public Builder removeRows(int index) {
-        if (rowsBuilder_ == null) {
-          ensureRowsIsMutable();
-          rows_.remove(index);
-          onChanged();
-        } else {
-          rowsBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-       */
-      public com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row.Builder getRowsBuilder(
-          int index) {
-        return getRowsFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-       */
-      public com.iisquare.im.protobuf.IMMessage.PullRecieveResult.RowOrBuilder getRowsOrBuilder(
-          int index) {
-        if (rowsBuilder_ == null) {
-          return rows_.get(index);  } else {
-          return rowsBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-       */
-      public java.util.List<? extends com.iisquare.im.protobuf.IMMessage.PullRecieveResult.RowOrBuilder> 
-           getRowsOrBuilderList() {
-        if (rowsBuilder_ != null) {
-          return rowsBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(rows_);
-        }
-      }
-      /**
-       * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-       */
-      public com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row.Builder addRowsBuilder() {
-        return getRowsFieldBuilder().addBuilder(
-            com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-       */
-      public com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row.Builder addRowsBuilder(
-          int index) {
-        return getRowsFieldBuilder().addBuilder(
-            index, com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .im.PullRecieveResult.Row rows = 4;</code>
-       */
-      public java.util.List<com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row.Builder> 
-           getRowsBuilderList() {
-        return getRowsFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row, com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row.Builder, com.iisquare.im.protobuf.IMMessage.PullRecieveResult.RowOrBuilder> 
-          getRowsFieldBuilder() {
-        if (rowsBuilder_ == null) {
-          rowsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row, com.iisquare.im.protobuf.IMMessage.PullRecieveResult.Row.Builder, com.iisquare.im.protobuf.IMMessage.PullRecieveResult.RowOrBuilder>(
-                  rows_,
-                  ((bitField0_ & 0x00000001) != 0),
-                  getParentForChildren(),
-                  isClean());
-          rows_ = null;
-        }
-        return rowsBuilder_;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:im.PullRecieveResult)
-    }
-
-    // @@protoc_insertion_point(class_scope:im.PullRecieveResult)
-    private static final com.iisquare.im.protobuf.IMMessage.PullRecieveResult DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.iisquare.im.protobuf.IMMessage.PullRecieveResult();
-    }
-
-    public static com.iisquare.im.protobuf.IMMessage.PullRecieveResult getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<PullRecieveResult>
-        PARSER = new com.google.protobuf.AbstractParser<PullRecieveResult>() {
-      @java.lang.Override
-      public PullRecieveResult parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PullRecieveResult(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<PullRecieveResult> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<PullRecieveResult> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.iisquare.im.protobuf.IMMessage.PullRecieveResult getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface HistoryOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:im.History)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>int32 page = 1;</code>
-     */
-    int getPage();
-
-    /**
-     * <code>int32 pageSize = 2;</code>
-     */
-    int getPageSize();
-
-    /**
-     * <code>int64 time = 3;</code>
-     */
-    long getTime();
-
-    /**
-     * <code>string reception = 4;</code>
-     */
-    java.lang.String getReception();
-    /**
-     * <code>string reception = 4;</code>
-     */
-    com.google.protobuf.ByteString
-        getReceptionBytes();
-
-    /**
-     * <code>string receiver = 5;</code>
-     */
-    java.lang.String getReceiver();
-    /**
-     * <code>string receiver = 5;</code>
-     */
-    com.google.protobuf.ByteString
-        getReceiverBytes();
-  }
-  /**
-   * Protobuf type {@code im.History}
-   */
-  public  static final class History extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:im.History)
-      HistoryOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use History.newBuilder() to construct.
-    private History(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private History() {
-      reception_ = "";
-      receiver_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new History();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private History(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              page_ = input.readInt32();
-              break;
-            }
-            case 16: {
-
-              pageSize_ = input.readInt32();
-              break;
-            }
-            case 24: {
-
-              time_ = input.readInt64();
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              reception_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              receiver_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.iisquare.im.protobuf.IMMessage.internal_static_im_History_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.iisquare.im.protobuf.IMMessage.internal_static_im_History_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.iisquare.im.protobuf.IMMessage.History.class, com.iisquare.im.protobuf.IMMessage.History.Builder.class);
-    }
-
-    public static final int PAGE_FIELD_NUMBER = 1;
-    private int page_;
-    /**
-     * <code>int32 page = 1;</code>
-     */
-    public int getPage() {
-      return page_;
-    }
-
-    public static final int PAGESIZE_FIELD_NUMBER = 2;
-    private int pageSize_;
-    /**
-     * <code>int32 pageSize = 2;</code>
-     */
-    public int getPageSize() {
-      return pageSize_;
-    }
-
-    public static final int TIME_FIELD_NUMBER = 3;
-    private long time_;
-    /**
-     * <code>int64 time = 3;</code>
-     */
-    public long getTime() {
-      return time_;
-    }
-
-    public static final int RECEPTION_FIELD_NUMBER = 4;
-    private volatile java.lang.Object reception_;
-    /**
-     * <code>string reception = 4;</code>
-     */
-    public java.lang.String getReception() {
-      java.lang.Object ref = reception_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        reception_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string reception = 4;</code>
-     */
-    public com.google.protobuf.ByteString
-        getReceptionBytes() {
-      java.lang.Object ref = reception_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        reception_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int RECEIVER_FIELD_NUMBER = 5;
-    private volatile java.lang.Object receiver_;
-    /**
-     * <code>string receiver = 5;</code>
-     */
-    public java.lang.String getReceiver() {
-      java.lang.Object ref = receiver_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        receiver_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string receiver = 5;</code>
-     */
-    public com.google.protobuf.ByteString
-        getReceiverBytes() {
-      java.lang.Object ref = receiver_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        receiver_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (page_ != 0) {
-        output.writeInt32(1, page_);
-      }
-      if (pageSize_ != 0) {
-        output.writeInt32(2, pageSize_);
-      }
-      if (time_ != 0L) {
-        output.writeInt64(3, time_);
-      }
-      if (!getReceptionBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, reception_);
-      }
-      if (!getReceiverBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, receiver_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (page_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, page_);
-      }
-      if (pageSize_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, pageSize_);
-      }
-      if (time_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, time_);
-      }
-      if (!getReceptionBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, reception_);
-      }
-      if (!getReceiverBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, receiver_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.iisquare.im.protobuf.IMMessage.History)) {
-        return super.equals(obj);
-      }
-      com.iisquare.im.protobuf.IMMessage.History other = (com.iisquare.im.protobuf.IMMessage.History) obj;
-
-      if (getPage()
-          != other.getPage()) return false;
-      if (getPageSize()
-          != other.getPageSize()) return false;
-      if (getTime()
-          != other.getTime()) return false;
-      if (!getReception()
-          .equals(other.getReception())) return false;
-      if (!getReceiver()
-          .equals(other.getReceiver())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + PAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getPage();
-      hash = (37 * hash) + PAGESIZE_FIELD_NUMBER;
-      hash = (53 * hash) + getPageSize();
-      hash = (37 * hash) + TIME_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getTime());
-      hash = (37 * hash) + RECEPTION_FIELD_NUMBER;
-      hash = (53 * hash) + getReception().hashCode();
-      hash = (37 * hash) + RECEIVER_FIELD_NUMBER;
-      hash = (53 * hash) + getReceiver().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.iisquare.im.protobuf.IMMessage.History parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.History parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.History parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.History parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.History parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.History parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.History parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.History parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.History parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.History parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.History parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.History parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.iisquare.im.protobuf.IMMessage.History prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code im.History}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:im.History)
-        com.iisquare.im.protobuf.IMMessage.HistoryOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.iisquare.im.protobuf.IMMessage.internal_static_im_History_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.iisquare.im.protobuf.IMMessage.internal_static_im_History_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.iisquare.im.protobuf.IMMessage.History.class, com.iisquare.im.protobuf.IMMessage.History.Builder.class);
-      }
-
-      // Construct using com.iisquare.im.protobuf.IMMessage.History.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        page_ = 0;
-
-        pageSize_ = 0;
-
-        time_ = 0L;
-
-        reception_ = "";
-
-        receiver_ = "";
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.iisquare.im.protobuf.IMMessage.internal_static_im_History_descriptor;
-      }
-
-      @java.lang.Override
-      public com.iisquare.im.protobuf.IMMessage.History getDefaultInstanceForType() {
-        return com.iisquare.im.protobuf.IMMessage.History.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.iisquare.im.protobuf.IMMessage.History build() {
-        com.iisquare.im.protobuf.IMMessage.History result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.iisquare.im.protobuf.IMMessage.History buildPartial() {
-        com.iisquare.im.protobuf.IMMessage.History result = new com.iisquare.im.protobuf.IMMessage.History(this);
-        result.page_ = page_;
-        result.pageSize_ = pageSize_;
-        result.time_ = time_;
-        result.reception_ = reception_;
-        result.receiver_ = receiver_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.iisquare.im.protobuf.IMMessage.History) {
-          return mergeFrom((com.iisquare.im.protobuf.IMMessage.History)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.iisquare.im.protobuf.IMMessage.History other) {
-        if (other == com.iisquare.im.protobuf.IMMessage.History.getDefaultInstance()) return this;
-        if (other.getPage() != 0) {
-          setPage(other.getPage());
-        }
-        if (other.getPageSize() != 0) {
-          setPageSize(other.getPageSize());
-        }
-        if (other.getTime() != 0L) {
-          setTime(other.getTime());
-        }
-        if (!other.getReception().isEmpty()) {
-          reception_ = other.reception_;
-          onChanged();
-        }
-        if (!other.getReceiver().isEmpty()) {
-          receiver_ = other.receiver_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.iisquare.im.protobuf.IMMessage.History parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.iisquare.im.protobuf.IMMessage.History) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private int page_ ;
-      /**
-       * <code>int32 page = 1;</code>
-       */
-      public int getPage() {
-        return page_;
-      }
-      /**
-       * <code>int32 page = 1;</code>
-       */
-      public Builder setPage(int value) {
-        
-        page_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 page = 1;</code>
-       */
-      public Builder clearPage() {
-        
-        page_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int pageSize_ ;
-      /**
-       * <code>int32 pageSize = 2;</code>
-       */
-      public int getPageSize() {
-        return pageSize_;
-      }
-      /**
-       * <code>int32 pageSize = 2;</code>
-       */
-      public Builder setPageSize(int value) {
-        
-        pageSize_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 pageSize = 2;</code>
-       */
-      public Builder clearPageSize() {
-        
-        pageSize_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private long time_ ;
-      /**
-       * <code>int64 time = 3;</code>
-       */
-      public long getTime() {
-        return time_;
-      }
-      /**
-       * <code>int64 time = 3;</code>
-       */
-      public Builder setTime(long value) {
-        
-        time_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int64 time = 3;</code>
-       */
-      public Builder clearTime() {
-        
-        time_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object reception_ = "";
-      /**
-       * <code>string reception = 4;</code>
-       */
-      public java.lang.String getReception() {
-        java.lang.Object ref = reception_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          reception_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string reception = 4;</code>
-       */
-      public com.google.protobuf.ByteString
-          getReceptionBytes() {
-        java.lang.Object ref = reception_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          reception_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string reception = 4;</code>
-       */
-      public Builder setReception(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        reception_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string reception = 4;</code>
-       */
-      public Builder clearReception() {
-        
-        reception_ = getDefaultInstance().getReception();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string reception = 4;</code>
-       */
-      public Builder setReceptionBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        reception_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object receiver_ = "";
-      /**
-       * <code>string receiver = 5;</code>
-       */
-      public java.lang.String getReceiver() {
-        java.lang.Object ref = receiver_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          receiver_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string receiver = 5;</code>
-       */
-      public com.google.protobuf.ByteString
-          getReceiverBytes() {
-        java.lang.Object ref = receiver_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          receiver_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string receiver = 5;</code>
-       */
-      public Builder setReceiver(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        receiver_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string receiver = 5;</code>
-       */
-      public Builder clearReceiver() {
-        
-        receiver_ = getDefaultInstance().getReceiver();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string receiver = 5;</code>
-       */
-      public Builder setReceiverBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        receiver_ = value;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:im.History)
-    }
-
-    // @@protoc_insertion_point(class_scope:im.History)
-    private static final com.iisquare.im.protobuf.IMMessage.History DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.iisquare.im.protobuf.IMMessage.History();
-    }
-
-    public static com.iisquare.im.protobuf.IMMessage.History getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<History>
-        PARSER = new com.google.protobuf.AbstractParser<History>() {
-      @java.lang.Override
-      public History parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new History(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<History> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<History> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.iisquare.im.protobuf.IMMessage.History getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface HistoryResultOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:im.HistoryResult)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>int32 page = 1;</code>
-     */
-    int getPage();
-
-    /**
-     * <code>int32 page_size = 2;</code>
-     */
-    int getPageSize();
-
-    /**
-     * <code>int64 total = 3;</code>
-     */
-    long getTotal();
-
-    /**
-     * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-     */
-    java.util.List<com.iisquare.im.protobuf.IMMessage.HistoryResult.Row> 
-        getRowsList();
-    /**
-     * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-     */
-    com.iisquare.im.protobuf.IMMessage.HistoryResult.Row getRows(int index);
-    /**
-     * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-     */
-    int getRowsCount();
-    /**
-     * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-     */
-    java.util.List<? extends com.iisquare.im.protobuf.IMMessage.HistoryResult.RowOrBuilder> 
-        getRowsOrBuilderList();
-    /**
-     * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-     */
-    com.iisquare.im.protobuf.IMMessage.HistoryResult.RowOrBuilder getRowsOrBuilder(
-        int index);
-  }
-  /**
-   * Protobuf type {@code im.HistoryResult}
-   */
-  public  static final class HistoryResult extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:im.HistoryResult)
-      HistoryResultOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use HistoryResult.newBuilder() to construct.
-    private HistoryResult(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private HistoryResult() {
-      rows_ = java.util.Collections.emptyList();
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new HistoryResult();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private HistoryResult(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              page_ = input.readInt32();
-              break;
-            }
-            case 16: {
-
-              pageSize_ = input.readInt32();
-              break;
-            }
-            case 24: {
-
-              total_ = input.readInt64();
-              break;
-            }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                rows_ = new java.util.ArrayList<com.iisquare.im.protobuf.IMMessage.HistoryResult.Row>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              rows_.add(
-                  input.readMessage(com.iisquare.im.protobuf.IMMessage.HistoryResult.Row.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          rows_ = java.util.Collections.unmodifiableList(rows_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.iisquare.im.protobuf.IMMessage.internal_static_im_HistoryResult_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.iisquare.im.protobuf.IMMessage.internal_static_im_HistoryResult_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.iisquare.im.protobuf.IMMessage.HistoryResult.class, com.iisquare.im.protobuf.IMMessage.HistoryResult.Builder.class);
-    }
-
-    public interface RowOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:im.HistoryResult.Row)
-        com.google.protobuf.MessageOrBuilder {
-
-      /**
-       * <code>string id = 1;</code>
-       */
-      java.lang.String getId();
-      /**
-       * <code>string id = 1;</code>
-       */
-      com.google.protobuf.ByteString
-          getIdBytes();
-
-      /**
-       * <code>string reception = 3;</code>
-       */
-      java.lang.String getReception();
-      /**
-       * <code>string reception = 3;</code>
-       */
-      com.google.protobuf.ByteString
-          getReceptionBytes();
-
-      /**
-       * <code>string receiver = 4;</code>
-       */
-      java.lang.String getReceiver();
-      /**
-       * <code>string receiver = 4;</code>
-       */
-      com.google.protobuf.ByteString
-          getReceiverBytes();
-
-      /**
-       * <code>string type = 5;</code>
-       */
-      java.lang.String getType();
-      /**
-       * <code>string type = 5;</code>
-       */
-      com.google.protobuf.ByteString
-          getTypeBytes();
-
-      /**
-       * <code>string content = 6;</code>
-       */
-      java.lang.String getContent();
-      /**
-       * <code>string content = 6;</code>
-       */
-      com.google.protobuf.ByteString
-          getContentBytes();
-
-      /**
-       * <code>int64 time = 7;</code>
-       */
-      long getTime();
-
-      /**
-       * <pre>
-       * 发送表撤回
-       * </pre>
-       *
-       * <code>int64 withdraw = 8;</code>
-       */
-      long getWithdraw();
-
-      /**
-       * <pre>
-       * 发送者-发送表删除，接收者-接收表删除
-       * </pre>
-       *
-       * <code>int64 delete = 9;</code>
-       */
-      long getDelete();
-
-      /**
-       * <pre>
-       * 接收表已读（单聊）
-       * </pre>
-       *
-       * <code>int64 read = 10;</code>
-       */
-      long getRead();
-    }
-    /**
-     * Protobuf type {@code im.HistoryResult.Row}
-     */
-    public  static final class Row extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:im.HistoryResult.Row)
-        RowOrBuilder {
-    private static final long serialVersionUID = 0L;
-      // Use Row.newBuilder() to construct.
-      private Row(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-      }
-      private Row() {
-        id_ = "";
-        reception_ = "";
-        receiver_ = "";
-        type_ = "";
-        content_ = "";
-      }
-
-      @java.lang.Override
-      @SuppressWarnings({"unused"})
-      protected java.lang.Object newInstance(
-          UnusedPrivateParameter unused) {
-        return new Row();
-      }
-
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-      getUnknownFields() {
-        return this.unknownFields;
-      }
-      private Row(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                id_ = s;
-                break;
-              }
-              case 26: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                reception_ = s;
-                break;
-              }
-              case 34: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                receiver_ = s;
-                break;
-              }
-              case 42: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                type_ = s;
-                break;
-              }
-              case 50: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                content_ = s;
-                break;
-              }
-              case 56: {
-
-                time_ = input.readInt64();
-                break;
-              }
-              case 64: {
-
-                withdraw_ = input.readInt64();
-                break;
-              }
-              case 72: {
-
-                delete_ = input.readInt64();
-                break;
-              }
-              case 80: {
-
-                read_ = input.readInt64();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.iisquare.im.protobuf.IMMessage.internal_static_im_HistoryResult_Row_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.iisquare.im.protobuf.IMMessage.internal_static_im_HistoryResult_Row_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.iisquare.im.protobuf.IMMessage.HistoryResult.Row.class, com.iisquare.im.protobuf.IMMessage.HistoryResult.Row.Builder.class);
-      }
-
-      public static final int ID_FIELD_NUMBER = 1;
-      private volatile java.lang.Object id_;
-      /**
-       * <code>string id = 1;</code>
-       */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (ref instanceof java.lang.String) {
-          return (java.lang.String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          id_ = s;
-          return s;
-        }
-      }
-      /**
-       * <code>string id = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-
-      public static final int RECEPTION_FIELD_NUMBER = 3;
-      private volatile java.lang.Object reception_;
-      /**
-       * <code>string reception = 3;</code>
-       */
-      public java.lang.String getReception() {
-        java.lang.Object ref = reception_;
-        if (ref instanceof java.lang.String) {
-          return (java.lang.String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          reception_ = s;
-          return s;
-        }
-      }
-      /**
-       * <code>string reception = 3;</code>
-       */
-      public com.google.protobuf.ByteString
-          getReceptionBytes() {
-        java.lang.Object ref = reception_;
-        if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          reception_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-
-      public static final int RECEIVER_FIELD_NUMBER = 4;
-      private volatile java.lang.Object receiver_;
-      /**
-       * <code>string receiver = 4;</code>
-       */
-      public java.lang.String getReceiver() {
-        java.lang.Object ref = receiver_;
-        if (ref instanceof java.lang.String) {
-          return (java.lang.String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          receiver_ = s;
-          return s;
-        }
-      }
-      /**
-       * <code>string receiver = 4;</code>
-       */
-      public com.google.protobuf.ByteString
-          getReceiverBytes() {
-        java.lang.Object ref = receiver_;
-        if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          receiver_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-
-      public static final int TYPE_FIELD_NUMBER = 5;
-      private volatile java.lang.Object type_;
-      /**
-       * <code>string type = 5;</code>
-       */
-      public java.lang.String getType() {
-        java.lang.Object ref = type_;
-        if (ref instanceof java.lang.String) {
-          return (java.lang.String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          type_ = s;
-          return s;
-        }
-      }
-      /**
-       * <code>string type = 5;</code>
-       */
-      public com.google.protobuf.ByteString
-          getTypeBytes() {
-        java.lang.Object ref = type_;
-        if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          type_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-
-      public static final int CONTENT_FIELD_NUMBER = 6;
-      private volatile java.lang.Object content_;
-      /**
-       * <code>string content = 6;</code>
-       */
-      public java.lang.String getContent() {
-        java.lang.Object ref = content_;
-        if (ref instanceof java.lang.String) {
-          return (java.lang.String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          content_ = s;
-          return s;
-        }
-      }
-      /**
-       * <code>string content = 6;</code>
-       */
-      public com.google.protobuf.ByteString
-          getContentBytes() {
-        java.lang.Object ref = content_;
-        if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          content_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-
-      public static final int TIME_FIELD_NUMBER = 7;
-      private long time_;
-      /**
-       * <code>int64 time = 7;</code>
-       */
-      public long getTime() {
-        return time_;
-      }
-
-      public static final int WITHDRAW_FIELD_NUMBER = 8;
-      private long withdraw_;
-      /**
-       * <pre>
-       * 发送表撤回
-       * </pre>
-       *
-       * <code>int64 withdraw = 8;</code>
-       */
-      public long getWithdraw() {
-        return withdraw_;
-      }
-
-      public static final int DELETE_FIELD_NUMBER = 9;
-      private long delete_;
-      /**
-       * <pre>
-       * 发送者-发送表删除，接收者-接收表删除
-       * </pre>
-       *
-       * <code>int64 delete = 9;</code>
-       */
-      public long getDelete() {
-        return delete_;
-      }
-
-      public static final int READ_FIELD_NUMBER = 10;
-      private long read_;
-      /**
-       * <pre>
-       * 接收表已读（单聊）
-       * </pre>
-       *
-       * <code>int64 read = 10;</code>
-       */
-      public long getRead() {
-        return read_;
-      }
-
-      private byte memoizedIsInitialized = -1;
-      @java.lang.Override
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      @java.lang.Override
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        if (!getIdBytes().isEmpty()) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
-        }
-        if (!getReceptionBytes().isEmpty()) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 3, reception_);
-        }
-        if (!getReceiverBytes().isEmpty()) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 4, receiver_);
-        }
-        if (!getTypeBytes().isEmpty()) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 5, type_);
-        }
-        if (!getContentBytes().isEmpty()) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 6, content_);
-        }
-        if (time_ != 0L) {
-          output.writeInt64(7, time_);
-        }
-        if (withdraw_ != 0L) {
-          output.writeInt64(8, withdraw_);
-        }
-        if (delete_ != 0L) {
-          output.writeInt64(9, delete_);
-        }
-        if (read_ != 0L) {
-          output.writeInt64(10, read_);
-        }
-        unknownFields.writeTo(output);
-      }
-
-      @java.lang.Override
-      public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (!getIdBytes().isEmpty()) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
-        }
-        if (!getReceptionBytes().isEmpty()) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, reception_);
-        }
-        if (!getReceiverBytes().isEmpty()) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, receiver_);
-        }
-        if (!getTypeBytes().isEmpty()) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, type_);
-        }
-        if (!getContentBytes().isEmpty()) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, content_);
-        }
-        if (time_ != 0L) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(7, time_);
-        }
-        if (withdraw_ != 0L) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(8, withdraw_);
-        }
-        if (delete_ != 0L) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(9, delete_);
-        }
-        if (read_ != 0L) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(10, read_);
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSize = size;
-        return size;
-      }
-
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-         return true;
-        }
-        if (!(obj instanceof com.iisquare.im.protobuf.IMMessage.HistoryResult.Row)) {
-          return super.equals(obj);
-        }
-        com.iisquare.im.protobuf.IMMessage.HistoryResult.Row other = (com.iisquare.im.protobuf.IMMessage.HistoryResult.Row) obj;
-
-        if (!getId()
-            .equals(other.getId())) return false;
-        if (!getReception()
-            .equals(other.getReception())) return false;
-        if (!getReceiver()
-            .equals(other.getReceiver())) return false;
-        if (!getType()
-            .equals(other.getType())) return false;
-        if (!getContent()
-            .equals(other.getContent())) return false;
-        if (getTime()
-            != other.getTime()) return false;
-        if (getWithdraw()
-            != other.getWithdraw()) return false;
-        if (getDelete()
-            != other.getDelete()) return false;
-        if (getRead()
-            != other.getRead()) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
-        return true;
-      }
-
-      @java.lang.Override
-      public int hashCode() {
-        if (memoizedHashCode != 0) {
-          return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + ID_FIELD_NUMBER;
-        hash = (53 * hash) + getId().hashCode();
-        hash = (37 * hash) + RECEPTION_FIELD_NUMBER;
-        hash = (53 * hash) + getReception().hashCode();
-        hash = (37 * hash) + RECEIVER_FIELD_NUMBER;
-        hash = (53 * hash) + getReceiver().hashCode();
-        hash = (37 * hash) + TYPE_FIELD_NUMBER;
-        hash = (53 * hash) + getType().hashCode();
-        hash = (37 * hash) + CONTENT_FIELD_NUMBER;
-        hash = (53 * hash) + getContent().hashCode();
-        hash = (37 * hash) + TIME_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getTime());
-        hash = (37 * hash) + WITHDRAW_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getWithdraw());
-        hash = (37 * hash) + DELETE_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getDelete());
-        hash = (37 * hash) + READ_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getRead());
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-      }
-
-      public static com.iisquare.im.protobuf.IMMessage.HistoryResult.Row parseFrom(
-          java.nio.ByteBuffer data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.HistoryResult.Row parseFrom(
-          java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.HistoryResult.Row parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.HistoryResult.Row parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.HistoryResult.Row parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.HistoryResult.Row parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.HistoryResult.Row parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.HistoryResult.Row parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.HistoryResult.Row parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.HistoryResult.Row parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.HistoryResult.Row parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static com.iisquare.im.protobuf.IMMessage.HistoryResult.Row parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-
-      @java.lang.Override
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-      }
-      public static Builder newBuilder(com.iisquare.im.protobuf.IMMessage.HistoryResult.Row prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-      }
-      @java.lang.Override
-      public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
-      }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code im.HistoryResult.Row}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:im.HistoryResult.Row)
-          com.iisquare.im.protobuf.IMMessage.HistoryResult.RowOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return com.iisquare.im.protobuf.IMMessage.internal_static_im_HistoryResult_Row_descriptor;
-        }
-
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return com.iisquare.im.protobuf.IMMessage.internal_static_im_HistoryResult_Row_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  com.iisquare.im.protobuf.IMMessage.HistoryResult.Row.class, com.iisquare.im.protobuf.IMMessage.HistoryResult.Row.Builder.class);
-        }
-
-        // Construct using com.iisquare.im.protobuf.IMMessage.HistoryResult.Row.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
-        }
-        @java.lang.Override
-        public Builder clear() {
-          super.clear();
-          id_ = "";
-
-          reception_ = "";
-
-          receiver_ = "";
-
-          type_ = "";
-
-          content_ = "";
-
-          time_ = 0L;
-
-          withdraw_ = 0L;
-
-          delete_ = 0L;
-
-          read_ = 0L;
-
-          return this;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return com.iisquare.im.protobuf.IMMessage.internal_static_im_HistoryResult_Row_descriptor;
-        }
-
-        @java.lang.Override
-        public com.iisquare.im.protobuf.IMMessage.HistoryResult.Row getDefaultInstanceForType() {
-          return com.iisquare.im.protobuf.IMMessage.HistoryResult.Row.getDefaultInstance();
-        }
-
-        @java.lang.Override
-        public com.iisquare.im.protobuf.IMMessage.HistoryResult.Row build() {
-          com.iisquare.im.protobuf.IMMessage.HistoryResult.Row result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        @java.lang.Override
-        public com.iisquare.im.protobuf.IMMessage.HistoryResult.Row buildPartial() {
-          com.iisquare.im.protobuf.IMMessage.HistoryResult.Row result = new com.iisquare.im.protobuf.IMMessage.HistoryResult.Row(this);
-          result.id_ = id_;
-          result.reception_ = reception_;
-          result.receiver_ = receiver_;
-          result.type_ = type_;
-          result.content_ = content_;
-          result.time_ = time_;
-          result.withdraw_ = withdraw_;
-          result.delete_ = delete_;
-          result.read_ = read_;
-          onBuilt();
-          return result;
-        }
-
-        @java.lang.Override
-        public Builder clone() {
-          return super.clone();
-        }
-        @java.lang.Override
-        public Builder setField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.setField(field, value);
-        }
-        @java.lang.Override
-        public Builder clearField(
-            com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return super.clearField(field);
-        }
-        @java.lang.Override
-        public Builder clearOneof(
-            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return super.clearOneof(oneof);
-        }
-        @java.lang.Override
-        public Builder setRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
-          return super.setRepeatedField(field, index, value);
-        }
-        @java.lang.Override
-        public Builder addRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.addRepeatedField(field, value);
-        }
-        @java.lang.Override
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof com.iisquare.im.protobuf.IMMessage.HistoryResult.Row) {
-            return mergeFrom((com.iisquare.im.protobuf.IMMessage.HistoryResult.Row)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(com.iisquare.im.protobuf.IMMessage.HistoryResult.Row other) {
-          if (other == com.iisquare.im.protobuf.IMMessage.HistoryResult.Row.getDefaultInstance()) return this;
-          if (!other.getId().isEmpty()) {
-            id_ = other.id_;
-            onChanged();
-          }
-          if (!other.getReception().isEmpty()) {
-            reception_ = other.reception_;
-            onChanged();
-          }
-          if (!other.getReceiver().isEmpty()) {
-            receiver_ = other.receiver_;
-            onChanged();
-          }
-          if (!other.getType().isEmpty()) {
-            type_ = other.type_;
-            onChanged();
-          }
-          if (!other.getContent().isEmpty()) {
-            content_ = other.content_;
-            onChanged();
-          }
-          if (other.getTime() != 0L) {
-            setTime(other.getTime());
-          }
-          if (other.getWithdraw() != 0L) {
-            setWithdraw(other.getWithdraw());
-          }
-          if (other.getDelete() != 0L) {
-            setDelete(other.getDelete());
-          }
-          if (other.getRead() != 0L) {
-            setRead(other.getRead());
-          }
-          this.mergeUnknownFields(other.unknownFields);
-          onChanged();
-          return this;
-        }
-
-        @java.lang.Override
-        public final boolean isInitialized() {
-          return true;
-        }
-
-        @java.lang.Override
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          com.iisquare.im.protobuf.IMMessage.HistoryResult.Row parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.iisquare.im.protobuf.IMMessage.HistoryResult.Row) e.getUnfinishedMessage();
-            throw e.unwrapIOException();
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-
-        private java.lang.Object id_ = "";
-        /**
-         * <code>string id = 1;</code>
-         */
-        public java.lang.String getId() {
-          java.lang.Object ref = id_;
-          if (!(ref instanceof java.lang.String)) {
-            com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            id_ = s;
-            return s;
-          } else {
-            return (java.lang.String) ref;
-          }
-        }
-        /**
-         * <code>string id = 1;</code>
-         */
-        public com.google.protobuf.ByteString
-            getIdBytes() {
-          java.lang.Object ref = id_;
-          if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
-            id_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
-        }
-        /**
-         * <code>string id = 1;</code>
-         */
-        public Builder setId(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
-          id_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string id = 1;</code>
-         */
-        public Builder clearId() {
-          
-          id_ = getDefaultInstance().getId();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string id = 1;</code>
-         */
-        public Builder setIdBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
-          id_ = value;
-          onChanged();
-          return this;
-        }
-
-        private java.lang.Object reception_ = "";
-        /**
-         * <code>string reception = 3;</code>
-         */
-        public java.lang.String getReception() {
-          java.lang.Object ref = reception_;
-          if (!(ref instanceof java.lang.String)) {
-            com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            reception_ = s;
-            return s;
-          } else {
-            return (java.lang.String) ref;
-          }
-        }
-        /**
-         * <code>string reception = 3;</code>
-         */
-        public com.google.protobuf.ByteString
-            getReceptionBytes() {
-          java.lang.Object ref = reception_;
-          if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
-            reception_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
-        }
-        /**
-         * <code>string reception = 3;</code>
-         */
-        public Builder setReception(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
-          reception_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string reception = 3;</code>
-         */
-        public Builder clearReception() {
-          
-          reception_ = getDefaultInstance().getReception();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string reception = 3;</code>
-         */
-        public Builder setReceptionBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
-          reception_ = value;
-          onChanged();
-          return this;
-        }
-
-        private java.lang.Object receiver_ = "";
-        /**
-         * <code>string receiver = 4;</code>
-         */
-        public java.lang.String getReceiver() {
-          java.lang.Object ref = receiver_;
-          if (!(ref instanceof java.lang.String)) {
-            com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            receiver_ = s;
-            return s;
-          } else {
-            return (java.lang.String) ref;
-          }
-        }
-        /**
-         * <code>string receiver = 4;</code>
-         */
-        public com.google.protobuf.ByteString
-            getReceiverBytes() {
-          java.lang.Object ref = receiver_;
-          if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
-            receiver_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
-        }
-        /**
-         * <code>string receiver = 4;</code>
-         */
-        public Builder setReceiver(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
-          receiver_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string receiver = 4;</code>
-         */
-        public Builder clearReceiver() {
-          
-          receiver_ = getDefaultInstance().getReceiver();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string receiver = 4;</code>
-         */
-        public Builder setReceiverBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
-          receiver_ = value;
-          onChanged();
-          return this;
-        }
-
-        private java.lang.Object type_ = "";
-        /**
-         * <code>string type = 5;</code>
-         */
-        public java.lang.String getType() {
-          java.lang.Object ref = type_;
-          if (!(ref instanceof java.lang.String)) {
-            com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            type_ = s;
-            return s;
-          } else {
-            return (java.lang.String) ref;
-          }
-        }
-        /**
-         * <code>string type = 5;</code>
-         */
-        public com.google.protobuf.ByteString
-            getTypeBytes() {
-          java.lang.Object ref = type_;
-          if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
-            type_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
-        }
-        /**
-         * <code>string type = 5;</code>
-         */
-        public Builder setType(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
-          type_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string type = 5;</code>
-         */
-        public Builder clearType() {
-          
-          type_ = getDefaultInstance().getType();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string type = 5;</code>
-         */
-        public Builder setTypeBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
-          type_ = value;
-          onChanged();
-          return this;
-        }
-
-        private java.lang.Object content_ = "";
-        /**
-         * <code>string content = 6;</code>
-         */
-        public java.lang.String getContent() {
-          java.lang.Object ref = content_;
-          if (!(ref instanceof java.lang.String)) {
-            com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            content_ = s;
-            return s;
-          } else {
-            return (java.lang.String) ref;
-          }
-        }
-        /**
-         * <code>string content = 6;</code>
-         */
-        public com.google.protobuf.ByteString
-            getContentBytes() {
-          java.lang.Object ref = content_;
-          if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
-            content_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
-        }
-        /**
-         * <code>string content = 6;</code>
-         */
-        public Builder setContent(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
-          content_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string content = 6;</code>
-         */
-        public Builder clearContent() {
-          
-          content_ = getDefaultInstance().getContent();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string content = 6;</code>
-         */
-        public Builder setContentBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
-          content_ = value;
-          onChanged();
-          return this;
-        }
-
-        private long time_ ;
-        /**
-         * <code>int64 time = 7;</code>
-         */
-        public long getTime() {
-          return time_;
-        }
-        /**
-         * <code>int64 time = 7;</code>
-         */
-        public Builder setTime(long value) {
-          
-          time_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int64 time = 7;</code>
-         */
-        public Builder clearTime() {
-          
-          time_ = 0L;
-          onChanged();
-          return this;
-        }
-
-        private long withdraw_ ;
-        /**
-         * <pre>
-         * 发送表撤回
-         * </pre>
-         *
-         * <code>int64 withdraw = 8;</code>
-         */
-        public long getWithdraw() {
-          return withdraw_;
-        }
-        /**
-         * <pre>
-         * 发送表撤回
-         * </pre>
-         *
-         * <code>int64 withdraw = 8;</code>
-         */
-        public Builder setWithdraw(long value) {
-          
-          withdraw_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <pre>
-         * 发送表撤回
-         * </pre>
-         *
-         * <code>int64 withdraw = 8;</code>
-         */
-        public Builder clearWithdraw() {
-          
-          withdraw_ = 0L;
-          onChanged();
-          return this;
-        }
-
-        private long delete_ ;
-        /**
-         * <pre>
-         * 发送者-发送表删除，接收者-接收表删除
-         * </pre>
-         *
-         * <code>int64 delete = 9;</code>
-         */
-        public long getDelete() {
-          return delete_;
-        }
-        /**
-         * <pre>
-         * 发送者-发送表删除，接收者-接收表删除
-         * </pre>
-         *
-         * <code>int64 delete = 9;</code>
-         */
-        public Builder setDelete(long value) {
-          
-          delete_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <pre>
-         * 发送者-发送表删除，接收者-接收表删除
-         * </pre>
-         *
-         * <code>int64 delete = 9;</code>
-         */
-        public Builder clearDelete() {
-          
-          delete_ = 0L;
-          onChanged();
-          return this;
-        }
-
-        private long read_ ;
-        /**
-         * <pre>
-         * 接收表已读（单聊）
-         * </pre>
-         *
-         * <code>int64 read = 10;</code>
-         */
-        public long getRead() {
-          return read_;
-        }
-        /**
-         * <pre>
-         * 接收表已读（单聊）
-         * </pre>
-         *
-         * <code>int64 read = 10;</code>
-         */
-        public Builder setRead(long value) {
-          
-          read_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <pre>
-         * 接收表已读（单聊）
-         * </pre>
-         *
-         * <code>int64 read = 10;</code>
-         */
-        public Builder clearRead() {
-          
-          read_ = 0L;
-          onChanged();
-          return this;
-        }
-        @java.lang.Override
-        public final Builder setUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFields(unknownFields);
-        }
-
-        @java.lang.Override
-        public final Builder mergeUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.mergeUnknownFields(unknownFields);
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:im.HistoryResult.Row)
-      }
-
-      // @@protoc_insertion_point(class_scope:im.HistoryResult.Row)
-      private static final com.iisquare.im.protobuf.IMMessage.HistoryResult.Row DEFAULT_INSTANCE;
-      static {
-        DEFAULT_INSTANCE = new com.iisquare.im.protobuf.IMMessage.HistoryResult.Row();
-      }
-
-      public static com.iisquare.im.protobuf.IMMessage.HistoryResult.Row getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-      }
-
-      private static final com.google.protobuf.Parser<Row>
-          PARSER = new com.google.protobuf.AbstractParser<Row>() {
-        @java.lang.Override
-        public Row parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Row(input, extensionRegistry);
-        }
-      };
-
-      public static com.google.protobuf.Parser<Row> parser() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<Row> getParserForType() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.iisquare.im.protobuf.IMMessage.HistoryResult.Row getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
-      }
-
-    }
-
-    public static final int PAGE_FIELD_NUMBER = 1;
-    private int page_;
-    /**
-     * <code>int32 page = 1;</code>
-     */
-    public int getPage() {
-      return page_;
-    }
-
-    public static final int PAGE_SIZE_FIELD_NUMBER = 2;
-    private int pageSize_;
-    /**
-     * <code>int32 page_size = 2;</code>
-     */
-    public int getPageSize() {
-      return pageSize_;
-    }
-
-    public static final int TOTAL_FIELD_NUMBER = 3;
-    private long total_;
-    /**
-     * <code>int64 total = 3;</code>
-     */
-    public long getTotal() {
-      return total_;
-    }
-
-    public static final int ROWS_FIELD_NUMBER = 4;
-    private java.util.List<com.iisquare.im.protobuf.IMMessage.HistoryResult.Row> rows_;
-    /**
-     * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-     */
-    public java.util.List<com.iisquare.im.protobuf.IMMessage.HistoryResult.Row> getRowsList() {
-      return rows_;
-    }
-    /**
-     * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-     */
-    public java.util.List<? extends com.iisquare.im.protobuf.IMMessage.HistoryResult.RowOrBuilder> 
-        getRowsOrBuilderList() {
-      return rows_;
-    }
-    /**
-     * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-     */
-    public int getRowsCount() {
-      return rows_.size();
-    }
-    /**
-     * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-     */
-    public com.iisquare.im.protobuf.IMMessage.HistoryResult.Row getRows(int index) {
-      return rows_.get(index);
-    }
-    /**
-     * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-     */
-    public com.iisquare.im.protobuf.IMMessage.HistoryResult.RowOrBuilder getRowsOrBuilder(
-        int index) {
-      return rows_.get(index);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (page_ != 0) {
-        output.writeInt32(1, page_);
-      }
-      if (pageSize_ != 0) {
-        output.writeInt32(2, pageSize_);
-      }
-      if (total_ != 0L) {
-        output.writeInt64(3, total_);
-      }
-      for (int i = 0; i < rows_.size(); i++) {
-        output.writeMessage(4, rows_.get(i));
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (page_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, page_);
-      }
-      if (pageSize_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, pageSize_);
-      }
-      if (total_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, total_);
-      }
-      for (int i = 0; i < rows_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, rows_.get(i));
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.iisquare.im.protobuf.IMMessage.HistoryResult)) {
-        return super.equals(obj);
-      }
-      com.iisquare.im.protobuf.IMMessage.HistoryResult other = (com.iisquare.im.protobuf.IMMessage.HistoryResult) obj;
-
-      if (getPage()
-          != other.getPage()) return false;
-      if (getPageSize()
-          != other.getPageSize()) return false;
-      if (getTotal()
-          != other.getTotal()) return false;
-      if (!getRowsList()
-          .equals(other.getRowsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + PAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getPage();
-      hash = (37 * hash) + PAGE_SIZE_FIELD_NUMBER;
-      hash = (53 * hash) + getPageSize();
-      hash = (37 * hash) + TOTAL_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getTotal());
-      if (getRowsCount() > 0) {
-        hash = (37 * hash) + ROWS_FIELD_NUMBER;
-        hash = (53 * hash) + getRowsList().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.iisquare.im.protobuf.IMMessage.HistoryResult parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.HistoryResult parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.HistoryResult parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.HistoryResult parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.HistoryResult parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.HistoryResult parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.HistoryResult parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.HistoryResult parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.HistoryResult parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.HistoryResult parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.HistoryResult parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.iisquare.im.protobuf.IMMessage.HistoryResult parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.iisquare.im.protobuf.IMMessage.HistoryResult prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code im.HistoryResult}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:im.HistoryResult)
-        com.iisquare.im.protobuf.IMMessage.HistoryResultOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.iisquare.im.protobuf.IMMessage.internal_static_im_HistoryResult_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.iisquare.im.protobuf.IMMessage.internal_static_im_HistoryResult_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.iisquare.im.protobuf.IMMessage.HistoryResult.class, com.iisquare.im.protobuf.IMMessage.HistoryResult.Builder.class);
-      }
-
-      // Construct using com.iisquare.im.protobuf.IMMessage.HistoryResult.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getRowsFieldBuilder();
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        page_ = 0;
-
-        pageSize_ = 0;
-
-        total_ = 0L;
-
-        if (rowsBuilder_ == null) {
-          rows_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          rowsBuilder_.clear();
-        }
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.iisquare.im.protobuf.IMMessage.internal_static_im_HistoryResult_descriptor;
-      }
-
-      @java.lang.Override
-      public com.iisquare.im.protobuf.IMMessage.HistoryResult getDefaultInstanceForType() {
-        return com.iisquare.im.protobuf.IMMessage.HistoryResult.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.iisquare.im.protobuf.IMMessage.HistoryResult build() {
-        com.iisquare.im.protobuf.IMMessage.HistoryResult result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.iisquare.im.protobuf.IMMessage.HistoryResult buildPartial() {
-        com.iisquare.im.protobuf.IMMessage.HistoryResult result = new com.iisquare.im.protobuf.IMMessage.HistoryResult(this);
-        int from_bitField0_ = bitField0_;
-        result.page_ = page_;
-        result.pageSize_ = pageSize_;
-        result.total_ = total_;
-        if (rowsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
-            rows_ = java.util.Collections.unmodifiableList(rows_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.rows_ = rows_;
-        } else {
-          result.rows_ = rowsBuilder_.build();
-        }
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.iisquare.im.protobuf.IMMessage.HistoryResult) {
-          return mergeFrom((com.iisquare.im.protobuf.IMMessage.HistoryResult)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.iisquare.im.protobuf.IMMessage.HistoryResult other) {
-        if (other == com.iisquare.im.protobuf.IMMessage.HistoryResult.getDefaultInstance()) return this;
-        if (other.getPage() != 0) {
-          setPage(other.getPage());
-        }
-        if (other.getPageSize() != 0) {
-          setPageSize(other.getPageSize());
-        }
-        if (other.getTotal() != 0L) {
-          setTotal(other.getTotal());
-        }
-        if (rowsBuilder_ == null) {
-          if (!other.rows_.isEmpty()) {
-            if (rows_.isEmpty()) {
-              rows_ = other.rows_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureRowsIsMutable();
-              rows_.addAll(other.rows_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.rows_.isEmpty()) {
-            if (rowsBuilder_.isEmpty()) {
-              rowsBuilder_.dispose();
-              rowsBuilder_ = null;
-              rows_ = other.rows_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              rowsBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getRowsFieldBuilder() : null;
-            } else {
-              rowsBuilder_.addAllMessages(other.rows_);
-            }
-          }
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.iisquare.im.protobuf.IMMessage.HistoryResult parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.iisquare.im.protobuf.IMMessage.HistoryResult) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private int page_ ;
-      /**
-       * <code>int32 page = 1;</code>
-       */
-      public int getPage() {
-        return page_;
-      }
-      /**
-       * <code>int32 page = 1;</code>
-       */
-      public Builder setPage(int value) {
-        
-        page_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 page = 1;</code>
-       */
-      public Builder clearPage() {
-        
-        page_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int pageSize_ ;
-      /**
-       * <code>int32 page_size = 2;</code>
-       */
-      public int getPageSize() {
-        return pageSize_;
-      }
-      /**
-       * <code>int32 page_size = 2;</code>
-       */
-      public Builder setPageSize(int value) {
-        
-        pageSize_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 page_size = 2;</code>
-       */
-      public Builder clearPageSize() {
-        
-        pageSize_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private long total_ ;
-      /**
-       * <code>int64 total = 3;</code>
-       */
-      public long getTotal() {
-        return total_;
-      }
-      /**
-       * <code>int64 total = 3;</code>
-       */
-      public Builder setTotal(long value) {
-        
-        total_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int64 total = 3;</code>
-       */
-      public Builder clearTotal() {
-        
-        total_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private java.util.List<com.iisquare.im.protobuf.IMMessage.HistoryResult.Row> rows_ =
-        java.util.Collections.emptyList();
-      private void ensureRowsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
-          rows_ = new java.util.ArrayList<com.iisquare.im.protobuf.IMMessage.HistoryResult.Row>(rows_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.iisquare.im.protobuf.IMMessage.HistoryResult.Row, com.iisquare.im.protobuf.IMMessage.HistoryResult.Row.Builder, com.iisquare.im.protobuf.IMMessage.HistoryResult.RowOrBuilder> rowsBuilder_;
-
-      /**
-       * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-       */
-      public java.util.List<com.iisquare.im.protobuf.IMMessage.HistoryResult.Row> getRowsList() {
-        if (rowsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(rows_);
-        } else {
-          return rowsBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-       */
-      public int getRowsCount() {
-        if (rowsBuilder_ == null) {
-          return rows_.size();
-        } else {
-          return rowsBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-       */
-      public com.iisquare.im.protobuf.IMMessage.HistoryResult.Row getRows(int index) {
-        if (rowsBuilder_ == null) {
-          return rows_.get(index);
-        } else {
-          return rowsBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-       */
-      public Builder setRows(
-          int index, com.iisquare.im.protobuf.IMMessage.HistoryResult.Row value) {
-        if (rowsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureRowsIsMutable();
-          rows_.set(index, value);
-          onChanged();
-        } else {
-          rowsBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-       */
-      public Builder setRows(
-          int index, com.iisquare.im.protobuf.IMMessage.HistoryResult.Row.Builder builderForValue) {
-        if (rowsBuilder_ == null) {
-          ensureRowsIsMutable();
-          rows_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          rowsBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-       */
-      public Builder addRows(com.iisquare.im.protobuf.IMMessage.HistoryResult.Row value) {
-        if (rowsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureRowsIsMutable();
-          rows_.add(value);
-          onChanged();
-        } else {
-          rowsBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-       */
-      public Builder addRows(
-          int index, com.iisquare.im.protobuf.IMMessage.HistoryResult.Row value) {
-        if (rowsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureRowsIsMutable();
-          rows_.add(index, value);
-          onChanged();
-        } else {
-          rowsBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-       */
-      public Builder addRows(
-          com.iisquare.im.protobuf.IMMessage.HistoryResult.Row.Builder builderForValue) {
-        if (rowsBuilder_ == null) {
-          ensureRowsIsMutable();
-          rows_.add(builderForValue.build());
-          onChanged();
-        } else {
-          rowsBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-       */
-      public Builder addRows(
-          int index, com.iisquare.im.protobuf.IMMessage.HistoryResult.Row.Builder builderForValue) {
-        if (rowsBuilder_ == null) {
-          ensureRowsIsMutable();
-          rows_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          rowsBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-       */
-      public Builder addAllRows(
-          java.lang.Iterable<? extends com.iisquare.im.protobuf.IMMessage.HistoryResult.Row> values) {
-        if (rowsBuilder_ == null) {
-          ensureRowsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, rows_);
-          onChanged();
-        } else {
-          rowsBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-       */
-      public Builder clearRows() {
-        if (rowsBuilder_ == null) {
-          rows_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
-        } else {
-          rowsBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-       */
-      public Builder removeRows(int index) {
-        if (rowsBuilder_ == null) {
-          ensureRowsIsMutable();
-          rows_.remove(index);
-          onChanged();
-        } else {
-          rowsBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-       */
-      public com.iisquare.im.protobuf.IMMessage.HistoryResult.Row.Builder getRowsBuilder(
-          int index) {
-        return getRowsFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-       */
-      public com.iisquare.im.protobuf.IMMessage.HistoryResult.RowOrBuilder getRowsOrBuilder(
-          int index) {
-        if (rowsBuilder_ == null) {
-          return rows_.get(index);  } else {
-          return rowsBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-       */
-      public java.util.List<? extends com.iisquare.im.protobuf.IMMessage.HistoryResult.RowOrBuilder> 
-           getRowsOrBuilderList() {
-        if (rowsBuilder_ != null) {
-          return rowsBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(rows_);
-        }
-      }
-      /**
-       * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-       */
-      public com.iisquare.im.protobuf.IMMessage.HistoryResult.Row.Builder addRowsBuilder() {
-        return getRowsFieldBuilder().addBuilder(
-            com.iisquare.im.protobuf.IMMessage.HistoryResult.Row.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-       */
-      public com.iisquare.im.protobuf.IMMessage.HistoryResult.Row.Builder addRowsBuilder(
-          int index) {
-        return getRowsFieldBuilder().addBuilder(
-            index, com.iisquare.im.protobuf.IMMessage.HistoryResult.Row.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .im.HistoryResult.Row rows = 4;</code>
-       */
-      public java.util.List<com.iisquare.im.protobuf.IMMessage.HistoryResult.Row.Builder> 
-           getRowsBuilderList() {
-        return getRowsFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.iisquare.im.protobuf.IMMessage.HistoryResult.Row, com.iisquare.im.protobuf.IMMessage.HistoryResult.Row.Builder, com.iisquare.im.protobuf.IMMessage.HistoryResult.RowOrBuilder> 
-          getRowsFieldBuilder() {
-        if (rowsBuilder_ == null) {
-          rowsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              com.iisquare.im.protobuf.IMMessage.HistoryResult.Row, com.iisquare.im.protobuf.IMMessage.HistoryResult.Row.Builder, com.iisquare.im.protobuf.IMMessage.HistoryResult.RowOrBuilder>(
-                  rows_,
-                  ((bitField0_ & 0x00000001) != 0),
-                  getParentForChildren(),
-                  isClean());
-          rows_ = null;
-        }
-        return rowsBuilder_;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:im.HistoryResult)
-    }
-
-    // @@protoc_insertion_point(class_scope:im.HistoryResult)
-    private static final com.iisquare.im.protobuf.IMMessage.HistoryResult DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.iisquare.im.protobuf.IMMessage.HistoryResult();
-    }
-
-    public static com.iisquare.im.protobuf.IMMessage.HistoryResult getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<HistoryResult>
-        PARSER = new com.google.protobuf.AbstractParser<HistoryResult>() {
-      @java.lang.Override
-      public HistoryResult parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new HistoryResult(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<HistoryResult> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<HistoryResult> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.iisquare.im.protobuf.IMMessage.HistoryResult getDefaultInstanceForType() {
+    public com.iisquare.im.protobuf.IMMessage.PullResult getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -10968,55 +5620,30 @@ public final class IMMessage {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_im_Push_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_im_PushACK_descriptor;
+    internal_static_im_PushResult_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_im_PushACK_fieldAccessorTable;
+      internal_static_im_PushResult_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_im_Sync_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_im_Sync_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_im_Body_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_im_Body_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_im_Pull_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_im_Pull_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_im_PullSendResult_descriptor;
+    internal_static_im_PullResult_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_im_PullSendResult_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_im_PullSendResult_Row_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_im_PullSendResult_Row_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_im_PullRecieveResult_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_im_PullRecieveResult_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_im_PullRecieveResult_Row_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_im_PullRecieveResult_Row_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_im_History_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_im_History_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_im_HistoryResult_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_im_HistoryResult_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_im_HistoryResult_Row_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_im_HistoryResult_Row_fieldAccessorTable;
+      internal_static_im_PullResult_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -11028,33 +5655,20 @@ public final class IMMessage {
     java.lang.String[] descriptorData = {
       "\n\017IMMessage.proto\022\002im\"J\n\004Push\022\021\n\trecepti" +
       "on\030\001 \001(\t\022\020\n\010receiver\030\002 \001(\t\022\014\n\004type\030\003 \001(\t" +
-      "\022\017\n\007content\030\004 \001(\t\"4\n\007PushACK\022\n\n\002id\030\001 \001(\t" +
-      "\022\017\n\007version\030\002 \001(\003\022\014\n\004time\030\003 \001(\003\"\027\n\004Sync\022" +
-      "\017\n\007version\030\001 \001(\003\"Y\n\004Pull\022\014\n\004page\030\001 \001(\005\022\021" +
-      "\n\tpage_size\030\002 \001(\005\022\014\n\004sort\030\003 \001(\t\022\017\n\007versi" +
-      "on\030\004 \001(\003\022\021\n\tdirection\030\005 \001(\t\"\214\002\n\016PullSend" +
-      "Result\022\014\n\004page\030\001 \001(\005\022\020\n\010pageSize\030\002 \001(\005\022\r" +
-      "\n\005total\030\003 \001(\003\022$\n\004rows\030\004 \003(\0132\026.im.PullSen" +
-      "dResult.Row\032\244\001\n\003Row\022\n\n\002id\030\001 \001(\t\022\017\n\007versi" +
-      "on\030\002 \001(\003\022\021\n\treception\030\003 \001(\t\022\020\n\010receiver\030" +
-      "\004 \001(\t\022\014\n\004type\030\005 \001(\t\022\017\n\007content\030\006 \001(\t\022\014\n\004" +
-      "time\030\007 \001(\003\022\020\n\010withdraw\030\010 \001(\003\022\016\n\006delete\030\t" +
-      " \001(\003\022\014\n\004read\030\n \001(\003\"\354\001\n\021PullRecieveResult" +
-      "\022\014\n\004page\030\001 \001(\005\022\020\n\010pageSize\030\002 \001(\005\022\r\n\005tota" +
-      "l\030\003 \001(\003\022\'\n\004rows\030\004 \003(\0132\031.im.PullRecieveRe" +
-      "sult.Row\032\177\n\003Row\022\n\n\002id\030\001 \001(\t\022\017\n\007version\030\002" +
-      " \001(\003\022\014\n\004type\030\003 \001(\t\022\017\n\007content\030\004 \001(\t\022\014\n\004t" +
-      "ime\030\005 \001(\003\022\020\n\010withdraw\030\006 \001(\003\022\016\n\006delete\030\007 " +
-      "\001(\003\022\014\n\004read\030\010 \001(\003\"\\\n\007History\022\014\n\004page\030\001 \001" +
-      "(\005\022\020\n\010pageSize\030\002 \001(\005\022\014\n\004time\030\003 \001(\003\022\021\n\tre" +
-      "ception\030\004 \001(\t\022\020\n\010receiver\030\005 \001(\t\"\372\001\n\rHist" +
-      "oryResult\022\014\n\004page\030\001 \001(\005\022\021\n\tpage_size\030\002 \001" +
-      "(\005\022\r\n\005total\030\003 \001(\003\022#\n\004rows\030\004 \003(\0132\025.im.His" +
-      "toryResult.Row\032\223\001\n\003Row\022\n\n\002id\030\001 \001(\t\022\021\n\tre" +
-      "ception\030\003 \001(\t\022\020\n\010receiver\030\004 \001(\t\022\014\n\004type\030" +
-      "\005 \001(\t\022\017\n\007content\030\006 \001(\t\022\014\n\004time\030\007 \001(\003\022\020\n\010" +
-      "withdraw\030\010 \001(\003\022\016\n\006delete\030\t \001(\003\022\014\n\004read\030\n" +
-      " \001(\003B\032\n\030com.iisquare.im.protobufb\006proto3"
+      "\022\017\n\007content\030\004 \001(\t\"7\n\nPushResult\022\n\n\002id\030\001 " +
+      "\001(\t\022\017\n\007version\030\002 \001(\003\022\014\n\004time\030\003 \001(\003\"\027\n\004Sy" +
+      "nc\022\017\n\007version\030\001 \001(\003\"\251\001\n\004Body\022\n\n\002id\030\001 \001(\t" +
+      "\022\017\n\007version\030\002 \001(\003\022\020\n\010sequence\030\003 \001(\t\022\016\n\006s" +
+      "ender\030\004 \001(\t\022\021\n\treception\030\005 \001(\t\022\020\n\010receiv" +
+      "er\030\006 \001(\t\022\014\n\004type\030\007 \001(\t\022\017\n\007content\030\010 \001(\t\022" +
+      "\014\n\004time\030\t \001(\003\022\020\n\010withdraw\030\n \001(\003\"\203\001\n\004Pull" +
+      "\022\014\n\004page\030\001 \001(\005\022\021\n\tpage_size\030\002 \001(\005\022\014\n\004sor" +
+      "t\030\003 \001(\t\022\023\n\013min_version\030\004 \001(\003\022\023\n\013max_vers" +
+      "ion\030\005 \001(\003\022\020\n\010min_time\030\006 \001(\003\022\020\n\010max_time\030" +
+      "\007 \001(\003\"S\n\nPullResult\022\014\n\004page\030\001 \001(\005\022\020\n\010pag" +
+      "eSize\030\002 \001(\005\022\r\n\005total\030\003 \001(\003\022\026\n\004rows\030\004 \003(\013" +
+      "2\010.im.BodyB\032\n\030com.iisquare.im.protobufb\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -11066,11 +5680,11 @@ public final class IMMessage {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_im_Push_descriptor,
         new java.lang.String[] { "Reception", "Receiver", "Type", "Content", });
-    internal_static_im_PushACK_descriptor =
+    internal_static_im_PushResult_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_im_PushACK_fieldAccessorTable = new
+    internal_static_im_PushResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_im_PushACK_descriptor,
+        internal_static_im_PushResult_descriptor,
         new java.lang.String[] { "Id", "Version", "Time", });
     internal_static_im_Sync_descriptor =
       getDescriptor().getMessageTypes().get(2);
@@ -11078,54 +5692,24 @@ public final class IMMessage {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_im_Sync_descriptor,
         new java.lang.String[] { "Version", });
-    internal_static_im_Pull_descriptor =
+    internal_static_im_Body_descriptor =
       getDescriptor().getMessageTypes().get(3);
+    internal_static_im_Body_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_im_Body_descriptor,
+        new java.lang.String[] { "Id", "Version", "Sequence", "Sender", "Reception", "Receiver", "Type", "Content", "Time", "Withdraw", });
+    internal_static_im_Pull_descriptor =
+      getDescriptor().getMessageTypes().get(4);
     internal_static_im_Pull_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_im_Pull_descriptor,
-        new java.lang.String[] { "Page", "PageSize", "Sort", "Version", "Direction", });
-    internal_static_im_PullSendResult_descriptor =
-      getDescriptor().getMessageTypes().get(4);
-    internal_static_im_PullSendResult_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_im_PullSendResult_descriptor,
-        new java.lang.String[] { "Page", "PageSize", "Total", "Rows", });
-    internal_static_im_PullSendResult_Row_descriptor =
-      internal_static_im_PullSendResult_descriptor.getNestedTypes().get(0);
-    internal_static_im_PullSendResult_Row_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_im_PullSendResult_Row_descriptor,
-        new java.lang.String[] { "Id", "Version", "Reception", "Receiver", "Type", "Content", "Time", "Withdraw", "Delete", "Read", });
-    internal_static_im_PullRecieveResult_descriptor =
+        new java.lang.String[] { "Page", "PageSize", "Sort", "MinVersion", "MaxVersion", "MinTime", "MaxTime", });
+    internal_static_im_PullResult_descriptor =
       getDescriptor().getMessageTypes().get(5);
-    internal_static_im_PullRecieveResult_fieldAccessorTable = new
+    internal_static_im_PullResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_im_PullRecieveResult_descriptor,
+        internal_static_im_PullResult_descriptor,
         new java.lang.String[] { "Page", "PageSize", "Total", "Rows", });
-    internal_static_im_PullRecieveResult_Row_descriptor =
-      internal_static_im_PullRecieveResult_descriptor.getNestedTypes().get(0);
-    internal_static_im_PullRecieveResult_Row_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_im_PullRecieveResult_Row_descriptor,
-        new java.lang.String[] { "Id", "Version", "Type", "Content", "Time", "Withdraw", "Delete", "Read", });
-    internal_static_im_History_descriptor =
-      getDescriptor().getMessageTypes().get(6);
-    internal_static_im_History_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_im_History_descriptor,
-        new java.lang.String[] { "Page", "PageSize", "Time", "Reception", "Receiver", });
-    internal_static_im_HistoryResult_descriptor =
-      getDescriptor().getMessageTypes().get(7);
-    internal_static_im_HistoryResult_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_im_HistoryResult_descriptor,
-        new java.lang.String[] { "Page", "PageSize", "Total", "Rows", });
-    internal_static_im_HistoryResult_Row_descriptor =
-      internal_static_im_HistoryResult_descriptor.getNestedTypes().get(0);
-    internal_static_im_HistoryResult_Row_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_im_HistoryResult_Row_descriptor,
-        new java.lang.String[] { "Id", "Reception", "Receiver", "Type", "Content", "Time", "Withdraw", "Delete", "Read", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

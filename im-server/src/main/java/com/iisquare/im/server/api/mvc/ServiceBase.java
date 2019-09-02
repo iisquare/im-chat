@@ -13,7 +13,7 @@ public abstract class ServiceBase {
         ORDER_DIRECTION.put("desc", Sort.Direction.DESC);
     }
 
-    protected static Sort sort(String sort, Collection<String> fields) {
+    public static Sort sort(String sort, Collection<String> fields) {
         if (DPUtil.empty(sort)) return null;
         List<Sort.Order> oders = new ArrayList<>();
         String[] sorts = DPUtil.explode(sort, ",", " ", true);

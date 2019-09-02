@@ -17,7 +17,25 @@ class MessageLogic extends LogicBase {
     parameter.setType(type)
     parameter.setContent(content)
     return this.send('message.push', parameter).then(result => {
-      return this.result(IMMessagePB.PushACK, result)
+      return this.result(IMMessagePB.PushResult, result)
+    })
+  }
+  sync () {
+    return this.send('message.sync').then(result => {
+      return this.result(IMMessagePB.Sync, result)
+    })
+  }
+  pull (param) {
+    let parameter = new IMMessagePB.Pull()
+    parameter.setPage(param.page)
+    parameter.setPageSize(param.pageSize)
+    parameter.setSort(param.sort)
+    parameter.setMinVersion(param.minVersion)
+    parameter.setMaxVersion(param.maxVersion)
+    parameter.setMinTime(param.minTime)
+    parameter.setMaxTime(param.maxTime)
+    return this.send('message.pull', parameter).then(result => {
+      return this.result(IMMessagePB.PullResult, result)
     })
   }
 }

@@ -78,7 +78,9 @@ public class UserLogic extends Logic {
         }
         group.add(ctx.channel());
 //        return result(directive, 0, null, Any.pack(IMUser.AuthResult.newBuilder().setUserId(info.getId()).build()));
-        return result(directive, 0, null, IMUser.AuthResult.newBuilder().setUserId(info.getId()).build());
+        IMUser.AuthResult.Builder result = IMUser.AuthResult.newBuilder();
+        result.setUserId(info.getId()).setVersion(userService.version(info.getId()));
+        return result(directive, 0, null, result.build());
     }
 
     public IM.Result contactAction(String fromType, ChannelHandlerContext ctx, IM.Directive directive) throws Exception {
@@ -115,12 +117,14 @@ public class UserLogic extends Logic {
             .setContent(message.getContent()).setTime(message.getTime().getTime());
         String data = DPUtil.encode(builder.build().toByteArray());
         redis.opsForHash().put(contact(sender.getId()), receiver.getId(), data);
+        userService.version(sender.getId(), message.getVersion());
         // 接收方
         builder = IMUser.Contact.Row.newBuilder();
         builder.setUserId(sender.getId()).setMessageId(message.getId()).setDirection("receive")
             .setContent(message.getContent()).setTime(message.getTime().getTime());
         data = DPUtil.encode(builder.build().toByteArray());
         redis.opsForHash().put(contact(receiver.getId()), sender.getId(), data);
+        userService.version(receiver.getId(), message.getVersion());
         // 同步通知
         ObjectNode sync = DPUtil.objectNode();
         sync.put("u", sender.getId()).put("v", message.getVersion());

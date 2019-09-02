@@ -281,7 +281,8 @@ proto.im.AuthResult.prototype.toObject = function(opt_includeInstance) {
  */
 proto.im.AuthResult.toObject = function(includeInstance, msg) {
   var f, obj = {
-    userId: jspb.Message.getFieldWithDefault(msg, 1, "")
+    userId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    version: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -322,6 +323,10 @@ proto.im.AuthResult.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {string} */ (reader.readString());
       msg.setUserId(value);
       break;
+    case 2:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setVersion(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -358,6 +363,13 @@ proto.im.AuthResult.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getVersion();
+  if (f !== 0) {
+    writer.writeInt64(
+      2,
+      f
+    );
+  }
 };
 
 
@@ -373,6 +385,21 @@ proto.im.AuthResult.prototype.getUserId = function() {
 /** @param {string} value */
 proto.im.AuthResult.prototype.setUserId = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional int64 version = 2;
+ * @return {number}
+ */
+proto.im.AuthResult.prototype.getVersion = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.im.AuthResult.prototype.setVersion = function(value) {
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 

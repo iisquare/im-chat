@@ -68,6 +68,10 @@ public class UserService extends ServiceBase {
         return "im:chat:token:" + token;
     }
 
+    public String userKey(String id) {
+        return "im:chat:user:" + id;
+    }
+
     public String token(String id, boolean renew) {
         User user = info(id);
         if (!renew && null != user) return user.getToken();
@@ -78,14 +82,13 @@ public class UserService extends ServiceBase {
         }
         user.setToken(uuid());
         user = userDao.save(user);
-        redis.opsForHash().putAll(tokenKey(user.getToken()), DPUtil.buildMap("id", user.getId(), "block", user.block()));
+        redis.opsForHash().putAll(tokenKey(user.getToken()), DPUtil.buildMap("id", user.getId()));
         return user.getToken();
     }
 
     public String userId(String token) {
         if (null == token) return null;
-        List<Object> list = redis.opsForHash().multiGet(tokenKey(token), Arrays.asList("id", "block"));
-        if (DPUtil.parseLong(list.get(1)) > System.currentTimeMillis()) return "";
+        List<Object> list = redis.opsForHash().multiGet(tokenKey(token), Arrays.asList("id"));
         return DPUtil.parseString(list.get(0));
     }
 
@@ -94,7 +97,7 @@ public class UserService extends ServiceBase {
         if (null == user) return false;
         user.setBlock(block);
         user = userDao.save(user);
-        redis.opsForHash().putAll(tokenKey(user.getToken()), DPUtil.buildMap("id", user.getId(), "block", user.block()));
+        redis.opsForHash().putAll(userKey(user.getId()), DPUtil.buildMap("id", user.getId(), "block", user.block()));
         return true;
     }
 
@@ -103,8 +106,19 @@ public class UserService extends ServiceBase {
         if (null == user) return false;
         user.setPushable(enable ? 1 : 0);
         user = userDao.save(user);
-        redis.opsForHash().putAll(tokenKey(user.getToken()), DPUtil.buildMap("id", user.getId(), "pushable", user.pushable()));
+        redis.opsForHash().putAll(userKey(user.getId()), DPUtil.buildMap("id", user.getId(), "pushable", user.pushable()));
         return true;
+    }
+
+    public boolean version(String id, long version) {
+        User user = info(id);
+        if (null == user) return false;
+        redis.opsForHash().putAll(userKey(user.getId()), DPUtil.buildMap("id", user.getId(), "version", version));
+        return true;
+    }
+
+    public long version(String id) {
+        return DPUtil.parseLong(redis.opsForHash().get(userKey(id), "version"));
     }
 
 }
