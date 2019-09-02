@@ -54,19 +54,19 @@
                 <b-row :key="'withdraw-' + index" align-v="center" align="center" class="im-message-item" v-if="item.withdraw">
                   <b-col><b-badge variant="secondary">消息已撤回</b-badge></b-col>
                 </b-row>
-                <b-row align-v="center" :key="'message-' + index" align="left" class="im-message-item" v-else-if="item.sender != userId">
+                <b-row align-v="center" :key="'message-' + index" align="right" class="im-message-item" v-else-if="item.sender == userId">
                   <b-col>
-                    <b-media class="im-message-item-left">
-                      <b-img slot="aside" width="35" height="35" rounded="circle" :src="'https://picsum.photos/125/125/?image=' + item.sender.length"></b-img>
+                    <b-media class="im-message-item-right" right-align>
+                      <b-img slot="aside" width="35" height="35" rounded="circle" src="https://avatars2.githubusercontent.com/u/5144531?s=35"></b-img>
                       <div class="im-message-arrow"></div>
                       <div class="im-message-body">{{item.content}}</div>
                     </b-media>
                   </b-col>
                 </b-row>
-                <b-row align-v="center" :key="'message-' + index" align="right" class="im-message-item" v-else>
+                <b-row align-v="center" :key="'message-' + index" align="left" class="im-message-item" v-else>
                   <b-col>
-                    <b-media class="im-message-item-right" right-align>
-                      <b-img slot="aside" width="35" height="35" rounded="circle" src="https://avatars2.githubusercontent.com/u/5144531?s=35"></b-img>
+                    <b-media class="im-message-item-left">
+                      <b-img slot="aside" width="35" height="35" rounded="circle" :src="'https://picsum.photos/125/125/?image=' + item.sender.length"></b-img>
                       <div class="im-message-arrow"></div>
                       <div class="im-message-body">{{item.content}}</div>
                     </b-media>
@@ -140,11 +140,7 @@ export default {
     },
     send () {
       if (this.message === '') return
-      this.im.messageLogic.pushTxt(this.talk.userId, this.message).then(result => {
-        console.log('result', result)
-      }).catch(error => {
-        console.log('error', error)
-      })
+      this.im.messageLogic.pushTxt(this.talk.userId, this.message)
       this.message = ''
     },
     selectContact (index, item) {
@@ -184,9 +180,11 @@ export default {
         this.messages.rows = rows
         this.$nextTick(() => {
           let chat = this.$refs.chat
-          console.log(chat, chat.iscroll.scrollerHeight)
+          if (!chat) return
           chat.refresh()
-          chat.scrollTo(0, -chat.iscroll.scrollerHeight + 60, 0)
+          window.setTimeout(() => {
+            chat.scrollTo(0, chat.iscroll.wrapperHeight - chat.iscroll.scrollerHeight, 300)
+          }, 10)
         })
       })
     },

@@ -37,12 +37,19 @@ public class MessageLogic extends Logic {
         String userId = userLogic.userId(ctx);
         if (DPUtil.empty(userId)) return result(directive, 404, "用户信息异常", null);
         IMMessage.Pull pull = IMMessage.Pull.parseFrom(directive.getParameter());
-        Map<String, Object> search = messageService.search(DPUtil.buildMap(
-            "page", pull.getPage(), "pageSize", pull.getPageSize(), "sort", pull.getSort(),
-            "reception", pull.getReception(), "receiver", pull.getReceiver(),
+        Map<Object, Object> param = DPUtil.buildMap(
+            "page", pull.getPage(), "pageSize", pull.getPageSize(),
+            "sort", pull.getSort(), "reception", pull.getReception(),
             "minVersion", pull.getMinVersion(), "maxVersion", pull.getMaxVersion(),
             "minVersion", pull.getMinVersion(), "maxVersion", pull.getMaxVersion(),
-            "minTime", pull.getMinTime(), "maxTime", pull.getMaxTime()), DPUtil.buildMap());
+            "minTime", pull.getMinTime(), "maxTime", pull.getMaxTime());
+        if (DPUtil.empty(pull.getReceiver())) {
+            param.put("ca", userId);
+        } else  {
+            param.put("cs", userId);
+            param.put("cr", pull.getReceiver());
+        }
+        Map<String, Object> search = messageService.search(param, DPUtil.buildMap());
         IMMessage.PullResult.Builder result = IMMessage.PullResult.newBuilder();
         result.setPage((Integer) search.get("page"));
         result.setPageSize((Integer) search.get("pageSize"));

@@ -23,7 +23,7 @@ public abstract class ServiceBase {
             if (!fields.contains(order)) continue;
             String direction = explode.length > 1 ? explode[1].toLowerCase() : null;
             if (!ORDER_DIRECTION.containsKey(direction)) direction = null;
-            oders.add(new Sort.Order(null == direction ? Sort.DEFAULT_DIRECTION : ORDER_DIRECTION.get(order), order));
+            oders.add(new Sort.Order(null == direction ? Sort.DEFAULT_DIRECTION : ORDER_DIRECTION.get(direction), order));
         }
         if (oders.size() < 1) return null;
         return Sort.by(oders);

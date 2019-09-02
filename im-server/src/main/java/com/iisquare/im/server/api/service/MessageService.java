@@ -40,10 +40,24 @@ public class MessageService extends ServiceBase {
         if (null == sort) sort = Sort.by(Sort.Order.asc("version"));
         Page<User> data = messageDao.findAll((Specification) (root, query, cb) -> {
             List<Predicate> predicates = new ArrayList<>();
+            String sender = DPUtil.trim(DPUtil.parseString(param.get("sender")));
+            if(!DPUtil.empty(sender)) predicates.add(cb.equal(root.get("sender"), sender));
             String reception = DPUtil.trim(DPUtil.parseString(param.get("reception")));
             if(!DPUtil.empty(reception)) predicates.add(cb.equal(root.get("reception"), reception));
             String receiver = DPUtil.trim(DPUtil.parseString(param.get("receiver")));
             if(!DPUtil.empty(receiver)) predicates.add(cb.equal(root.get("receiver"), receiver));
+            String cs = DPUtil.trim(DPUtil.parseString(param.get("cs")));
+            String cr = DPUtil.trim(DPUtil.parseString(param.get("cr")));
+            if(!DPUtil.empty(cs) && !DPUtil.empty(cr)) { // 单个会话的记录
+                predicates.add(cb.or(
+                    cb.and(cb.equal(root.get("sender"), cs), cb.equal(root.get("receiver"), cr)),
+                    cb.and(cb.equal(root.get("sender"), cr), cb.equal(root.get("receiver"), cs))
+                ));
+            }
+            String ca = DPUtil.trim(DPUtil.parseString(param.get("ca")));
+            if(!DPUtil.empty(ca)) { // 单个用户的记录
+                predicates.add(cb.or(cb.equal(root.get("sender"), ca), cb.equal(root.get("receiver"), ca)));
+            }
             long minVersion = DPUtil.parseLong(param.containsKey("minVersion"));
             if (minVersion > 0) predicates.add(cb.ge(root.get("version"),minVersion ));
             long maxVersion = DPUtil.parseLong(param.containsKey("maxVersion"));
