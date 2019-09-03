@@ -80,7 +80,7 @@
           <b-form-textarea v-model="message" placeholder="" no-resize></b-form-textarea>
         </div>
         <div class="im-chat-button">
-          <b-button @click="send" variant="secondary" size="sm">发送(S)</b-button>
+          <b-button @click="send" variant="secondary" size="sm">{{sendText}}</b-button>
         </div>
       </div>
     </div>
@@ -103,7 +103,8 @@ export default {
       searchRows: [],
       talk: null,
       messages: { more: true, rows: [] },
-      message: ''
+      message: '',
+      sendText: '发送'
     }
   },
   watch: {
@@ -139,8 +140,19 @@ export default {
       this.talk = null
     },
     send () {
-      if (this.message === '') return
-      this.im.messageLogic.pushTxt(this.talk.userId, this.message)
+      if (this.message === '' || this.sendText === '发送中...') return
+      this.sendText = '发送中...'
+      this.im.messageLogic.pushTxt(this.talk.userId, this.message).then(result => {
+        this.sendText = '发送'
+      }).catch(error => {
+        this.sendText = '发送失败'
+        this.$bvToast.toast(error.getMessage(), {
+          title: '发送失败',
+          toaster: 'b-toaster-top-center',
+          variant: 'danger',
+          solid: true
+        })
+      })
       this.message = ''
     },
     selectContact (index, item) {
@@ -282,6 +294,12 @@ export default {
   height: 65px;
   margin: 0px;
   cursor: pointer;
+  .media-body, p {
+    width: 169px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 }
 .im-contacts-item:hover {
   background-color: #dddede;
