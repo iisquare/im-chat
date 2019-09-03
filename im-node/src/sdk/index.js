@@ -22,6 +22,7 @@ class ImClient {
         let ws = route.ws + '?token=' + _this.token
         this.client = window.WebSocket ? new WebSocketClient(Object.assign(this.config, {ws})) : new CometClient(Object.assign(this.config, route.comet))
         this.client.connect()
+        resolve(response)
       }).catch(error => reject(error))
     })
   }
