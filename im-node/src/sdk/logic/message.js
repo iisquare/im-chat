@@ -1,10 +1,6 @@
 import LogicBase from '@/sdk/logic/base'
 import IMMessagePB from '@/sdk/protobuf/IMMessage_pb'
-
-const MESSAGE_TYPE_TXT = 'txt'
-const MESSAGE_RECEPTION_PERSON = 'person'
-// const MESSAGE_RECEPTION_GROUP = 'group'
-// const MESSAGE_RECEPTION_OFFICIAL = 'official'
+import { MESSAGE_TYPE_TXT, MESSAGE_RECEPTION_PERSON } from '@/sdk/constants'
 
 class MessageLogic extends LogicBase {
   pushTxt (receiver, content) {

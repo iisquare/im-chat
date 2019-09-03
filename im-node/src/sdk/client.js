@@ -1,9 +1,7 @@
 import IMPB from '@/sdk/protobuf/IM_pb'
 import IMMessagePB from '@/sdk/protobuf/IMMessage_pb'
 import IMUserPB from '@/sdk/protobuf/IMUser_pb'
-
-const SEQUENCE_SYNC = 'sync'
-const SEQUENCE_AUTH = 'auth'
+import { SEQUENCE_SYNC, SEQUENCE_AUTH } from '@/sdk/constants'
 
 let promises = {}
 class Client {

@@ -3,6 +3,8 @@ import WebSocketClient from '@/sdk/websocket'
 import CometClient from '@/sdk/comet'
 import UserLogic from '@/sdk/logic/user'
 import MessageLogic from '@/sdk/logic/message'
+import * as constants from '@/sdk/constants'
+
 class ImClient {
   constructor (config) {
     this.config = config
@@ -27,5 +29,7 @@ class ImClient {
     this.client.disconnect()
   }
 }
+
+Object.assign(ImClient, constants)
 
 export default ImClient
