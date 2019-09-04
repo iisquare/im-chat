@@ -1,12 +1,17 @@
+apply plugin: 'com.github.johnrengelman.shadow'
+
 buildscript {
     ext {
         springBootVersion = '2.1.4.RELEASE'
     }
     repositories {
         maven { url 'https://maven.aliyun.com/repository/central' }
+        mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath 'com.github.jengelman.gradle.plugins:shadow:4.0.3'
     }
 }
 
@@ -31,6 +36,12 @@ bootJar {
 
 jar {
     enabled = true
+}
+
+shadowJar {
+    manifest {
+        attributes 'Main-Class': 'com.iisquare.im.cmd.CometRunner'
+    }
 }
 
 task jars(type: Copy) {
