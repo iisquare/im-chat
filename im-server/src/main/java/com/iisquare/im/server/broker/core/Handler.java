@@ -58,6 +58,9 @@ public abstract class Handler extends ChannelInboundHandlerAdapter {
         response.headers().set(HttpHeaderNames.ACCESS_CONTROL_ALLOW_METHODS, "GET, POST, PUT,DELETE");
         response.headers().set(HttpHeaderNames.CONTENT_TYPE, "application/json");
         response.headers().set(HttpHeaderNames.CONTENT_LENGTH,response.content().readableBytes());
+        if (HttpUtil.isKeepAlive(req)) {
+            response.headers().set(HttpHeaderNames.CONNECTION, HttpHeaderValues.KEEP_ALIVE);
+        }
         this.sendHttpResponse(ctx, req, response);
     }
 

@@ -6,14 +6,18 @@ import com.iisquare.im.server.broker.core.Handler;
 import com.iisquare.im.server.broker.logic.MessageLogic;
 import com.iisquare.util.DPUtil;
 import io.netty.buffer.ByteBuf;
+import io.netty.buffer.ByteBufInputStream;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.*;
 import io.netty.handler.codec.http.websocketx.*;
+import io.netty.handler.stream.ChunkedStream;
+import io.netty.util.CharsetUtil;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -67,6 +71,17 @@ public class HttpHandler extends Handler {
             case COMET_PUSH:
                 return;
             case COMET_PULL:
+                HttpResponse response = new DefaultHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK);
+                response.headers().set(HttpHeaderNames.TRANSFER_ENCODING, HttpHeaderValues.CHUNKED);
+                if (HttpUtil.isKeepAlive(req)) {
+                    response.headers().set(HttpHeaderNames.CONNECTION, HttpHeaderValues.KEEP_ALIVE);
+                }
+                ctx.writeAndFlush(response);
+                for (int i = 0; i < 150; i++) {
+                    Thread.sleep(1000);
+                    ctx.writeAndFlush(new DefaultHttpContent(Unpooled.copiedBuffer(DPUtil.getCurrentDateTime("hh:mm:ss-") + i + "\n", CharsetUtil.UTF_8)));
+                }
+                ctx.writeAndFlush(LastHttpContent.EMPTY_LAST_CONTENT);
                 return;
             case WEB_SOCKET:
                 if (!"websocket".equals(req.headers().get("Upgrade"))) {
