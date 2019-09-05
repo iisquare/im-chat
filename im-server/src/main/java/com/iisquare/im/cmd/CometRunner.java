@@ -14,6 +14,9 @@ import io.netty.util.CharsetUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 public class CometRunner {
 
     protected final static Logger logger = LoggerFactory.getLogger(CometRunner.class);
@@ -72,7 +75,16 @@ class HttpHandler extends Handler {
             sendHttpResponse(ctx, req, null);
             return;
         }
-        if (req.uri().equals("/pull")) {
+        String[] strings = req.uri().split("\\?");
+        String uri = strings[0];
+        Map<String, String> param = new LinkedHashMap<>();
+        if (strings.length > 1) {
+            for (String str : strings[1].split("&")) {
+                String[] split = str.split("=");
+                param.put(split[0], split.length > 1 ? split[1] : "");
+            }
+        }
+        if (uri.equals("/pull")) {
             HttpResponse response = new DefaultHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK);
             response.headers().set(HttpHeaderNames.TRANSFER_ENCODING, HttpHeaderValues.CHUNKED);
             response.headers().set(HttpHeaderNames.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
@@ -83,7 +95,7 @@ class HttpHandler extends Handler {
             }
             ctx.writeAndFlush(response);
             ctx.writeAndFlush(new DefaultHttpContent(Unpooled.copiedBuffer("begin\n", CharsetUtil.UTF_8)));
-            Thread.sleep(5000);
+            Thread.sleep(DPUtil.parseLong(param.get("sleep")));
             for (int i = 0; i < 150; i++) {
                 Thread.sleep(300);
                 ctx.writeAndFlush(new DefaultHttpContent(Unpooled.copiedBuffer(DPUtil.getCurrentDateTime("hh:mm:ss-") + i + "\n", CharsetUtil.UTF_8)));

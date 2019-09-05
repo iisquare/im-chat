@@ -110,6 +110,9 @@ public class UserService extends ServiceBase {
         return true;
     }
 
+    /**
+     * 用户最后一次通信的版本号
+     */
     public boolean version(String id, long version) {
         User user = info(id);
         if (null == user) return false;

@@ -19,26 +19,46 @@ public final class IM {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 序列号
+     * </pre>
+     *
      * <code>string sequence = 1;</code>
      */
     java.lang.String getSequence();
     /**
+     * <pre>
+     * 序列号
+     * </pre>
+     *
      * <code>string sequence = 1;</code>
      */
     com.google.protobuf.ByteString
         getSequenceBytes();
 
     /**
+     * <pre>
+     * 指令
+     * </pre>
+     *
      * <code>string command = 2;</code>
      */
     java.lang.String getCommand();
     /**
+     * <pre>
+     * 指令
+     * </pre>
+     *
      * <code>string command = 2;</code>
      */
     com.google.protobuf.ByteString
         getCommandBytes();
 
     /**
+     * <pre>
+     * 参数
+     * </pre>
+     *
      * <code>bytes parameter = 3;</code>
      */
     com.google.protobuf.ByteString getParameter();
@@ -143,6 +163,10 @@ public final class IM {
     public static final int SEQUENCE_FIELD_NUMBER = 1;
     private volatile java.lang.Object sequence_;
     /**
+     * <pre>
+     * 序列号
+     * </pre>
+     *
      * <code>string sequence = 1;</code>
      */
     public java.lang.String getSequence() {
@@ -158,6 +182,10 @@ public final class IM {
       }
     }
     /**
+     * <pre>
+     * 序列号
+     * </pre>
+     *
      * <code>string sequence = 1;</code>
      */
     public com.google.protobuf.ByteString
@@ -177,6 +205,10 @@ public final class IM {
     public static final int COMMAND_FIELD_NUMBER = 2;
     private volatile java.lang.Object command_;
     /**
+     * <pre>
+     * 指令
+     * </pre>
+     *
      * <code>string command = 2;</code>
      */
     public java.lang.String getCommand() {
@@ -192,6 +224,10 @@ public final class IM {
       }
     }
     /**
+     * <pre>
+     * 指令
+     * </pre>
+     *
      * <code>string command = 2;</code>
      */
     public com.google.protobuf.ByteString
@@ -211,6 +247,10 @@ public final class IM {
     public static final int PARAMETER_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString parameter_;
     /**
+     * <pre>
+     * 参数
+     * </pre>
+     *
      * <code>bytes parameter = 3;</code>
      */
     public com.google.protobuf.ByteString getParameter() {
@@ -555,6 +595,10 @@ public final class IM {
 
       private java.lang.Object sequence_ = "";
       /**
+       * <pre>
+       * 序列号
+       * </pre>
+       *
        * <code>string sequence = 1;</code>
        */
       public java.lang.String getSequence() {
@@ -570,6 +614,10 @@ public final class IM {
         }
       }
       /**
+       * <pre>
+       * 序列号
+       * </pre>
+       *
        * <code>string sequence = 1;</code>
        */
       public com.google.protobuf.ByteString
@@ -586,6 +634,10 @@ public final class IM {
         }
       }
       /**
+       * <pre>
+       * 序列号
+       * </pre>
+       *
        * <code>string sequence = 1;</code>
        */
       public Builder setSequence(
@@ -599,6 +651,10 @@ public final class IM {
         return this;
       }
       /**
+       * <pre>
+       * 序列号
+       * </pre>
+       *
        * <code>string sequence = 1;</code>
        */
       public Builder clearSequence() {
@@ -608,6 +664,10 @@ public final class IM {
         return this;
       }
       /**
+       * <pre>
+       * 序列号
+       * </pre>
+       *
        * <code>string sequence = 1;</code>
        */
       public Builder setSequenceBytes(
@@ -624,6 +684,10 @@ public final class IM {
 
       private java.lang.Object command_ = "";
       /**
+       * <pre>
+       * 指令
+       * </pre>
+       *
        * <code>string command = 2;</code>
        */
       public java.lang.String getCommand() {
@@ -639,6 +703,10 @@ public final class IM {
         }
       }
       /**
+       * <pre>
+       * 指令
+       * </pre>
+       *
        * <code>string command = 2;</code>
        */
       public com.google.protobuf.ByteString
@@ -655,6 +723,10 @@ public final class IM {
         }
       }
       /**
+       * <pre>
+       * 指令
+       * </pre>
+       *
        * <code>string command = 2;</code>
        */
       public Builder setCommand(
@@ -668,6 +740,10 @@ public final class IM {
         return this;
       }
       /**
+       * <pre>
+       * 指令
+       * </pre>
+       *
        * <code>string command = 2;</code>
        */
       public Builder clearCommand() {
@@ -677,6 +753,10 @@ public final class IM {
         return this;
       }
       /**
+       * <pre>
+       * 指令
+       * </pre>
+       *
        * <code>string command = 2;</code>
        */
       public Builder setCommandBytes(
@@ -693,12 +773,20 @@ public final class IM {
 
       private com.google.protobuf.ByteString parameter_ = com.google.protobuf.ByteString.EMPTY;
       /**
+       * <pre>
+       * 参数
+       * </pre>
+       *
        * <code>bytes parameter = 3;</code>
        */
       public com.google.protobuf.ByteString getParameter() {
         return parameter_;
       }
       /**
+       * <pre>
+       * 参数
+       * </pre>
+       *
        * <code>bytes parameter = 3;</code>
        */
       public Builder setParameter(com.google.protobuf.ByteString value) {
@@ -711,6 +799,10 @@ public final class IM {
         return this;
       }
       /**
+       * <pre>
+       * 参数
+       * </pre>
+       *
        * <code>bytes parameter = 3;</code>
        */
       public Builder clearParameter() {
@@ -777,16 +869,28 @@ public final class IM {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 序列号
+     * </pre>
+     *
      * <code>string sequence = 1;</code>
      */
     java.lang.String getSequence();
     /**
+     * <pre>
+     * 序列号
+     * </pre>
+     *
      * <code>string sequence = 1;</code>
      */
     com.google.protobuf.ByteString
         getSequenceBytes();
 
     /**
+     * <pre>
+     * 状态码
+     * </pre>
+     *
      * <code>int32 code = 2;</code>
      */
     int getCode();
@@ -911,6 +1015,10 @@ public final class IM {
     public static final int SEQUENCE_FIELD_NUMBER = 1;
     private volatile java.lang.Object sequence_;
     /**
+     * <pre>
+     * 序列号
+     * </pre>
+     *
      * <code>string sequence = 1;</code>
      */
     public java.lang.String getSequence() {
@@ -926,6 +1034,10 @@ public final class IM {
       }
     }
     /**
+     * <pre>
+     * 序列号
+     * </pre>
+     *
      * <code>string sequence = 1;</code>
      */
     public com.google.protobuf.ByteString
@@ -945,6 +1057,10 @@ public final class IM {
     public static final int CODE_FIELD_NUMBER = 2;
     private int code_;
     /**
+     * <pre>
+     * 状态码
+     * </pre>
+     *
      * <code>int32 code = 2;</code>
      */
     public int getCode() {
@@ -1349,6 +1465,10 @@ public final class IM {
 
       private java.lang.Object sequence_ = "";
       /**
+       * <pre>
+       * 序列号
+       * </pre>
+       *
        * <code>string sequence = 1;</code>
        */
       public java.lang.String getSequence() {
@@ -1364,6 +1484,10 @@ public final class IM {
         }
       }
       /**
+       * <pre>
+       * 序列号
+       * </pre>
+       *
        * <code>string sequence = 1;</code>
        */
       public com.google.protobuf.ByteString
@@ -1380,6 +1504,10 @@ public final class IM {
         }
       }
       /**
+       * <pre>
+       * 序列号
+       * </pre>
+       *
        * <code>string sequence = 1;</code>
        */
       public Builder setSequence(
@@ -1393,6 +1521,10 @@ public final class IM {
         return this;
       }
       /**
+       * <pre>
+       * 序列号
+       * </pre>
+       *
        * <code>string sequence = 1;</code>
        */
       public Builder clearSequence() {
@@ -1402,6 +1534,10 @@ public final class IM {
         return this;
       }
       /**
+       * <pre>
+       * 序列号
+       * </pre>
+       *
        * <code>string sequence = 1;</code>
        */
       public Builder setSequenceBytes(
@@ -1418,12 +1554,20 @@ public final class IM {
 
       private int code_ ;
       /**
+       * <pre>
+       * 状态码
+       * </pre>
+       *
        * <code>int32 code = 2;</code>
        */
       public int getCode() {
         return code_;
       }
       /**
+       * <pre>
+       * 状态码
+       * </pre>
+       *
        * <code>int32 code = 2;</code>
        */
       public Builder setCode(int value) {
@@ -1433,6 +1577,10 @@ public final class IM {
         return this;
       }
       /**
+       * <pre>
+       * 状态码
+       * </pre>
+       *
        * <code>int32 code = 2;</code>
        */
       public Builder clearCode() {

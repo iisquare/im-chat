@@ -22,6 +22,9 @@ public class MessageLogic extends Logic {
 
     public static final String SEQUENCE_SYNC = "sync";
     public static final String SEQUENCE_AUTH = "auth";
+    public static final String SEQUENCE_DELIVERY = "delivery";
+    public static final String DIRECTION_SEND = "send";
+    public static final String DIRECTION_RECEIVE = "receive";
     @Autowired
     private UserLogic userLogic;
     @Autowired

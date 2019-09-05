@@ -1,5 +1,6 @@
 package com.iisquare.im.server.broker.logic;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.iisquare.im.protobuf.IM;
 import com.iisquare.im.protobuf.IMUser;
@@ -7,7 +8,7 @@ import com.iisquare.im.server.api.entity.Message;
 import com.iisquare.im.server.api.entity.User;
 import com.iisquare.im.server.api.service.UserService;
 import com.iisquare.im.server.broker.core.Logic;
-import com.iisquare.im.server.broker.job.SyncJob;
+import com.iisquare.im.server.broker.job.TransmitJob;
 import com.iisquare.util.DPUtil;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
@@ -84,54 +85,112 @@ public class UserLogic extends Logic {
         return result(directive, 0, null, result.build());
     }
 
+    public String contactKey(String userId) {
+        return "im:chat:contact:" + userId;
+    }
+
+    public String contactHash(String sender, String reception, String receiver) {
+        return reception + "@" + sender;
+    }
+
+    public String unreadKey(String userId) {
+        return "im:chat:unread:" + userId;
+    }
+
+    public String unreadHash(String sender, String reception, String receiver) {
+        return reception + "@" + sender;
+    }
+
+    /**
+     * 获取联系人列表
+     */
     public IM.Result contactAction(String fromType, ChannelHandlerContext ctx, IM.Directive directive) throws Exception {
         String userId = userId(ctx);
         if (DPUtil.empty(userId)) return result(directive, 404, "用户信息异常", null);
         IMUser.Contact.Builder builder = IMUser.Contact.newBuilder();
-        for (Object o : redis.opsForHash().values(contact(userId))) {
-            builder.addRows(IMUser.Contact.Row.parseFrom(DPUtil.decode(o.toString())));
+        for (Object o : redis.opsForHash().values(contactKey(userId))) {
+            JsonNode json = DPUtil.parseJSON(o.toString());
+            if (null == json) continue;
+            IMUser.Contact.Row.Builder contact = IMUser.Contact.Row.newBuilder();
+            contact.setDirection(json.at("/direction").asText("")).setMessageId(json.at("/messageId").asText(""));
+            contact.setReception(json.at("/reception").asText("")).setReceiver(json.at("/receiver").asText(""));
+            contact.setType(json.at("/type").asText("")).setContent(json.at("/content").asText(""));
+            contact.setTime(json.at("/time").asLong(0)).setVersion(json.at("/version").asLong(0));
+            builder.addRows(contact.build());
         }
         return result(directive, 0, null, builder.build());
     }
 
-    public String contact(String userId) {
-        return "im:chat:contact:" + userId;
-    }
-
-    public IM.Result uncontactAction(String fromType, ChannelHandlerContext ctx, IM.Directive directive) throws Exception {
+    /**
+     * 清除联系人
+     */
+    public IM.Result finAction(String fromType, ChannelHandlerContext ctx, IM.Directive directive) throws Exception {
         String userId = userId(ctx);
         if (DPUtil.empty(userId)) return result(directive, 404, "用户信息异常", null);
-        IMUser.Uncontact uncontact = IMUser.Uncontact.parseFrom(directive.getParameter());
-        redis.opsForHash().delete(contact(userId), uncontact.getUserId());
+        IMUser.Fin fin = IMUser.Fin.parseFrom(directive.getParameter());
+        redis.opsForHash().delete(contactKey(userId), contactHash(fin.getReceiver(), fin.getReception(), userId));
         return result(directive, 0, null, null);
     }
 
     /**
+     * 获取未读消息数
+     */
+    public IM.Result unreadAction(String fromType, ChannelHandlerContext ctx, IM.Directive directive) throws Exception {
+        String userId = userId(ctx);
+        if (DPUtil.empty(userId)) return result(directive, 404, "用户信息异常", null);
+        IMUser.Unread.Builder builder = IMUser.Unread.newBuilder();
+        Map<Object, Object> entries = redis.opsForHash().entries(contactKey(userId));
+        for (Map.Entry<Object, Object> entry : entries.entrySet()) {
+            IMUser.Unread.Row.Builder unread = IMUser.Unread.Row.newBuilder();
+            String[] strings = entry.getKey().toString().split("@");
+            if (strings.length != 2) continue;
+            unread.setReception(strings[0]).setReceiver(strings[1]).setCount(DPUtil.parseLong(entry.getValue()));
+            builder.addRows(unread.build());
+        }
+        return result(directive, 0, null, builder.build());
+    }
+
+    /**
+     * 清除未读计数
+     */
+    public IM.Result deliveryAction(String fromType, ChannelHandlerContext ctx, IM.Directive directive) throws Exception {
+        String userId = userId(ctx);
+        if (DPUtil.empty(userId)) return result(directive, 404, "用户信息异常", null);
+        IMUser.Delivery delivery = IMUser.Delivery.parseFrom(directive.getParameter());
+        redis.opsForHash().delete(unreadKey(userId), unreadHash(delivery.getReceiver(), delivery.getReception(), userId));
+        // 推送通知
+        TransmitJob.delivery(redis, userId, delivery);
+        return result(directive, 0, null, null);
+    }
+
+    /**
+     * 群组和公众号方式需要转换收发方数据
      * 采用下述方式进行序列化前后结果可能不一致
      * ByteString.toStringUtf8()->new String(byte[])
      * ByteString.copyFromUtf8()->string.getBytes()
      */
     public void sync(User sender, User receiver, Message message) throws UnsupportedEncodingException {
         // 发送方
-        IMUser.Contact.Row.Builder builder = IMUser.Contact.Row.newBuilder();
-        builder.setUserId(receiver.getId()).setMessageId(message.getId()).setDirection("send")
-            .setContent(message.getContent()).setTime(message.getTime());
-        String data = DPUtil.encode(builder.build().toByteArray());
-        redis.opsForHash().put(contact(sender.getId()), receiver.getId(), data);
+        ObjectNode contact = DPUtil.objectNode();
+        contact.put("direction", MessageLogic.DIRECTION_SEND).put("messageId", message.getId());
+        contact.put("reception", message.getReception()).put("receiver", message.getReceiver());
+        contact.put("type", message.getType()).put("content", message.getContent());
+        contact.put("time", message.getTime()).put("version", message.getVersion());
+        redis.opsForHash().put(contactKey(sender.getId()),
+            contactHash(sender.getId(), message.getReception(), receiver.getId()), DPUtil.stringify(contact));
         userService.version(sender.getId(), message.getVersion());
         // 接收方
-        builder = IMUser.Contact.Row.newBuilder();
-        builder.setUserId(sender.getId()).setMessageId(message.getId()).setDirection("receive")
-            .setContent(message.getContent()).setTime(message.getTime());
-        data = DPUtil.encode(builder.build().toByteArray());
-        redis.opsForHash().put(contact(receiver.getId()), sender.getId(), data);
+        contact.put("direction", MessageLogic.DIRECTION_RECEIVE);
+        contact.put("reception", message.getReception()).put("receiver", message.getSender());
+        redis.opsForHash().put(contactKey(sender.getId()),
+            contactHash(sender.getId(), message.getReception(), receiver.getId()), DPUtil.stringify(contact));
         userService.version(receiver.getId(), message.getVersion());
+        // 未读计数
+        redis.opsForHash().increment(
+            unreadKey(receiver.getId()), unreadHash(sender.getId(), message.getReception(), receiver.getId()), 1);
         // 同步通知
-        ObjectNode sync = DPUtil.objectNode();
-        sync.put("u", sender.getId()).put("v", message.getVersion());
-        redis.convertAndSend(SyncJob.CHANNEL_SYNC, DPUtil.parseString(sync));
-        sync.put("u", receiver.getId()).put("v", message.getVersion());
-        redis.convertAndSend(SyncJob.CHANNEL_SYNC, DPUtil.parseString(sync));
+        TransmitJob.sync(redis, sender.getId(), message.getVersion());
+        TransmitJob.sync(redis, receiver.getId(), message.getVersion());
     }
 
 }

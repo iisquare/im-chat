@@ -2,13 +2,13 @@ syntax = "proto3";
 package im;
 option java_package = "com.iisquare.im.protobuf";
 message Directive {
-   string sequence = 1;
-   string command = 2;
-   bytes parameter = 3;
+   string sequence = 1; // 序列号
+   string command = 2; // 指令
+   bytes parameter = 3; // 参数
 }
 message Result {
-   string sequence = 1;
-   int32 code = 2;
+   string sequence = 1; // 序列号
+   int32 code = 2; // 状态码
    string message = 3;
    bytes data = 4;
 }

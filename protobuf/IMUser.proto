@@ -11,14 +11,34 @@ message AuthResult {
 }
 message Contact {
    message Row {
-      string user_id = 1;
+      string direction = 1; // 方向：发送或接收
       string message_id = 2;
-      string direction = 3; // 方向：发送或接收
-      string content = 4;
-      int64 time = 5;
+      string reception = 3;
+      string receiver = 4;
+      string type = 5;
+      string content = 6;
+      int64 time = 7;
+      int64 version = 8;
    }
    repeated Row rows = 1;
 }
-message Uncontact {
-   string user_id = 1;
+message Fin {
+   string reception = 1;
+   string receiver = 2;
+   int64 time = 3;
+   int64 version = 4;
+}
+message Unread {
+   message Row {
+      string reception = 1;
+      string receiver = 2;
+      int64 count = 3;
+   }
+   repeated Row rows = 1;
+}
+message Delivery {
+   string reception = 1;
+   string receiver = 2;
+   int64 time = 3;
+   int64 version = 4;
 }
