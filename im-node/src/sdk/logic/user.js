@@ -16,10 +16,11 @@ class UserLogic extends LogicBase {
       })
     })
   }
-  uncontact (userId) {
-    let parameter = new IMUserPB.Uncontact()
-    parameter.setUserId(userId)
-    return this.send('user.uncontact', parameter)
+  fin (reception, receiver) {
+    let parameter = new IMUserPB.Fin()
+    parameter.setReception(reception)
+    parameter.setReceiver(receiver)
+    return this.send('user.fin', parameter)
   }
 }
 

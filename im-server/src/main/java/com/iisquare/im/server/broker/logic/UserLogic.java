@@ -89,16 +89,16 @@ public class UserLogic extends Logic {
         return "im:chat:contact:" + userId;
     }
 
-    public String contactHash(String sender, String reception, String receiver) {
-        return reception + "@" + sender;
+    public String contactHash(String reception, String id) {
+        return reception + "@" + id;
     }
 
     public String unreadKey(String userId) {
         return "im:chat:unread:" + userId;
     }
 
-    public String unreadHash(String sender, String reception, String receiver) {
-        return reception + "@" + sender;
+    public String unreadHash(String reception, String id) {
+        return reception + "@" + id;
     }
 
     /**
@@ -128,7 +128,7 @@ public class UserLogic extends Logic {
         String userId = userId(ctx);
         if (DPUtil.empty(userId)) return result(directive, 404, "用户信息异常", null);
         IMUser.Fin fin = IMUser.Fin.parseFrom(directive.getParameter());
-        redis.opsForHash().delete(contactKey(userId), contactHash(fin.getReceiver(), fin.getReception(), userId));
+        redis.opsForHash().delete(contactKey(userId), contactHash(fin.getReception(), fin.getReceiver()));
         return result(directive, 0, null, null);
     }
 
@@ -157,7 +157,7 @@ public class UserLogic extends Logic {
         String userId = userId(ctx);
         if (DPUtil.empty(userId)) return result(directive, 404, "用户信息异常", null);
         IMUser.Delivery delivery = IMUser.Delivery.parseFrom(directive.getParameter());
-        redis.opsForHash().delete(unreadKey(userId), unreadHash(delivery.getReceiver(), delivery.getReception(), userId));
+        redis.opsForHash().delete(unreadKey(userId), unreadHash(delivery.getReception(), delivery.getReceiver()));
         // 推送通知
         TransmitJob.delivery(redis, userId, delivery);
         return result(directive, 0, null, null);
@@ -177,17 +177,17 @@ public class UserLogic extends Logic {
         contact.put("type", message.getType()).put("content", message.getContent());
         contact.put("time", message.getTime()).put("version", message.getVersion());
         redis.opsForHash().put(contactKey(sender.getId()),
-            contactHash(sender.getId(), message.getReception(), receiver.getId()), DPUtil.stringify(contact));
+            contactHash(message.getReception(), receiver.getId()), DPUtil.stringify(contact));
         userService.version(sender.getId(), message.getVersion());
         // 接收方
         contact.put("direction", MessageLogic.DIRECTION_RECEIVE);
         contact.put("reception", message.getReception()).put("receiver", message.getSender());
-        redis.opsForHash().put(contactKey(sender.getId()),
-            contactHash(sender.getId(), message.getReception(), receiver.getId()), DPUtil.stringify(contact));
+        redis.opsForHash().put(contactKey(receiver.getId()),
+            contactHash(message.getReception(), sender.getId()), DPUtil.stringify(contact));
         userService.version(receiver.getId(), message.getVersion());
         // 未读计数
         redis.opsForHash().increment(
-            unreadKey(receiver.getId()), unreadHash(sender.getId(), message.getReception(), receiver.getId()), 1);
+            unreadKey(receiver.getId()), unreadHash(message.getReception(), sender.getId()), 1);
         // 同步通知
         TransmitJob.sync(redis, sender.getId(), message.getVersion());
         TransmitJob.sync(redis, receiver.getId(), message.getVersion());

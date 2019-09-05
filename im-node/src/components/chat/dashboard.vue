@@ -29,8 +29,8 @@
           <b-row align-v="center" class="im-contacts-item" @click="selectContact(index, item)" :key="index" v-for="(item, index) in contacts">
             <b-col>
               <b-media>
-                <b-img slot="aside" width="35" height="35" rounded="circle" :src="'https://picsum.photos/125/125/?image=' + item.userId.length"></b-img>
-                <h6 class="mt-0 mb-0">{{item.userId}}</h6>
+                <b-img slot="aside" width="35" height="35" rounded="circle" :src="'https://picsum.photos/125/125/?image=' + item.receiver.length"></b-img>
+                <h6 class="mt-0 mb-0">{{item.receiver}}</h6>
                 <p class="mb-0">{{item.content}}</p>
               </b-media>
             </b-col>
@@ -41,8 +41,8 @@
     <div class="im-chat">
       <div class="im-chat-container" v-if="talk">
         <div class="im-chat-title">
-          <h5>{{talk.userId}}</h5>
-          <i @click="uncontact" class="fa fa-times im-btn-close" aria-hidden="true"></i>
+          <h5>{{talk.receiver}}</h5>
+          <i @click="fin" class="fa fa-times im-btn-close" aria-hidden="true"></i>
         </div>
         <div class="im-chat-message">
           <div class="im-message-container">
@@ -124,17 +124,18 @@ export default {
     contact () {
       this.im.userLogic.contact().then(result => {
         this.contactRows = result
-        if (result.length > 0 && this.talk && result[0].userId === this.talk.userId) {
+        if (result.length > 0 && this.talk && result[0].receiver === this.talk.receiver) {
           this.history(true)
         }
         this.$refs.contact.refresh()
       })
     },
-    uncontact () {
-      let userId = this.talk.userId
-      this.im.userLogic.uncontact(userId)
+    fin () {
+      let reception = this.talk.reception
+      let receiver = this.talk.receiver
+      this.im.userLogic.fin(reception, receiver)
       let index = this.contactRows.findIndex((element, index, array) => {
-        return element.userId === userId
+        return element.reception === reception && element.receiver === receiver
       })
       index !== -1 && this.contactRows.splice(index, 1)
       this.talk = null
@@ -142,7 +143,7 @@ export default {
     send () {
       if (this.message === '' || this.sendText === '发送中...') return
       this.sendText = '发送中...'
-      this.im.messageLogic.pushTxt(this.talk.userId, this.message).then(result => {
+      this.im.messageLogic.pushTxt(this.talk.receiver, this.message).then(result => {
         this.sendText = '发送'
       }).catch(error => {
         this.sendText = '发送失败'
@@ -158,7 +159,7 @@ export default {
     selectContact (index, item) {
       if (this.keyword !== '') {
         index = this.contactRows.findIndex((element, index, array) => {
-          return element.userId === item.userId
+          return element.receiver === item.receiver
         })
         if (index !== -1) {
           item = this.contactRows[index]
@@ -167,7 +168,7 @@ export default {
         this.contactRows.unshift(item)
         this.keyword = ''
       }
-      if (this.talk && this.talk.userId === item.userId) return
+      if (this.talk && this.talk.receiver === item.receiver) return
       this.talk = item
       this.history(true)
     },
@@ -176,8 +177,8 @@ export default {
       if (!this.messages.more) return
       let length = this.messages.rows.length
       let version = length > 0 ? this.messages.rows[0].version : null
-      this.im.messageLogic.history({receiver: this.talk.userId, version}).then(result => {
-        if (result.receiver !== this.talk.userId) return
+      this.im.messageLogic.history({receiver: this.talk.receiver, version}).then(result => {
+        if (result.receiver !== this.talk.receiver) return
         this.messages.more = result.more
         let rows = []
         result.rows.concat(this.messages.rows).forEach(item => {
@@ -204,10 +205,7 @@ export default {
       this.keywording = false
       wrapper.tips.bind(this)(userService.search({id: this.keyword, except: this.userId})).then(response => {
         if (response.code === 0) {
-          this.searchRows = response.data.rows.map(item => {
-            item.userId = item.id
-            return item
-          })
+          this.searchRows = response.data.rows
         }
       })
     },
