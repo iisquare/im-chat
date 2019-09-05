@@ -82,10 +82,13 @@ class HttpHandler extends Handler {
                 response.headers().set(HttpHeaderNames.CONNECTION, HttpHeaderValues.KEEP_ALIVE);
             }
             ctx.writeAndFlush(response);
+            ctx.writeAndFlush(new DefaultHttpContent(Unpooled.copiedBuffer("begin\n", CharsetUtil.UTF_8)));
+            Thread.sleep(5000);
             for (int i = 0; i < 150; i++) {
                 Thread.sleep(300);
                 ctx.writeAndFlush(new DefaultHttpContent(Unpooled.copiedBuffer(DPUtil.getCurrentDateTime("hh:mm:ss-") + i + "\n", CharsetUtil.UTF_8)));
             }
+            ctx.writeAndFlush(new DefaultHttpContent(Unpooled.copiedBuffer("end\n", CharsetUtil.UTF_8)));
             ctx.writeAndFlush(LastHttpContent.EMPTY_LAST_CONTENT);
         } else {
             sendHttpResponse(ctx, req, new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.NOT_FOUND));
