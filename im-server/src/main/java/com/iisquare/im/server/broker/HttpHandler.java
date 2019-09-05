@@ -15,6 +15,7 @@ import io.netty.handler.codec.http.*;
 import io.netty.handler.codec.http.websocketx.*;
 import io.netty.handler.stream.ChunkedStream;
 import io.netty.util.CharsetUtil;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -73,12 +74,15 @@ public class HttpHandler extends Handler {
             case COMET_PULL:
                 HttpResponse response = new DefaultHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK);
                 response.headers().set(HttpHeaderNames.TRANSFER_ENCODING, HttpHeaderValues.CHUNKED);
+                response.headers().set(HttpHeaderNames.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
+                response.headers().set(HttpHeaderNames.ACCESS_CONTROL_ALLOW_HEADERS, "Origin, X-Requested-With, Content-Type, Accept");
+                response.headers().set(HttpHeaderNames.ACCESS_CONTROL_ALLOW_METHODS, "GET, POST, PUT,DELETE");
                 if (HttpUtil.isKeepAlive(req)) {
                     response.headers().set(HttpHeaderNames.CONNECTION, HttpHeaderValues.KEEP_ALIVE);
                 }
                 ctx.writeAndFlush(response);
                 for (int i = 0; i < 150; i++) {
-                    Thread.sleep(1000);
+                    Thread.sleep(300);
                     ctx.writeAndFlush(new DefaultHttpContent(Unpooled.copiedBuffer(DPUtil.getCurrentDateTime("hh:mm:ss-") + i + "\n", CharsetUtil.UTF_8)));
                 }
                 ctx.writeAndFlush(LastHttpContent.EMPTY_LAST_CONTENT);
