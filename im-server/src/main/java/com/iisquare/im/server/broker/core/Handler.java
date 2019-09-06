@@ -32,7 +32,7 @@ public abstract class Handler extends ChannelInboundHandlerAdapter {
     }
 
     public void onClose(String fromType, ChannelHandlerContext ctx) {
-        userLogic.logout(fromType, ctx);
+        userLogic.fin(fromType, ctx);
     }
 
     public void onReceive(String fromType, ChannelHandlerContext ctx, ByteBuf message) {
@@ -40,26 +40,56 @@ public abstract class Handler extends ChannelInboundHandlerAdapter {
         if (null == result) return;
         switch (fromType) {
             case MESSAGE_FROM_TYPE_WS:
-                ctx.channel().writeAndFlush(new BinaryWebSocketFrame(Unpooled.wrappedBuffer(result.toByteArray())));
+                this.sendWebSocketFrame(ctx, result.toByteArray());
                 return;
             case MESSAGE_FROM_TYPE_COMET:
+                this.sendCometContent(ctx, result.toByteArray(), false);
                 return;
             case MESSAGE_FROM_TYPE_SOCKET:
                 return;
         }
     }
 
+    public void sendWebSocketFrame(ChannelHandlerContext ctx, byte[] bytes) {
+        ctx.channel().writeAndFlush(new BinaryWebSocketFrame(Unpooled.wrappedBuffer(bytes)));
+    }
+
+    public void sendCometFirst(ChannelHandlerContext ctx, FullHttpRequest req) {
+        HttpResponse response = new DefaultHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK);
+        HttpHeaders headers = response.headers();
+        headers.set(HttpHeaderNames.TRANSFER_ENCODING, HttpHeaderValues.CHUNKED);
+        headers.set(HttpHeaderNames.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
+        headers.set(HttpHeaderNames.ACCESS_CONTROL_ALLOW_HEADERS, "Origin, X-Requested-With, Content-Type, Accept");
+        headers.set(HttpHeaderNames.ACCESS_CONTROL_ALLOW_METHODS, "GET, POST, PUT,DELETE");
+        if (HttpUtil.isKeepAlive(req)) {
+            headers.set(HttpHeaderNames.CONNECTION, HttpHeaderValues.KEEP_ALIVE);
+        } else {
+            headers.set(HttpHeaderNames.CONNECTION, HttpHeaderValues.CLOSE);
+        }
+        ctx.writeAndFlush(response);
+    }
+
+    public void sendCometContent(ChannelHandlerContext ctx, byte[] bytes, boolean withLast) {
+        ctx.writeAndFlush(new DefaultHttpContent(Unpooled.wrappedBuffer(bytes)));
+        if (withLast) sendCometLast(ctx);
+    }
+
+    public void sendCometLast(ChannelHandlerContext ctx) {
+        ctx.writeAndFlush(LastHttpContent.EMPTY_LAST_CONTENT);
+    }
+
     public void sendHttpContent(ChannelHandlerContext ctx, FullHttpRequest req, String content) throws UnsupportedEncodingException {
         if (null == content) content = "";
         FullHttpResponse response = new DefaultFullHttpResponse(
             HttpVersion.HTTP_1_1, HttpResponseStatus.OK, Unpooled.wrappedBuffer(content.getBytes("UTF-8")));
-        response.headers().set(HttpHeaderNames.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
-        response.headers().set(HttpHeaderNames.ACCESS_CONTROL_ALLOW_HEADERS, "Origin, X-Requested-With, Content-Type, Accept");
-        response.headers().set(HttpHeaderNames.ACCESS_CONTROL_ALLOW_METHODS, "GET, POST, PUT,DELETE");
-        response.headers().set(HttpHeaderNames.CONTENT_TYPE, "application/json");
-        response.headers().set(HttpHeaderNames.CONTENT_LENGTH,response.content().readableBytes());
+        HttpHeaders headers = response.headers();
+        headers.set(HttpHeaderNames.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
+        headers.set(HttpHeaderNames.ACCESS_CONTROL_ALLOW_HEADERS, "Origin, X-Requested-With, Content-Type, Accept");
+        headers.set(HttpHeaderNames.ACCESS_CONTROL_ALLOW_METHODS, "GET, POST, PUT,DELETE");
+        headers.set(HttpHeaderNames.CONTENT_TYPE, "application/json");
+        headers.set(HttpHeaderNames.CONTENT_LENGTH,response.content().readableBytes());
         if (HttpUtil.isKeepAlive(req)) {
-            response.headers().set(HttpHeaderNames.CONNECTION, HttpHeaderValues.KEEP_ALIVE);
+            headers.set(HttpHeaderNames.CONNECTION, HttpHeaderValues.KEEP_ALIVE);
         }
         this.sendHttpResponse(ctx, req, response);
     }

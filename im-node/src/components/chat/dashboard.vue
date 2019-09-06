@@ -42,7 +42,7 @@
       <div class="im-chat-container" v-if="talk">
         <div class="im-chat-title">
           <h5>{{talk.receiver}}</h5>
-          <i @click="fin" class="fa fa-times im-btn-close" aria-hidden="true"></i>
+          <i @click="detach" class="fa fa-times im-btn-close" aria-hidden="true"></i>
         </div>
         <div class="im-chat-message">
           <div class="im-message-container">
@@ -130,10 +130,10 @@ export default {
         this.$refs.contact.refresh()
       })
     },
-    fin () {
+    detach () {
       let reception = this.talk.reception
       let receiver = this.talk.receiver
-      this.im.userLogic.fin(reception, receiver)
+      this.im.userLogic.detach(reception, receiver)
       let index = this.contactRows.findIndex((element, index, array) => {
         return element.reception === reception && element.receiver === receiver
       })

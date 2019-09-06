@@ -4,21 +4,14 @@ import com.iisquare.im.protobuf.IM;
 import com.iisquare.im.protobuf.IMUser;
 import com.iisquare.im.server.broker.core.Handler;
 import com.iisquare.im.server.broker.logic.MessageLogic;
-import com.iisquare.util.DPUtil;
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.ByteBufInputStream;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.*;
 import io.netty.handler.codec.http.websocketx.*;
-import io.netty.handler.stream.ChunkedStream;
-import io.netty.util.CharsetUtil;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -41,13 +34,13 @@ public class HttpHandler extends Handler {
         }
     }
 
-    private ByteBuf auth(String token) {
+    private IM.Directive auth(String token, boolean withSyn) {
         IM.Directive.Builder directive = IM.Directive.newBuilder();
         directive.setSequence(MessageLogic.SEQUENCE_AUTH);
         IMUser.Auth.Builder auth = IMUser.Auth.newBuilder();
-        auth.setToken(token);
+        auth.setToken(token).setWithSyn(withSyn);
         directive.setCommand("user.auth").setParameter(auth.build().toByteString());
-        return Unpooled.wrappedBuffer(directive.build().toByteArray());
+        return directive.build();
     }
 
     private void handleHttpRequest(ChannelHandlerContext ctx, FullHttpRequest req) throws Exception {
@@ -68,24 +61,20 @@ public class HttpHandler extends Handler {
                 param.put(split[0], split.length > 1 ? split[1] : "");
             }
         }
+        String token = param.get("token");
         switch (uri) {
             case COMET_PUSH:
-                return;
             case COMET_PULL:
-                HttpResponse response = new DefaultHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK);
-                response.headers().set(HttpHeaderNames.TRANSFER_ENCODING, HttpHeaderValues.CHUNKED);
-                response.headers().set(HttpHeaderNames.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
-                response.headers().set(HttpHeaderNames.ACCESS_CONTROL_ALLOW_HEADERS, "Origin, X-Requested-With, Content-Type, Accept");
-                response.headers().set(HttpHeaderNames.ACCESS_CONTROL_ALLOW_METHODS, "GET, POST, PUT,DELETE");
-                if (HttpUtil.isKeepAlive(req)) {
-                    response.headers().set(HttpHeaderNames.CONNECTION, HttpHeaderValues.KEEP_ALIVE);
+                boolean isPull = COMET_PULL.endsWith(uri);
+                sendCometFirst(ctx, req);
+                IM.Result result = userLogic.authAction(MESSAGE_FROM_TYPE_COMET, ctx, auth(token, isPull));
+                if (result.getCode() != 0) {
+                    sendCometContent(ctx, result.toByteArray(), true);
+                    return;
                 }
-                ctx.writeAndFlush(response);
-                for (int i = 0; i < 150; i++) {
-                    Thread.sleep(300);
-                    ctx.writeAndFlush(new DefaultHttpContent(Unpooled.copiedBuffer(DPUtil.getCurrentDateTime("hh:mm:ss-") + i + "\n", CharsetUtil.UTF_8)));
-                }
-                ctx.writeAndFlush(LastHttpContent.EMPTY_LAST_CONTENT);
+                if (isPull) return;
+                this.onReceive(MESSAGE_FROM_TYPE_COMET, ctx, req.content());
+                sendCometLast(ctx);
                 return;
             case WEB_SOCKET:
                 if (!"websocket".equals(req.headers().get("Upgrade"))) {
@@ -101,10 +90,7 @@ public class HttpHandler extends Handler {
                     handshaker.handshake(ctx.channel(), req);
                     handshakers.put(ctx.channel(), handshaker);
                     this.onAccept(MESSAGE_FROM_TYPE_WS, ctx);
-                    String token = param.get("token");
-                    if (!DPUtil.empty(token)) {
-                        this.onReceive(MESSAGE_FROM_TYPE_WS, ctx, auth(token));
-                    }
+                    this.onReceive(MESSAGE_FROM_TYPE_WS, ctx, Unpooled.wrappedBuffer(auth(token, true).toByteArray()));
                 }
                 return;
             default:

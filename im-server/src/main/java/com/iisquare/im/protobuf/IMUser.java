@@ -27,6 +27,11 @@ public final class IMUser {
      */
     com.google.protobuf.ByteString
         getTokenBytes();
+
+    /**
+     * <code>bool with_syn = 2;</code>
+     */
+    boolean getWithSyn();
   }
   /**
    * Protobuf type {@code im.Auth}
@@ -78,6 +83,11 @@ public final class IMUser {
               java.lang.String s = input.readStringRequireUtf8();
 
               token_ = s;
+              break;
+            }
+            case 16: {
+
+              withSyn_ = input.readBool();
               break;
             }
             default: {
@@ -146,6 +156,15 @@ public final class IMUser {
       }
     }
 
+    public static final int WITH_SYN_FIELD_NUMBER = 2;
+    private boolean withSyn_;
+    /**
+     * <code>bool with_syn = 2;</code>
+     */
+    public boolean getWithSyn() {
+      return withSyn_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -163,6 +182,9 @@ public final class IMUser {
       if (!getTokenBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, token_);
       }
+      if (withSyn_ != false) {
+        output.writeBool(2, withSyn_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -174,6 +196,10 @@ public final class IMUser {
       size = 0;
       if (!getTokenBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, token_);
+      }
+      if (withSyn_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, withSyn_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -192,6 +218,8 @@ public final class IMUser {
 
       if (!getToken()
           .equals(other.getToken())) return false;
+      if (getWithSyn()
+          != other.getWithSyn()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -205,6 +233,9 @@ public final class IMUser {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + TOKEN_FIELD_NUMBER;
       hash = (53 * hash) + getToken().hashCode();
+      hash = (37 * hash) + WITH_SYN_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getWithSyn());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -340,6 +371,8 @@ public final class IMUser {
         super.clear();
         token_ = "";
 
+        withSyn_ = false;
+
         return this;
       }
 
@@ -367,6 +400,7 @@ public final class IMUser {
       public com.iisquare.im.protobuf.IMUser.Auth buildPartial() {
         com.iisquare.im.protobuf.IMUser.Auth result = new com.iisquare.im.protobuf.IMUser.Auth(this);
         result.token_ = token_;
+        result.withSyn_ = withSyn_;
         onBuilt();
         return result;
       }
@@ -418,6 +452,9 @@ public final class IMUser {
         if (!other.getToken().isEmpty()) {
           token_ = other.token_;
           onChanged();
+        }
+        if (other.getWithSyn() != false) {
+          setWithSyn(other.getWithSyn());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -513,6 +550,32 @@ public final class IMUser {
   checkByteStringIsUtf8(value);
         
         token_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean withSyn_ ;
+      /**
+       * <code>bool with_syn = 2;</code>
+       */
+      public boolean getWithSyn() {
+        return withSyn_;
+      }
+      /**
+       * <code>bool with_syn = 2;</code>
+       */
+      public Builder setWithSyn(boolean value) {
+        
+        withSyn_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool with_syn = 2;</code>
+       */
+      public Builder clearWithSyn() {
+        
+        withSyn_ = false;
         onChanged();
         return this;
       }
@@ -3439,8 +3502,8 @@ public final class IMUser {
 
   }
 
-  public interface FinOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:im.Fin)
+  public interface DetachOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:im.Detach)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -3474,18 +3537,18 @@ public final class IMUser {
     long getVersion();
   }
   /**
-   * Protobuf type {@code im.Fin}
+   * Protobuf type {@code im.Detach}
    */
-  public  static final class Fin extends
+  public  static final class Detach extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:im.Fin)
-      FinOrBuilder {
+      // @@protoc_insertion_point(message_implements:im.Detach)
+      DetachOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use Fin.newBuilder() to construct.
-    private Fin(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use Detach.newBuilder() to construct.
+    private Detach(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private Fin() {
+    private Detach() {
       reception_ = "";
       receiver_ = "";
     }
@@ -3494,7 +3557,7 @@ public final class IMUser {
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new Fin();
+      return new Detach();
     }
 
     @java.lang.Override
@@ -3502,7 +3565,7 @@ public final class IMUser {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Fin(
+    private Detach(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3563,15 +3626,15 @@ public final class IMUser {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.iisquare.im.protobuf.IMUser.internal_static_im_Fin_descriptor;
+      return com.iisquare.im.protobuf.IMUser.internal_static_im_Detach_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.iisquare.im.protobuf.IMUser.internal_static_im_Fin_fieldAccessorTable
+      return com.iisquare.im.protobuf.IMUser.internal_static_im_Detach_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.iisquare.im.protobuf.IMUser.Fin.class, com.iisquare.im.protobuf.IMUser.Fin.Builder.class);
+              com.iisquare.im.protobuf.IMUser.Detach.class, com.iisquare.im.protobuf.IMUser.Detach.Builder.class);
     }
 
     public static final int RECEPTION_FIELD_NUMBER = 1;
@@ -3719,10 +3782,10 @@ public final class IMUser {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.iisquare.im.protobuf.IMUser.Fin)) {
+      if (!(obj instanceof com.iisquare.im.protobuf.IMUser.Detach)) {
         return super.equals(obj);
       }
-      com.iisquare.im.protobuf.IMUser.Fin other = (com.iisquare.im.protobuf.IMUser.Fin) obj;
+      com.iisquare.im.protobuf.IMUser.Detach other = (com.iisquare.im.protobuf.IMUser.Detach) obj;
 
       if (!getReception()
           .equals(other.getReception())) return false;
@@ -3758,69 +3821,69 @@ public final class IMUser {
       return hash;
     }
 
-    public static com.iisquare.im.protobuf.IMUser.Fin parseFrom(
+    public static com.iisquare.im.protobuf.IMUser.Detach parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.iisquare.im.protobuf.IMUser.Fin parseFrom(
+    public static com.iisquare.im.protobuf.IMUser.Detach parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.iisquare.im.protobuf.IMUser.Fin parseFrom(
+    public static com.iisquare.im.protobuf.IMUser.Detach parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.iisquare.im.protobuf.IMUser.Fin parseFrom(
+    public static com.iisquare.im.protobuf.IMUser.Detach parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.iisquare.im.protobuf.IMUser.Fin parseFrom(byte[] data)
+    public static com.iisquare.im.protobuf.IMUser.Detach parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.iisquare.im.protobuf.IMUser.Fin parseFrom(
+    public static com.iisquare.im.protobuf.IMUser.Detach parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.iisquare.im.protobuf.IMUser.Fin parseFrom(java.io.InputStream input)
+    public static com.iisquare.im.protobuf.IMUser.Detach parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.iisquare.im.protobuf.IMUser.Fin parseFrom(
+    public static com.iisquare.im.protobuf.IMUser.Detach parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.iisquare.im.protobuf.IMUser.Fin parseDelimitedFrom(java.io.InputStream input)
+    public static com.iisquare.im.protobuf.IMUser.Detach parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.iisquare.im.protobuf.IMUser.Fin parseDelimitedFrom(
+    public static com.iisquare.im.protobuf.IMUser.Detach parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.iisquare.im.protobuf.IMUser.Fin parseFrom(
+    public static com.iisquare.im.protobuf.IMUser.Detach parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.iisquare.im.protobuf.IMUser.Fin parseFrom(
+    public static com.iisquare.im.protobuf.IMUser.Detach parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3833,7 +3896,7 @@ public final class IMUser {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.iisquare.im.protobuf.IMUser.Fin prototype) {
+    public static Builder newBuilder(com.iisquare.im.protobuf.IMUser.Detach prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -3849,26 +3912,26 @@ public final class IMUser {
       return builder;
     }
     /**
-     * Protobuf type {@code im.Fin}
+     * Protobuf type {@code im.Detach}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:im.Fin)
-        com.iisquare.im.protobuf.IMUser.FinOrBuilder {
+        // @@protoc_insertion_point(builder_implements:im.Detach)
+        com.iisquare.im.protobuf.IMUser.DetachOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.iisquare.im.protobuf.IMUser.internal_static_im_Fin_descriptor;
+        return com.iisquare.im.protobuf.IMUser.internal_static_im_Detach_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.iisquare.im.protobuf.IMUser.internal_static_im_Fin_fieldAccessorTable
+        return com.iisquare.im.protobuf.IMUser.internal_static_im_Detach_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.iisquare.im.protobuf.IMUser.Fin.class, com.iisquare.im.protobuf.IMUser.Fin.Builder.class);
+                com.iisquare.im.protobuf.IMUser.Detach.class, com.iisquare.im.protobuf.IMUser.Detach.Builder.class);
       }
 
-      // Construct using com.iisquare.im.protobuf.IMUser.Fin.newBuilder()
+      // Construct using com.iisquare.im.protobuf.IMUser.Detach.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3900,17 +3963,17 @@ public final class IMUser {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.iisquare.im.protobuf.IMUser.internal_static_im_Fin_descriptor;
+        return com.iisquare.im.protobuf.IMUser.internal_static_im_Detach_descriptor;
       }
 
       @java.lang.Override
-      public com.iisquare.im.protobuf.IMUser.Fin getDefaultInstanceForType() {
-        return com.iisquare.im.protobuf.IMUser.Fin.getDefaultInstance();
+      public com.iisquare.im.protobuf.IMUser.Detach getDefaultInstanceForType() {
+        return com.iisquare.im.protobuf.IMUser.Detach.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.iisquare.im.protobuf.IMUser.Fin build() {
-        com.iisquare.im.protobuf.IMUser.Fin result = buildPartial();
+      public com.iisquare.im.protobuf.IMUser.Detach build() {
+        com.iisquare.im.protobuf.IMUser.Detach result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -3918,8 +3981,8 @@ public final class IMUser {
       }
 
       @java.lang.Override
-      public com.iisquare.im.protobuf.IMUser.Fin buildPartial() {
-        com.iisquare.im.protobuf.IMUser.Fin result = new com.iisquare.im.protobuf.IMUser.Fin(this);
+      public com.iisquare.im.protobuf.IMUser.Detach buildPartial() {
+        com.iisquare.im.protobuf.IMUser.Detach result = new com.iisquare.im.protobuf.IMUser.Detach(this);
         result.reception_ = reception_;
         result.receiver_ = receiver_;
         result.time_ = time_;
@@ -3962,16 +4025,16 @@ public final class IMUser {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.iisquare.im.protobuf.IMUser.Fin) {
-          return mergeFrom((com.iisquare.im.protobuf.IMUser.Fin)other);
+        if (other instanceof com.iisquare.im.protobuf.IMUser.Detach) {
+          return mergeFrom((com.iisquare.im.protobuf.IMUser.Detach)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.iisquare.im.protobuf.IMUser.Fin other) {
-        if (other == com.iisquare.im.protobuf.IMUser.Fin.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.iisquare.im.protobuf.IMUser.Detach other) {
+        if (other == com.iisquare.im.protobuf.IMUser.Detach.getDefaultInstance()) return this;
         if (!other.getReception().isEmpty()) {
           reception_ = other.reception_;
           onChanged();
@@ -4001,11 +4064,11 @@ public final class IMUser {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.iisquare.im.protobuf.IMUser.Fin parsedMessage = null;
+        com.iisquare.im.protobuf.IMUser.Detach parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.iisquare.im.protobuf.IMUser.Fin) e.getUnfinishedMessage();
+          parsedMessage = (com.iisquare.im.protobuf.IMUser.Detach) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -4217,41 +4280,41 @@ public final class IMUser {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:im.Fin)
+      // @@protoc_insertion_point(builder_scope:im.Detach)
     }
 
-    // @@protoc_insertion_point(class_scope:im.Fin)
-    private static final com.iisquare.im.protobuf.IMUser.Fin DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:im.Detach)
+    private static final com.iisquare.im.protobuf.IMUser.Detach DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.iisquare.im.protobuf.IMUser.Fin();
+      DEFAULT_INSTANCE = new com.iisquare.im.protobuf.IMUser.Detach();
     }
 
-    public static com.iisquare.im.protobuf.IMUser.Fin getDefaultInstance() {
+    public static com.iisquare.im.protobuf.IMUser.Detach getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<Fin>
-        PARSER = new com.google.protobuf.AbstractParser<Fin>() {
+    private static final com.google.protobuf.Parser<Detach>
+        PARSER = new com.google.protobuf.AbstractParser<Detach>() {
       @java.lang.Override
-      public Fin parsePartialFrom(
+      public Detach parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Fin(input, extensionRegistry);
+        return new Detach(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<Fin> parser() {
+    public static com.google.protobuf.Parser<Detach> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<Fin> getParserForType() {
+    public com.google.protobuf.Parser<Detach> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.iisquare.im.protobuf.IMUser.Fin getDefaultInstanceForType() {
+    public com.iisquare.im.protobuf.IMUser.Detach getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -6639,10 +6702,10 @@ public final class IMUser {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_im_Contact_Row_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_im_Fin_descriptor;
+    internal_static_im_Detach_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_im_Fin_fieldAccessorTable;
+      internal_static_im_Detach_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_im_Unread_descriptor;
   private static final 
@@ -6667,21 +6730,22 @@ public final class IMUser {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\014IMUser.proto\022\002im\"\025\n\004Auth\022\r\n\005token\030\001 \001(" +
-      "\t\"A\n\nAuthResult\022\017\n\007user_id\030\001 \001(\t\022\017\n\007vers" +
-      "ion\030\002 \001(\003\022\021\n\theartbeat\030\003 \001(\005\"\272\001\n\007Contact" +
-      "\022\035\n\004rows\030\001 \003(\0132\017.im.Contact.Row\032\217\001\n\003Row\022" +
-      "\021\n\tdirection\030\001 \001(\t\022\022\n\nmessage_id\030\002 \001(\t\022\021" +
-      "\n\treception\030\003 \001(\t\022\020\n\010receiver\030\004 \001(\t\022\014\n\004t" +
-      "ype\030\005 \001(\t\022\017\n\007content\030\006 \001(\t\022\014\n\004time\030\007 \001(\003" +
-      "\022\017\n\007version\030\010 \001(\003\"I\n\003Fin\022\021\n\treception\030\001 " +
+      "\n\014IMUser.proto\022\002im\"\'\n\004Auth\022\r\n\005token\030\001 \001(" +
+      "\t\022\020\n\010with_syn\030\002 \001(\010\"A\n\nAuthResult\022\017\n\007use" +
+      "r_id\030\001 \001(\t\022\017\n\007version\030\002 \001(\003\022\021\n\theartbeat" +
+      "\030\003 \001(\005\"\272\001\n\007Contact\022\035\n\004rows\030\001 \003(\0132\017.im.Co" +
+      "ntact.Row\032\217\001\n\003Row\022\021\n\tdirection\030\001 \001(\t\022\022\n\n" +
+      "message_id\030\002 \001(\t\022\021\n\treception\030\003 \001(\t\022\020\n\010r" +
+      "eceiver\030\004 \001(\t\022\014\n\004type\030\005 \001(\t\022\017\n\007content\030\006" +
+      " \001(\t\022\014\n\004time\030\007 \001(\003\022\017\n\007version\030\010 \001(\003\"L\n\006D" +
+      "etach\022\021\n\treception\030\001 \001(\t\022\020\n\010receiver\030\002 \001" +
+      "(\t\022\014\n\004time\030\003 \001(\003\022\017\n\007version\030\004 \001(\003\"a\n\006Unr" +
+      "ead\022\034\n\004rows\030\001 \003(\0132\016.im.Unread.Row\0329\n\003Row" +
+      "\022\021\n\treception\030\001 \001(\t\022\020\n\010receiver\030\002 \001(\t\022\r\n" +
+      "\005count\030\003 \001(\003\"N\n\010Delivery\022\021\n\treception\030\001 " +
       "\001(\t\022\020\n\010receiver\030\002 \001(\t\022\014\n\004time\030\003 \001(\003\022\017\n\007v" +
-      "ersion\030\004 \001(\003\"a\n\006Unread\022\034\n\004rows\030\001 \003(\0132\016.i" +
-      "m.Unread.Row\0329\n\003Row\022\021\n\treception\030\001 \001(\t\022\020" +
-      "\n\010receiver\030\002 \001(\t\022\r\n\005count\030\003 \001(\003\"N\n\010Deliv" +
-      "ery\022\021\n\treception\030\001 \001(\t\022\020\n\010receiver\030\002 \001(\t" +
-      "\022\014\n\004time\030\003 \001(\003\022\017\n\007version\030\004 \001(\003B\032\n\030com.i" +
-      "isquare.im.protobufb\006proto3"
+      "ersion\030\004 \001(\003B\032\n\030com.iisquare.im.protobuf" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -6692,7 +6756,7 @@ public final class IMUser {
     internal_static_im_Auth_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_im_Auth_descriptor,
-        new java.lang.String[] { "Token", });
+        new java.lang.String[] { "Token", "WithSyn", });
     internal_static_im_AuthResult_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_im_AuthResult_fieldAccessorTable = new
@@ -6711,11 +6775,11 @@ public final class IMUser {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_im_Contact_Row_descriptor,
         new java.lang.String[] { "Direction", "MessageId", "Reception", "Receiver", "Type", "Content", "Time", "Version", });
-    internal_static_im_Fin_descriptor =
+    internal_static_im_Detach_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_im_Fin_fieldAccessorTable = new
+    internal_static_im_Detach_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_im_Fin_descriptor,
+        internal_static_im_Detach_descriptor,
         new java.lang.String[] { "Reception", "Receiver", "Time", "Version", });
     internal_static_im_Unread_descriptor =
       getDescriptor().getMessageTypes().get(4);

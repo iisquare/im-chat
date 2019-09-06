@@ -45,13 +45,6 @@ public class UserLogic extends Logic {
         return null == info || info.isBlocked() ? null : info;
     }
 
-    public void logout(String fromType, ChannelHandlerContext ctx) {
-        Channel channel = ctx.channel();
-        ChannelGroup group = channels.get(channelKey(fromType, userId(ctx)));
-        if (null == group) return;
-        group.remove(channel);
-    }
-
     public ChannelGroup channelGroup(String fromType, String userId) {
         return channels.get(channelKey(fromType, userId));
     }
@@ -60,17 +53,12 @@ public class UserLogic extends Logic {
         return fromType + "@" + userId;
     }
 
-    public IM.Result authAction(String fromType, ChannelHandlerContext ctx, IM.Directive directive) throws Exception {
-//         IMUser.Auth auth = directive.getParameter().unpack(IMUser.Auth.class);
-        IMUser.Auth auth = IMUser.Auth.parseFrom(directive.getParameter());
-        User info = userService.info(userService.userId(auth.getToken()));
-        if (null == info) return result(directive, 404, "用户信息不存在", null);
-        ctx.channel().attr(USER_KEY).set(info.getId());
-        String key = this.channelKey(fromType, info.getId());
+    public void syn(String fromType, ChannelHandlerContext ctx, String userId) {
+        String key = this.channelKey(fromType, userId);
         ChannelGroup group = channels.get(key);
         if (null == group) {
             synchronized (UserLogic.class) {
-                group = channels.get(info.getId());
+                group = channels.get(userId);
                 if (null == group) {
                     group = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
                     channels.put(key, group);
@@ -78,6 +66,22 @@ public class UserLogic extends Logic {
             }
         }
         group.add(ctx.channel());
+    }
+
+    public void fin(String fromType, ChannelHandlerContext ctx) {
+        Channel channel = ctx.channel();
+        ChannelGroup group = channels.get(channelKey(fromType, userId(ctx)));
+        if (null == group) return;
+        group.remove(channel);
+    }
+
+    public IM.Result authAction(String fromType, ChannelHandlerContext ctx, IM.Directive directive) throws Exception {
+//         IMUser.Auth auth = directive.getParameter().unpack(IMUser.Auth.class);
+        IMUser.Auth auth = IMUser.Auth.parseFrom(directive.getParameter());
+        User info = userService.info(userService.userId(auth.getToken()));
+        if (null == info) return result(directive, 404, "用户信息不存在", null);
+        ctx.channel().attr(USER_KEY).set(info.getId());
+        if (auth.getWithSyn()) this.syn(fromType, ctx, info.getId());
 //        return result(directive, 0, null, Any.pack(IMUser.AuthResult.newBuilder().setUserId(info.getId()).build()));
         IMUser.AuthResult.Builder result = IMUser.AuthResult.newBuilder();
         result.setHeartbeat(30000);
@@ -124,10 +128,10 @@ public class UserLogic extends Logic {
     /**
      * 清除联系人
      */
-    public IM.Result finAction(String fromType, ChannelHandlerContext ctx, IM.Directive directive) throws Exception {
+    public IM.Result detachAction(String fromType, ChannelHandlerContext ctx, IM.Directive directive) throws Exception {
         String userId = userId(ctx);
         if (DPUtil.empty(userId)) return result(directive, 404, "用户信息异常", null);
-        IMUser.Fin fin = IMUser.Fin.parseFrom(directive.getParameter());
+        IMUser.Detach fin = IMUser.Detach.parseFrom(directive.getParameter());
         redis.opsForHash().delete(contactKey(userId), contactHash(fin.getReception(), fin.getReceiver()));
         return result(directive, 0, null, null);
     }

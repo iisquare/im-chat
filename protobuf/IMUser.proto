@@ -3,6 +3,7 @@ package im;
 option java_package = "com.iisquare.im.protobuf";
 message Auth {
    string token = 1;
+   bool with_syn = 2;
 }
 message AuthResult {
    string user_id = 1;
@@ -22,7 +23,7 @@ message Contact {
    }
    repeated Row rows = 1;
 }
-message Fin {
+message Detach {
    string reception = 1;
    string receiver = 2;
    int64 time = 3;
