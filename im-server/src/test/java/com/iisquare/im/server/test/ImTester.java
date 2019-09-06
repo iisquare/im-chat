@@ -69,14 +69,12 @@ public class ImTester implements Runnable {
 
     @Test
     public void authTest() throws InterruptedException {
-
         IM.Directive.Builder directive = IM.Directive.newBuilder();
         directive.setSequence(MessageLogic.SEQUENCE_AUTH);
         IMUser.Auth.Builder auth = IMUser.Auth.newBuilder();
         auth.setToken("52805e717fce4420a8d6e7e1d9554bef").setWithSyn(false);
         directive.setCommand("user.auth").setParameter(auth.build().toByteString());
         channel.writeAndFlush(Unpooled.wrappedBuffer(directive.build().toByteArray()));
-        stopLatch.await();
     }
 
 }
