@@ -90,7 +90,7 @@ class ClientHandler extends ChannelInboundHandlerAdapter {
         } else {
             System.out.println(msg);
         }
-        ctx.close();
+        ctx.close(); // 正常关闭连接
         ImTester.stopLatch.countDown();
     }
 }

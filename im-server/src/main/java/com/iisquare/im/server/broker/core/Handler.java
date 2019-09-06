@@ -12,12 +12,15 @@ import io.netty.handler.codec.http.*;
 import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
 import io.netty.util.CharsetUtil;
 import io.netty.util.ReferenceCountUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.UnsupportedEncodingException;
 
 public abstract class Handler extends ChannelInboundHandlerAdapter {
 
+    protected final static Logger logger = LoggerFactory.getLogger(Handler.class);
     public static final String MESSAGE_FROM_TYPE_WS = "ws";
     public static final String MESSAGE_FROM_TYPE_COMET = "comet";
     public static final String MESSAGE_FROM_TYPE_SOCKET = "socket";
@@ -27,12 +30,20 @@ public abstract class Handler extends ChannelInboundHandlerAdapter {
     @Autowired
     protected UserLogic userLogic;
 
-    public void onAccept(String fromType, ChannelHandlerContext ctx) {
-
+    @Override
+    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
+        ctx.flush();
     }
 
-    public void onClose(String fromType, ChannelHandlerContext ctx) {
-        userLogic.fin(fromType, ctx);
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        logger.warn("handler catch a exception", cause);
+        ctx.close();
+    }
+
+    @Override
+    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+        userLogic.fin(ctx); // 尝试清理无效连接
     }
 
     public void onReceive(String fromType, ChannelHandlerContext ctx, ByteBuf message) {

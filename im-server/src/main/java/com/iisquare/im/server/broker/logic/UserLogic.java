@@ -27,7 +27,8 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 public class UserLogic extends Logic {
 
-    public static final AttributeKey USER_KEY = AttributeKey.valueOf("userId");
+    public static final AttributeKey ATTR_USER = AttributeKey.valueOf("userId");
+    public static final AttributeKey ATTR_FROM = AttributeKey.valueOf("fromType");
     @Autowired
     private UserService userService;
     @Autowired
@@ -35,9 +36,19 @@ public class UserLogic extends Logic {
     public static final Map<String, ChannelGroup> channels = new ConcurrentHashMap<>();
 
     public String userId(ChannelHandlerContext ctx) {
-        Object value = ctx.channel().attr(USER_KEY).get();
+        Object value = ctx.channel().attr(ATTR_USER).get();
         if (null == value) return null;
         return value.toString();
+    }
+
+    public String fromType(ChannelHandlerContext ctx) {
+        Object value = ctx.channel().attr(ATTR_FROM).get();
+        if (null == value) return null;
+        return value.toString();
+    }
+
+    public String channelKey (ChannelHandlerContext ctx) {
+        return fromType(ctx) + "@" + userId(ctx);
     }
 
     public User info(ChannelHandlerContext ctx) {
@@ -68,11 +79,10 @@ public class UserLogic extends Logic {
         group.add(ctx.channel());
     }
 
-    public void fin(String fromType, ChannelHandlerContext ctx) {
-        Channel channel = ctx.channel();
-        ChannelGroup group = channels.get(channelKey(fromType, userId(ctx)));
+    public void fin( ChannelHandlerContext ctx) {
+        ChannelGroup group = channels.get(channelKey(ctx));
         if (null == group) return;
-        group.remove(channel);
+        group.remove(ctx.channel());
     }
 
     public IM.Result authAction(String fromType, ChannelHandlerContext ctx, IM.Directive directive) throws Exception {
@@ -80,7 +90,8 @@ public class UserLogic extends Logic {
         IMUser.Auth auth = IMUser.Auth.parseFrom(directive.getParameter());
         User info = userService.info(userService.userId(auth.getToken()));
         if (null == info) return result(directive, 404, "用户信息不存在", null);
-        ctx.channel().attr(USER_KEY).set(info.getId());
+        ctx.channel().attr(ATTR_USER).set(info.getId());
+        ctx.channel().attr(ATTR_FROM).set(fromType);
         if (auth.getWithSyn()) this.syn(fromType, ctx, info.getId());
 //        return result(directive, 0, null, Any.pack(IMUser.AuthResult.newBuilder().setUserId(info.getId()).build()));
         IMUser.AuthResult.Builder result = IMUser.AuthResult.newBuilder();

@@ -96,7 +96,6 @@ public class ServerHandler extends Handler {
                 } else {
                     handshaker.handshake(ctx.channel(), req);
                     handshakers.put(ctx.channel(), handshaker);
-                    this.onAccept(MESSAGE_FROM_TYPE_WS, ctx);
                     this.onReceive(MESSAGE_FROM_TYPE_WS, ctx, Unpooled.wrappedBuffer(auth(token, true).toByteArray()));
                 }
                 return;
@@ -109,7 +108,6 @@ public class ServerHandler extends Handler {
         if (frame instanceof CloseWebSocketFrame) { // 判断是否是关闭链路的指令
             WebSocketServerHandshaker handshaker = handshakers.remove(ctx.channel());
             if (null != handshaker) handshaker.close(ctx.channel(), (CloseWebSocketFrame) frame.retain());
-            this.onClose(MESSAGE_FROM_TYPE_WS, ctx);
         } else if (frame instanceof PingWebSocketFrame) { // 判断是否是Ping消息
             ctx.channel().write(new PongWebSocketFrame(frame.content().retain()));
         } else if (frame instanceof BinaryWebSocketFrame) {
