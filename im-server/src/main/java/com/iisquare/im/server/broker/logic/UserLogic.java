@@ -80,9 +80,7 @@ public class UserLogic extends Logic {
     }
 
     public void fin( ChannelHandlerContext ctx) {
-        ChannelGroup group = channels.get(channelKey(ctx));
-        if (null == group) return;
-        group.remove(ctx.channel());
+        // group.remover会自动清理无效连接，不需要手动处理
     }
 
     public IM.Result authAction(String fromType, ChannelHandlerContext ctx, IM.Directive directive) throws Exception {
