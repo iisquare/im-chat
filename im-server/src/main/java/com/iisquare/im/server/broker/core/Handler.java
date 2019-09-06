@@ -46,8 +46,13 @@ public abstract class Handler extends ChannelInboundHandlerAdapter {
                 this.sendCometContent(ctx, result.toByteArray(), false);
                 return;
             case MESSAGE_FROM_TYPE_SOCKET:
+                this.sendSocket(ctx, result.toByteArray());
                 return;
         }
+    }
+
+    public void sendSocket(ChannelHandlerContext ctx, byte[] bytes) {
+        ctx.channel().writeAndFlush(Unpooled.wrappedBuffer(bytes));
     }
 
     public void sendWebSocketFrame(ChannelHandlerContext ctx, byte[] bytes) {

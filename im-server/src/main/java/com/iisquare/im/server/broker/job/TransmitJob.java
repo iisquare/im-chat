@@ -13,6 +13,8 @@ import com.iisquare.im.server.broker.logic.UserLogic;
 import com.iisquare.util.DPUtil;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.group.ChannelGroup;
+import io.netty.handler.codec.http.DefaultHttpContent;
+import io.netty.handler.codec.http.LastHttpContent;
 import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -113,8 +115,11 @@ public class TransmitJob implements MessageListener {
                     group.writeAndFlush(new BinaryWebSocketFrame(Unpooled.wrappedBuffer(result.toByteArray())));
                     break;
                 case Handler.MESSAGE_FROM_TYPE_COMET:
+                    group.writeAndFlush(new DefaultHttpContent(Unpooled.wrappedBuffer(result.toByteArray())));
+                    group.writeAndFlush(LastHttpContent.EMPTY_LAST_CONTENT);
                     break;
                 case Handler.MESSAGE_FROM_TYPE_SOCKET:
+                    group.writeAndFlush(new BinaryWebSocketFrame(Unpooled.wrappedBuffer(result.toByteArray())));
                     break;
             }
         }

@@ -4,6 +4,7 @@ import com.iisquare.im.protobuf.IM;
 import com.iisquare.im.protobuf.IMUser;
 import com.iisquare.im.server.broker.logic.MessageLogic;
 import io.netty.bootstrap.Bootstrap;
+import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -57,9 +58,9 @@ public class ImTester implements Runnable {
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         try {
             ChannelFuture future = bootstrap.group(bossGroup).connect("127.0.0.1", 7002).sync();
-            future.channel().closeFuture().sync();
             channel = future.channel();
             startLatch.countDown();
+            future.channel().closeFuture().sync();
         } catch (Exception e) {
             logger.debug("socket broker catch exception", e);
         } finally {
@@ -82,7 +83,14 @@ public class ImTester implements Runnable {
 class ClientHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        System.out.println(msg);
+        if (msg instanceof ByteBuf) {
+            IM.Result result = IM.Result.parseFrom(((ByteBuf) msg).nioBuffer());
+            System.out.println(result);
+            System.out.println(IMUser.AuthResult.parseFrom(result.getData()));
+        } else {
+            System.out.println(msg);
+        }
+        ctx.close();
         ImTester.stopLatch.countDown();
     }
 }

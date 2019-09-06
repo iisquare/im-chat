@@ -32,7 +32,7 @@ public class Dispatcher {
     @PostConstruct
     public void init() {
         String classpath = this.getClass().getName();
-        classpath = classpath.substring(0, classpath.length() - ServerHandler.class.getSimpleName().length());
+        classpath = classpath.substring(0, classpath.length() - this.getClass().getSimpleName().length());
         List<String> list = ReflectUtil.getClassName(classpath.replace(".core", ".logic"));
         for (String item : list) {
             if (!item.endsWith(LOGIC_SUFFIX)) continue;

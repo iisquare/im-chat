@@ -4,6 +4,7 @@ import com.iisquare.im.protobuf.IM;
 import com.iisquare.im.protobuf.IMUser;
 import com.iisquare.im.server.broker.core.Handler;
 import com.iisquare.im.server.broker.logic.MessageLogic;
+import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandler;
@@ -31,9 +32,13 @@ public class ServerHandler extends Handler {
             handleHttpRequest(ctx, (FullHttpRequest) msg);
         } else if (msg instanceof WebSocketFrame) {
             handleWebSocketFrame(ctx, (WebSocketFrame) msg);
-        } else {
-            System.out.println(msg);
+        } else if (msg instanceof ByteBuf) {
+            handleSocket(ctx, (ByteBuf) msg);
         }
+    }
+
+    private void handleSocket(ChannelHandlerContext ctx, ByteBuf msg) {
+        this.onReceive(MESSAGE_FROM_TYPE_SOCKET, ctx, msg);
     }
 
     private IM.Directive auth(String token, boolean withSyn) {
