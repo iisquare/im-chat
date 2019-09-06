@@ -1,8 +1,64 @@
 package com.iisquare.im.server.broker;
 
+import com.iisquare.im.server.api.mvc.Configuration;
 import com.iisquare.im.server.broker.core.Broker;
+import io.netty.bootstrap.ServerBootstrap;
+import io.netty.channel.*;
+import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.SocketChannel;
+import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
+import io.netty.handler.codec.LengthFieldPrepender;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+
 @Component
-public class SocketBroker extends Broker {
+public class SocketBroker extends Broker implements Runnable {
+
+    protected final static Logger logger = LoggerFactory.getLogger(SocketBroker.class);
+    @Autowired
+    private Configuration configuration;
+    @Autowired
+    private ServerHandler handler;
+    private ServerBootstrap bootstrap;
+
+    public SocketBroker() {
+        this.bootstrap = new ServerBootstrap();
+        this.bootstrap.channel(NioServerSocketChannel.class)
+            .childHandler(new ChannelInitializer<SocketChannel>() {
+                @Override
+                public void initChannel(SocketChannel channel) throws Exception {
+                    ChannelPipeline pipeline = channel.pipeline();
+                    pipeline.addLast("decoder", new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE, 0, 2, 0, 2));
+                    pipeline.addLast("encoder", new LengthFieldPrepender(2));
+                    pipeline.addLast(handler);
+                }
+            }).option(ChannelOption.SO_BACKLOG, 128).childOption(ChannelOption.SO_KEEPALIVE, true);
+    }
+
+    @PostConstruct
+    public void backend() {
+        new Thread(this).start();
+    }
+
+    @Override
+    public void run() {
+        EventLoopGroup bossGroup = new NioEventLoopGroup();
+        EventLoopGroup workerGroup = new NioEventLoopGroup(configuration.getSocketThread());
+        try {
+            ChannelFuture future = bootstrap.group(bossGroup, workerGroup)
+                .bind(configuration.getServerAddress(), configuration.getSocketPort()).sync();
+            future.channel().closeFuture().sync();
+        } catch (Exception e) {
+            logger.debug("socket broker catch exception", e);
+        } finally {
+            workerGroup.shutdownGracefully();
+            bossGroup.shutdownGracefully();
+        }
+    }
+
 }

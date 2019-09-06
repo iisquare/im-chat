@@ -18,7 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Component
 @ChannelHandler.Sharable
-public class HttpHandler extends Handler {
+public class ServerHandler extends Handler {
 
     public static final String COMET_PUSH = "/push";
     public static final String COMET_PULL = "/pull";
@@ -31,6 +31,8 @@ public class HttpHandler extends Handler {
             handleHttpRequest(ctx, (FullHttpRequest) msg);
         } else if (msg instanceof WebSocketFrame) {
             handleWebSocketFrame(ctx, (WebSocketFrame) msg);
+        } else {
+            System.out.println(msg);
         }
     }
 

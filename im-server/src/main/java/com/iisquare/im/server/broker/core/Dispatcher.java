@@ -2,7 +2,7 @@ package com.iisquare.im.server.broker.core;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.iisquare.im.protobuf.IM;
-import com.iisquare.im.server.broker.HttpHandler;
+import com.iisquare.im.server.broker.ServerHandler;
 import com.iisquare.util.DPUtil;
 import com.iisquare.util.ReflectUtil;
 import io.netty.buffer.ByteBuf;
@@ -32,7 +32,7 @@ public class Dispatcher {
     @PostConstruct
     public void init() {
         String classpath = this.getClass().getName();
-        classpath = classpath.substring(0, classpath.length() - HttpHandler.class.getSimpleName().length());
+        classpath = classpath.substring(0, classpath.length() - ServerHandler.class.getSimpleName().length());
         List<String> list = ReflectUtil.getClassName(classpath.replace(".core", ".logic"));
         for (String item : list) {
             if (!item.endsWith(LOGIC_SUFFIX)) continue;

@@ -24,7 +24,7 @@ public class HttpBroker extends Broker implements Runnable {
     @Autowired
     private Configuration configuration;
     @Autowired
-    private HttpHandler httpHandler;
+    private ServerHandler handler;
     private ServerBootstrap bootstrap;
 
     public HttpBroker() {
@@ -37,7 +37,7 @@ public class HttpBroker extends Broker implements Runnable {
                     pipeline.addLast("http-codec", new HttpServerCodec());
                     pipeline.addLast("aggregator", new HttpObjectAggregator(65536));
                     pipeline.addLast("http-chunked", new ChunkedWriteHandler());
-                    pipeline.addLast(httpHandler);
+                    pipeline.addLast(handler);
                 }
             }).option(ChannelOption.SO_BACKLOG, 128).childOption(ChannelOption.SO_KEEPALIVE, true);
     }
