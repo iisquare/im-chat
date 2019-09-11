@@ -30,7 +30,7 @@
                     android:src="@mipmap/ic_launcher" />
 
                 <EditText
-                    android:id="@+id/userId"
+                    android:id="@+id/edtUserId"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@android:drawable/ic_menu_my_calendar"
@@ -39,7 +39,7 @@
                     android:inputType="textPersonName" />
 
                 <Button
-                    android:id="@+id/button3"
+                    android:id="@+id/btnLogin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="登录" />

@@ -1,11 +1,14 @@
 package com.iisquare.im.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.iisquare.im.android.R;
+import com.iisquare.im.core.Share;
+import com.iisquare.util.DPUtil;
 
 public class MainActivity extends AppCompatActivity implements Runnable {
 
@@ -21,8 +24,14 @@ public class MainActivity extends AppCompatActivity implements Runnable {
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {}
+        SharedPreferences preferences = Share.session(this);
+        String token = preferences.getString("token", "");
         Intent intent = new Intent();
-        intent.setClass(MainActivity.this, LoginActivity.class);
+        if (DPUtil.empty(token)) {
+            intent.setClass(MainActivity.this, LoginActivity.class);
+        } else {
+            intent.setClass(MainActivity.this, ContactActivity.class);
+        }
         startActivity(intent);
         finish();
     }

@@ -4,3 +4,7 @@
 /protobuf/.vscode
 /im-server/build
 /im-android/gradle
+/im-android/core/build
+/im-android/notify/build
+/im-android/sdk/build
+/im-android/.idea
