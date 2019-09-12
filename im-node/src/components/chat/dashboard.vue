@@ -88,7 +88,7 @@
 </template>
 
 <script>
-import ImClient from '@/sdk'
+import IMClient from '@/sdk'
 import wrapper from '@/core/RequestWrapper'
 import userService from '@/service/user'
 import DateUtil from '@/utils/date'
@@ -217,7 +217,7 @@ export default {
   mounted () {
     let _this = this
     this.userId = this.$store.state.user.data.userId || ''
-    this.im = new ImClient({
+    this.im = new IMClient({
       uri: process.env.apiURL,
       onSync (sync) {
         _this.contact()

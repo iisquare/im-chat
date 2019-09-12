@@ -65,7 +65,7 @@ public class CallbackWrapper implements Callback {
     @Override
     public void onFailure(Call call, IOException e) {
         if (!before(call)) return;
-        if (failure(call, e) && showError) toast("Error:" + e.getMessage());
+        if (failure(call, e) && showError) toast(e.getMessage());
         after(call);
     }
 
@@ -75,11 +75,11 @@ public class CallbackWrapper implements Callback {
         JsonNode json = DPUtil.parseJSON(response.body().string());
         if (null == json || 0 != json.get("code").asInt()) {
             if (failure(call, null) && showWarning) {
-                toast("Warning:" + (null == json ? "parse error" : json.get("message").asText()));
+                toast(null == json ? "parse error" : json.get("message").asText());
             }
         } else {
             if (response(call, json) && showSuccess) {
-                this.toast("Success:" + json.get("message").asText());
+                this.toast(json.get("message").asText());
             }
         }
         after(call);

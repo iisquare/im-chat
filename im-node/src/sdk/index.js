@@ -5,7 +5,7 @@ import UserLogic from '@/sdk/logic/user'
 import MessageLogic from '@/sdk/logic/message'
 import * as constants from '@/sdk/constants'
 
-class ImClient {
+class IMClient {
   constructor (config) {
     this.config = config
     this.http = new HttpClient(config.uri)
@@ -31,6 +31,6 @@ class ImClient {
   }
 }
 
-Object.assign(ImClient, constants)
+Object.assign(IMClient, constants)
 
-export default ImClient
+export default IMClient
