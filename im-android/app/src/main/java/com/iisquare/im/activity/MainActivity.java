@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.iisquare.im.android.R;
+import com.iisquare.im.R;
 import com.iisquare.im.core.Share;
 import com.iisquare.util.DPUtil;
 

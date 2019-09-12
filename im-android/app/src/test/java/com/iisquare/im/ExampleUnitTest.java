@@ -1,4 +1,4 @@
-package com.iisquare.im.android;
+package com.iisquare.im;
 
 import org.junit.Test;
 
