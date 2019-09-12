@@ -44,7 +44,7 @@ public class LoginActivity extends ActivityBase implements View.OnClickListener 
                         JsonNode data = response.get("data");
                         session.edit().putString("userId", data.get("userId").asText())
                             .putString("token", data.get("token").asText()).commit();
-                        activity.forward(ContactActivity.class);
+                        activity.forward(IndexActivity.class);
                         finish();
                         return super.response(call, response);
                     }

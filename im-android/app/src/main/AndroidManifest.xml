@@ -17,9 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name="com.iisquare.im.activity.LoginActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name="com.iisquare.im.activity.ContactActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name="com.iisquare.im.activity.IndexActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name="com.iisquare.im.activity.SearchActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name="com.iisquare.im.activity.SettingActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name="com.iisquare.im.activity.ChatActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

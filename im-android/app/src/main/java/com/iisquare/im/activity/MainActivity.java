@@ -29,7 +29,7 @@ public class MainActivity extends ActivityBase implements Runnable {
         if (DPUtil.empty(token)) {
             forward(LoginActivity.class);
         } else {
-            forward(ContactActivity.class);
+            forward(IndexActivity.class);
         }
         finish();
     }
