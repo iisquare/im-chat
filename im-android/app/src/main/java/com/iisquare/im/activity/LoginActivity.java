@@ -5,34 +5,62 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import com.fasterxml.jackson.databind.JsonNode;
 import com.iisquare.im.R;
-import com.iisquare.im.core.Share;
+import com.iisquare.im.core.ActivityBase;
+import com.iisquare.im.core.CallbackWrapper;
+import com.iisquare.im.service.UserService;
+import com.iisquare.util.DPUtil;
 
-public class LoginActivity extends AppCompatActivity {
+import okhttp3.Call;
+import okhttp3.Response;
+
+public class LoginActivity extends ActivityBase implements View.OnClickListener {
+
+    private UserService userService = UserService.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        final SharedPreferences session = Share.session(this);
-        String userId = session.getString("userId", "");
-        final EditText edtUserId = (EditText) findViewById(R.id.edtUserId);
-        edtUserId.setText(userId);
-        final Button btnLogin = (Button) findViewById(R.id.btnLogin);
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (btnLogin.getText().equals("登录中")) return;
-                btnLogin.setText("登录中");
-                session.edit().putString("userId", edtUserId.getText().toString()).commit();
-                Toast.makeText(getBaseContext(), "已更新", Toast.LENGTH_SHORT).show();
-                btnLogin.setText("登录");
-            }
-        });
+        final SharedPreferences session = userService.session(this);
+        ((EditText) findViewById(R.id.edtUserId)).setText(session.getString("userId", ""));
+        findViewById(R.id.btnLogin).setOnClickListener(this);
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btnLogin:
+                final Button btnLogin = (Button) v;
+                if (btnLogin.getText().equals("登录中")) return;
+                btnLogin.setText("登录中");
+                final String userId = ((EditText) findViewById(R.id.edtUserId)).getText().toString();
+                final SharedPreferences session = userService.session(this);
+                userService.token(DPUtil.objectNode().put("userId", userId), new CallbackWrapper(this) {
+                    @Override
+                    public boolean response(Call call, JsonNode response) {
+                        JsonNode data = response.get("data");
+                        session.edit().putString("userId", data.get("userId").asText())
+                            .putString("token", data.get("token").asText()).commit();
+                        activity.forward(ContactActivity.class);
+                        finish();
+                        return super.response(call, response);
+                    }
+
+                    @Override
+                    public boolean after(Call call) {
+                        btnLogin.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                btnLogin.setText("登录");
+                            }
+                        });
+                        return super.after(call);
+                    }
+                }.success(true));
+                break;
+        }
+    }
 }

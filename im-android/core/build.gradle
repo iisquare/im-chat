@@ -1,7 +1,7 @@
 apply plugin: 'java-library'
 
 dependencies {
-    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.5'
     implementation group: 'org.projectlombok', name: 'lombok', version: '1.16.20'
-    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.1.1'
+    api group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.5'
+    api group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.1.1'
 }
