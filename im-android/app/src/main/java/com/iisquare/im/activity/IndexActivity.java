@@ -54,7 +54,10 @@ public class IndexActivity extends ActivityBase {
         layout.setColumnCount(tabs.size());
         for (Map.Entry<String, Map<String, Object>> entry : tabs.entrySet()) {
             Map<String, Object> item = entry.getValue();
-            layout.addView(tabView(item));
+            GridLayout.Spec rowSpan = GridLayout.spec(GridLayout.UNDEFINED, 1f);
+            GridLayout.Spec colSpan = GridLayout.spec(GridLayout.UNDEFINED, 1f);
+            GridLayout.LayoutParams params = new GridLayout.LayoutParams(rowSpan, colSpan);
+            layout.addView(tabView(item), params);
         }
         getSupportFragmentManager().beginTransaction().replace(R.id.container, (Fragment) tabs.get("contact").get("fragment")).commit();
     }
