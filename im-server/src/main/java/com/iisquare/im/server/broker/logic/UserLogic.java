@@ -10,7 +10,6 @@ import com.iisquare.im.server.api.service.UserService;
 import com.iisquare.im.server.broker.core.Logic;
 import com.iisquare.im.server.broker.job.TransmitJob;
 import com.iisquare.util.DPUtil;
-import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.DefaultChannelGroup;
