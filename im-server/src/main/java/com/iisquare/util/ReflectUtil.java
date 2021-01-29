@@ -1,7 +1,5 @@
 package com.iisquare.util;
 
-import sun.misc.Unsafe;
-
 import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -13,41 +11,14 @@ import java.util.jar.JarFile;
 
 /**
  * 反射处理类
- * @author Ouyang <iisquare@163.com>
  *
+ * @author Ouyang <iisquare@163.com>
  */
 public class ReflectUtil {
 
-	private static Unsafe unsafe;
-
-	static {
-		try {
-			Field field = Unsafe.class.getDeclaredField("theUnsafe");
-			field.setAccessible(true);
-			unsafe = (Unsafe) field.get(null);
-		} catch (Exception e) {}
-	}
-
-	public static long addressOf(Object o) throws Exception {
-		Object[] array = new Object[] { o };
-		long baseOffset = unsafe.arrayBaseOffset(Object[].class);
-		int addressSize = unsafe.addressSize();
-		long objectAddress;
-		switch (addressSize) {
-			case 4:
-				objectAddress = unsafe.getInt(array, baseOffset);
-				break;
-			case 8:
-				objectAddress = unsafe.getLong(array, baseOffset);
-				break;
-			default:
-				throw new Error("unsupported address size: " + addressSize);
-		}
-		return (objectAddress);
-	}
-
 	/**
 	 * 获取某包下（包括该包的所有子包）所有类
+	 *
 	 * @param packageName 包名
 	 * @return 类的完整名称
 	 */
@@ -57,7 +28,8 @@ public class ReflectUtil {
 
 	/**
 	 * 获取某包下所有类
-	 * @param packageName 包名
+	 *
+	 * @param packageName  包名
 	 * @param childPackage 是否遍历子包
 	 * @return 类的完整名称
 	 */
@@ -81,8 +53,9 @@ public class ReflectUtil {
 
 	/**
 	 * 从项目文件获取某包下所有类
-	 * @param filePath 文件路径
-	 * @param className 类名集合
+	 *
+	 * @param filePath     文件路径
+	 * @param className    类名集合
 	 * @param childPackage 是否遍历子包
 	 * @return 类的完整名称
 	 */
@@ -98,8 +71,12 @@ public class ReflectUtil {
 			} else {
 				String childFilePath = childFile.getPath();
 				if (childFilePath.endsWith(".class")) {
-					childFilePath = childFilePath.substring(childFilePath.indexOf("\\classes") + 9, childFilePath.lastIndexOf("."));
-					childFilePath = childFilePath.replace("\\", ".");
+					childFilePath = childFilePath.replaceAll("\\\\", "/");
+					childFilePath = childFilePath.substring(childFilePath.indexOf("/classes") + 9, childFilePath.lastIndexOf("."));
+					if (childFilePath.startsWith("java/main/")) {
+						childFilePath = childFilePath.substring(10);
+					}
+					childFilePath = childFilePath.replace("/", ".");
 					myClassName.add(childFilePath);
 				}
 			}
@@ -110,15 +87,23 @@ public class ReflectUtil {
 
 	/**
 	 * 从jar获取某包下所有类
-	 * @param jarPath jar文件路径
+	 *
+	 * @param jarPath      jar文件路径
 	 * @param childPackage 是否遍历子包
 	 * @return 类的完整名称
 	 */
-	private static List<String> getClassNameByJar(String jarPath, boolean childPackage) {
+	public static List<String> getClassNameByJar(String jarPath, boolean childPackage) {
 		List<String> myClassName = new ArrayList<String>();
 		String[] jarInfo = jarPath.split("!");
 		String jarFilePath = jarInfo[0].substring(jarInfo[0].indexOf("/"));
-		String packagePath = jarInfo[1].substring(1);
+		String packagePath;
+		String packagePrefix = "";
+		if (jarInfo.length == 2) {
+			packagePath = jarInfo[1].substring(1);
+		} else { // .jar!/BOOT-INF/classes!/com
+			packagePrefix = jarInfo[1].substring(1) + "/";
+			packagePath = jarPath.substring(jarInfo[0].length() + 2).replace("!", "");
+		}
 		try {
 			JarFile jarFile = new JarFile(jarFilePath);
 			Enumeration<JarEntry> entrys = jarFile.entries();
@@ -129,7 +114,7 @@ public class ReflectUtil {
 					if (childPackage) {
 						if (entryName.startsWith(packagePath)) {
 							entryName = entryName.replace("/", ".").substring(0, entryName.lastIndexOf("."));
-							myClassName.add(entryName);
+							myClassName.add(entryName.substring(packagePrefix.length()));
 						}
 					} else {
 						int index = entryName.lastIndexOf("/");
@@ -141,7 +126,7 @@ public class ReflectUtil {
 						}
 						if (myPackagePath.equals(packagePath)) {
 							entryName = entryName.replace("/", ".").substring(0, entryName.lastIndexOf("."));
-							myClassName.add(entryName);
+							myClassName.add(entryName.substring(packagePrefix.length()));
 						}
 					}
 				}
@@ -154,8 +139,9 @@ public class ReflectUtil {
 
 	/**
 	 * 从所有jar中搜索该包，并获取该包下所有类
-	 * @param urls URL集合
-	 * @param packagePath 包路径
+	 *
+	 * @param urls         URL集合
+	 * @param packagePath  包路径
 	 * @param childPackage 是否遍历子包
 	 * @return 类的完整名称
 	 */
@@ -178,7 +164,8 @@ public class ReflectUtil {
 
 	/**
 	 * 将实体对象转化为Map
-	 * @param object 对象实例
+	 *
+	 * @param object       对象实例
 	 * @param bUnderscores 是否添加下划线
 	 * @param extendFields 拓充属性数组
 	 * @return
@@ -193,7 +180,7 @@ public class ReflectUtil {
 			for (int i = 0; i < length; i++) {
 				fields[i] = field[i].getName();
 			}
-			fields = DPUtil.arrayMerge(fields, extendFields); // 拓充属性数组
+			fields = DPUtil.merge(Object.class, fields, extendFields); // 拓充属性数组
 			/* 获取属性键值对 */
 			Map<String, Object> map = new LinkedHashMap<String, Object>(DPUtil.parseInt(fields.length / 0.75f));
 			for (Object item : fields) {
@@ -201,7 +188,7 @@ public class ReflectUtil {
 				name = name.substring(0, 1).toUpperCase() + name.substring(1);
 				Method method = instance.getMethod("get" + name);
 				Object value = method.invoke(object);
-				if(bUnderscores) name = DPUtil.addUnderscores(name);
+				if (bUnderscores) name = DPUtil.addUnderscores(name);
 				map.put(name, value);
 			}
 			return map;
@@ -209,10 +196,11 @@ public class ReflectUtil {
 			return null;
 		}
 	}
-	
+
 	/**
 	 * 获取对象属性值
-	 * @param object 对象实例
+	 *
+	 * @param object   对象实例
 	 * @param property 属性名称
 	 * @return
 	 */
@@ -226,20 +214,21 @@ public class ReflectUtil {
 			return null;
 		}
 	}
-	
+
 	/**
 	 * 设置对象属性值
-	 * @param object 对象实例
-	 * @param property 属性名称
+	 *
+	 * @param object         对象实例
+	 * @param property       属性名称
 	 * @param parameterTypes 参数类型，若为null值，则从属性值中自动转换类型，此时基础类型也会作为Class处理
-	 * @param args 属性值
+	 * @param args           属性值
 	 * @return
 	 */
 	public static Object setPropertyValue(Object object, String property, Class<?>[] parameterTypes, Object[] args) {
 		Class<?> instance = object.getClass();
 		try {
 			property = property.substring(0, 1).toUpperCase() + property.substring(1);
-			if(null == parameterTypes && null != args) {
+			if (null == parameterTypes && null != args) {
 				int length = args.length;
 				parameterTypes = new Class<?>[length];
 				for (int i = 0; i < length; i++) {
